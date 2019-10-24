@@ -174,7 +174,6 @@ class Server:
             body = json.dumps(self._users)
 
         else:
-            # https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/406
             return Response(406, 'Not Acceptable')
 
         body = body.encode('utf-8')
@@ -256,6 +255,6 @@ class HTTPError(Exception):
 if __name__ == '__main__':
     with open('config.json') as cfg:
         data = json.load(cfg)
-    server = Server(data['host'], data['port'], "")
+    server = Server(data['host'], data['port'], data["server"])
     with server as s:
         s.serve_forever()

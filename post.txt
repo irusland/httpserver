@@ -1,0 +1,2 @@
+echo -n "POST /users?id=1&name=Admin&age=19 HTTP/1.1
+Host: 0.0.0.0:8000" | nc 0.0.0.0 8000
