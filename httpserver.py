@@ -2,7 +2,6 @@
 
 import json
 import socket
-import sys
 from email.parser import Parser
 from urllib.parse import parse_qs, urlparse
 
@@ -17,11 +16,22 @@ class Server:
         self._server_name = server_name
         self._list = {}
 
+        # TODO Transfer to Error class as static props
+        self.REQ_TOO_LONG_ERR = Error(400, 'Bad request', 'Request line is too long')
+        self.MALFORMED_REQ_ERR = Error(400, 'Bad request', 'Malformed request line')
+        self.HEADER_MISSING_ERR = Error(400, 'Bad request', 'Host header is missing')
+        self.NOT_FOUND_ERR = Error(404, 'Not found')
+        self.HEADER_TOO_LARGE_ERR = Error(494, 'Request header too large')
+        self.TOO_MANY_HEADERS_ERR = Error(494, 'Too many headers')
+        self.VERSION_NOT_SUPPORTED_ERR = Error(505, 'HTTP Version Not Supported')
+
     def __enter__(self):
         return self
 
     def __exit__(self, exc_type, exc_val, exc_tb):
-        del self
+        # TODO Exception handling from serve_client
+        print(exc_type, exc_val, exc_tb)
+        pass
 
     def serve(self):
         sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
@@ -29,86 +39,82 @@ class Server:
         sock.listen()
 
         while True:
-            connection, _ = sock.accept()
+            connection, ip = sock.accept()
+            print(f'New client {ip}')
             self.serve_client(connection)
 
     def serve_client(self, connection):
         try:
-            req = self.parse_request(connection)
-            print(f'Got request {req}')
-            res = self.handle_request(req)
+            req = self.parse_req(connection)
+            print(f'Got request from {req.user} {req}')
+            res = self.handle_req(req)
             print(f'Response {res}')
             self.send_response(connection, res)
-        except ConnectionResetError:
-            connection = None
         except Exception as e:
-            connection.close()
             self.send_error(connection, e)
 
-        if connection:
-            req.file.close()
-            connection.close()
+        connection.close()
 
-    def send_error(self, conn, err):
+    def send_error(self, connection, err):
         try:
-            status = err.status
-            reason = err.reason
-            body = (err.body or err.reason).encode('utf-8')
-        except:
-            status = 500
-            reason = b'Internal Server Error'
-            body = b'Internal Server Error'
-        resp = Response(status, reason, [('Content-Length', len(body))], body)
-        self.send_response(conn, resp)
+            res = self.build_err_res(err.status, err.reason, (err.body or err.reason).encode('utf-8'))
+        except AttributeError as e:
+            res = self.build_err_res(500, b'Internal Server Error', b'Internal Server Error')
+        self.send_response(connection, res)
 
-    def parse_request(self, connection):
-        file = connection.makefile('rb')
-        method, target, ver = self.parse_request_line(file)
-        headers = self.parse_headers(file)
-        host = headers.get('Host')
-        if not host:
-            raise Error(400, 'Bad request',
-                        'Host header is missing')
-        if host not in (self._server_name,
-                        f'{self._server_name}:{self._port}'):
-            raise Error(404, 'Not found')
+    @staticmethod
+    def build_err_res(status, reason, body):
+        return Response(status, reason, [('Content-Length', len(body))], body)
+
+    def parse_req(self, connection):
+        with connection.makefile('rb') as file:
+            method, target, ver = self.parse_request_line(file)
+            headers = self.parse_headers(file)
+            host = headers.get('Host')
+            if not host:
+                raise self.HEADER_MISSING_ERR
+            if host not in (self._server_name,
+                            f'{self._server_name}:{self._port}'):
+                raise self.NOT_FOUND_ERR
         return Request(method, target, ver, headers, file, connection.getpeername())
 
     def parse_request_line(self, reqfile):
         raw = reqfile.readline(self.MAX_LINE + 1)
         if len(raw) > self.MAX_LINE:
-            raise Error(400, 'Bad request',
-                        'Request line is too long')
+            raise self.REQ_TOO_LONG_ERR
 
         req_line = str(raw, 'utf-8')
         words = req_line.split()
         if len(words) != 3:
-            raise Error(400, 'Bad request',
-                        'Malformed request line')
+            raise self.MALFORMED_REQ_ERR
 
         method, target, ver = words
         if ver != 'HTTP/1.1':
-            raise Error(505, 'HTTP Version Not Supported')
+            raise self.VERSION_NOT_SUPPORTED_ERR
         return method, target, ver
 
     def parse_headers(self, rfile):
         headers = []
+        breakline = [b'\r\n', b'\n', b'']
+
         while True:
             line = rfile.readline(self.MAX_LINE + 1)
             if len(line) > self.MAX_LINE:
-                raise Error(494, 'Request header too large')
-
-            if line in (b'\r\n', b'\n', b''):
+                raise self.HEADER_TOO_LARGE_ERR
+            if line in breakline:
                 break
-
             headers.append(line)
             if len(headers) > self.MAX_HEADERS:
-                raise Error(494, 'Too many headers')
+                raise self.TOO_MANY_HEADERS_ERR
 
-        sheaders = b''.join(headers).decode('utf-8')
-        return Parser().parsestr(sheaders)
+        return self.parse_headers_str(b''.join(headers).decode('utf-8'))
 
-    def handle_request(self, req):
+    @staticmethod
+    def parse_headers_str(s):
+        p = Parser()
+        return p.parsestr(s)
+
+    def handle_req(self, req):
         if req.path == '/add':
             return self.add_text(req)
 
@@ -121,9 +127,9 @@ class Server:
         if req.path.startswith('/del/'):
             number = req.path[len('/del/'):]
             if number.isdigit():
-                return self.del_text(req, number)
+                return self.del_text(number)
 
-        raise Error(404, 'Not found')
+        raise self.NOT_FOUND_ERR
 
     def clear_text(self):
         self._list.clear()
@@ -158,36 +164,34 @@ class Server:
         return Response(200, 'OK', headers, body)
 
     def get_html(self):
-        html = '<html><head></head><body>'
-        html += f'<div>Заметки ({len(self._list)})</div>'
-        html += '<ul>'
+        html = f'<html><head></head><body><div>Notes ({len(self._list)})</div><ul>'
         for k, v in self._list.items():
             html += f'<li>#{k} {v}</li>'
-        html += '</ul>'
-        html += '</body></html>'
+        html += '</ul></body></html>'
         return html
 
-    def del_text(self, req, id):
-        self._list.pop(int(id))
+    def del_text(self, n):
+        self._list.pop(int(n))
 
     def send_response(self, connection, res):
-        wfile = connection.makefile('wb')
-        wfile.write(self.status_to_str(res).encode('utf-8'))
-        wfile.write(self.headers_to_str(res).encode('utf-8'))
-        wfile.write(b'\r\n')
-        if res.body:
-            wfile.write(res.body)
-        wfile.flush()
-        wfile.close()
+        with connection.makefile('wb') as file:
+            file.write(self.status_to_str(res).encode('utf-8'))
+            file.write(self.headers_to_str(res).encode('utf-8'))
+            file.write(b'\r\n')
+            if res.body:
+                file.write(res.body)
+            file.flush()
 
-    def headers_to_str(self, res):
+    @staticmethod
+    def headers_to_str(res):
         line = ''
         if res.headers:
             for (key, value) in res.headers:
                 line += f'{key}: {value}\r\n'
         return line
 
-    def status_to_str(self, res):
+    @staticmethod
+    def status_to_str(res):
         return f'HTTP/1.1 {res.status} {res.reason}\r\n'
 
 
@@ -204,15 +208,15 @@ class Request:
         self.query = parse_qs(self.url.query)
 
     def __str__(self):
-        res = f'method {self.method}\n'
-        res += f'target {self.target}\n'
-        res += f'version {self.version}\n'
-        res += f'headers {self.headers}\n'
-        res += f'file {self.file}\n'
-        res += f'user {self.user}\n'
-        res += f'url {self.url}\n'
-        res += f'path {self.path}\n'
-        res += f'query {self.query}\n'
+        res = f'method: {self.method}\n'
+        res += f'target: {self.target}\n'
+        res += f'version: {self.version}\n'
+        res += f'headers: {self.headers}\n'
+        res += f'file: {self.file}\n'
+        res += f'user: {self.user}\n'
+        res += f'url: {self.url}\n'
+        res += f'path: {self.path}\n'
+        res += f'query: {self.query}\n'
         return res
 
 
@@ -224,10 +228,10 @@ class Response:
         self.body = body
 
     def __str__(self):
-        res = f'status {self.status}\n'
-        res += f'reason {self.reason}\n'
-        res += f'headers {self.headers}\n'
-        res += f'body {self.body}\n'
+        res = f'status: {self.status}\n'
+        res += f'reason: {self.reason}\n'
+        res += f'headers: {self.headers}\n'
+        res += f'body: {self.body}\n'
         return res
 
 
@@ -242,6 +246,6 @@ class Error(Exception):
 if __name__ == '__main__':
     with open('config.json') as cfg:
         data = json.load(cfg)
-    server = Server(data['host'], data['port'], data["server"])
+    server = Server(data['host'], data['port'], data['server'])
     with server as s:
         s.serve()
