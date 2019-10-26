@@ -10,11 +10,12 @@ class Server:
     MAX_LINE = 64 * 1024
     MAX_HEADERS = 100
 
-    def __init__(self, host, port, server_name):
+    def __init__(self, host, port, server_name, log=False):
         self._host = host
         self._port = port
         self._server_name = server_name
         self._list = {}
+        self._log = log
 
         # TODO Transfer to Error class as static props
         self.REQ_TOO_LONG_ERR = Error(400, 'Bad request', 'Request line is too long')
@@ -30,8 +31,13 @@ class Server:
 
     def __exit__(self, exc_type, exc_val, exc_tb):
         # TODO Exception handling from serve_client
-        print(exc_type, exc_val, exc_tb)
+        # TODO Ask about zombie lasting threads
+        self.log(exc_type, exc_val, exc_tb)
         pass
+
+    def log(self, *args):
+        if self._log:
+            print(args)
 
     def serve(self):
         sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
@@ -40,15 +46,15 @@ class Server:
 
         while True:
             connection, ip = sock.accept()
-            print(f'New client {ip}')
+            self.log(f'New client {ip}')
             self.serve_client(connection)
 
     def serve_client(self, connection):
         try:
             req = self.parse_req(connection)
-            print(f'Got request from {req.user} {req}')
+            self.log(f'Got request from {req.user} {req}')
             res = self.handle_req(req)
-            print(f'Response {res}')
+            self.log(f'Response {res}')
             self.send_response(connection, res)
         except Exception as e:
             self.send_error(connection, e)
