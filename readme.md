@@ -32,7 +32,7 @@ Host: 0.0.0.0:8000
 
 Simply run
 ```
-pytest tests_server.py
+python3 -m pytest tests_server.py
 ```
 
 ## Author

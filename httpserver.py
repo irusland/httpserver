@@ -18,15 +18,19 @@ class Server:
         self._log = log
 
         # TODO Transfer to Error class as static props
-        self.REQ_TOO_LONG_ERR = Error(400, 'Bad request', 'Request line is too long')
-        self.MALFORMED_REQ_ERR = Error(400, 'Bad request', 'Malformed request line')
-        self.HEADER_MISSING_ERR = Error(400, 'Bad request', 'Host header is missing')
+        self.REQ_TOO_LONG_ERR = Error(400, 'Bad request',
+                                      'Request line is too long')
+        self.MALFORMED_REQ_ERR = Error(400, 'Bad request',
+                                       'Malformed request line')
+        self.HEADER_MISSING_ERR = Error(400, 'Bad request',
+                                        'Host header is missing')
         self.NOT_FOUND_ERR = Error(404, 'Not found')
         self.HEADER_TOO_LARGE_ERR = Error(494, 'Request header too large')
         self.TOO_MANY_HEADERS_ERR = Error(494, 'Too many headers')
-        self.VERSION_NOT_SUPPORTED_ERR = Error(505, 'HTTP Version Not Supported')
+        self.VERSION_NOT_SUPPORTED_ERR = Error(505,
+                                               'HTTP Version Not Supported')
 
-    def __enter__(self):
+    def __enter__(self) :
         return self
 
     def __exit__(self, exc_type, exc_val, exc_tb):
@@ -63,9 +67,11 @@ class Server:
 
     def send_error(self, connection, err):
         try:
-            res = self.build_err_res(err.status, err.reason, (err.body or err.reason).encode('utf-8'))
+            res = self.build_err_res(err.status, err.reason,
+                                     (err.body or err.reason).encode('utf-8'))
         except AttributeError as e:
-            res = self.build_err_res(500, b'Internal Server Error', b'Internal Server Error')
+            res = self.build_err_res(500, b'Internal Server Error',
+                                     b'Internal Server Error')
         self.send_response(connection, res)
 
     @staticmethod
@@ -82,7 +88,8 @@ class Server:
             if host not in (self._server_name,
                             f'{self._server_name}:{self._port}'):
                 raise self.NOT_FOUND_ERR
-        return Request(method, target, ver, headers, file, connection.getpeername())
+        return Request(method, target, ver, headers, file,
+                       connection.getpeername())
 
     def parse_request_line(self, reqfile):
         raw = reqfile.readline(self.MAX_LINE + 1)
@@ -144,7 +151,8 @@ class Server:
     def add_text(self, req):
         id = len(self._list) + 1
         self._list[id] = req.query['text'][0]
-        textres = f'<html><head></head><body> Text added {req.query["text"][0]}</body></html>'
+        textres = f'<html><head></head><body> Text added ' \
+                  f'{req.query["text"][0]}</body></html>'
         body = textres.encode('utf-8')
         content_type = 'text/html; charset=utf-8'
         headers = [('Content-Type', content_type),
@@ -170,7 +178,8 @@ class Server:
         return Response(200, 'OK', headers, body)
 
     def get_html(self):
-        html = f'<html><head></head><body><div>Notes ({len(self._list)})</div><ul>'
+        html = f'<html><head></head><body><div>Notes ({len(self._list)})' \
+               f'</div><ul>'
         for k, v in self._list.items():
             html += f'<li>#{k} {v}</li>'
         html += '</ul></body></html>'
