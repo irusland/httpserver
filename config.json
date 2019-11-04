@@ -1,5 +1,11 @@
 {
   "host": "0.0.0.0",
   "port": 8000,
-  "server": "0.0.0.0"
+  "server": "0.0.0.0",
+  "rules": {
+    "/1.html" : "/tmp/1.html",
+    "/2.html" : "/tmp/pages/2.html",
+    "/*.css" : "/tmp/pages/css/<...>",
+    "/*.jpg" : "/tmp/pictures/car.jpg"
+  }
 }

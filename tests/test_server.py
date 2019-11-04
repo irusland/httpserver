@@ -1,15 +1,16 @@
 import json
-import unittest
-import threading
 import multiprocessing
 import os
+import unittest
+
 
 from httpserver import Server
+from defenitions import CONFIG_PATH, QUERIES_DIR
 
 
 class MyTestCase(unittest.TestCase):
     def server_run(self):
-        with open('config.json') as cfg:
+        with open(CONFIG_PATH) as cfg:
             data = json.load(cfg)
         server = Server(data['host'], data['port'], data['server'], log=False)
         with server as s:
@@ -19,15 +20,15 @@ class MyTestCase(unittest.TestCase):
         server = multiprocessing.Process(target=self.server_run)
         server.start()
 
-        with open('get.txt') as cmdfile:
+        with open(os.path.join(QUERIES_DIR, 'get.txt')) as cmdfile:
             cmd = cmdfile.read()
             with os.popen(cmd) as outfile:
                 out = outfile.read()
-                with open('get_empty_res.txt') as resfile:
+                server.terminate()
+                with open(os.path.join(QUERIES_DIR, 'get_empty_res.txt')) \
+                        as resfile:
                     res = resfile.read()
-                    self.assertEqual(out, res)
-
-        server.terminate()
+                    self.assertMultiLineEqual(out, res)
 
 
 if __name__ == '__main__':
