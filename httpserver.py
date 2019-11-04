@@ -5,6 +5,8 @@ import socket
 from email.parser import Parser
 from urllib.parse import parse_qs, urlparse
 
+from defenitions import CONFIG_PATH
+
 
 class Server:
     MAX_LINE = 64 * 1024
@@ -128,6 +130,11 @@ class Server:
         return p.parsestr(s)
 
     def handle_req(self, req):
+        props = (req.path, req.file, req.user, req.headers, req.method,
+              req.query, req.url, req.target, req.version)
+        for prop in props:
+            print(f'"{prop}"')
+
         if req.path == '/add':
             return self.add_text(req)
 
@@ -259,7 +266,7 @@ class Error(Exception):
 
 
 if __name__ == '__main__':
-    with open('config.json') as cfg:
+    with open(CONFIG_PATH) as cfg:
         data = json.load(cfg)
     server = Server(data['host'], data['port'], data['server'])
     with server as s:
