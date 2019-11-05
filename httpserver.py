@@ -2,10 +2,14 @@
 
 import json
 import socket
+
 from email.parser import Parser
 from urllib.parse import parse_qs, urlparse
 
 from defenitions import CONFIG_PATH
+from ruler import Ruler
+
+import magic
 
 
 class Server:
@@ -18,6 +22,7 @@ class Server:
         self._server_name = server_name
         self._list = {}
         self._log = log
+        self.ruler = Ruler()
 
         # TODO Transfer to Error class as static props
         self.REQ_TOO_LONG_ERR = Error(400, 'Bad request',
@@ -32,7 +37,7 @@ class Server:
         self.VERSION_NOT_SUPPORTED_ERR = Error(505,
                                                'HTTP Version Not Supported')
 
-    def __enter__(self) :
+    def __enter__(self):
         return self
 
     def __exit__(self, exc_type, exc_val, exc_tb):
@@ -130,26 +135,30 @@ class Server:
         return p.parsestr(s)
 
     def handle_req(self, req):
-        props = (req.path, req.file, req.user, req.headers, req.method,
-              req.query, req.url, req.target, req.version)
-        for prop in props:
-            print(f'"{prop}"')
-
-        if req.path == '/add':
-            return self.add_text(req)
-
-        if req.path == '/cls':
-            return self.clear_text()
-
-        if req.path == '/' and req.method == 'GET':
-            return self.show_text(req)
-
-        if req.path.startswith('/del/'):
-            number = req.path[len('/del/'):]
-            if number.isdigit():
-                return self.del_text(number)
-
+        if req.path.startswith('/') and req.method == 'GET':
+            rules = self.ruler.get_rules()
+            try:
+                destination = self.ruler.get_destination(req.path, rules, True)
+            except FileNotFoundError:
+                raise self.NOT_FOUND_ERR
+            if destination:
+                mime = magic.Magic(mime=True)
+                content_type = mime.from_file(destination)
+                return self.send_file(req, destination, content_type)
         raise self.NOT_FOUND_ERR
+
+    def send_file(self, req, path, content_type):
+        accept = req.headers.get('Accept')
+        if content_type in accept or '*/*' in accept:
+            with open(path, 'rb') as file:
+                body = file.read()
+        else:
+            return Response(406, 'Not Acceptable')
+
+        # body = body.encode('utf-8')
+        headers = [('Content-Type', content_type),
+                   ('Content-Length', len(body))]
+        return Response(200, 'OK', headers, body)
 
     def clear_text(self):
         self._list.clear()

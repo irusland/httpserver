@@ -7,6 +7,6 @@
     "/2.html" : "tmp/pages/2.html",
     "/*.html" : "tmp/pages/",
     "/*.css" : "tmp/pages/css/",
-    "/*.jpg" : "tmp/pictures/"
+    "/*.png" : "tmp/pictures/"
   }
 }

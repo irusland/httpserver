@@ -1,0 +1,6 @@
+pymagic.py
+setup.py
+libmagic.egg-info/PKG-INFO
+libmagic.egg-info/SOURCES.txt
+libmagic.egg-info/dependency_links.txt
+libmagic.egg-info/top_level.txt
