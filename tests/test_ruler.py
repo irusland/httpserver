@@ -13,6 +13,12 @@ class MyTestCase(unittest.TestCase):
         d = self.ruler.get_destination(url, rules, abs=True)
         self.assertEqual(path, d)
 
+    def assertFileNotFound(self, url):
+        self.assertRaises(
+            FileNotFoundError,
+            self.ruler.get_destination,
+            *(url, self.rules, True))
+
     def test_get_abs_path_for_file(self):
         self.assertDestinationsEqual(
             '/index.html',
@@ -38,25 +44,13 @@ class MyTestCase(unittest.TestCase):
             'python/httpserver/tmp/pages/css/123.css')
 
     def test_file_not_found_with_rule(self):
-        ruler = Ruler()
-        r = ruler.get_rules()
-        self.assertRaises(FileNotFoundError,
-                          ruler.get_destination,
-                          *('/no.css', r, True))
+        self.assertFileNotFound('/no.css')
 
     def test_file_exists_no_rule(self):
-        ruler = Ruler()
-        r = ruler.get_rules()
-        self.assertRaises(FileNotFoundError,
-                          ruler.get_destination,
-                          *('/norulefile.py', r, True))
+        self.assertFileNotFound('/norulefile.py')
 
     def test_no_file_no_rule(self):
-        ruler = Ruler()
-        r = ruler.get_rules()
-        self.assertRaises(FileNotFoundError,
-                          ruler.get_destination,
-                          *('/foo.bar', r, True))
+        self.assertFileNotFound('/foo.bar')
 
     def test_name_with_dots(self):
         self.assertDestinationsEqual(
