@@ -2,15 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="d9b829f2-82a6-4d22-9393-7353395c203d" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/tmp/pictures/1.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/httpserver.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/httpserver.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/tmp/1.2.3.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/tmp/norulefile.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/config.json" beforeDir="false" afterPath="$PROJECT_DIR$/config.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/httpserver.py" beforeDir="false" afterPath="$PROJECT_DIR$/httpserver.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tmp/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/tmp/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tmp/pages/2.html" beforeDir="false" afterPath="$PROJECT_DIR$/tmp/pages/2.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tmp/pages/any.html" beforeDir="false" afterPath="$PROJECT_DIR$/tmp/pages/any.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ruler.py" beforeDir="false" afterPath="$PROJECT_DIR$/ruler.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/test_ruler.py" beforeDir="false" afterPath="$PROJECT_DIR$/tests/test_ruler.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -21,9 +18,9 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Python Script" />
         <option value="Python Unit Test" />
         <option value="HTML File" />
+        <option value="Python Script" />
       </list>
     </option>
   </component>
@@ -35,7 +32,7 @@
     <property name="DefaultHtmlFileTemplate" value="HTML File" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/tmp/pages" />
-    <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
+    <property name="settings.editor.selected.configurable" value="preferences.fileTypes" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
@@ -62,7 +59,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Python.httpserver">
+  <component name="RunManager" selected="Python tests.Unittests in test_ruler.py">
     <configuration default="true" type="PythonConfigurationType" factoryName="Python">
       <module name="httpserver" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -208,11 +205,11 @@
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Python tests.Unittests for test_ruler.MyTestCase" />
-        <item itemvalue="Python tests.Unittests for test_ruler.MyTestCase.test_get_abs_path_for_file" />
         <item itemvalue="Python tests.Unittests in test_ruler.py" />
-        <item itemvalue="Python tests.Unittests for test_ruler.MyTestCase.test_get_rel_path_for_file" />
+        <item itemvalue="Python tests.Unittests for test_ruler.MyTestCase.test_get_abs_path_for_file" />
         <item itemvalue="Python.ruler" />
+        <item itemvalue="Python tests.Unittests for test_ruler.MyTestCase" />
+        <item itemvalue="Python tests.Unittests for test_ruler.MyTestCase.test_get_rel_path_for_file" />
       </list>
     </recent_temporary>
   </component>

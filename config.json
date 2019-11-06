@@ -3,10 +3,13 @@
   "port": 8000,
   "server": "0.0.0.0",
   "rules": {
+    "/" : "tmp/index.html",
     "/index.html" : "tmp/index.html",
     "/2.html" : "tmp/pages/2.html",
     "/*.html" : "tmp/pages/",
     "/*.css" : "tmp/pages/css/",
-    "/*.png" : "tmp/pictures/"
+    "/*.png" : "tmp/pictures/",
+    "/1.2.3.txt" : "tmp/1.2.3.txt",
+    "/png/*.png": "tmp/pictures/"
   }
 }
