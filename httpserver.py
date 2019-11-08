@@ -105,6 +105,7 @@ class Server:
 
         req_line = str(raw, 'utf-8')
         words = req_line.split()
+        print('debug', words)
         if len(words) != 3:
             raise self.MALFORMED_REQ_ERR
 

@@ -2,12 +2,17 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="d9b829f2-82a6-4d22-9393-7353395c203d" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/tmp/1.2.3.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tmp/norulefile.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/tests/queries/get_by_rule_res.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/tests/queries/get_index_res.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/tmp/pictures/favicon.ico" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.coverage" beforeDir="false" afterPath="$PROJECT_DIR$/.coverage" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/config.json" beforeDir="false" afterPath="$PROJECT_DIR$/config.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ruler.py" beforeDir="false" afterPath="$PROJECT_DIR$/ruler.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/test_ruler.py" beforeDir="false" afterPath="$PROJECT_DIR$/tests/test_ruler.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/httpserver.py" beforeDir="false" afterPath="$PROJECT_DIR$/httpserver.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/queries/get.txt" beforeDir="false" afterPath="$PROJECT_DIR$/tests/queries/get_index.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/queries/get_empty_res.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/queries/post.txt" beforeDir="false" afterPath="$PROJECT_DIR$/tests/queries/get_by_rule.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/test_server.py" beforeDir="false" afterPath="$PROJECT_DIR$/tests/test_server.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -31,20 +36,21 @@
   <component name="PropertiesComponent">
     <property name="DefaultHtmlFileTemplate" value="HTML File" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/tmp/pages" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/tmp" />
     <property name="settings.editor.selected.configurable" value="preferences.fileTypes" />
   </component>
   <component name="RecentsManager">
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/tmp/pages" />
-      <recent name="$PROJECT_DIR$" />
-    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/tmp/pictures" />
       <recent name="$PROJECT_DIR$/tmp" />
       <recent name="$PROJECT_DIR$/tmp/pages" />
       <recent name="$PROJECT_DIR$/tests/queries" />
       <recent name="$PROJECT_DIR$/tests" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/tmp" />
+      <recent name="$PROJECT_DIR$/tmp/pages" />
+      <recent name="$PROJECT_DIR$" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -59,7 +65,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Python tests.Unittests in test_ruler.py">
+  <component name="RunManager" selected="Python tests.Unittests in tests">
     <configuration default="true" type="PythonConfigurationType" factoryName="Python">
       <module name="httpserver" />
       <option name="INTERPRETER_OPTIONS" value="" />

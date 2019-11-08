@@ -1,2 +1,0 @@
-echo -n "POST /add?text=asdasdasd HTTP/1.1
-Host: 0.0.0.0:8000" | nc 0.0.0.0 8000

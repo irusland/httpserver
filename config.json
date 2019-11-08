@@ -3,6 +3,7 @@
   "port": 8000,
   "server": "0.0.0.0",
   "rules": {
+    "/favicon.ico" : "tmp/pictures/favicon.ico",
     "/" : "tmp/index.html",
     "/index.html" : "tmp/index.html",
     "/2.html" : "tmp/pages/2.html",

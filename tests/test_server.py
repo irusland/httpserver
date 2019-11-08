@@ -20,14 +20,37 @@ class MyTestCase(unittest.TestCase):
         server = multiprocessing.Process(target=self.server_run)
         server.start()
 
-        with open(os.path.join(QUERIES_DIR, 'get.txt')) as cmdfile:
+        with open(os.path.join(QUERIES_DIR, 'get_index.txt')) as cmdfile:
+            print('debug', os.path.join(QUERIES_DIR, 'get_index.txt'))
             cmd = cmdfile.read()
+            print('debug', cmd)
             with os.popen(cmd) as outfile:
                 out = outfile.read()
                 server.terminate()
-                with open(os.path.join(QUERIES_DIR, 'get_empty_res.txt')) \
-                        as resfile:
+                with open(os.path.join(
+                        QUERIES_DIR,
+                        'get_index_res.txt')) as resfile:
                     res = resfile.read()
+                    self.assertMultiLineEqual(out, res)
+
+    def test_get_by_rule(self):
+        server = multiprocessing.Process(target=self.server_run)
+        server.start()
+
+        with open(os.path.join(QUERIES_DIR, 'get_by_rule.txt')) as cmdfile:
+            print('debug', os.path.join(QUERIES_DIR, 'get_by_rule.txt'))
+            cmd = cmdfile.read()
+            print('debug', cmd)
+            with os.popen(cmd) as outfile:
+                print('debug', os.popen(cmd))
+                out = outfile.read()
+                print('debug', out)
+                server.terminate()
+                with open(os.path.join(
+                        QUERIES_DIR,
+                        'get_by_rule_res.txt')) as resfile:
+                    res = resfile.read()
+                    print('debug', res)
                     self.assertMultiLineEqual(out, res)
 
 
