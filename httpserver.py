@@ -16,12 +16,12 @@ class Server:
     MAX_LINE = 64 * 1024
     MAX_HEADERS = 100
 
-    def __init__(self, host, port, server_name, log=False):
+    def __init__(self, host, port, server_name, debug=False):
         self._host = host
         self._port = port
         self._server_name = server_name
         self._list = {}
-        self._log = log
+        self._log = debug
         self.ruler = Ruler()
 
         # TODO Transfer to Error class as static props
@@ -54,6 +54,7 @@ class Server:
         sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
         sock.bind((self._host, self._port))
         sock.listen()
+        print('debug', 'server is UP on 0.0.0.0:8000')
 
         while True:
             connection, ip = sock.accept()

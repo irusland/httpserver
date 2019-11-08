@@ -1,6 +1,8 @@
 import json
 import multiprocessing
 import os
+import subprocess
+import time
 import unittest
 
 
@@ -9,49 +11,40 @@ from defenitions import CONFIG_PATH, QUERIES_DIR
 
 
 class MyTestCase(unittest.TestCase):
-    def server_run(self):
+    def boot_server(self):
         with open(CONFIG_PATH) as cfg:
             data = json.load(cfg)
-        server = Server(data['host'], data['port'], data['server'], log=False)
+        server = Server(data['host'], data['port'], data['server'], debug=False)
         with server as s:
             s.serve()
 
-    def test_add_text(self):
-        server = multiprocessing.Process(target=self.server_run)
+    def get_res(self, cmd_path, res_path):
+        server = multiprocessing.Process(target=self.boot_server)
         server.start()
 
-        with open(os.path.join(QUERIES_DIR, 'get_index.txt')) as cmdfile:
-            print('debug', os.path.join(QUERIES_DIR, 'get_index.txt'))
+        # wait for server to boot
+        time.sleep(1)
+
+        with open(cmd_path) as cmdfile:
+            print('debug', cmd_path)
             cmd = cmdfile.read()
             print('debug', cmd)
             with os.popen(cmd) as outfile:
-                out = outfile.read()
-                server.terminate()
-                with open(os.path.join(
-                        QUERIES_DIR,
-                        'get_index_res.txt')) as resfile:
-                    res = resfile.read()
-                    self.assertMultiLineEqual(out, res)
-
-    def test_get_by_rule(self):
-        server = multiprocessing.Process(target=self.server_run)
-        server.start()
-
-        with open(os.path.join(QUERIES_DIR, 'get_by_rule.txt')) as cmdfile:
-            print('debug', os.path.join(QUERIES_DIR, 'get_by_rule.txt'))
-            cmd = cmdfile.read()
-            print('debug', cmd)
-            with os.popen(cmd) as outfile:
-                print('debug', os.popen(cmd))
                 out = outfile.read()
                 print('debug', out)
                 server.terminate()
-                with open(os.path.join(
-                        QUERIES_DIR,
-                        'get_by_rule_res.txt')) as resfile:
+                with open(res_path) as resfile:
                     res = resfile.read()
                     print('debug', res)
                     self.assertMultiLineEqual(out, res)
+
+    def test_get_page(self):
+        self.get_res(os.path.join(QUERIES_DIR, 'get_index.txt'),
+                     os.path.join(QUERIES_DIR, 'get_index_res.txt'))
+
+    def test_get_by_rule(self):
+        self.get_res(os.path.join(QUERIES_DIR, 'get_by_rule.txt'),
+                     os.path.join(QUERIES_DIR, 'get_by_rule_res.txt'))
 
 
 if __name__ == '__main__':

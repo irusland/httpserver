@@ -1,0 +1,9 @@
+/htmlcov/
+/tests/__init__.py,cover
+/tests/test_ruler.py,cover
+/tests/test_server.py,cover
+/coverage.xml
+/defenitions.py,cover
+/httpserver.py,cover
+/ruler.py,cover
+/venv/

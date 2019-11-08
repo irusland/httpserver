@@ -33,8 +33,8 @@ class Ruler:
                 if os.path.isdir(path):
                     path = os.path.join(path, f'{match["name"]}.'
                                               f'{match["ext"]}')
-                print('debug', ' match: checking file',
-                      match.groupdict(), template, url, path)
+                # print('debug', ' match: checking file',
+                #       match.groupdict(), template, url, path)
                 if os.path.isfile(path):
                     return path
                 raise FileNotFoundError(path, url, template, abs)
