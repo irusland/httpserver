@@ -1,0 +1,756 @@
+ERROR:root:custom raise
+Traceback (most recent call last):
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/tests/test_server.py", line 71, in test_server_context_manager
+    raise Exception('custom raise')
+Exception: custom raise
+INFO:root:server is DOWN
+INFO:root:server is UP on 0.0.0.0:8000
+ERROR:root:
+Traceback (most recent call last):
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/tests/test_server.py", line 90, in test_serving
+    s.serve()
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 51, in serve
+    connection, ip = sock.accept()
+  File "/usr/local/Cellar/python/3.7.4_1/Frameworks/Python.framework/Versions/3.7/lib/python3.7/socket.py", line 212, in accept
+    fd, addr = self._accept()
+KeyboardInterrupt
+INFO:root:server is DOWN
+ERROR:root:custom raise
+Traceback (most recent call last):
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/tests/test_server.py", line 72, in test_server_context_manager
+    raise Exception('custom raise')
+Exception: custom raise
+INFO:root:server is DOWN
+INFO:root:server is UP on 0.0.0.0:8000
+INFO:root:New client ('127.0.0.1', 55139)
+ERROR:root:str() argument 2 must be str, not None
+ERROR:root:
+Traceback (most recent call last):
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/tests/test_server.py", line 106, in test_serving
+    s.serve()
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 55, in serve
+    connection, ip = self.server.accept()
+  File "/usr/local/Cellar/python/3.7.4_1/Frameworks/Python.framework/Versions/3.7/lib/python3.7/socket.py", line 212, in accept
+    fd, addr = self._accept()
+KeyboardInterrupt
+INFO:root:server is DOWN
+ERROR:root:custom raise
+Traceback (most recent call last):
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/tests/test_server.py", line 72, in test_server_context_manager
+    raise Exception('custom raise')
+Exception: custom raise
+INFO:root:server is DOWN
+INFO:root:server is UP on 0.0.0.0:8000
+INFO:root:New client ('127.0.0.1', 55184)
+ERROR:root:str() argument 2 must be str, not None
+ERROR:root:
+Traceback (most recent call last):
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/tests/test_server.py", line 106, in test_serving
+    s.serve()
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 55, in serve
+    connection, ip = self.server.accept()
+  File "/usr/local/Cellar/python/3.7.4_1/Frameworks/Python.framework/Versions/3.7/lib/python3.7/socket.py", line 212, in accept
+    fd, addr = self._accept()
+KeyboardInterrupt
+INFO:root:server is DOWN
+ERROR:root:custom raise
+Traceback (most recent call last):
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/tests/test_server.py", line 72, in test_server_context_manager
+    raise Exception('custom raise')
+Exception: custom raise
+INFO:root:server is DOWN
+INFO:root:server is UP on 0.0.0.0:8000
+INFO:root:New client ('127.0.0.1', 55218)
+ERROR:root:str() argument 2 must be str, not None
+ERROR:root:
+Traceback (most recent call last):
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/tests/test_server.py", line 106, in test_serving
+    s.serve()
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 55, in serve
+    connection, ip = self.server.accept()
+  File "/usr/local/Cellar/python/3.7.4_1/Frameworks/Python.framework/Versions/3.7/lib/python3.7/socket.py", line 212, in accept
+    fd, addr = self._accept()
+KeyboardInterrupt
+INFO:root:server is DOWN
+ERROR:root:custom raise
+Traceback (most recent call last):
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/tests/test_server.py", line 72, in test_server_context_manager
+    raise Exception('custom raise')
+Exception: custom raise
+INFO:root:server is DOWN
+INFO:root:server is UP on 0.0.0.0:8000
+INFO:root:New client ('127.0.0.1', 55231)
+ERROR:root:str() argument 2 must be str, not None
+ERROR:root:
+Traceback (most recent call last):
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/tests/test_server.py", line 106, in test_serving
+    s.serve()
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 55, in serve
+    connection, ip = self.server.accept()
+  File "/usr/local/Cellar/python/3.7.4_1/Frameworks/Python.framework/Versions/3.7/lib/python3.7/socket.py", line 212, in accept
+    fd, addr = self._accept()
+KeyboardInterrupt
+INFO:root:server is DOWN
+ERROR:root:custom raise
+Traceback (most recent call last):
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/tests/test_server.py", line 72, in test_server_context_manager
+    raise Exception('custom raise')
+Exception: custom raise
+INFO:root:server is DOWN
+INFO:root:server is UP on 0.0.0.0:8000
+INFO:root:New client ('127.0.0.1', 55281)
+ERROR:root:
+Traceback (most recent call last):
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/tests/test_server.py", line 106, in test_serving
+    s.serve()
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 57, in serve
+    self.serve_client(connection)
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 61, in serve_client
+    req = self.parse_req_connection(connection)
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 88, in parse_req_connection
+    *self.parse_req_file(file), file, connection.getpeername())
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 95, in parse_req_file
+    method, target, ver = self.parse_request_line(file)
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 106, in parse_request_line
+    raw = file.readline(self.MAX_LINE + 1)
+  File "/usr/local/Cellar/python/3.7.4_1/Frameworks/Python.framework/Versions/3.7/lib/python3.7/socket.py", line 589, in readinto
+    return self._sock.recv_into(b)
+KeyboardInterrupt
+INFO:root:server is DOWN
+ERROR:root:custom raise
+Traceback (most recent call last):
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/tests/test_server.py", line 72, in test_server_context_manager
+    raise Exception('custom raise')
+Exception: custom raise
+INFO:root:server is DOWN
+INFO:root:server is UP on 0.0.0.0:8000
+INFO:root:New client ('127.0.0.1', 55285)
+ERROR:root:
+Traceback (most recent call last):
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/tests/test_server.py", line 110, in test_serving
+    s.serve()
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 57, in serve
+    self.serve_client(connection)
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 61, in serve_client
+    req = self.parse_req_connection(connection)
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 88, in parse_req_connection
+    *self.parse_req_file(file), file, connection.getpeername())
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 95, in parse_req_file
+    method, target, ver = self.parse_request_line(file)
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 106, in parse_request_line
+    raw = file.readline(self.MAX_LINE + 1)
+  File "/usr/local/Cellar/python/3.7.4_1/Frameworks/Python.framework/Versions/3.7/lib/python3.7/socket.py", line 589, in readinto
+    return self._sock.recv_into(b)
+KeyboardInterrupt
+INFO:root:server is DOWN
+ERROR:root:custom raise
+Traceback (most recent call last):
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/tests/test_server.py", line 72, in test_server_context_manager
+    raise Exception('custom raise')
+Exception: custom raise
+INFO:root:server is DOWN
+INFO:root:server is UP on 0.0.0.0:8000
+INFO:root:New client ('127.0.0.1', 55292)
+ERROR:root:
+Traceback (most recent call last):
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/tests/test_server.py", line 110, in test_serving
+    s.serve()
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 58, in serve
+    self.serve_client(connection)
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 62, in serve_client
+    req = self.parse_req_connection(connection)
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 89, in parse_req_connection
+    *self.parse_req_file(file), file, connection.getpeername())
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 96, in parse_req_file
+    method, target, ver = self.parse_request_line(file)
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 107, in parse_request_line
+    raw = file.readline(self.MAX_LINE + 1)
+  File "/usr/local/Cellar/python/3.7.4_1/Frameworks/Python.framework/Versions/3.7/lib/python3.7/socket.py", line 589, in readinto
+    return self._sock.recv_into(b)
+KeyboardInterrupt
+INFO:root:server is DOWN
+ERROR:root:custom raise
+Traceback (most recent call last):
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/tests/test_server.py", line 72, in test_server_context_manager
+    raise Exception('custom raise')
+Exception: custom raise
+INFO:root:server is DOWN
+INFO:root:server is UP on 0.0.0.0:8000
+INFO:root:New client ('127.0.0.1', 55460)
+ERROR:root:
+Traceback (most recent call last):
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/tests/test_server.py", line 110, in test_serving
+    s.serve()
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 58, in serve
+    self.serve_client(connection)
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 62, in serve_client
+    req = self.parse_req_connection(connection)
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 89, in parse_req_connection
+    *self.parse_req_file(file), file, connection.getpeername())
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 96, in parse_req_file
+    method, target, ver = self.parse_request_line(file)
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 107, in parse_request_line
+    raw = file.readline(self.MAX_LINE + 1)
+  File "/usr/local/Cellar/python/3.7.4_1/Frameworks/Python.framework/Versions/3.7/lib/python3.7/socket.py", line 589, in readinto
+    return self._sock.recv_into(b)
+KeyboardInterrupt
+INFO:root:server is DOWN
+ERROR:root:custom raise
+Traceback (most recent call last):
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/tests/test_server.py", line 72, in test_server_context_manager
+    raise Exception('custom raise')
+Exception: custom raise
+INFO:root:server is DOWN
+INFO:root:server is UP on 0.0.0.0:8000
+INFO:root:New client ('127.0.0.1', 55476)
+ERROR:root:str() argument 2 must be str, not None
+INFO:root:New client ('127.0.0.1', 55477)
+INFO:root:Got request from ('127.0.0.1', 55477) method: GET
+target: /
+version: HTTP/1.1
+headers: Host: 0.0.0.0:8000
+Upgrade-Insecure-Requests: 1
+Accept: text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8
+User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_1) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/13.0.3 Safari/605.1.15
+Accept-Language: en-us
+Accept-Encoding: gzip, deflate
+Connection: keep-alive
+
+
+file: <_io.BufferedReader name=-1>
+user: ('127.0.0.1', 55477)
+url: ParseResult(scheme='', netloc='', path='/', params='', query='', fragment='')
+path: /
+query: {}
+INFO:root:Response status: 200
+reason: OK
+headers: [('Content-Type', 'text/html'), ('Content-Length', 156)]
+body: b'<!DOCTYPE html>\n<html lang="en">\n<head>\n    <meta charset="UTF-8">\n    <title>index.html</title>\n</head>\n<body>\n    <h1>Python Rule it!</h1>\n</body>\n</html>'
+ERROR:root:
+Traceback (most recent call last):
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/tests/test_server.py", line 110, in test_serving
+    s.serve()
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 56, in serve
+    connection, ip = self.server.accept()
+  File "/usr/local/Cellar/python/3.7.4_1/Frameworks/Python.framework/Versions/3.7/lib/python3.7/socket.py", line 212, in accept
+    fd, addr = self._accept()
+KeyboardInterrupt
+INFO:root:server is DOWN
+ERROR:root:custom raise
+Traceback (most recent call last):
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/tests/test_server.py", line 72, in test_server_context_manager
+    raise Exception('custom raise')
+Exception: custom raise
+INFO:root:server is DOWN
+INFO:root:server is UP on 0.0.0.0:8000
+INFO:root:New client ('127.0.0.1', 55481)
+ERROR:root:str() argument 2 must be str, not None
+ERROR:root:[Errno 9] Bad file descriptor
+Traceback (most recent call last):
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/tests/test_server.py", line 110, in test_serving
+    s.serve()
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 56, in serve
+    connection, ip = self.server.accept()
+  File "/usr/local/Cellar/python/3.7.4_1/Frameworks/Python.framework/Versions/3.7/lib/python3.7/socket.py", line 212, in accept
+    fd, addr = self._accept()
+OSError: [Errno 9] Bad file descriptor
+INFO:root:server is DOWN
+ERROR:root:custom raise
+Traceback (most recent call last):
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/tests/test_server.py", line 72, in test_server_context_manager
+    raise Exception('custom raise')
+Exception: custom raise
+INFO:root:server is DOWN
+INFO:root:server is UP on 0.0.0.0:8000
+INFO:root:New client ('127.0.0.1', 55486)
+ERROR:root:str() argument 2 must be str, not None
+ERROR:root:[Errno 9] Bad file descriptor
+Traceback (most recent call last):
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/tests/test_server.py", line 110, in test_serving
+    s.serve()
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 56, in serve
+    connection, ip = self.server.accept()
+  File "/usr/local/Cellar/python/3.7.4_1/Frameworks/Python.framework/Versions/3.7/lib/python3.7/socket.py", line 212, in accept
+    fd, addr = self._accept()
+OSError: [Errno 9] Bad file descriptor
+INFO:root:server is DOWN
+ERROR:root:custom raise
+Traceback (most recent call last):
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/tests/test_server.py", line 72, in test_server_context_manager
+    raise Exception('custom raise')
+Exception: custom raise
+INFO:root:server is DOWN
+INFO:root:server is UP on 0.0.0.0:8000
+INFO:root:New client ('127.0.0.1', 55519)
+ERROR:root:str() argument 2 must be str, not None
+ERROR:root:
+Traceback (most recent call last):
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/tests/test_server.py", line 111, in test_serving
+    s.serve()
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 56, in serve
+    connection, ip = self.server.accept()
+  File "/usr/local/Cellar/python/3.7.4_1/Frameworks/Python.framework/Versions/3.7/lib/python3.7/socket.py", line 212, in accept
+    fd, addr = self._accept()
+KeyboardInterrupt
+INFO:root:server is DOWN
+ERROR:root:custom raise
+Traceback (most recent call last):
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/tests/test_server.py", line 72, in test_server_context_manager
+    raise Exception('custom raise')
+Exception: custom raise
+INFO:root:server is DOWN
+INFO:root:server is UP on 0.0.0.0:8000
+INFO:root:New client ('127.0.0.1', 55529)
+ERROR:root:str() argument 2 must be str, not None
+INFO:root:New client ('127.0.0.1', 55531)
+INFO:root:Got request from ('127.0.0.1', 55531) method: GET
+target: /
+version: HTTP/1.1
+headers: Host: 0.0.0.0:8000
+Upgrade-Insecure-Requests: 1
+Accept: text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8
+User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_1) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/13.0.3 Safari/605.1.15
+Accept-Language: en-us
+Accept-Encoding: gzip, deflate
+Connection: keep-alive
+
+
+file: <_io.BufferedReader name=-1>
+user: ('127.0.0.1', 55531)
+url: ParseResult(scheme='', netloc='', path='/', params='', query='', fragment='')
+path: /
+query: {}
+INFO:root:Response status: 200
+reason: OK
+headers: [('Content-Type', 'text/html'), ('Content-Length', 156)]
+body: b'<!DOCTYPE html>\n<html lang="en">\n<head>\n    <meta charset="UTF-8">\n    <title>index.html</title>\n</head>\n<body>\n    <h1>Python Rule it!</h1>\n</body>\n</html>'
+INFO:root:New client ('127.0.0.1', 55532)
+INFO:root:Got request from ('127.0.0.1', 55532) method: GET
+target: /
+version: HTTP/1.1
+headers: Host: 0.0.0.0:8000
+Upgrade-Insecure-Requests: 1
+Accept: text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8
+User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_1) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/13.0.3 Safari/605.1.15
+Accept-Language: en-us
+Accept-Encoding: gzip, deflate
+Connection: keep-alive
+
+
+file: <_io.BufferedReader name=-1>
+user: ('127.0.0.1', 55532)
+url: ParseResult(scheme='', netloc='', path='/', params='', query='', fragment='')
+path: /
+query: {}
+INFO:root:Response status: 200
+reason: OK
+headers: [('Content-Type', 'text/html'), ('Content-Length', 156)]
+body: b'<!DOCTYPE html>\n<html lang="en">\n<head>\n    <meta charset="UTF-8">\n    <title>index.html</title>\n</head>\n<body>\n    <h1>Python Rule it!</h1>\n</body>\n</html>'
+ERROR:root:
+Traceback (most recent call last):
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/tests/test_server.py", line 111, in test_serving
+    s.serve()
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 58, in serve
+    connection, ip = self.server.accept()
+  File "/usr/local/Cellar/python/3.7.4_1/Frameworks/Python.framework/Versions/3.7/lib/python3.7/socket.py", line 212, in accept
+    fd, addr = self._accept()
+KeyboardInterrupt
+INFO:root:server is DOWN
+ERROR:root:custom raise
+Traceback (most recent call last):
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/tests/test_server.py", line 72, in test_server_context_manager
+    raise Exception('custom raise')
+Exception: custom raise
+INFO:root:server is DOWN
+INFO:root:server is UP on 0.0.0.0:8000
+INFO:root:New client ('127.0.0.1', 55554)
+ERROR:root:str() argument 2 must be str, not None
+ERROR:root:
+Traceback (most recent call last):
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/tests/test_server.py", line 111, in test_serving
+    s.serve()
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 60, in serve
+    connection, ip = self.server.accept()
+  File "/usr/local/Cellar/python/3.7.4_1/Frameworks/Python.framework/Versions/3.7/lib/python3.7/socket.py", line 212, in accept
+    fd, addr = self._accept()
+KeyboardInterrupt
+INFO:root:server is DOWN
+ERROR:root:custom raise
+Traceback (most recent call last):
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/tests/test_server.py", line 72, in test_server_context_manager
+    raise Exception('custom raise')
+Exception: custom raise
+INFO:root:server is DOWN
+INFO:root:server is UP on 0.0.0.0:8000
+INFO:root:New client ('127.0.0.1', 55563)
+ERROR:root:str() argument 2 must be str, not None
+ERROR:root:
+Traceback (most recent call last):
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/tests/test_server.py", line 111, in test_serving
+    s.serve()
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 61, in serve
+    connection, ip = self.server.accept()
+  File "/usr/local/Cellar/python/3.7.4_1/Frameworks/Python.framework/Versions/3.7/lib/python3.7/socket.py", line 212, in accept
+    fd, addr = self._accept()
+KeyboardInterrupt
+INFO:root:server is DOWN
+ERROR:root:custom raise
+Traceback (most recent call last):
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/tests/test_server.py", line 72, in test_server_context_manager
+    raise Exception('custom raise')
+Exception: custom raise
+INFO:root:server is DOWN
+INFO:root:server is UP on 0.0.0.0:8000
+INFO:root:New client ('127.0.0.1', 55569)
+ERROR:root:str() argument 2 must be str, not None
+ERROR:root:
+Traceback (most recent call last):
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/tests/test_server.py", line 111, in test_serving
+    s.serve()
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 62, in serve
+    connection, ip = self.server.accept()
+  File "/usr/local/Cellar/python/3.7.4_1/Frameworks/Python.framework/Versions/3.7/lib/python3.7/socket.py", line 212, in accept
+    fd, addr = self._accept()
+KeyboardInterrupt
+INFO:root:server is DOWN
+ERROR:root:custom raise
+Traceback (most recent call last):
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/tests/test_server.py", line 72, in test_server_context_manager
+    raise Exception('custom raise')
+Exception: custom raise
+INFO:root:server is DOWN
+INFO:root:server is UP on 0.0.0.0:8000
+INFO:root:New client ('127.0.0.1', 55577)
+ERROR:root:str() argument 2 must be str, not None
+ERROR:root:
+Traceback (most recent call last):
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/tests/test_server.py", line 111, in test_serving
+    s.serve()
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 56, in serve
+    connection, ip = self.server.accept()
+  File "/usr/local/Cellar/python/3.7.4_1/Frameworks/Python.framework/Versions/3.7/lib/python3.7/socket.py", line 212, in accept
+    fd, addr = self._accept()
+KeyboardInterrupt
+INFO:root:server is DOWN
+ERROR:root:custom raise
+Traceback (most recent call last):
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/tests/test_server.py", line 72, in test_server_context_manager
+    raise Exception('custom raise')
+Exception: custom raise
+INFO:root:server is DOWN
+INFO:root:server is UP on 0.0.0.0:8000
+INFO:root:New client ('127.0.0.1', 55584)
+ERROR:root:str() argument 2 must be str, not None
+ERROR:root:
+Traceback (most recent call last):
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/tests/test_server.py", line 110, in test_serving
+    s.serve()
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 56, in serve
+    connection, ip = self.server.accept()
+  File "/usr/local/Cellar/python/3.7.4_1/Frameworks/Python.framework/Versions/3.7/lib/python3.7/socket.py", line 212, in accept
+    fd, addr = self._accept()
+KeyboardInterrupt
+INFO:root:server is DOWN
+ERROR:root:custom raise
+Traceback (most recent call last):
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/tests/test_server.py", line 72, in test_server_context_manager
+    raise Exception('custom raise')
+Exception: custom raise
+INFO:root:server is DOWN
+INFO:root:server is UP on 0.0.0.0:8000
+INFO:root:New client ('127.0.0.1', 55592)
+ERROR:root:str() argument 2 must be str, not None
+ERROR:root:
+Traceback (most recent call last):
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/tests/test_server.py", line 112, in test_serving
+    s.serve()
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 56, in serve
+    connection, ip = self.server.accept()
+  File "/usr/local/Cellar/python/3.7.4_1/Frameworks/Python.framework/Versions/3.7/lib/python3.7/socket.py", line 212, in accept
+    fd, addr = self._accept()
+KeyboardInterrupt
+INFO:root:server is DOWN
+ERROR:root:custom raise
+Traceback (most recent call last):
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/tests/test_server.py", line 72, in test_server_context_manager
+    raise Exception('custom raise')
+Exception: custom raise
+INFO:root:server is DOWN
+INFO:root:server is UP on 0.0.0.0:8000
+INFO:root:New client ('127.0.0.1', 55599)
+ERROR:root:str() argument 2 must be str, not None
+ERROR:root:
+Traceback (most recent call last):
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/tests/test_server.py", line 112, in test_serving
+    s.serve()
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 56, in serve
+    connection, ip = self.server.accept()
+  File "/usr/local/Cellar/python/3.7.4_1/Frameworks/Python.framework/Versions/3.7/lib/python3.7/socket.py", line 212, in accept
+    fd, addr = self._accept()
+KeyboardInterrupt
+INFO:root:server is DOWN
+ERROR:root:custom raise
+Traceback (most recent call last):
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/tests/test_server.py", line 72, in test_server_context_manager
+    raise Exception('custom raise')
+Exception: custom raise
+INFO:root:server is DOWN
+INFO:root:server is UP on 0.0.0.0:8000
+INFO:root:New client ('127.0.0.1', 55605)
+ERROR:root:str() argument 2 must be str, not None
+ERROR:root:
+Traceback (most recent call last):
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/tests/test_server.py", line 112, in test_serving
+    s.serve()
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 56, in serve
+    connection, ip = self.server.accept()
+  File "/usr/local/Cellar/python/3.7.4_1/Frameworks/Python.framework/Versions/3.7/lib/python3.7/socket.py", line 212, in accept
+    fd, addr = self._accept()
+KeyboardInterrupt
+INFO:root:server is DOWN
+ERROR:root:custom raise
+Traceback (most recent call last):
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/tests/test_server.py", line 72, in test_server_context_manager
+    raise Exception('custom raise')
+Exception: custom raise
+INFO:root:server is DOWN
+ERROR:root:[Errno 9] Bad file descriptor
+Traceback (most recent call last):
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/tests/test_server.py", line 118, in test_serving
+    s.serve()
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 47, in serve
+    self.server.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, 1)
+OSError: [Errno 9] Bad file descriptor
+INFO:root:server is DOWN
+ERROR:root:custom raise
+Traceback (most recent call last):
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/tests/test_server.py", line 72, in test_server_context_manager
+    raise Exception('custom raise')
+Exception: custom raise
+INFO:root:server is DOWN
+INFO:root:server is UP on 0.0.0.0:8000
+INFO:root:New client ('127.0.0.1', 55653)
+ERROR:root:str() argument 2 must be str, not None
+INFO:root:New client ('127.0.0.1', 55654)
+INFO:root:Got request from ('127.0.0.1', 55654) method: GET
+target: /
+version: HTTP/1.1
+headers: Host: 0.0.0.0:8000
+Upgrade-Insecure-Requests: 1
+Accept: text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8
+User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_1) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/13.0.3 Safari/605.1.15
+Accept-Language: en-us
+Accept-Encoding: gzip, deflate
+Connection: keep-alive
+
+
+file: <_io.BufferedReader name=-1>
+user: ('127.0.0.1', 55654)
+url: ParseResult(scheme='', netloc='', path='/', params='', query='', fragment='')
+path: /
+query: {}
+INFO:root:Response status: 200
+reason: OK
+headers: [('Content-Type', 'text/html'), ('Content-Length', 156)]
+body: b'<!DOCTYPE html>\n<html lang="en">\n<head>\n    <meta charset="UTF-8">\n    <title>index.html</title>\n</head>\n<body>\n    <h1>Python Rule it!</h1>\n</body>\n</html>'
+INFO:root:New client ('127.0.0.1', 55657)
+INFO:root:Got request from ('127.0.0.1', 55657) method: GET
+target: /
+version: HTTP/1.1
+headers: Host: 0.0.0.0:8000
+Upgrade-Insecure-Requests: 1
+Accept: text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8
+User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_1) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/13.0.3 Safari/605.1.15
+Accept-Language: en-us
+Accept-Encoding: gzip, deflate
+Connection: keep-alive
+
+
+file: <_io.BufferedReader name=-1>
+user: ('127.0.0.1', 55657)
+url: ParseResult(scheme='', netloc='', path='/', params='', query='', fragment='')
+path: /
+query: {}
+INFO:root:Response status: 200
+reason: OK
+headers: [('Content-Type', 'text/html'), ('Content-Length', 156)]
+body: b'<!DOCTYPE html>\n<html lang="en">\n<head>\n    <meta charset="UTF-8">\n    <title>index.html</title>\n</head>\n<body>\n    <h1>Python Rule it!</h1>\n</body>\n</html>'
+ERROR:root:
+Traceback (most recent call last):
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/tests/test_server.py", line 117, in test_serving
+    s.serve()
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 56, in serve
+    print('wait for req')
+  File "/usr/local/Cellar/python/3.7.4_1/Frameworks/Python.framework/Versions/3.7/lib/python3.7/socket.py", line 212, in accept
+    fd, addr = self._accept()
+KeyboardInterrupt
+INFO:root:server is DOWN
+ERROR:root:custom raise
+Traceback (most recent call last):
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/tests/test_server.py", line 72, in test_server_context_manager
+    raise Exception('custom raise')
+Exception: custom raise
+INFO:root:server is DOWN
+INFO:root:server is UP on 0.0.0.0:8000
+INFO:root:New client ('127.0.0.1', 55691)
+ERROR:root:str() argument 2 must be str, not None
+INFO:root:New client ('127.0.0.1', 55692)
+ERROR:root:str() argument 2 must be str, not None
+INFO:root:New client ('127.0.0.1', 55693)
+ERROR:root:str() argument 2 must be str, not None
+INFO:root:New client ('127.0.0.1', 55694)
+ERROR:root:str() argument 2 must be str, not None
+INFO:root:New client ('127.0.0.1', 55695)
+ERROR:root:str() argument 2 must be str, not None
+INFO:root:New client ('127.0.0.1', 55696)
+ERROR:root:str() argument 2 must be str, not None
+ERROR:root:
+Traceback (most recent call last):
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/tests/test_server.py", line 117, in test_serving
+    s.serve()
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 61, in serve
+    connection, ip = self.server.accept()
+  File "/usr/local/Cellar/python/3.7.4_1/Frameworks/Python.framework/Versions/3.7/lib/python3.7/socket.py", line 212, in accept
+    fd, addr = self._accept()
+KeyboardInterrupt
+INFO:root:server is DOWN
+INFO:root:server is UP on 0.0.0.0:8000
+INFO:root:New client ('127.0.0.1', 55701)
+ERROR:root:str() argument 2 must be str, not None
+INFO:root:New client ('127.0.0.1', 55702)
+ERROR:root:str() argument 2 must be str, not None
+INFO:root:New client ('127.0.0.1', 55703)
+ERROR:root:str() argument 2 must be str, not None
+INFO:root:New client ('127.0.0.1', 55704)
+ERROR:root:str() argument 2 must be str, not None
+INFO:root:New client ('127.0.0.1', 55705)
+ERROR:root:str() argument 2 must be str, not None
+INFO:root:New client ('127.0.0.1', 55706)
+ERROR:root:str() argument 2 must be str, not None
+ERROR:root:
+Traceback (most recent call last):
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/tests/test_server.py", line 117, in test_serving
+    s.serve()
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 61, in serve
+    logging.info(f'New client {ip}')
+  File "/usr/local/Cellar/python/3.7.4_1/Frameworks/Python.framework/Versions/3.7/lib/python3.7/socket.py", line 212, in accept
+    fd, addr = self._accept()
+KeyboardInterrupt
+INFO:root:server is DOWN
+INFO:root:server is UP on 0.0.0.0:8000
+INFO:root:New client ('127.0.0.1', 55720)
+ERROR:root:str() argument 2 must be str, not None
+INFO:root:New client ('127.0.0.1', 55721)
+ERROR:root:str() argument 2 must be str, not None
+INFO:root:New client ('127.0.0.1', 55722)
+ERROR:root:str() argument 2 must be str, not None
+INFO:root:New client ('127.0.0.1', 55723)
+ERROR:root:str() argument 2 must be str, not None
+INFO:root:New client ('127.0.0.1', 55724)
+ERROR:root:str() argument 2 must be str, not None
+INFO:root:New client ('127.0.0.1', 55725)
+ERROR:root:str() argument 2 must be str, not None
+ERROR:root:
+Traceback (most recent call last):
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/tests/test_server.py", line 117, in test_serving
+    s.serve()
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 60, in serve
+    connection, ip = self.server.accept()
+  File "/usr/local/Cellar/python/3.7.4_1/Frameworks/Python.framework/Versions/3.7/lib/python3.7/socket.py", line 212, in accept
+    fd, addr = self._accept()
+KeyboardInterrupt
+INFO:root:server is DOWN
+INFO:root:server is UP on 0.0.0.0:8000
+INFO:root:New client ('127.0.0.1', 55734)
+ERROR:root:str() argument 2 must be str, not None
+INFO:root:New client ('127.0.0.1', 55735)
+ERROR:root:str() argument 2 must be str, not None
+INFO:root:New client ('127.0.0.1', 55736)
+ERROR:root:str() argument 2 must be str, not None
+INFO:root:New client ('127.0.0.1', 55737)
+ERROR:root:str() argument 2 must be str, not None
+INFO:root:New client ('127.0.0.1', 55738)
+ERROR:root:str() argument 2 must be str, not None
+INFO:root:New client ('127.0.0.1', 55739)
+ERROR:root:str() argument 2 must be str, not None
+ERROR:root:
+Traceback (most recent call last):
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/tests/test_server.py", line 117, in test_serving
+    s.serve()
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 60, in serve
+    connection, ip = self.server.accept()
+  File "/usr/local/Cellar/python/3.7.4_1/Frameworks/Python.framework/Versions/3.7/lib/python3.7/socket.py", line 212, in accept
+    fd, addr = self._accept()
+KeyboardInterrupt
+INFO:root:server is DOWN
+INFO:root:server is UP on 0.0.0.0:8000
+INFO:root:New client ('127.0.0.1', 55778)
+ERROR:root:str() argument 2 must be str, not None
+INFO:root:New client ('127.0.0.1', 55779)
+ERROR:root:str() argument 2 must be str, not None
+INFO:root:New client ('127.0.0.1', 55780)
+ERROR:root:str() argument 2 must be str, not None
+INFO:root:New client ('127.0.0.1', 55781)
+ERROR:root:str() argument 2 must be str, not None
+INFO:root:New client ('127.0.0.1', 55782)
+ERROR:root:str() argument 2 must be str, not None
+INFO:root:New client ('127.0.0.1', 55783)
+ERROR:root:str() argument 2 must be str, not None
+ERROR:root:
+Traceback (most recent call last):
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/tests/test_server.py", line 117, in test_serving
+    s.serve()
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 60, in serve
+    connection, ip = self.server.accept()
+  File "/usr/local/Cellar/python/3.7.4_1/Frameworks/Python.framework/Versions/3.7/lib/python3.7/socket.py", line 212, in accept
+    fd, addr = self._accept()
+KeyboardInterrupt
+INFO:root:server is DOWN
+INFO:root:server is UP on 0.0.0.0:8000
+INFO:root:New client ('127.0.0.1', 55789)
+ERROR:root:str() argument 2 must be str, not None
+INFO:root:New client ('127.0.0.1', 55790)
+ERROR:root:str() argument 2 must be str, not None
+ERROR:root:
+Traceback (most recent call last):
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/tests/test_server.py", line 117, in test_serving
+    s.serve()
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 62, in serve
+    connection, ip = self.server.accept()
+  File "/usr/local/Cellar/python/3.7.4_1/Frameworks/Python.framework/Versions/3.7/lib/python3.7/socket.py", line 212, in accept
+    fd, addr = self._accept()
+KeyboardInterrupt
+INFO:root:server is DOWN
+INFO:root:server is UP on 0.0.0.0:8000
+INFO:root:New client ('127.0.0.1', 55799)
+ERROR:root:str() argument 2 must be str, not None
+INFO:root:New client ('127.0.0.1', 55800)
+ERROR:root:str() argument 2 must be str, not None
+ERROR:root:
+Traceback (most recent call last):
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/tests/test_server.py", line 117, in test_serving
+    s.serve()
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 62, in serve
+    connection, ip = self.server.accept()
+  File "/usr/local/Cellar/python/3.7.4_1/Frameworks/Python.framework/Versions/3.7/lib/python3.7/socket.py", line 212, in accept
+    fd, addr = self._accept()
+KeyboardInterrupt
+INFO:root:server is DOWN
+ERROR:root:custom raise
+Traceback (most recent call last):
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/tests/test_server.py", line 72, in test_server_context_manager
+    raise Exception('custom raise')
+Exception: custom raise
+INFO:root:server is DOWN
+ERROR:root:custom raise
+Traceback (most recent call last):
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/tests/test_server.py", line 72, in test_server_context_manager
+    raise Exception('custom raise')
+Exception: custom raise
+INFO:root:server is DOWN
+ERROR:root:custom raise
+Traceback (most recent call last):
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/tests/test_server.py", line 72, in test_server_context_manager
+    raise Exception('custom raise')
+Exception: custom raise
+INFO:root:server is DOWN

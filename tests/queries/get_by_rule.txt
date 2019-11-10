@@ -1,3 +1,0 @@
-echo "GET /2.html HTTP/1.1
-Host: 0.0.0.0:8000
-Accept: text/html" | nc 0.0.0.0 8000

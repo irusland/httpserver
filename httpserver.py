@@ -1,6 +1,7 @@
 # python3
 
 import json
+import os
 import socket
 
 from email.parser import Parser
@@ -10,32 +11,25 @@ from defenitions import CONFIG_PATH
 from ruler import Ruler
 
 import magic
+import logging
+import chardet
 
 
 class Server:
     MAX_LINE = 64 * 1024
     MAX_HEADERS = 100
 
-    def __init__(self, host, port, server_name, debug=False):
+    def __init__(self, host, port, server_name, debug=True):
         self._host = host
         self._port = port
         self._server_name = server_name
         self._list = {}
-        self._log = debug
+        self._debug = debug
         self.ruler = Ruler()
+        self.server = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+        self.running = True
 
-        # TODO Transfer to Error class as static props
-        self.REQ_TOO_LONG_ERR = Error(400, 'Bad request',
-                                      'Request line is too long')
-        self.MALFORMED_REQ_ERR = Error(400, 'Bad request',
-                                       'Malformed request line')
-        self.HEADER_MISSING_ERR = Error(400, 'Bad request',
-                                        'Host header is missing')
-        self.NOT_FOUND_ERR = Error(404, 'Not found')
-        self.HEADER_TOO_LARGE_ERR = Error(494, 'Request header too large')
-        self.TOO_MANY_HEADERS_ERR = Error(494, 'Too many headers')
-        self.VERSION_NOT_SUPPORTED_ERR = Error(505,
-                                               'HTTP Version Not Supported')
+        logging.basicConfig(filename="server.log", level=logging.INFO)
 
     def __enter__(self):
         return self
@@ -43,32 +37,40 @@ class Server:
     def __exit__(self, exc_type, exc_val, exc_tb):
         # TODO Exception handling from serve_client
         # TODO Ask about zombie lasting threads
-        self.log(exc_type, exc_val, exc_tb)
-        pass
+        logging.exception(exc_val)
+        logging.info('server is DOWN')
+        self.shutdown()
+        return True
 
-    def log(self, *args):
-        if self._log:
-            print(args)
+    def shutdown(self):
+        self.running = False
+        # socket.socket(socket.AF_INET,
+        #               socket.SOCK_STREAM).connect(('0.0.0.0', 8000))
+        self.server.close()
 
     def serve(self):
-        sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-        sock.bind((self._host, self._port))
-        sock.listen()
-        print('debug', 'server is UP on 0.0.0.0:8000')
+        self.server.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, 1)
 
-        while True:
-            connection, ip = sock.accept()
-            self.log(f'New client {ip}')
+        self.server.bind((self._host, self._port))
+        self.server.listen()
+
+        logging.info(f'server is UP on {self._host}:{self._port}')
+
+        while self.running:
+            print('wait for req')
+            connection, ip = self.server.accept()
+            logging.info(f'New client {ip}')
             self.serve_client(connection)
 
     def serve_client(self, connection):
         try:
-            req = self.parse_req(connection)
-            self.log(f'Got request from {req.user} {req}')
+            req = self.parse_req_connection(connection)
+            logging.info(f'Got request from {req.user} {req}')
             res = self.handle_req(req)
-            self.log(f'Response {res}')
+            logging.info(f'Response {res}')
             self.send_response(connection, res)
         except Exception as e:
+            logging.error(e)
             self.send_error(connection, e)
 
         connection.close()
@@ -86,50 +88,60 @@ class Server:
     def build_err_res(status, reason, body):
         return Response(status, reason, [('Content-Length', len(body))], body)
 
-    def parse_req(self, connection):
+    def parse_req_connection(self, connection):
         with connection.makefile('rb') as file:
-            method, target, ver = self.parse_request_line(file)
-            headers = self.parse_headers(file)
-            host = headers.get('Host')
-            if not host:
-                raise self.HEADER_MISSING_ERR
-            if host not in (self._server_name,
-                            f'{self._server_name}:{self._port}'):
-                raise self.NOT_FOUND_ERR
-        return Request(method, target, ver, headers, file,
-                       connection.getpeername())
+            return self.parsed_req_to_request(
+                *self.parse_req_file(file), file, connection.getpeername())
 
-    def parse_request_line(self, reqfile):
-        raw = reqfile.readline(self.MAX_LINE + 1)
+    def parsed_req_to_request(self, method, target,
+                              ver, headers, file, peername=None):
+        return Request(method, target, ver, headers, file, peername)
+
+    def parse_req_file(self, file):
+        method, target, ver = self.parse_request_line(file)
+        headers = self.parse_headers_from_file(file)
+        host = headers.get('Host')
+        if not host:
+            raise Errors.HEADER_MISSING
+        if host not in (self._server_name,
+                        f'{self._server_name}:{self._port}'):
+            raise Errors.NOT_FOUND
+        return method, target, ver, headers
+
+    def parse_request_line(self, file):
+        raw = file.readline(self.MAX_LINE + 1)
         if len(raw) > self.MAX_LINE:
-            raise self.REQ_TOO_LONG_ERR
+            raise Errors.REQ_TOO_LONG
+        req_line = (self.decode(raw))
 
-        req_line = str(raw, 'utf-8')
-        words = req_line.split()
-        print('debug', words)
-        if len(words) != 3:
-            raise self.MALFORMED_REQ_ERR
+        try:
+            method, target, ver = req_line.split()
+        except ValueError as e:
+            raise Errors.MALFORMED_REQ
 
-        method, target, ver = words
         if ver != 'HTTP/1.1':
-            raise self.VERSION_NOT_SUPPORTED_ERR
+            raise Errors.VERSION_NOT_SUPPORTED
         return method, target, ver
 
-    def parse_headers(self, rfile):
+    def parse_headers_from_file(self, rfile):
         headers = []
         breakline = [b'\r\n', b'\n', b'']
 
         while True:
             line = rfile.readline(self.MAX_LINE + 1)
             if len(line) > self.MAX_LINE:
-                raise self.HEADER_TOO_LARGE_ERR
+                raise Errors.HEADER_TOO_LARGE
             if line in breakline:
                 break
             headers.append(line)
             if len(headers) > self.MAX_HEADERS:
-                raise self.TOO_MANY_HEADERS_ERR
+                raise Errors.TOO_MANY_HEADERS
 
-        return self.parse_headers_str(b''.join(headers).decode('utf-8'))
+        headers = b''.join(headers)
+        return self.parse_headers_str(self.decode(headers))
+
+    def decode(self, b):
+        return str(b, chardet.detect(b)['encoding'])
 
     @staticmethod
     def parse_headers_str(s):
@@ -142,12 +154,12 @@ class Server:
             try:
                 destination = self.ruler.get_destination(req.path, rules, True)
             except FileNotFoundError:
-                raise self.NOT_FOUND_ERR
+                raise Errors.NOT_FOUND
             if destination:
                 mime = magic.Magic(mime=True)
                 content_type = mime.from_file(destination)
                 return self.send_file(req, destination, content_type)
-        raise self.NOT_FOUND_ERR
+        raise Errors.NOT_FOUND
 
     def send_file(self, req, path, content_type):
         accept = req.headers.get('Accept')
@@ -157,54 +169,9 @@ class Server:
         else:
             return Response(406, 'Not Acceptable')
 
-        # body = body.encode('utf-8')
-        headers = [('Content-Type', content_type),
+        headers = [('Content-Type', f'{content_type}'),
                    ('Content-Length', len(body))]
         return Response(200, 'OK', headers, body)
-
-    def clear_text(self):
-        self._list.clear()
-        return Response(204, f'Cleared')
-
-    def add_text(self, req):
-        id = len(self._list) + 1
-        self._list[id] = req.query['text'][0]
-        textres = f'<html><head></head><body> Text added ' \
-                  f'{req.query["text"][0]}</body></html>'
-        body = textres.encode('utf-8')
-        content_type = 'text/html; charset=utf-8'
-        headers = [('Content-Type', content_type),
-                   ('Content-Length', len(body))]
-        return Response(200, 'OK', headers, body)
-
-    def show_text(self, req):
-        accept = req.headers.get('Accept')
-        if 'text/html' in accept:
-            content_type = 'text/html; charset=utf-8'
-            body = self.get_html()
-
-        elif 'application/json' in accept:
-            content_type = 'application/json; charset=utf-8'
-            body = json.dumps(self._list)
-
-        else:
-            return Response(406, 'Not Acceptable')
-
-        body = body.encode('utf-8')
-        headers = [('Content-Type', content_type),
-                   ('Content-Length', len(body))]
-        return Response(200, 'OK', headers, body)
-
-    def get_html(self):
-        html = f'<html><head></head><body><div>Notes ({len(self._list)})' \
-               f'</div><ul>'
-        for k, v in self._list.items():
-            html += f'<li>#{k} {v}</li>'
-        html += '</ul></body></html>'
-        return html
-
-    def del_text(self, n):
-        self._list.pop(int(n))
 
     def send_response(self, connection, res):
         with connection.makefile('wb') as file:
@@ -217,11 +184,7 @@ class Server:
 
     @staticmethod
     def headers_to_str(res):
-        line = ''
-        if res.headers:
-            for (key, value) in res.headers:
-                line += f'{key}: {value}\r\n'
-        return line
+        return ''.join(f'{k}: {v}\r\n' for (k, v) in res.headers)
 
     @staticmethod
     def status_to_str(res):
@@ -241,16 +204,7 @@ class Request:
         self.query = parse_qs(self.url.query)
 
     def __str__(self):
-        res = f'method: {self.method}\n'
-        res += f'target: {self.target}\n'
-        res += f'version: {self.version}\n'
-        res += f'headers: {self.headers}\n'
-        res += f'file: {self.file}\n'
-        res += f'user: {self.user}\n'
-        res += f'url: {self.url}\n'
-        res += f'path: {self.path}\n'
-        res += f'query: {self.query}\n'
-        return res
+        return '\n'.join(f'{k}: {v}' for k, v in self.__dict__.items())
 
 
 class Response:
@@ -261,19 +215,27 @@ class Response:
         self.body = body
 
     def __str__(self):
-        res = f'status: {self.status}\n'
-        res += f'reason: {self.reason}\n'
-        res += f'headers: {self.headers}\n'
-        res += f'body: {self.body}\n'
-        return res
+        return '\n'.join(f'{k}: {v}' for k, v in self.__dict__.items())
 
 
 class Error(Exception):
     def __init__(self, status, reason, body=None):
-        super()
         self.status = status
         self.reason = reason
         self.body = body
+
+
+class Errors(Error):
+    REQ_TOO_LONG = Error(400, 'Bad request',
+                              'Request line is too long')
+    MALFORMED_REQ = Error(400, 'Bad request',
+                               'Malformed request line')
+    HEADER_MISSING = Error(400, 'Bad request',
+                                'Host header is missing')
+    NOT_FOUND = Error(404, 'Not found')
+    HEADER_TOO_LARGE = Error(494, 'Request header too large')
+    TOO_MANY_HEADERS = Error(494, 'Too many headers')
+    VERSION_NOT_SUPPORTED = Error(505, 'HTTP Version Not Supported')
 
 
 if __name__ == '__main__':

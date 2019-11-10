@@ -10,7 +10,7 @@ class MyTestCase(unittest.TestCase):
     def assertDestinationsEqual(self, url, path, rules=None):
         if rules is None:
             rules = self.rules
-        d = self.ruler.get_destination(url, rules, abs=True)
+        d = self.ruler.get_destination(url, rules, absolute=True)
         self.assertEqual(path, d)
 
     def assertFileNotFound(self, url):
