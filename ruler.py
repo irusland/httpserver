@@ -5,11 +5,12 @@ import re
 from defenitions import CONFIG_PATH, ROOT_DIR, LOGGER_PATH
 import logging
 
+
 class Ruler:
-    PROCESSED = {}
+    URL_TO_RULE = {}
 
     def __init__(self):
-        logging.basicConfig(filename="LOGGER_PATH", level=logging.INFO)
+        logging.basicConfig(filename=LOGGER_PATH, level=logging.INFO)
         pass
 
     def get_rules(self):
@@ -25,45 +26,58 @@ class Ruler:
             return rules
 
     def get_destination(self, url, rules, absolute=True):
-        for key, path in rules.items():
-            if absolute:
-                path = self.to_abs_path(path)
-            # todo relative path
-            # else:
-            #     path = os.path.join('.', path)
-            template = self.to_template(key)
-            match = re.fullmatch(template, url)
+        logging.info(f'processing {url}')
+        for key, description in rules.items():
+            try:
+                path = description['path']
+            except Exception:
+                path = description
+
+            rule = self.to_template(key)
+            match = re.fullmatch(rule, url)
             if match:
-                if os.path.isdir(path):
-                    path = os.path.join(path, f'{match["name"]}.'
-                                              f'{match["ext"]}')
-                # print('debug', ' match: checking file',
-                #       match.groupdict(), template, url, path)
+                for k, v in match.groupdict().items():
+                    pattern = re.compile(rf'\[{k}\]')
+                    path = re.sub(pattern, v, path)
+
+                logging.info(f'path found {path}')
+                if absolute:
+                    path = self.to_abs_path(path)
+                # todo relative path
+                # else:
+                #     path = os.path.join('.', path)
+
+                self.URL_TO_RULE[url] = key
                 if os.path.isfile(path):
+                    print(path)
                     return path
-                raise FileNotFoundError(path, url, template, absolute)
+                raise FileNotFoundError(path, url, rule, absolute)
         raise FileNotFoundError(url, rules)
 
     def to_abs_path(self, path):
         return os.path.join(ROOT_DIR, path)
 
     def to_template(self, key):
-        # r_old = re.compile(r'(?P<path>.*/)(?P<name>.*)\.(?P<ext>.*)')
-        reg = re.compile(r'(?:(?P<path>.*/))*(?:(?P<name>.*)\.(?P<ext>.*))*')
-        match = re.match(reg, key)
-        if not match["name"]:
-            return re.compile(rf'(?P<path>{match["path"]})')
-        return \
-            re.compile(rf'(?P<path>{match["path"]})'
-                       rf'(?!.*?/)'
-                       rf'(?P<name>'
-                       rf'{".*" if match["name"] == "*" else match["name"]})'
-                       rf'\.(?P<ext>'
-                       rf'{".*" if match["ext"] == "*" else match["ext"]})')
+        key = re.sub(r'\.', r'\.', key)
+        reg_sub = re.compile(r'(?P<txt>.*?)\[(?P<group>.*?)\]')
+        replaced = re.sub(reg_sub, rf'\1(?P<\2>.*)', key)
+        reg_rep = re.compile(replaced)
+        return reg_rep
+
+    def get_type(self, url, rules):
+        logging.info(f'type for {url}')
+        if url in self.URL_TO_RULE:
+            description = rules[self.URL_TO_RULE[url]]
+            try:
+                return description['mime']
+            except KeyError:
+                return None
 
 
 if __name__ == '__main__':
     ruler = Ruler()
     r = ruler.get_rules()
-    d = ruler.get_destination('/naksdasd.py', r)
-    print(d)
+    url = '/pictures/png/1'
+    d = ruler.get_destination(url, r)
+    t = ruler.get_type(url, r)
+    print(d, t)

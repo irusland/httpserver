@@ -7,7 +7,7 @@ import socket
 from email.parser import Parser
 from urllib.parse import parse_qs, urlparse
 
-from defenitions import CONFIG_PATH
+from defenitions import CONFIG_PATH, LOGGER_PATH
 from ruler import Ruler
 
 import magic
@@ -29,7 +29,7 @@ class Server:
         self.server = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
         self.running = True
 
-        logging.basicConfig(filename="server.log", level=logging.INFO)
+        logging.basicConfig(filename=LOGGER_PATH, level=logging.INFO)
 
     def __enter__(self):
         return self
@@ -57,7 +57,6 @@ class Server:
         logging.info(f'server is UP on {self._host}:{self._port}')
 
         while self.running:
-            print('wait for req')
             connection, ip = self.server.accept()
             logging.info(f'New client {ip}')
             self.serve_client(connection)
@@ -156,8 +155,10 @@ class Server:
             except FileNotFoundError:
                 raise Errors.NOT_FOUND
             if destination:
-                mime = magic.Magic(mime=True)
-                content_type = mime.from_file(destination)
+                content_type = self.ruler.get_type(req.path, rules)
+                if not content_type:
+                    mime = magic.Magic(mime=True)
+                    content_type = mime.from_file(destination)
                 return self.send_file(req, destination, content_type)
         raise Errors.NOT_FOUND
 
@@ -168,8 +169,9 @@ class Server:
                 body = file.read()
         else:
             return Response(406, 'Not Acceptable')
-
+        filename = os.path.basename(path)
         headers = [('Content-Type', f'{content_type}'),
+                   ('Content-Disposition', f'inline; filename={filename}'),
                    ('Content-Length', len(body))]
         return Response(200, 'OK', headers, body)
 
@@ -215,7 +217,10 @@ class Response:
         self.body = body
 
     def __str__(self):
-        return '\n'.join(f'{k}: {v}' for k, v in self.__dict__.items())
+        lim = 500
+        return '\n'.join(
+            f'{k}: {str(v) if len(str(v)) < lim else str(v)[:lim]}'
+            for k, v in self.__dict__.items())
 
 
 class Error(Exception):
@@ -227,11 +232,11 @@ class Error(Exception):
 
 class Errors(Error):
     REQ_TOO_LONG = Error(400, 'Bad request',
-                              'Request line is too long')
+                         'Request line is too long')
     MALFORMED_REQ = Error(400, 'Bad request',
-                               'Malformed request line')
+                          'Malformed request line')
     HEADER_MISSING = Error(400, 'Bad request',
-                                'Host header is missing')
+                           'Host header is missing')
     NOT_FOUND = Error(404, 'Not found')
     HEADER_TOO_LARGE = Error(494, 'Request header too large')
     TOO_MANY_HEADERS = Error(494, 'Too many headers')

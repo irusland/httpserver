@@ -1,0 +1,36 @@
+INFO:root:server is UP on 0.0.0.0:8000
+INFO:root:New client ('127.0.0.1', 53261)
+INFO:root:Got request from ('127.0.0.1', 53261) method: GET
+target: /mime/
+version: HTTP/1.1
+headers: Host: 0.0.0.0:8000
+Upgrade-Insecure-Requests: 1
+Accept: text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8
+User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_1) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/13.0.3 Safari/605.1.15
+Accept-Language: en-us
+Accept-Encoding: gzip, deflate
+Connection: keep-alive
+
+
+file: <_io.BufferedReader name=-1>
+user: ('127.0.0.1', 53261)
+url: ParseResult(scheme='', netloc='', path='/mime/', params='', query='', fragment='')
+path: /mime/
+query: {}
+INFO:root:processing /mime/
+INFO:root:path found tmp/pictures/1.png
+INFO:root:type for /mime/
+INFO:root:Response status: 200
+reason: OK
+headers: [('Content-Type', 'text/txt'), ('Content-Disposition', 'inline; filename=1.png'), ('Content-Length', 383589)]
+body: b'\x89PNG\r\n\x1a\n\x00\x00\x00\rIHDR\x00\x00\x03 \x00\x00\x02X\x08\x06\x00\x00\x00\x9av\x82p\x00\x05\xda,IDATx^\xec\xbd\x07tSW\xbe\xef\xaf;\x93\xc0\xa4S\xd2HH2\x10B\x12\x08\xd5\xc6\xbd\xf7*\x17\xb9H\xb6d\x15\xcb\x92e\xd9r\xb7\xc1\x06L\xef\xa1\x97\x982@B1\xee\x15SC/\xee\xb6z\xb3\x8a\x8bd\xf5f\xd9\xa6\x85\xb7\x8f\x81\xdc\xcc\xdc\xf9\xaf\xbc\xfb\xbf\xef\xbd;wf\x7fX\xdf\xb5\x8f$\x97s$`\x9d\xcf\xfa\xed\xdf\xde(\x14\x04\x02\x81@ \x10\x08\x04\x02\x81@ \x10\x08\x04\x02\x81@ \x10\x08\x04\x02\x81@ \x10\x
+ERROR:root:
+Traceback (most recent call last):
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 251, in <module>
+    s.serve()
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 60, in serve
+    connection, ip = self.server.accept()
+  File "/usr/local/Cellar/python/3.7.4_1/Frameworks/Python.framework/Versions/3.7/lib/python3.7/socket.py", line 212, in accept
+    fd, addr = self._accept()
+KeyboardInterrupt
+INFO:root:server is DOWN

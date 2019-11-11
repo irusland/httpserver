@@ -1,9 +1,7 @@
 import io
 import json
 import multiprocessing
-import os
 import socket
-import subprocess
 import time
 import unittest
 
@@ -24,9 +22,9 @@ class MyTestCase(unittest.TestCase):
                       debug=False)
 
     def process_req(self, req):
-        server = self.make_server()
-        file = io.BytesIO(req.encode('utf-8'))
-        return server.parse_req_file(file)
+        with self.make_server() as server:
+            file = io.BytesIO(req.encode('utf-8'))
+            return server.parse_req_file(file)
 
     def req_to_str(self, method, target, ver, headers):
         return '\n'.join((

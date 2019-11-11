@@ -3,14 +3,20 @@
   "port": 8000,
   "server": "0.0.0.0",
   "rules": {
-    "/favicon.ico" : "tmp/pictures/favicon.ico",
     "/" : "tmp/index.html",
+    "/favicon.ico" : "tmp/pictures/favicon.ico",
     "/index.html" : "tmp/index.html",
     "/2.html" : "tmp/pages/2.html",
-    "/*.html" : "tmp/pages/",
-    "/*.css" : "tmp/pages/css/",
-    "/*.png" : "tmp/pictures/",
     "/1.2.3.txt" : "tmp/1.2.3.txt",
-    "/png/*.png": "tmp/pictures/"
+    "/[name].html" : "tmp/pages/[name].html",
+    "/[name].css" : "tmp/pages/css/[name].css",
+    "/[name].[ext]" : "tmp/pictures/[name].[ext]",
+    "/png/[name].png" : "tmp/pictures/[name].png",
+    "/pictures/[ext]/1" : "tmp/pictures/1.[ext]",
+    "/[DD]/[MM]/[YY]" : "tmp/dates/[DD].[MM].[YY].png",
+    "/mime/" : {
+      "path" : "tmp/pictures/1.png",
+      "mime" : "text/txt"
+    }
   }
 }
