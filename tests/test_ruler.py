@@ -60,6 +60,14 @@ class MyTestCase(unittest.TestCase):
         self.assertDestinationsEqual(
             '/pictures/png/1', os.path.join(ROOT_DIR, 'tmp/pictures/1.png'))
 
+    def test_file_with_mime(self):
+        url = '/mime/'
+        self.assertDestinationsEqual(
+            url,
+            os.path.join(ROOT_DIR, 'tmp/pictures/1.png'))
+        t = self.ruler.get_type(url, self.rules)
+        self.assertEqual(t, 'text/txt')
+
 
 if __name__ == '__main__':
     unittest.main()

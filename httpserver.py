@@ -1,8 +1,11 @@
 # python3
-
+import io
 import json
 import os
+import selectors
 import socket
+import threading
+import time
 
 from email.parser import Parser
 from urllib.parse import parse_qs, urlparse
@@ -17,6 +20,7 @@ import chardet
 
 class Server:
     MAX_LINE = 64 * 1024
+    MAX_SEND_SIZE = 1024
     MAX_HEADERS = 100
 
     def __init__(self, host, port, server_name, debug=True):
@@ -26,12 +30,21 @@ class Server:
         self._list = {}
         self._debug = debug
         self.ruler = Ruler()
-        self.server = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
         self.running = True
+
+        self.addr = (host, port)
+        self.server = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+        self.poller = selectors.DefaultSelector()
+        self.conns = {}
 
         logging.basicConfig(filename=LOGGER_PATH, level=logging.INFO)
 
     def __enter__(self):
+        self.server.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, 1)
+        self.server.bind(self.addr)
+        self.server.listen()
+        self.server.setblocking(False)
+        logging.info(f'server is UP on {self._host}:{self._port}')
         return self
 
     def __exit__(self, exc_type, exc_val, exc_tb):
@@ -39,8 +52,9 @@ class Server:
         # TODO Ask about zombie lasting threads
         logging.exception(exc_val)
         logging.info('server is DOWN')
-        self.shutdown()
-        return True
+        self.poller.close()
+        self.server.close()
+        return False
 
     def shutdown(self):
         self.running = False
@@ -49,17 +63,29 @@ class Server:
         self.server.close()
 
     def serve(self):
-        self.server.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, 1)
+        self.conns[self.server.fileno()] = self.server
+        self.poller.register(self.server, selectors.EVENT_READ,
+                             self._accept)
 
-        self.server.bind((self._host, self._port))
-        self.server.listen()
+        while True:
+            for key, mask in self.poller.select():
+                callback = key.data
+                callback(key.fileobj, mask)
 
-        logging.info(f'server is UP on {self._host}:{self._port}')
+    def _accept(self, sock, mask):
 
-        while self.running:
-            connection, ip = self.server.accept()
-            logging.info(f'New client {ip}')
-            self.serve_client(connection)
+        (client, addr) = sock.accept()
+        self.conns[client.fileno()] = client
+        print(f'Connected {addr}')
+
+        client.setblocking(False)
+        self.poller.register(client, selectors.EVENT_READ, self._read)
+
+    def _read(self, sock, mask):
+        t = threading.Thread(target=self.serve_client,
+                             args=(sock, ))
+        t.start()
+        logging.info(f'Threaded client serving started {sock.getpeername()}')
 
     def serve_client(self, connection):
         try:
@@ -69,9 +95,12 @@ class Server:
             logging.info(f'Response {res}')
             self.send_response(connection, res)
         except Exception as e:
-            logging.error(e)
+            logging.exception(e)
             self.send_error(connection, e)
 
+        print(f'Disconnected {connection.getpeername()}')
+        self.poller.unregister(connection)
+        del self.conns[connection.fileno()]
         connection.close()
 
     def send_error(self, connection, err):
@@ -140,7 +169,10 @@ class Server:
         return self.parse_headers_str(self.decode(headers))
 
     def decode(self, b):
-        return str(b, chardet.detect(b)['encoding'])
+        encoding = chardet.detect(b)['encoding']
+        if encoding:
+            return str(b, encoding)
+        return str(b)
 
     @staticmethod
     def parse_headers_str(s):
@@ -159,6 +191,7 @@ class Server:
                 if not content_type:
                     mime = magic.Magic(mime=True)
                     content_type = mime.from_file(destination)
+                logging.info(f'{destination} type {content_type}')
                 return self.send_file(req, destination, content_type)
         raise Errors.NOT_FOUND
 
@@ -176,13 +209,31 @@ class Server:
         return Response(200, 'OK', headers, body)
 
     def send_response(self, connection, res):
-        with connection.makefile('wb') as file:
-            file.write(self.status_to_str(res).encode('utf-8'))
-            file.write(self.headers_to_str(res).encode('utf-8'))
-            file.write(b'\r\n')
-            if res.body:
-                file.write(res.body)
-            file.flush()
+        contents = b''.join((
+            self.status_to_str(res).encode('utf-8'),
+            self.headers_to_str(res).encode('utf-8'),
+            b'\r\n',
+            res.body
+        ))
+        peer = connection.getpeername()
+        while contents:
+            try:
+                bytes_sent = connection.send(contents)
+                contents = contents[bytes_sent:]
+                logging.info(f'{bytes_sent}B sent to {peer}')
+            except socket.error as e:
+                # TODO ask about fixing this
+                if str(e) == "[Errno 35] Resource temporarily unavailable":
+                    logging.error('[Errno 35] Resource temporarily '
+                                  'unavailable Sleeping 0.1s')
+                    time.sleep(0.1)
+                elif str(e) == "[Errno 32] Broken pipe":
+                    msg = f'client stopped receiving {e}'
+                    logging.exception(msg)
+                    raise e
+                else:
+                    raise e
+        logging.info(f'File sent to {connection.getpeername()}')
 
     @staticmethod
     def headers_to_str(res):

@@ -1,7 +1,6 @@
 INFO:root:server is UP on 0.0.0.0:8000
-INFO:root:New client ('127.0.0.1', 53261)
-INFO:root:Got request from ('127.0.0.1', 53261) method: GET
-target: /mime/
+INFO:root:Got request from ('127.0.0.1', 50740) method: GET
+target: /1.png
 version: HTTP/1.1
 headers: Host: 0.0.0.0:8000
 Upgrade-Insecure-Requests: 1
@@ -13,24 +12,3291 @@ Connection: keep-alive
 
 
 file: <_io.BufferedReader name=-1>
-user: ('127.0.0.1', 53261)
-url: ParseResult(scheme='', netloc='', path='/mime/', params='', query='', fragment='')
-path: /mime/
+user: ('127.0.0.1', 50740)
+url: ParseResult(scheme='', netloc='', path='/1.png', params='', query='', fragment='')
+path: /1.png
 query: {}
-INFO:root:processing /mime/
+INFO:root:processing /1.png
 INFO:root:path found tmp/pictures/1.png
-INFO:root:type for /mime/
+INFO:root:type for /1.png
 INFO:root:Response status: 200
 reason: OK
-headers: [('Content-Type', 'text/txt'), ('Content-Disposition', 'inline; filename=1.png'), ('Content-Length', 383589)]
+headers: [('Content-Type', 'image/png'), ('Content-Disposition', 'inline; filename=1.png'), ('Content-Length', 383589)]
+body: b'\x89PNG\r\n\x1a\n\x00\x00\x00\rIHDR\x00\x00\x03 \x00\x00\x02X\x08\x06\x00\x00\x00\x9av\x82p\x00\x05\xda,IDATx^\xec\xbd\x07tSW\xbe\xef\xaf;\x93\xc0\xa4S\xd2HH2\x10B\x12\x08\xd5\xc6\xbd\xf7*\x17\xb9H\xb6d\x15\xcb\x92e\xd9r\xb7\xc1\x06L\xef\xa1\x97\x982@B1\xee\x15SC/\xee\xb6z\xb3\x8a\x8bd\xf5f\xd9\xa6\x85\xb7\x8f\x81\xdc\xcc\xdc\xf9\xaf\xbc\xfb\xbf\xef\xbd;wf\x7fX\xdf\xb5\x8f$\x97s$`\x9d\xcf\xfa\xed\xdf\xde(\x14\x04\x02\x81@ \x10\x08\x04\x02\x81@ \x10\x08\x04\x02\x81@ \x10\x08\x04\x02\x81@ \x10\x
+ERROR:root:client stopped receiving [Errno 32] Broken pipe
+Traceback (most recent call last):
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 238, in send_response
+    bytes_sent = connection.send(line)
+BrokenPipeError: [Errno 32] Broken pipe
+ERROR:root:[Errno 32] Broken pipe
+ERROR:root:[Errno 22] Invalid argument
+Traceback (most recent call last):
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 109, in serve_client
+    self.send_response(connection, res)
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 250, in send_response
+    raise e
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 238, in send_response
+    bytes_sent = connection.send(line)
+BrokenPipeError: [Errno 32] Broken pipe
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 328, in <module>
+    s.serve()
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 77, in serve
+    callback(key.fileobj, mask)
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 89, in _read
+    self.serve_client(sock)
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 112, in serve_client
+    self.send_error(connection, e)
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 126, in send_error
+    self.send_response(connection, res)
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 233, in send_response
+    peer = connection.getpeername()
+OSError: [Errno 22] Invalid argument
+INFO:root:server is DOWN
+INFO:root:server is UP on 0.0.0.0:8000
+INFO:root:Got request from ('127.0.0.1', 50749) method: GET
+target: /1.png
+version: HTTP/1.1
+headers: Host: 0.0.0.0:8000
+Upgrade-Insecure-Requests: 1
+Accept: text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8
+User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_1) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/13.0.3 Safari/605.1.15
+Accept-Language: en-us
+Accept-Encoding: gzip, deflate
+Connection: keep-alive
+
+
+file: <_io.BufferedReader name=-1>
+user: ('127.0.0.1', 50749)
+url: ParseResult(scheme='', netloc='', path='/1.png', params='', query='', fragment='')
+path: /1.png
+query: {}
+INFO:root:processing /1.png
+INFO:root:path found tmp/pictures/1.png
+INFO:root:type for /1.png
+INFO:root:Response status: 200
+reason: OK
+headers: [('Content-Type', 'image/png'), ('Content-Disposition', 'inline; filename=1.png'), ('Content-Length', 383589)]
+body: b'\x89PNG\r\n\x1a\n\x00\x00\x00\rIHDR\x00\x00\x03 \x00\x00\x02X\x08\x06\x00\x00\x00\x9av\x82p\x00\x05\xda,IDATx^\xec\xbd\x07tSW\xbe\xef\xaf;\x93\xc0\xa4S\xd2HH2\x10B\x12\x08\xd5\xc6\xbd\xf7*\x17\xb9H\xb6d\x15\xcb\x92e\xd9r\xb7\xc1\x06L\xef\xa1\x97\x982@B1\xee\x15SC/\xee\xb6z\xb3\x8a\x8bd\xf5f\xd9\xa6\x85\xb7\x8f\x81\xdc\xcc\xdc\xf9\xaf\xbc\xfb\xbf\xef\xbd;wf\x7fX\xdf\xb5\x8f$\x97s$`\x9d\xcf\xfa\xed\xdf\xde(\x14\x04\x02\x81@ \x10\x08\x04\x02\x81@ \x10\x08\x04\x02\x81@ \x10\x08\x04\x02\x81@ \x10\x
+ERROR:root:client stopped receiving [Errno 32] Broken pipe
+Traceback (most recent call last):
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 238, in send_response
+    bytes_sent = connection.send(line)
+BrokenPipeError: [Errno 32] Broken pipe
+ERROR:root:[Errno 32] Broken pipe
+Traceback (most recent call last):
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 109, in serve_client
+    self.send_response(connection, res)
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 250, in send_response
+    raise e
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 238, in send_response
+    bytes_sent = connection.send(line)
+BrokenPipeError: [Errno 32] Broken pipe
+ERROR:root:[Errno 22] Invalid argument
+Traceback (most recent call last):
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 109, in serve_client
+    self.send_response(connection, res)
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 250, in send_response
+    raise e
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 238, in send_response
+    bytes_sent = connection.send(line)
+BrokenPipeError: [Errno 32] Broken pipe
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 328, in <module>
+    s.serve()
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 77, in serve
+    callback(key.fileobj, mask)
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 89, in _read
+    self.serve_client(sock)
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 112, in serve_client
+    self.send_error(connection, e)
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 126, in send_error
+    self.send_response(connection, res)
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 233, in send_response
+    peer = connection.getpeername()
+OSError: [Errno 22] Invalid argument
+INFO:root:server is DOWN
+INFO:root:server is UP on 0.0.0.0:8000
+INFO:root:Got request from ('127.0.0.1', 50769) method: GET
+target: /1.png
+version: HTTP/1.1
+headers: Host: 0.0.0.0:8000
+Upgrade-Insecure-Requests: 1
+Accept: text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8
+User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_1) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/13.0.3 Safari/605.1.15
+Accept-Language: en-us
+Accept-Encoding: gzip, deflate
+Connection: keep-alive
+
+
+file: <_io.BufferedReader name=-1>
+user: ('127.0.0.1', 50769)
+url: ParseResult(scheme='', netloc='', path='/1.png', params='', query='', fragment='')
+path: /1.png
+query: {}
+INFO:root:processing /1.png
+INFO:root:path found tmp/pictures/1.png
+INFO:root:type for /1.png
+INFO:root:Response status: 200
+reason: OK
+headers: [('Content-Type', 'image/png'), ('Content-Disposition', 'inline; filename=1.png'), ('Content-Length', 383589)]
+body: b'\x89PNG\r\n\x1a\n\x00\x00\x00\rIHDR\x00\x00\x03 \x00\x00\x02X\x08\x06\x00\x00\x00\x9av\x82p\x00\x05\xda,IDATx^\xec\xbd\x07tSW\xbe\xef\xaf;\x93\xc0\xa4S\xd2HH2\x10B\x12\x08\xd5\xc6\xbd\xf7*\x17\xb9H\xb6d\x15\xcb\x92e\xd9r\xb7\xc1\x06L\xef\xa1\x97\x982@B1\xee\x15SC/\xee\xb6z\xb3\x8a\x8bd\xf5f\xd9\xa6\x85\xb7\x8f\x81\xdc\xcc\xdc\xf9\xaf\xbc\xfb\xbf\xef\xbd;wf\x7fX\xdf\xb5\x8f$\x97s$`\x9d\xcf\xfa\xed\xdf\xde(\x14\x04\x02\x81@ \x10\x08\x04\x02\x81@ \x10\x08\x04\x02\x81@ \x10\x08\x04\x02\x81@ \x10\x
+INFO:root:Got request from ('127.0.0.1', 50770) method: GET
+target: /1.png
+version: HTTP/1.1
+headers: Host: 0.0.0.0:8000
+Upgrade-Insecure-Requests: 1
+Accept: text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8
+User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_1) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/13.0.3 Safari/605.1.15
+Accept-Language: en-us
+Accept-Encoding: gzip, deflate
+Connection: keep-alive
+
+
+file: <_io.BufferedReader name=-1>
+user: ('127.0.0.1', 50770)
+url: ParseResult(scheme='', netloc='', path='/1.png', params='', query='', fragment='')
+path: /1.png
+query: {}
+INFO:root:processing /1.png
+INFO:root:path found tmp/pictures/1.png
+INFO:root:type for /1.png
+INFO:root:Response status: 200
+reason: OK
+headers: [('Content-Type', 'image/png'), ('Content-Disposition', 'inline; filename=1.png'), ('Content-Length', 383589)]
+body: b'\x89PNG\r\n\x1a\n\x00\x00\x00\rIHDR\x00\x00\x03 \x00\x00\x02X\x08\x06\x00\x00\x00\x9av\x82p\x00\x05\xda,IDATx^\xec\xbd\x07tSW\xbe\xef\xaf;\x93\xc0\xa4S\xd2HH2\x10B\x12\x08\xd5\xc6\xbd\xf7*\x17\xb9H\xb6d\x15\xcb\x92e\xd9r\xb7\xc1\x06L\xef\xa1\x97\x982@B1\xee\x15SC/\xee\xb6z\xb3\x8a\x8bd\xf5f\xd9\xa6\x85\xb7\x8f\x81\xdc\xcc\xdc\xf9\xaf\xbc\xfb\xbf\xef\xbd;wf\x7fX\xdf\xb5\x8f$\x97s$`\x9d\xcf\xfa\xed\xdf\xde(\x14\x04\x02\x81@ \x10\x08\x04\x02\x81@ \x10\x08\x04\x02\x81@ \x10\x08\x04\x02\x81@ \x10\x
+INFO:root:Got request from ('127.0.0.1', 50771) method: GET
+target: /1.png
+version: HTTP/1.1
+headers: Host: 0.0.0.0:8000
+Upgrade-Insecure-Requests: 1
+Accept: text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8
+User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_1) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/13.0.3 Safari/605.1.15
+Accept-Language: en-us
+Accept-Encoding: gzip, deflate
+Connection: keep-alive
+
+
+file: <_io.BufferedReader name=-1>
+user: ('127.0.0.1', 50771)
+url: ParseResult(scheme='', netloc='', path='/1.png', params='', query='', fragment='')
+path: /1.png
+query: {}
+INFO:root:processing /1.png
+INFO:root:path found tmp/pictures/1.png
+INFO:root:type for /1.png
+INFO:root:Response status: 200
+reason: OK
+headers: [('Content-Type', 'image/png'), ('Content-Disposition', 'inline; filename=1.png'), ('Content-Length', 383589)]
 body: b'\x89PNG\r\n\x1a\n\x00\x00\x00\rIHDR\x00\x00\x03 \x00\x00\x02X\x08\x06\x00\x00\x00\x9av\x82p\x00\x05\xda,IDATx^\xec\xbd\x07tSW\xbe\xef\xaf;\x93\xc0\xa4S\xd2HH2\x10B\x12\x08\xd5\xc6\xbd\xf7*\x17\xb9H\xb6d\x15\xcb\x92e\xd9r\xb7\xc1\x06L\xef\xa1\x97\x982@B1\xee\x15SC/\xee\xb6z\xb3\x8a\x8bd\xf5f\xd9\xa6\x85\xb7\x8f\x81\xdc\xcc\xdc\xf9\xaf\xbc\xfb\xbf\xef\xbd;wf\x7fX\xdf\xb5\x8f$\x97s$`\x9d\xcf\xfa\xed\xdf\xde(\x14\x04\x02\x81@ \x10\x08\x04\x02\x81@ \x10\x08\x04\x02\x81@ \x10\x08\x04\x02\x81@ \x10\x
 ERROR:root:
 Traceback (most recent call last):
-  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 251, in <module>
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 331, in <module>
     s.serve()
-  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 60, in serve
-    connection, ip = self.server.accept()
-  File "/usr/local/Cellar/python/3.7.4_1/Frameworks/Python.framework/Versions/3.7/lib/python3.7/socket.py", line 212, in accept
-    fd, addr = self._accept()
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 75, in serve
+    for key, mask in self.poller.select():
+  File "/usr/local/Cellar/python/3.7.4_1/Frameworks/Python.framework/Versions/3.7/lib/python3.7/selectors.py", line 558, in select
+    kev_list = self._selector.control(None, max_ev, timeout)
 KeyboardInterrupt
 INFO:root:server is DOWN
+INFO:root:server is UP on 0.0.0.0:8000
+INFO:root:Got request from ('127.0.0.1', 50779) method: GET
+target: /1.png
+version: HTTP/1.1
+headers: Host: 0.0.0.0:8000
+Upgrade-Insecure-Requests: 1
+Accept: text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8
+User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_1) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/13.0.3 Safari/605.1.15
+Accept-Language: en-us
+Accept-Encoding: gzip, deflate
+Connection: keep-alive
+
+
+file: <_io.BufferedReader name=-1>
+user: ('127.0.0.1', 50779)
+url: ParseResult(scheme='', netloc='', path='/1.png', params='', query='', fragment='')
+path: /1.png
+query: {}
+INFO:root:processing /1.png
+INFO:root:path found tmp/pictures/1.png
+INFO:root:type for /1.png
+INFO:root:Response status: 200
+reason: OK
+headers: [('Content-Type', 'image/png'), ('Content-Disposition', 'inline; filename=1.png'), ('Content-Length', 383589)]
+body: b'\x89PNG\r\n\x1a\n\x00\x00\x00\rIHDR\x00\x00\x03 \x00\x00\x02X\x08\x06\x00\x00\x00\x9av\x82p\x00\x05\xda,IDATx^\xec\xbd\x07tSW\xbe\xef\xaf;\x93\xc0\xa4S\xd2HH2\x10B\x12\x08\xd5\xc6\xbd\xf7*\x17\xb9H\xb6d\x15\xcb\x92e\xd9r\xb7\xc1\x06L\xef\xa1\x97\x982@B1\xee\x15SC/\xee\xb6z\xb3\x8a\x8bd\xf5f\xd9\xa6\x85\xb7\x8f\x81\xdc\xcc\xdc\xf9\xaf\xbc\xfb\xbf\xef\xbd;wf\x7fX\xdf\xb5\x8f$\x97s$`\x9d\xcf\xfa\xed\xdf\xde(\x14\x04\x02\x81@ \x10\x08\x04\x02\x81@ \x10\x08\x04\x02\x81@ \x10\x08\x04\x02\x81@ \x10\x
+INFO:root:Got request from ('127.0.0.1', 50781) method: GET
+target: /1.png
+version: HTTP/1.1
+headers: Host: 0.0.0.0:8000
+Upgrade-Insecure-Requests: 1
+Accept: text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8
+User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_1) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/13.0.3 Safari/605.1.15
+Accept-Language: en-us
+Accept-Encoding: gzip, deflate
+Connection: keep-alive
+
+
+file: <_io.BufferedReader name=-1>
+user: ('127.0.0.1', 50781)
+url: ParseResult(scheme='', netloc='', path='/1.png', params='', query='', fragment='')
+path: /1.png
+query: {}
+INFO:root:processing /1.png
+INFO:root:path found tmp/pictures/1.png
+INFO:root:type for /1.png
+INFO:root:Response status: 200
+reason: OK
+headers: [('Content-Type', 'image/png'), ('Content-Disposition', 'inline; filename=1.png'), ('Content-Length', 383589)]
+body: b'\x89PNG\r\n\x1a\n\x00\x00\x00\rIHDR\x00\x00\x03 \x00\x00\x02X\x08\x06\x00\x00\x00\x9av\x82p\x00\x05\xda,IDATx^\xec\xbd\x07tSW\xbe\xef\xaf;\x93\xc0\xa4S\xd2HH2\x10B\x12\x08\xd5\xc6\xbd\xf7*\x17\xb9H\xb6d\x15\xcb\x92e\xd9r\xb7\xc1\x06L\xef\xa1\x97\x982@B1\xee\x15SC/\xee\xb6z\xb3\x8a\x8bd\xf5f\xd9\xa6\x85\xb7\x8f\x81\xdc\xcc\xdc\xf9\xaf\xbc\xfb\xbf\xef\xbd;wf\x7fX\xdf\xb5\x8f$\x97s$`\x9d\xcf\xfa\xed\xdf\xde(\x14\x04\x02\x81@ \x10\x08\x04\x02\x81@ \x10\x08\x04\x02\x81@ \x10\x08\x04\x02\x81@ \x10\x
+INFO:root:Got request from ('127.0.0.1', 50782) method: GET
+target: /1.png
+version: HTTP/1.1
+headers: Host: 0.0.0.0:8000
+Upgrade-Insecure-Requests: 1
+Accept: text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8
+User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_1) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/13.0.3 Safari/605.1.15
+Accept-Language: en-us
+Accept-Encoding: gzip, deflate
+Connection: keep-alive
+
+
+file: <_io.BufferedReader name=-1>
+user: ('127.0.0.1', 50782)
+url: ParseResult(scheme='', netloc='', path='/1.png', params='', query='', fragment='')
+path: /1.png
+query: {}
+INFO:root:processing /1.png
+INFO:root:path found tmp/pictures/1.png
+INFO:root:type for /1.png
+INFO:root:Response status: 200
+reason: OK
+headers: [('Content-Type', 'image/png'), ('Content-Disposition', 'inline; filename=1.png'), ('Content-Length', 383589)]
+body: b'\x89PNG\r\n\x1a\n\x00\x00\x00\rIHDR\x00\x00\x03 \x00\x00\x02X\x08\x06\x00\x00\x00\x9av\x82p\x00\x05\xda,IDATx^\xec\xbd\x07tSW\xbe\xef\xaf;\x93\xc0\xa4S\xd2HH2\x10B\x12\x08\xd5\xc6\xbd\xf7*\x17\xb9H\xb6d\x15\xcb\x92e\xd9r\xb7\xc1\x06L\xef\xa1\x97\x982@B1\xee\x15SC/\xee\xb6z\xb3\x8a\x8bd\xf5f\xd9\xa6\x85\xb7\x8f\x81\xdc\xcc\xdc\xf9\xaf\xbc\xfb\xbf\xef\xbd;wf\x7fX\xdf\xb5\x8f$\x97s$`\x9d\xcf\xfa\xed\xdf\xde(\x14\x04\x02\x81@ \x10\x08\x04\x02\x81@ \x10\x08\x04\x02\x81@ \x10\x08\x04\x02\x81@ \x10\x
+ERROR:root:
+Traceback (most recent call last):
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 331, in <module>
+    s.serve()
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 75, in serve
+    for key, mask in self.poller.select():
+  File "/usr/local/Cellar/python/3.7.4_1/Frameworks/Python.framework/Versions/3.7/lib/python3.7/selectors.py", line 558, in select
+    kev_list = self._selector.control(None, max_ev, timeout)
+KeyboardInterrupt
+INFO:root:server is DOWN
+INFO:root:server is UP on 0.0.0.0:8000
+INFO:root:Got request from ('127.0.0.1', 50790) method: GET
+target: /1.png
+version: HTTP/1.1
+headers: Host: 0.0.0.0:8000
+Upgrade-Insecure-Requests: 1
+Accept: text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8
+User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_1) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/13.0.3 Safari/605.1.15
+Accept-Language: en-us
+Accept-Encoding: gzip, deflate
+Connection: keep-alive
+
+
+file: <_io.BufferedReader name=-1>
+user: ('127.0.0.1', 50790)
+url: ParseResult(scheme='', netloc='', path='/1.png', params='', query='', fragment='')
+path: /1.png
+query: {}
+INFO:root:processing /1.png
+INFO:root:path found tmp/pictures/1.png
+INFO:root:type for /1.png
+INFO:root:Response status: 200
+reason: OK
+headers: [('Content-Type', 'image/png'), ('Content-Disposition', 'inline; filename=1.png'), ('Content-Length', 383589)]
+body: b'\x89PNG\r\n\x1a\n\x00\x00\x00\rIHDR\x00\x00\x03 \x00\x00\x02X\x08\x06\x00\x00\x00\x9av\x82p\x00\x05\xda,IDATx^\xec\xbd\x07tSW\xbe\xef\xaf;\x93\xc0\xa4S\xd2HH2\x10B\x12\x08\xd5\xc6\xbd\xf7*\x17\xb9H\xb6d\x15\xcb\x92e\xd9r\xb7\xc1\x06L\xef\xa1\x97\x982@B1\xee\x15SC/\xee\xb6z\xb3\x8a\x8bd\xf5f\xd9\xa6\x85\xb7\x8f\x81\xdc\xcc\xdc\xf9\xaf\xbc\xfb\xbf\xef\xbd;wf\x7fX\xdf\xb5\x8f$\x97s$`\x9d\xcf\xfa\xed\xdf\xde(\x14\x04\x02\x81@ \x10\x08\x04\x02\x81@ \x10\x08\x04\x02\x81@ \x10\x08\x04\x02\x81@ \x10\x
+ERROR:root:
+Traceback (most recent call last):
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 331, in <module>
+    s.serve()
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 75, in serve
+    for key, mask in self.poller.select():
+  File "/usr/local/Cellar/python/3.7.4_1/Frameworks/Python.framework/Versions/3.7/lib/python3.7/selectors.py", line 558, in select
+    kev_list = self._selector.control(None, max_ev, timeout)
+KeyboardInterrupt
+INFO:root:server is DOWN
+INFO:root:server is UP on 0.0.0.0:8000
+INFO:root:Threaded client serving started ('127.0.0.1', 50800)
+INFO:root:Got request from ('127.0.0.1', 50800) method: GET
+target: /1.png
+version: HTTP/1.1
+headers: Host: 0.0.0.0:8000
+Upgrade-Insecure-Requests: 1
+Accept: text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8
+User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_1) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/13.0.3 Safari/605.1.15
+Accept-Language: en-us
+Accept-Encoding: gzip, deflate
+Connection: keep-alive
+
+
+file: <_io.BufferedReader name=-1>
+user: ('127.0.0.1', 50800)
+url: ParseResult(scheme='', netloc='', path='/1.png', params='', query='', fragment='')
+path: /1.png
+query: {}
+INFO:root:processing /1.png
+INFO:root:path found tmp/pictures/1.png
+INFO:root:type for /1.png
+INFO:root:Response status: 200
+reason: OK
+headers: [('Content-Type', 'image/png'), ('Content-Disposition', 'inline; filename=1.png'), ('Content-Length', 383589)]
+body: b'\x89PNG\r\n\x1a\n\x00\x00\x00\rIHDR\x00\x00\x03 \x00\x00\x02X\x08\x06\x00\x00\x00\x9av\x82p\x00\x05\xda,IDATx^\xec\xbd\x07tSW\xbe\xef\xaf;\x93\xc0\xa4S\xd2HH2\x10B\x12\x08\xd5\xc6\xbd\xf7*\x17\xb9H\xb6d\x15\xcb\x92e\xd9r\xb7\xc1\x06L\xef\xa1\x97\x982@B1\xee\x15SC/\xee\xb6z\xb3\x8a\x8bd\xf5f\xd9\xa6\x85\xb7\x8f\x81\xdc\xcc\xdc\xf9\xaf\xbc\xfb\xbf\xef\xbd;wf\x7fX\xdf\xb5\x8f$\x97s$`\x9d\xcf\xfa\xed\xdf\xde(\x14\x04\x02\x81@ \x10\x08\x04\x02\x81@ \x10\x08\x04\x02\x81@ \x10\x08\x04\x02\x81@ \x10\x
+INFO:root:Threaded client serving started ('127.0.0.1', 50802)
+INFO:root:Got request from ('127.0.0.1', 50802) method: GET
+target: /1.png
+version: HTTP/1.1
+headers: Host: 0.0.0.0:8000
+Upgrade-Insecure-Requests: 1
+Accept: text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8
+User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_1) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/13.0.3 Safari/605.1.15
+Accept-Language: en-us
+Accept-Encoding: gzip, deflate
+Connection: keep-alive
+
+
+file: <_io.BufferedReader name=-1>
+user: ('127.0.0.1', 50802)
+url: ParseResult(scheme='', netloc='', path='/1.png', params='', query='', fragment='')
+path: /1.png
+query: {}
+INFO:root:processing /1.png
+INFO:root:path found tmp/pictures/1.png
+INFO:root:type for /1.png
+INFO:root:Response status: 200
+reason: OK
+headers: [('Content-Type', 'image/png'), ('Content-Disposition', 'inline; filename=1.png'), ('Content-Length', 383589)]
+body: b'\x89PNG\r\n\x1a\n\x00\x00\x00\rIHDR\x00\x00\x03 \x00\x00\x02X\x08\x06\x00\x00\x00\x9av\x82p\x00\x05\xda,IDATx^\xec\xbd\x07tSW\xbe\xef\xaf;\x93\xc0\xa4S\xd2HH2\x10B\x12\x08\xd5\xc6\xbd\xf7*\x17\xb9H\xb6d\x15\xcb\x92e\xd9r\xb7\xc1\x06L\xef\xa1\x97\x982@B1\xee\x15SC/\xee\xb6z\xb3\x8a\x8bd\xf5f\xd9\xa6\x85\xb7\x8f\x81\xdc\xcc\xdc\xf9\xaf\xbc\xfb\xbf\xef\xbd;wf\x7fX\xdf\xb5\x8f$\x97s$`\x9d\xcf\xfa\xed\xdf\xde(\x14\x04\x02\x81@ \x10\x08\x04\x02\x81@ \x10\x08\x04\x02\x81@ \x10\x08\x04\x02\x81@ \x10\x
+INFO:root:Threaded client serving started ('127.0.0.1', 50803)
+INFO:root:Got request from ('127.0.0.1', 50803) method: GET
+target: /1.png
+version: HTTP/1.1
+headers: Host: 0.0.0.0:8000
+Upgrade-Insecure-Requests: 1
+Accept: text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8
+User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_1) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/13.0.3 Safari/605.1.15
+Accept-Language: en-us
+Accept-Encoding: gzip, deflate
+Connection: keep-alive
+
+
+file: <_io.BufferedReader name=-1>
+user: ('127.0.0.1', 50803)
+url: ParseResult(scheme='', netloc='', path='/1.png', params='', query='', fragment='')
+path: /1.png
+query: {}
+INFO:root:processing /1.png
+INFO:root:path found tmp/pictures/1.png
+INFO:root:type for /1.png
+INFO:root:Response status: 200
+reason: OK
+headers: [('Content-Type', 'image/png'), ('Content-Disposition', 'inline; filename=1.png'), ('Content-Length', 383589)]
+body: b'\x89PNG\r\n\x1a\n\x00\x00\x00\rIHDR\x00\x00\x03 \x00\x00\x02X\x08\x06\x00\x00\x00\x9av\x82p\x00\x05\xda,IDATx^\xec\xbd\x07tSW\xbe\xef\xaf;\x93\xc0\xa4S\xd2HH2\x10B\x12\x08\xd5\xc6\xbd\xf7*\x17\xb9H\xb6d\x15\xcb\x92e\xd9r\xb7\xc1\x06L\xef\xa1\x97\x982@B1\xee\x15SC/\xee\xb6z\xb3\x8a\x8bd\xf5f\xd9\xa6\x85\xb7\x8f\x81\xdc\xcc\xdc\xf9\xaf\xbc\xfb\xbf\xef\xbd;wf\x7fX\xdf\xb5\x8f$\x97s$`\x9d\xcf\xfa\xed\xdf\xde(\x14\x04\x02\x81@ \x10\x08\x04\x02\x81@ \x10\x08\x04\x02\x81@ \x10\x08\x04\x02\x81@ \x10\x
+ERROR:root:
+Traceback (most recent call last):
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 332, in <module>
+    s.serve()
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 75, in serve
+    for key, mask in self.poller.select():
+  File "/usr/local/Cellar/python/3.7.4_1/Frameworks/Python.framework/Versions/3.7/lib/python3.7/selectors.py", line 558, in select
+    kev_list = self._selector.control(None, max_ev, timeout)
+KeyboardInterrupt
+INFO:root:server is DOWN
+INFO:root:server is UP on 0.0.0.0:8000
+INFO:root:Threaded client serving started ('127.0.0.1', 50807)
+INFO:root:Got request from ('127.0.0.1', 50807) method: GET
+target: /1.png
+version: HTTP/1.1
+headers: Host: 0.0.0.0:8000
+Upgrade-Insecure-Requests: 1
+Accept: text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8
+User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_1) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/13.0.3 Safari/605.1.15
+Accept-Language: en-us
+Accept-Encoding: gzip, deflate
+Connection: keep-alive
+
+
+file: <_io.BufferedReader name=-1>
+user: ('127.0.0.1', 50807)
+url: ParseResult(scheme='', netloc='', path='/1.png', params='', query='', fragment='')
+path: /1.png
+query: {}
+INFO:root:processing /1.png
+INFO:root:path found tmp/pictures/1.png
+INFO:root:type for /1.png
+INFO:root:Response status: 200
+reason: OK
+headers: [('Content-Type', 'image/png'), ('Content-Disposition', 'inline; filename=1.png'), ('Content-Length', 383589)]
+body: b'\x89PNG\r\n\x1a\n\x00\x00\x00\rIHDR\x00\x00\x03 \x00\x00\x02X\x08\x06\x00\x00\x00\x9av\x82p\x00\x05\xda,IDATx^\xec\xbd\x07tSW\xbe\xef\xaf;\x93\xc0\xa4S\xd2HH2\x10B\x12\x08\xd5\xc6\xbd\xf7*\x17\xb9H\xb6d\x15\xcb\x92e\xd9r\xb7\xc1\x06L\xef\xa1\x97\x982@B1\xee\x15SC/\xee\xb6z\xb3\x8a\x8bd\xf5f\xd9\xa6\x85\xb7\x8f\x81\xdc\xcc\xdc\xf9\xaf\xbc\xfb\xbf\xef\xbd;wf\x7fX\xdf\xb5\x8f$\x97s$`\x9d\xcf\xfa\xed\xdf\xde(\x14\x04\x02\x81@ \x10\x08\x04\x02\x81@ \x10\x08\x04\x02\x81@ \x10\x08\x04\x02\x81@ \x10\x
+INFO:root:Got request from ('127.0.0.1', 50810) method: GET
+target: /1.png
+version: HTTP/1.1
+headers: Host: 0.0.0.0:8000
+Upgrade-Insecure-Requests: 1
+Accept: text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8
+User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_1) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/13.0.3 Safari/605.1.15
+Accept-Language: en-us
+Accept-Encoding: gzip, deflate
+Connection: keep-alive
+
+
+file: <_io.BufferedReader name=-1>
+user: ('127.0.0.1', 50810)
+url: ParseResult(scheme='', netloc='', path='/1.png', params='', query='', fragment='')
+path: /1.png
+query: {}
+INFO:root:Threaded client serving started ('127.0.0.1', 50810)
+INFO:root:processing /1.png
+INFO:root:path found tmp/pictures/1.png
+INFO:root:type for /1.png
+INFO:root:Response status: 200
+reason: OK
+headers: [('Content-Type', 'image/png'), ('Content-Disposition', 'inline; filename=1.png'), ('Content-Length', 383589)]
+body: b'\x89PNG\r\n\x1a\n\x00\x00\x00\rIHDR\x00\x00\x03 \x00\x00\x02X\x08\x06\x00\x00\x00\x9av\x82p\x00\x05\xda,IDATx^\xec\xbd\x07tSW\xbe\xef\xaf;\x93\xc0\xa4S\xd2HH2\x10B\x12\x08\xd5\xc6\xbd\xf7*\x17\xb9H\xb6d\x15\xcb\x92e\xd9r\xb7\xc1\x06L\xef\xa1\x97\x982@B1\xee\x15SC/\xee\xb6z\xb3\x8a\x8bd\xf5f\xd9\xa6\x85\xb7\x8f\x81\xdc\xcc\xdc\xf9\xaf\xbc\xfb\xbf\xef\xbd;wf\x7fX\xdf\xb5\x8f$\x97s$`\x9d\xcf\xfa\xed\xdf\xde(\x14\x04\x02\x81@ \x10\x08\x04\x02\x81@ \x10\x08\x04\x02\x81@ \x10\x08\x04\x02\x81@ \x10\x
+INFO:root:Got request from ('127.0.0.1', 50811) method: GET
+target: /1.png
+version: HTTP/1.1
+headers: Host: 0.0.0.0:8000
+Upgrade-Insecure-Requests: 1
+Accept: text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8
+User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_1) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/13.0.3 Safari/605.1.15
+Accept-Language: en-us
+Accept-Encoding: gzip, deflate
+Connection: keep-alive
+
+
+file: <_io.BufferedReader name=-1>
+user: ('127.0.0.1', 50811)
+url: ParseResult(scheme='', netloc='', path='/1.png', params='', query='', fragment='')
+path: /1.png
+query: {}
+INFO:root:Threaded client serving started ('127.0.0.1', 50811)
+INFO:root:processing /1.png
+INFO:root:path found tmp/pictures/1.png
+INFO:root:type for /1.png
+INFO:root:Response status: 200
+reason: OK
+headers: [('Content-Type', 'image/png'), ('Content-Disposition', 'inline; filename=1.png'), ('Content-Length', 383589)]
+body: b'\x89PNG\r\n\x1a\n\x00\x00\x00\rIHDR\x00\x00\x03 \x00\x00\x02X\x08\x06\x00\x00\x00\x9av\x82p\x00\x05\xda,IDATx^\xec\xbd\x07tSW\xbe\xef\xaf;\x93\xc0\xa4S\xd2HH2\x10B\x12\x08\xd5\xc6\xbd\xf7*\x17\xb9H\xb6d\x15\xcb\x92e\xd9r\xb7\xc1\x06L\xef\xa1\x97\x982@B1\xee\x15SC/\xee\xb6z\xb3\x8a\x8bd\xf5f\xd9\xa6\x85\xb7\x8f\x81\xdc\xcc\xdc\xf9\xaf\xbc\xfb\xbf\xef\xbd;wf\x7fX\xdf\xb5\x8f$\x97s$`\x9d\xcf\xfa\xed\xdf\xde(\x14\x04\x02\x81@ \x10\x08\x04\x02\x81@ \x10\x08\x04\x02\x81@ \x10\x08\x04\x02\x81@ \x10\x
+INFO:root:Threaded client serving started ('127.0.0.1', 50820)
+INFO:root:Got request from ('127.0.0.1', 50820) method: GET
+target: /1.png
+version: HTTP/1.1
+headers: Host: 0.0.0.0:8000
+Upgrade-Insecure-Requests: 1
+Accept: text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8
+User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_1) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/13.0.3 Safari/605.1.15
+Accept-Language: en-us
+Accept-Encoding: gzip, deflate
+Connection: keep-alive
+
+
+file: <_io.BufferedReader name=-1>
+user: ('127.0.0.1', 50820)
+url: ParseResult(scheme='', netloc='', path='/1.png', params='', query='', fragment='')
+path: /1.png
+query: {}
+INFO:root:processing /1.png
+INFO:root:path found tmp/pictures/1.png
+INFO:root:type for /1.png
+INFO:root:Response status: 200
+reason: OK
+headers: [('Content-Type', 'image/png'), ('Content-Disposition', 'inline; filename=1.png'), ('Content-Length', 383589)]
+body: b'\x89PNG\r\n\x1a\n\x00\x00\x00\rIHDR\x00\x00\x03 \x00\x00\x02X\x08\x06\x00\x00\x00\x9av\x82p\x00\x05\xda,IDATx^\xec\xbd\x07tSW\xbe\xef\xaf;\x93\xc0\xa4S\xd2HH2\x10B\x12\x08\xd5\xc6\xbd\xf7*\x17\xb9H\xb6d\x15\xcb\x92e\xd9r\xb7\xc1\x06L\xef\xa1\x97\x982@B1\xee\x15SC/\xee\xb6z\xb3\x8a\x8bd\xf5f\xd9\xa6\x85\xb7\x8f\x81\xdc\xcc\xdc\xf9\xaf\xbc\xfb\xbf\xef\xbd;wf\x7fX\xdf\xb5\x8f$\x97s$`\x9d\xcf\xfa\xed\xdf\xde(\x14\x04\x02\x81@ \x10\x08\x04\x02\x81@ \x10\x08\x04\x02\x81@ \x10\x08\x04\x02\x81@ \x10\x
+INFO:root:Got request from ('127.0.0.1', 50821) method: GET
+target: /1.png
+version: HTTP/1.1
+headers: Host: 0.0.0.0:8000
+Upgrade-Insecure-Requests: 1
+Accept: text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8
+User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_1) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/13.0.3 Safari/605.1.15
+Accept-Language: en-us
+Accept-Encoding: gzip, deflate
+Connection: keep-alive
+
+
+file: <_io.BufferedReader name=-1>
+user: ('127.0.0.1', 50821)
+url: ParseResult(scheme='', netloc='', path='/1.png', params='', query='', fragment='')
+path: /1.png
+query: {}
+INFO:root:Threaded client serving started ('127.0.0.1', 50821)
+INFO:root:processing /1.png
+INFO:root:path found tmp/pictures/1.png
+INFO:root:type for /1.png
+INFO:root:Response status: 200
+reason: OK
+headers: [('Content-Type', 'image/png'), ('Content-Disposition', 'inline; filename=1.png'), ('Content-Length', 383589)]
+body: b'\x89PNG\r\n\x1a\n\x00\x00\x00\rIHDR\x00\x00\x03 \x00\x00\x02X\x08\x06\x00\x00\x00\x9av\x82p\x00\x05\xda,IDATx^\xec\xbd\x07tSW\xbe\xef\xaf;\x93\xc0\xa4S\xd2HH2\x10B\x12\x08\xd5\xc6\xbd\xf7*\x17\xb9H\xb6d\x15\xcb\x92e\xd9r\xb7\xc1\x06L\xef\xa1\x97\x982@B1\xee\x15SC/\xee\xb6z\xb3\x8a\x8bd\xf5f\xd9\xa6\x85\xb7\x8f\x81\xdc\xcc\xdc\xf9\xaf\xbc\xfb\xbf\xef\xbd;wf\x7fX\xdf\xb5\x8f$\x97s$`\x9d\xcf\xfa\xed\xdf\xde(\x14\x04\x02\x81@ \x10\x08\x04\x02\x81@ \x10\x08\x04\x02\x81@ \x10\x08\x04\x02\x81@ \x10\x
+INFO:root:Got request from ('127.0.0.1', 50824) method: GET
+target: /1.png
+version: HTTP/1.1
+headers: Host: 0.0.0.0:8000
+Upgrade-Insecure-Requests: 1
+Accept: text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8
+User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_1) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/13.0.3 Safari/605.1.15
+Accept-Language: en-us
+Accept-Encoding: gzip, deflate
+Connection: keep-alive
+
+
+file: <_io.BufferedReader name=-1>
+user: ('127.0.0.1', 50824)
+url: ParseResult(scheme='', netloc='', path='/1.png', params='', query='', fragment='')
+path: /1.png
+query: {}
+INFO:root:Threaded client serving started ('127.0.0.1', 50824)
+INFO:root:processing /1.png
+INFO:root:path found tmp/pictures/1.png
+INFO:root:type for /1.png
+INFO:root:Response status: 200
+reason: OK
+headers: [('Content-Type', 'image/png'), ('Content-Disposition', 'inline; filename=1.png'), ('Content-Length', 383589)]
+body: b'\x89PNG\r\n\x1a\n\x00\x00\x00\rIHDR\x00\x00\x03 \x00\x00\x02X\x08\x06\x00\x00\x00\x9av\x82p\x00\x05\xda,IDATx^\xec\xbd\x07tSW\xbe\xef\xaf;\x93\xc0\xa4S\xd2HH2\x10B\x12\x08\xd5\xc6\xbd\xf7*\x17\xb9H\xb6d\x15\xcb\x92e\xd9r\xb7\xc1\x06L\xef\xa1\x97\x982@B1\xee\x15SC/\xee\xb6z\xb3\x8a\x8bd\xf5f\xd9\xa6\x85\xb7\x8f\x81\xdc\xcc\xdc\xf9\xaf\xbc\xfb\xbf\xef\xbd;wf\x7fX\xdf\xb5\x8f$\x97s$`\x9d\xcf\xfa\xed\xdf\xde(\x14\x04\x02\x81@ \x10\x08\x04\x02\x81@ \x10\x08\x04\x02\x81@ \x10\x08\x04\x02\x81@ \x10\x
+INFO:root:Got request from ('127.0.0.1', 50825) method: GET
+target: /1.png
+version: HTTP/1.1
+headers: Host: 0.0.0.0:8000
+Upgrade-Insecure-Requests: 1
+Accept: text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8
+User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_1) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/13.0.3 Safari/605.1.15
+Accept-Language: en-us
+Accept-Encoding: gzip, deflate
+Connection: keep-alive
+
+
+file: <_io.BufferedReader name=-1>
+user: ('127.0.0.1', 50825)
+url: ParseResult(scheme='', netloc='', path='/1.png', params='', query='', fragment='')
+path: /1.png
+query: {}
+INFO:root:Threaded client serving started ('127.0.0.1', 50825)
+INFO:root:processing /1.png
+INFO:root:path found tmp/pictures/1.png
+INFO:root:type for /1.png
+INFO:root:Response status: 200
+reason: OK
+headers: [('Content-Type', 'image/png'), ('Content-Disposition', 'inline; filename=1.png'), ('Content-Length', 383589)]
+body: b'\x89PNG\r\n\x1a\n\x00\x00\x00\rIHDR\x00\x00\x03 \x00\x00\x02X\x08\x06\x00\x00\x00\x9av\x82p\x00\x05\xda,IDATx^\xec\xbd\x07tSW\xbe\xef\xaf;\x93\xc0\xa4S\xd2HH2\x10B\x12\x08\xd5\xc6\xbd\xf7*\x17\xb9H\xb6d\x15\xcb\x92e\xd9r\xb7\xc1\x06L\xef\xa1\x97\x982@B1\xee\x15SC/\xee\xb6z\xb3\x8a\x8bd\xf5f\xd9\xa6\x85\xb7\x8f\x81\xdc\xcc\xdc\xf9\xaf\xbc\xfb\xbf\xef\xbd;wf\x7fX\xdf\xb5\x8f$\x97s$`\x9d\xcf\xfa\xed\xdf\xde(\x14\x04\x02\x81@ \x10\x08\x04\x02\x81@ \x10\x08\x04\x02\x81@ \x10\x08\x04\x02\x81@ \x10\x
+INFO:root:Got request from ('127.0.0.1', 50826) method: GET
+target: /1.png
+version: HTTP/1.1
+headers: Host: 0.0.0.0:8000
+Upgrade-Insecure-Requests: 1
+Accept: text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8
+User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_1) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/13.0.3 Safari/605.1.15
+Accept-Language: en-us
+Accept-Encoding: gzip, deflate
+Connection: keep-alive
+
+
+file: <_io.BufferedReader name=-1>
+user: ('127.0.0.1', 50826)
+url: ParseResult(scheme='', netloc='', path='/1.png', params='', query='', fragment='')
+path: /1.png
+query: {}
+INFO:root:Threaded client serving started ('127.0.0.1', 50826)
+INFO:root:processing /1.png
+INFO:root:path found tmp/pictures/1.png
+INFO:root:type for /1.png
+INFO:root:Response status: 200
+reason: OK
+headers: [('Content-Type', 'image/png'), ('Content-Disposition', 'inline; filename=1.png'), ('Content-Length', 383589)]
+body: b'\x89PNG\r\n\x1a\n\x00\x00\x00\rIHDR\x00\x00\x03 \x00\x00\x02X\x08\x06\x00\x00\x00\x9av\x82p\x00\x05\xda,IDATx^\xec\xbd\x07tSW\xbe\xef\xaf;\x93\xc0\xa4S\xd2HH2\x10B\x12\x08\xd5\xc6\xbd\xf7*\x17\xb9H\xb6d\x15\xcb\x92e\xd9r\xb7\xc1\x06L\xef\xa1\x97\x982@B1\xee\x15SC/\xee\xb6z\xb3\x8a\x8bd\xf5f\xd9\xa6\x85\xb7\x8f\x81\xdc\xcc\xdc\xf9\xaf\xbc\xfb\xbf\xef\xbd;wf\x7fX\xdf\xb5\x8f$\x97s$`\x9d\xcf\xfa\xed\xdf\xde(\x14\x04\x02\x81@ \x10\x08\x04\x02\x81@ \x10\x08\x04\x02\x81@ \x10\x08\x04\x02\x81@ \x10\x
+INFO:root:Got request from ('127.0.0.1', 50827) method: GET
+target: /1.png
+version: HTTP/1.1
+headers: Host: 0.0.0.0:8000
+Upgrade-Insecure-Requests: 1
+Accept: text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8
+User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_1) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/13.0.3 Safari/605.1.15
+Accept-Language: en-us
+Accept-Encoding: gzip, deflate
+Connection: keep-alive
+
+
+file: <_io.BufferedReader name=-1>
+user: ('127.0.0.1', 50827)
+url: ParseResult(scheme='', netloc='', path='/1.png', params='', query='', fragment='')
+path: /1.png
+query: {}
+INFO:root:Threaded client serving started ('127.0.0.1', 50827)
+INFO:root:processing /1.png
+INFO:root:path found tmp/pictures/1.png
+INFO:root:type for /1.png
+INFO:root:Response status: 200
+reason: OK
+headers: [('Content-Type', 'image/png'), ('Content-Disposition', 'inline; filename=1.png'), ('Content-Length', 383589)]
+body: b'\x89PNG\r\n\x1a\n\x00\x00\x00\rIHDR\x00\x00\x03 \x00\x00\x02X\x08\x06\x00\x00\x00\x9av\x82p\x00\x05\xda,IDATx^\xec\xbd\x07tSW\xbe\xef\xaf;\x93\xc0\xa4S\xd2HH2\x10B\x12\x08\xd5\xc6\xbd\xf7*\x17\xb9H\xb6d\x15\xcb\x92e\xd9r\xb7\xc1\x06L\xef\xa1\x97\x982@B1\xee\x15SC/\xee\xb6z\xb3\x8a\x8bd\xf5f\xd9\xa6\x85\xb7\x8f\x81\xdc\xcc\xdc\xf9\xaf\xbc\xfb\xbf\xef\xbd;wf\x7fX\xdf\xb5\x8f$\x97s$`\x9d\xcf\xfa\xed\xdf\xde(\x14\x04\x02\x81@ \x10\x08\x04\x02\x81@ \x10\x08\x04\x02\x81@ \x10\x08\x04\x02\x81@ \x10\x
+INFO:root:Got request from ('127.0.0.1', 50828) method: GET
+target: /1.png
+version: HTTP/1.1
+headers: Host: 0.0.0.0:8000
+Upgrade-Insecure-Requests: 1
+Accept: text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8
+User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_1) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/13.0.3 Safari/605.1.15
+Accept-Language: en-us
+Accept-Encoding: gzip, deflate
+Connection: keep-alive
+
+
+file: <_io.BufferedReader name=-1>
+user: ('127.0.0.1', 50828)
+url: ParseResult(scheme='', netloc='', path='/1.png', params='', query='', fragment='')
+path: /1.png
+query: {}
+INFO:root:Threaded client serving started ('127.0.0.1', 50828)
+INFO:root:processing /1.png
+INFO:root:path found tmp/pictures/1.png
+INFO:root:type for /1.png
+INFO:root:Response status: 200
+reason: OK
+headers: [('Content-Type', 'image/png'), ('Content-Disposition', 'inline; filename=1.png'), ('Content-Length', 383589)]
+body: b'\x89PNG\r\n\x1a\n\x00\x00\x00\rIHDR\x00\x00\x03 \x00\x00\x02X\x08\x06\x00\x00\x00\x9av\x82p\x00\x05\xda,IDATx^\xec\xbd\x07tSW\xbe\xef\xaf;\x93\xc0\xa4S\xd2HH2\x10B\x12\x08\xd5\xc6\xbd\xf7*\x17\xb9H\xb6d\x15\xcb\x92e\xd9r\xb7\xc1\x06L\xef\xa1\x97\x982@B1\xee\x15SC/\xee\xb6z\xb3\x8a\x8bd\xf5f\xd9\xa6\x85\xb7\x8f\x81\xdc\xcc\xdc\xf9\xaf\xbc\xfb\xbf\xef\xbd;wf\x7fX\xdf\xb5\x8f$\x97s$`\x9d\xcf\xfa\xed\xdf\xde(\x14\x04\x02\x81@ \x10\x08\x04\x02\x81@ \x10\x08\x04\x02\x81@ \x10\x08\x04\x02\x81@ \x10\x
+INFO:root:Threaded client serving started ('127.0.0.1', 50831)
+INFO:root:Got request from ('127.0.0.1', 50831) method: GET
+target: /1.png
+version: HTTP/1.1
+headers: Host: 0.0.0.0:8000
+Upgrade-Insecure-Requests: 1
+Accept: text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8
+User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_1) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/13.0.3 Safari/605.1.15
+Accept-Language: en-us
+Accept-Encoding: gzip, deflate
+Connection: keep-alive
+
+
+file: <_io.BufferedReader name=-1>
+user: ('127.0.0.1', 50831)
+url: ParseResult(scheme='', netloc='', path='/1.png', params='', query='', fragment='')
+path: /1.png
+query: {}
+INFO:root:processing /1.png
+INFO:root:path found tmp/pictures/1.png
+INFO:root:type for /1.png
+INFO:root:Response status: 200
+reason: OK
+headers: [('Content-Type', 'image/png'), ('Content-Disposition', 'inline; filename=1.png'), ('Content-Length', 383589)]
+body: b'\x89PNG\r\n\x1a\n\x00\x00\x00\rIHDR\x00\x00\x03 \x00\x00\x02X\x08\x06\x00\x00\x00\x9av\x82p\x00\x05\xda,IDATx^\xec\xbd\x07tSW\xbe\xef\xaf;\x93\xc0\xa4S\xd2HH2\x10B\x12\x08\xd5\xc6\xbd\xf7*\x17\xb9H\xb6d\x15\xcb\x92e\xd9r\xb7\xc1\x06L\xef\xa1\x97\x982@B1\xee\x15SC/\xee\xb6z\xb3\x8a\x8bd\xf5f\xd9\xa6\x85\xb7\x8f\x81\xdc\xcc\xdc\xf9\xaf\xbc\xfb\xbf\xef\xbd;wf\x7fX\xdf\xb5\x8f$\x97s$`\x9d\xcf\xfa\xed\xdf\xde(\x14\x04\x02\x81@ \x10\x08\x04\x02\x81@ \x10\x08\x04\x02\x81@ \x10\x08\x04\x02\x81@ \x10\x
+INFO:root:Got request from ('127.0.0.1', 50835) method: GET
+target: /1.png
+version: HTTP/1.1
+headers: Host: 0.0.0.0:8000
+Upgrade-Insecure-Requests: 1
+Accept: text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8
+User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_1) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/13.0.3 Safari/605.1.15
+Accept-Language: en-us
+Accept-Encoding: gzip, deflate
+Connection: keep-alive
+
+
+file: <_io.BufferedReader name=-1>
+user: ('127.0.0.1', 50835)
+url: ParseResult(scheme='', netloc='', path='/1.png', params='', query='', fragment='')
+path: /1.png
+query: {}
+INFO:root:Threaded client serving started ('127.0.0.1', 50835)
+INFO:root:processing /1.png
+INFO:root:path found tmp/pictures/1.png
+INFO:root:type for /1.png
+INFO:root:Response status: 200
+reason: OK
+headers: [('Content-Type', 'image/png'), ('Content-Disposition', 'inline; filename=1.png'), ('Content-Length', 383589)]
+body: b'\x89PNG\r\n\x1a\n\x00\x00\x00\rIHDR\x00\x00\x03 \x00\x00\x02X\x08\x06\x00\x00\x00\x9av\x82p\x00\x05\xda,IDATx^\xec\xbd\x07tSW\xbe\xef\xaf;\x93\xc0\xa4S\xd2HH2\x10B\x12\x08\xd5\xc6\xbd\xf7*\x17\xb9H\xb6d\x15\xcb\x92e\xd9r\xb7\xc1\x06L\xef\xa1\x97\x982@B1\xee\x15SC/\xee\xb6z\xb3\x8a\x8bd\xf5f\xd9\xa6\x85\xb7\x8f\x81\xdc\xcc\xdc\xf9\xaf\xbc\xfb\xbf\xef\xbd;wf\x7fX\xdf\xb5\x8f$\x97s$`\x9d\xcf\xfa\xed\xdf\xde(\x14\x04\x02\x81@ \x10\x08\x04\x02\x81@ \x10\x08\x04\x02\x81@ \x10\x08\x04\x02\x81@ \x10\x
+INFO:root:Threaded client serving started ('127.0.0.1', 50836)
+INFO:root:Got request from ('127.0.0.1', 50836) method: GET
+target: /1
+version: HTTP/1.1
+headers: Host: 0.0.0.0:8000
+Upgrade-Insecure-Requests: 1
+Accept: text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8
+User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_1) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/13.0.3 Safari/605.1.15
+Accept-Language: en-us
+Accept-Encoding: gzip, deflate
+Connection: keep-alive
+
+
+file: <_io.BufferedReader name=-1>
+user: ('127.0.0.1', 50836)
+url: ParseResult(scheme='', netloc='', path='/1', params='', query='', fragment='')
+path: /1
+query: {}
+INFO:root:processing /1
+ERROR:root:(404, 'Not found')
+Traceback (most recent call last):
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 200, in handle_req
+    destination = self.ruler.get_destination(req.path, rules, True)
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/ruler.py", line 55, in get_destination
+    raise FileNotFoundError(url, rules)
+FileNotFoundError: [Errno /1] {'/': 'tmp/index.html', '/favicon.ico': 'tmp/pictures/favicon.ico', '/index.html': 'tmp/index.html', '/2.html': 'tmp/pages/2.html', '/1.2.3.txt': 'tmp/1.2.3.txt', '/[name].html': 'tmp/pages/[name].html', '/[name].css': 'tmp/pages/css/[name].css', '/[name].[ext]': 'tmp/pictures/[name].[ext]', '/png/[name].png': 'tmp/pictures/[name].png', '/pictures/[ext]/1': 'tmp/pictures/1.[ext]', '/[DD]/[MM]/[YY]': 'tmp/dates/[DD].[MM].[YY].png', '/mime/': {'path': 'tmp/pictures/1.png', 'mime': 'text/txt'}, '/big': {'path': 'tmp/pictures/chroma.jpg', 'mime': 'image/jpg'}}
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 111, in serve_client
+    res = self.handle_req(req)
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 202, in handle_req
+    raise Errors.NOT_FOUND
+Error: (404, 'Not found')
+ERROR:root:str() argument 2 must be str, not None
+Traceback (most recent call last):
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 109, in serve_client
+    req = self.parse_req_connection(connection)
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 139, in parse_req_connection
+    *self.parse_req_file(file), file, connection.getpeername())
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 146, in parse_req_file
+    method, target, ver = self.parse_request_line(file)
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 160, in parse_request_line
+    req_line = (self.decode(raw))
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 189, in decode
+    return str(b, chardet.detect(b)['encoding'])
+TypeError: str() argument 2 must be str, not None
+ERROR:root:[Errno 22] Invalid argument
+Traceback (most recent call last):
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 332, in <module>
+    s.serve()
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 77, in serve
+    callback(key.fileobj, mask)
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 92, in _read
+    logging.info(f'Threaded client serving started {sock.getpeername()}')
+OSError: [Errno 22] Invalid argument
+ERROR:root:client stopped receiving [Errno 32] Broken pipe
+Traceback (most recent call last):
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 242, in send_response
+    bytes_sent = connection.send(line)
+BrokenPipeError: [Errno 32] Broken pipe
+ERROR:root:[Errno 32] Broken pipe
+Traceback (most recent call last):
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 113, in serve_client
+    self.send_response(connection, res)
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 254, in send_response
+    raise e
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 242, in send_response
+    bytes_sent = connection.send(line)
+BrokenPipeError: [Errno 32] Broken pipe
+INFO:root:server is DOWN
+INFO:root:server is UP on 0.0.0.0:8000
+INFO:root:Threaded client serving started ('127.0.0.1', 50846)
+INFO:root:Got request from ('127.0.0.1', 50846) method: GET
+target: /1.png
+version: HTTP/1.1
+headers: Host: 0.0.0.0:8000
+Upgrade-Insecure-Requests: 1
+Accept: text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8
+User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_1) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/13.0.3 Safari/605.1.15
+Accept-Language: en-us
+Accept-Encoding: gzip, deflate
+Connection: keep-alive
+
+
+file: <_io.BufferedReader name=-1>
+user: ('127.0.0.1', 50846)
+url: ParseResult(scheme='', netloc='', path='/1.png', params='', query='', fragment='')
+path: /1.png
+query: {}
+INFO:root:processing /1.png
+INFO:root:path found tmp/pictures/1.png
+INFO:root:type for /1.png
+INFO:root:Response status: 200
+reason: OK
+headers: [('Content-Type', 'image/png'), ('Content-Disposition', 'inline; filename=1.png'), ('Content-Length', 383589)]
+body: b'\x89PNG\r\n\x1a\n\x00\x00\x00\rIHDR\x00\x00\x03 \x00\x00\x02X\x08\x06\x00\x00\x00\x9av\x82p\x00\x05\xda,IDATx^\xec\xbd\x07tSW\xbe\xef\xaf;\x93\xc0\xa4S\xd2HH2\x10B\x12\x08\xd5\xc6\xbd\xf7*\x17\xb9H\xb6d\x15\xcb\x92e\xd9r\xb7\xc1\x06L\xef\xa1\x97\x982@B1\xee\x15SC/\xee\xb6z\xb3\x8a\x8bd\xf5f\xd9\xa6\x85\xb7\x8f\x81\xdc\xcc\xdc\xf9\xaf\xbc\xfb\xbf\xef\xbd;wf\x7fX\xdf\xb5\x8f$\x97s$`\x9d\xcf\xfa\xed\xdf\xde(\x14\x04\x02\x81@ \x10\x08\x04\x02\x81@ \x10\x08\x04\x02\x81@ \x10\x08\x04\x02\x81@ \x10\x
+INFO:root:Threaded client serving started ('127.0.0.1', 50856)
+INFO:root:Got request from ('127.0.0.1', 50856) method: GET
+target: /
+version: HTTP/1.1
+headers: Host: 0.0.0.0:8000
+Upgrade-Insecure-Requests: 1
+Accept: text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8
+User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_1) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/13.0.3 Safari/605.1.15
+Accept-Language: en-us
+Accept-Encoding: gzip, deflate
+Connection: keep-alive
+
+
+file: <_io.BufferedReader name=-1>
+user: ('127.0.0.1', 50856)
+url: ParseResult(scheme='', netloc='', path='/', params='', query='', fragment='')
+path: /
+query: {}
+INFO:root:processing /
+INFO:root:path found tmp/index.html
+INFO:root:type for /
+INFO:root:Response status: 200
+reason: OK
+headers: [('Content-Type', 'text/html'), ('Content-Disposition', 'inline; filename=index.html'), ('Content-Length', 156)]
+body: b'<!DOCTYPE html>\n<html lang="en">\n<head>\n    <meta charset="UTF-8">\n    <title>index.html</title>\n</head>\n<body>\n    <h1>Python Rule it!</h1>\n</body>\n</html>'
+INFO:root:Got request from ('127.0.0.1', 50857) method: GET
+target: /1.png
+version: HTTP/1.1
+headers: Host: 0.0.0.0:8000
+Upgrade-Insecure-Requests: 1
+Accept: text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8
+User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_1) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/13.0.3 Safari/605.1.15
+Accept-Language: en-us
+Accept-Encoding: gzip, deflate
+Connection: keep-alive
+
+
+file: <_io.BufferedReader name=-1>
+user: ('127.0.0.1', 50857)
+url: ParseResult(scheme='', netloc='', path='/1.png', params='', query='', fragment='')
+path: /1.png
+query: {}
+INFO:root:Threaded client serving started ('127.0.0.1', 50857)
+INFO:root:processing /1.png
+INFO:root:path found tmp/pictures/1.png
+INFO:root:type for /1.png
+INFO:root:Response status: 200
+reason: OK
+headers: [('Content-Type', 'image/png'), ('Content-Disposition', 'inline; filename=1.png'), ('Content-Length', 383589)]
+body: b'\x89PNG\r\n\x1a\n\x00\x00\x00\rIHDR\x00\x00\x03 \x00\x00\x02X\x08\x06\x00\x00\x00\x9av\x82p\x00\x05\xda,IDATx^\xec\xbd\x07tSW\xbe\xef\xaf;\x93\xc0\xa4S\xd2HH2\x10B\x12\x08\xd5\xc6\xbd\xf7*\x17\xb9H\xb6d\x15\xcb\x92e\xd9r\xb7\xc1\x06L\xef\xa1\x97\x982@B1\xee\x15SC/\xee\xb6z\xb3\x8a\x8bd\xf5f\xd9\xa6\x85\xb7\x8f\x81\xdc\xcc\xdc\xf9\xaf\xbc\xfb\xbf\xef\xbd;wf\x7fX\xdf\xb5\x8f$\x97s$`\x9d\xcf\xfa\xed\xdf\xde(\x14\x04\x02\x81@ \x10\x08\x04\x02\x81@ \x10\x08\x04\x02\x81@ \x10\x08\x04\x02\x81@ \x10\x
+INFO:root:Got request from ('127.0.0.1', 50858) method: GET
+target: /
+version: HTTP/1.1
+headers: Host: 0.0.0.0:8000
+Upgrade-Insecure-Requests: 1
+Accept: text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8
+User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_1) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/13.0.3 Safari/605.1.15
+Accept-Language: en-us
+Accept-Encoding: gzip, deflate
+Connection: keep-alive
+
+
+file: <_io.BufferedReader name=-1>
+user: ('127.0.0.1', 50858)
+url: ParseResult(scheme='', netloc='', path='/', params='', query='', fragment='')
+path: /
+query: {}
+INFO:root:Threaded client serving started ('127.0.0.1', 50858)
+INFO:root:processing /
+INFO:root:path found tmp/index.html
+INFO:root:type for /
+INFO:root:Response status: 200
+reason: OK
+headers: [('Content-Type', 'text/html'), ('Content-Disposition', 'inline; filename=index.html'), ('Content-Length', 156)]
+body: b'<!DOCTYPE html>\n<html lang="en">\n<head>\n    <meta charset="UTF-8">\n    <title>index.html</title>\n</head>\n<body>\n    <h1>Python Rule it!</h1>\n</body>\n</html>'
+INFO:root:Threaded client serving started ('127.0.0.1', 50859)
+INFO:root:Got request from ('127.0.0.1', 50859) method: GET
+target: /1.png
+version: HTTP/1.1
+headers: Host: 0.0.0.0:8000
+Upgrade-Insecure-Requests: 1
+Accept: text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8
+User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_1) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/13.0.3 Safari/605.1.15
+Accept-Language: en-us
+Accept-Encoding: gzip, deflate
+Connection: keep-alive
+
+
+file: <_io.BufferedReader name=-1>
+user: ('127.0.0.1', 50859)
+url: ParseResult(scheme='', netloc='', path='/1.png', params='', query='', fragment='')
+path: /1.png
+query: {}
+INFO:root:processing /1.png
+INFO:root:path found tmp/pictures/1.png
+INFO:root:type for /1.png
+INFO:root:Response status: 200
+reason: OK
+headers: [('Content-Type', 'image/png'), ('Content-Disposition', 'inline; filename=1.png'), ('Content-Length', 383589)]
+body: b'\x89PNG\r\n\x1a\n\x00\x00\x00\rIHDR\x00\x00\x03 \x00\x00\x02X\x08\x06\x00\x00\x00\x9av\x82p\x00\x05\xda,IDATx^\xec\xbd\x07tSW\xbe\xef\xaf;\x93\xc0\xa4S\xd2HH2\x10B\x12\x08\xd5\xc6\xbd\xf7*\x17\xb9H\xb6d\x15\xcb\x92e\xd9r\xb7\xc1\x06L\xef\xa1\x97\x982@B1\xee\x15SC/\xee\xb6z\xb3\x8a\x8bd\xf5f\xd9\xa6\x85\xb7\x8f\x81\xdc\xcc\xdc\xf9\xaf\xbc\xfb\xbf\xef\xbd;wf\x7fX\xdf\xb5\x8f$\x97s$`\x9d\xcf\xfa\xed\xdf\xde(\x14\x04\x02\x81@ \x10\x08\x04\x02\x81@ \x10\x08\x04\x02\x81@ \x10\x08\x04\x02\x81@ \x10\x
+INFO:root:Got request from ('127.0.0.1', 50860) method: GET
+target: /
+version: HTTP/1.1
+headers: Host: 0.0.0.0:8000
+Upgrade-Insecure-Requests: 1
+Accept: text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8
+User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_1) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/13.0.3 Safari/605.1.15
+Accept-Language: en-us
+Accept-Encoding: gzip, deflate
+Connection: keep-alive
+
+
+file: <_io.BufferedReader name=-1>
+user: ('127.0.0.1', 50860)
+url: ParseResult(scheme='', netloc='', path='/', params='', query='', fragment='')
+path: /
+query: {}
+INFO:root:Threaded client serving started ('127.0.0.1', 50860)
+INFO:root:processing /
+INFO:root:path found tmp/index.html
+INFO:root:type for /
+INFO:root:Response status: 200
+reason: OK
+headers: [('Content-Type', 'text/html'), ('Content-Disposition', 'inline; filename=index.html'), ('Content-Length', 156)]
+body: b'<!DOCTYPE html>\n<html lang="en">\n<head>\n    <meta charset="UTF-8">\n    <title>index.html</title>\n</head>\n<body>\n    <h1>Python Rule it!</h1>\n</body>\n</html>'
+INFO:root:Threaded client serving started ('127.0.0.1', 50861)
+INFO:root:Got request from ('127.0.0.1', 50861) method: GET
+target: /
+version: HTTP/1.1
+headers: Host: 0.0.0.0:8000
+Upgrade-Insecure-Requests: 1
+Accept: text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8
+User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_1) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/13.0.3 Safari/605.1.15
+Accept-Language: en-us
+Accept-Encoding: gzip, deflate
+Connection: keep-alive
+
+
+file: <_io.BufferedReader name=-1>
+user: ('127.0.0.1', 50861)
+url: ParseResult(scheme='', netloc='', path='/', params='', query='', fragment='')
+path: /
+query: {}
+INFO:root:processing /
+INFO:root:path found tmp/index.html
+INFO:root:type for /
+INFO:root:Response status: 200
+reason: OK
+headers: [('Content-Type', 'text/html'), ('Content-Disposition', 'inline; filename=index.html'), ('Content-Length', 156)]
+body: b'<!DOCTYPE html>\n<html lang="en">\n<head>\n    <meta charset="UTF-8">\n    <title>index.html</title>\n</head>\n<body>\n    <h1>Python Rule it!</h1>\n</body>\n</html>'
+INFO:root:Threaded client serving started ('127.0.0.1', 50862)
+INFO:root:Got request from ('127.0.0.1', 50862) method: GET
+target: /1
+version: HTTP/1.1
+headers: Host: 0.0.0.0:8000
+Upgrade-Insecure-Requests: 1
+Accept: text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8
+User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_1) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/13.0.3 Safari/605.1.15
+Accept-Language: en-us
+Accept-Encoding: gzip, deflate
+Connection: keep-alive
+
+
+file: <_io.BufferedReader name=-1>
+user: ('127.0.0.1', 50862)
+url: ParseResult(scheme='', netloc='', path='/1', params='', query='', fragment='')
+path: /1
+query: {}
+INFO:root:processing /1
+ERROR:root:(404, 'Not found')
+Traceback (most recent call last):
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 200, in handle_req
+    destination = self.ruler.get_destination(req.path, rules, True)
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/ruler.py", line 55, in get_destination
+    raise FileNotFoundError(url, rules)
+FileNotFoundError: [Errno /1] {'/': 'tmp/index.html', '/favicon.ico': 'tmp/pictures/favicon.ico', '/index.html': 'tmp/index.html', '/2.html': 'tmp/pages/2.html', '/1.2.3.txt': 'tmp/1.2.3.txt', '/[name].html': 'tmp/pages/[name].html', '/[name].css': 'tmp/pages/css/[name].css', '/[name].[ext]': 'tmp/pictures/[name].[ext]', '/png/[name].png': 'tmp/pictures/[name].png', '/pictures/[ext]/1': 'tmp/pictures/1.[ext]', '/[DD]/[MM]/[YY]': 'tmp/dates/[DD].[MM].[YY].png', '/mime/': {'path': 'tmp/pictures/1.png', 'mime': 'text/txt'}, '/big': {'path': 'tmp/pictures/chroma.jpg', 'mime': 'image/jpg'}}
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 111, in serve_client
+    res = self.handle_req(req)
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 202, in handle_req
+    raise Errors.NOT_FOUND
+Error: (404, 'Not found')
+INFO:root:Threaded client serving started ('127.0.0.1', 50863)
+INFO:root:Got request from ('127.0.0.1', 50863) method: GET
+target: /
+version: HTTP/1.1
+headers: Host: 0.0.0.0:8000
+Upgrade-Insecure-Requests: 1
+Accept: text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8
+User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_1) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/13.0.3 Safari/605.1.15
+Accept-Language: en-us
+Accept-Encoding: gzip, deflate
+Connection: keep-alive
+
+
+file: <_io.BufferedReader name=-1>
+user: ('127.0.0.1', 50863)
+url: ParseResult(scheme='', netloc='', path='/', params='', query='', fragment='')
+path: /
+query: {}
+INFO:root:processing /
+INFO:root:path found tmp/index.html
+INFO:root:type for /
+INFO:root:Response status: 200
+reason: OK
+headers: [('Content-Type', 'text/html'), ('Content-Disposition', 'inline; filename=index.html'), ('Content-Length', 156)]
+body: b'<!DOCTYPE html>\n<html lang="en">\n<head>\n    <meta charset="UTF-8">\n    <title>index.html</title>\n</head>\n<body>\n    <h1>Python Rule it!</h1>\n</body>\n</html>'
+INFO:root:Got request from ('127.0.0.1', 50864) method: GET
+target: /1
+version: HTTP/1.1
+headers: Host: 0.0.0.0:8000
+Upgrade-Insecure-Requests: 1
+Accept: text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8
+User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_1) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/13.0.3 Safari/605.1.15
+Accept-Language: en-us
+Accept-Encoding: gzip, deflate
+Connection: keep-alive
+
+
+file: <_io.BufferedReader name=-1>
+user: ('127.0.0.1', 50864)
+url: ParseResult(scheme='', netloc='', path='/1', params='', query='', fragment='')
+path: /1
+query: {}
+INFO:root:Threaded client serving started ('127.0.0.1', 50864)
+INFO:root:processing /1
+ERROR:root:(404, 'Not found')
+Traceback (most recent call last):
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 200, in handle_req
+    destination = self.ruler.get_destination(req.path, rules, True)
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/ruler.py", line 55, in get_destination
+    raise FileNotFoundError(url, rules)
+FileNotFoundError: [Errno /1] {'/': 'tmp/index.html', '/favicon.ico': 'tmp/pictures/favicon.ico', '/index.html': 'tmp/index.html', '/2.html': 'tmp/pages/2.html', '/1.2.3.txt': 'tmp/1.2.3.txt', '/[name].html': 'tmp/pages/[name].html', '/[name].css': 'tmp/pages/css/[name].css', '/[name].[ext]': 'tmp/pictures/[name].[ext]', '/png/[name].png': 'tmp/pictures/[name].png', '/pictures/[ext]/1': 'tmp/pictures/1.[ext]', '/[DD]/[MM]/[YY]': 'tmp/dates/[DD].[MM].[YY].png', '/mime/': {'path': 'tmp/pictures/1.png', 'mime': 'text/txt'}, '/big': {'path': 'tmp/pictures/chroma.jpg', 'mime': 'image/jpg'}}
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 111, in serve_client
+    res = self.handle_req(req)
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 202, in handle_req
+    raise Errors.NOT_FOUND
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 111, in serve_client
+    res = self.handle_req(req)
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 202, in handle_req
+    raise Errors.NOT_FOUND
+Error: (404, 'Not found')
+INFO:root:Threaded client serving started ('127.0.0.1', 50865)
+INFO:root:Got request from ('127.0.0.1', 50865) method: GET
+target: /
+version: HTTP/1.1
+headers: Host: 0.0.0.0:8000
+Upgrade-Insecure-Requests: 1
+Accept: text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8
+User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_1) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/13.0.3 Safari/605.1.15
+Accept-Language: en-us
+Accept-Encoding: gzip, deflate
+Connection: keep-alive
+
+
+file: <_io.BufferedReader name=-1>
+user: ('127.0.0.1', 50865)
+url: ParseResult(scheme='', netloc='', path='/', params='', query='', fragment='')
+path: /
+query: {}
+INFO:root:processing /
+INFO:root:path found tmp/index.html
+INFO:root:type for /
+INFO:root:Response status: 200
+reason: OK
+headers: [('Content-Type', 'text/html'), ('Content-Disposition', 'inline; filename=index.html'), ('Content-Length', 156)]
+body: b'<!DOCTYPE html>\n<html lang="en">\n<head>\n    <meta charset="UTF-8">\n    <title>index.html</title>\n</head>\n<body>\n    <h1>Python Rule it!</h1>\n</body>\n</html>'
+INFO:root:Got request from ('127.0.0.1', 50866) method: GET
+target: /2.html
+version: HTTP/1.1
+headers: Host: 0.0.0.0:8000
+Upgrade-Insecure-Requests: 1
+Accept: text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8
+User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_1) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/13.0.3 Safari/605.1.15
+Accept-Language: en-us
+Accept-Encoding: gzip, deflate
+Connection: keep-alive
+
+
+file: <_io.BufferedReader name=-1>
+user: ('127.0.0.1', 50866)
+url: ParseResult(scheme='', netloc='', path='/2.html', params='', query='', fragment='')
+path: /2.html
+query: {}
+INFO:root:Threaded client serving started ('127.0.0.1', 50866)
+INFO:root:processing /2.html
+INFO:root:path found tmp/pages/2.html
+INFO:root:type for /2.html
+INFO:root:Response status: 200
+reason: OK
+headers: [('Content-Type', 'text/html'), ('Content-Disposition', 'inline; filename=2.html'), ('Content-Length', 159)]
+body: b'<!DOCTYPE html>\n<html lang="en">\n<head>\n    <meta charset="UTF-8">\n    <title>2.html</title>\n</head>\n<body>\n    <h1>2.html was sent to you</h1>\n</body>\n</html>'
+INFO:root:Threaded client serving started ('127.0.0.1', 50867)
+INFO:root:Got request from ('127.0.0.1', 50867) method: GET
+target: /2.html
+version: HTTP/1.1
+headers: Host: 0.0.0.0:8000
+Upgrade-Insecure-Requests: 1
+Accept: text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8
+User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_1) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/13.0.3 Safari/605.1.15
+Accept-Language: en-us
+Accept-Encoding: gzip, deflate
+Connection: keep-alive
+
+
+file: <_io.BufferedReader name=-1>
+user: ('127.0.0.1', 50867)
+url: ParseResult(scheme='', netloc='', path='/2.html', params='', query='', fragment='')
+path: /2.html
+query: {}
+INFO:root:processing /2.html
+INFO:root:path found tmp/pages/2.html
+INFO:root:type for /2.html
+INFO:root:Response status: 200
+reason: OK
+headers: [('Content-Type', 'text/html'), ('Content-Disposition', 'inline; filename=2.html'), ('Content-Length', 159)]
+body: b'<!DOCTYPE html>\n<html lang="en">\n<head>\n    <meta charset="UTF-8">\n    <title>2.html</title>\n</head>\n<body>\n    <h1>2.html was sent to you</h1>\n</body>\n</html>'
+INFO:root:Threaded client serving started ('127.0.0.1', 50868)
+INFO:root:Got request from ('127.0.0.1', 50868) method: GET
+target: /1.png
+version: HTTP/1.1
+headers: Host: 0.0.0.0:8000
+Upgrade-Insecure-Requests: 1
+Accept: text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8
+User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_1) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/13.0.3 Safari/605.1.15
+Accept-Language: en-us
+Accept-Encoding: gzip, deflate
+Connection: keep-alive
+
+
+file: <_io.BufferedReader name=-1>
+user: ('127.0.0.1', 50868)
+url: ParseResult(scheme='', netloc='', path='/1.png', params='', query='', fragment='')
+path: /1.png
+query: {}
+INFO:root:processing /1.png
+INFO:root:path found tmp/pictures/1.png
+INFO:root:type for /1.png
+INFO:root:Response status: 200
+reason: OK
+headers: [('Content-Type', 'image/png'), ('Content-Disposition', 'inline; filename=1.png'), ('Content-Length', 383589)]
+body: b'\x89PNG\r\n\x1a\n\x00\x00\x00\rIHDR\x00\x00\x03 \x00\x00\x02X\x08\x06\x00\x00\x00\x9av\x82p\x00\x05\xda,IDATx^\xec\xbd\x07tSW\xbe\xef\xaf;\x93\xc0\xa4S\xd2HH2\x10B\x12\x08\xd5\xc6\xbd\xf7*\x17\xb9H\xb6d\x15\xcb\x92e\xd9r\xb7\xc1\x06L\xef\xa1\x97\x982@B1\xee\x15SC/\xee\xb6z\xb3\x8a\x8bd\xf5f\xd9\xa6\x85\xb7\x8f\x81\xdc\xcc\xdc\xf9\xaf\xbc\xfb\xbf\xef\xbd;wf\x7fX\xdf\xb5\x8f$\x97s$`\x9d\xcf\xfa\xed\xdf\xde(\x14\x04\x02\x81@ \x10\x08\x04\x02\x81@ \x10\x08\x04\x02\x81@ \x10\x08\x04\x02\x81@ \x10\x
+INFO:root:Got request from ('127.0.0.1', 50869) method: GET
+target: /2.html
+version: HTTP/1.1
+headers: Host: 0.0.0.0:8000
+Upgrade-Insecure-Requests: 1
+Accept: text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8
+User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_1) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/13.0.3 Safari/605.1.15
+Accept-Language: en-us
+Accept-Encoding: gzip, deflate
+Connection: keep-alive
+
+
+file: <_io.BufferedReader name=-1>
+user: ('127.0.0.1', 50869)
+url: ParseResult(scheme='', netloc='', path='/2.html', params='', query='', fragment='')
+path: /2.html
+query: {}
+INFO:root:Threaded client serving started ('127.0.0.1', 50869)
+INFO:root:processing /2.html
+INFO:root:path found tmp/pages/2.html
+INFO:root:type for /2.html
+INFO:root:Response status: 200
+reason: OK
+headers: [('Content-Type', 'text/html'), ('Content-Disposition', 'inline; filename=2.html'), ('Content-Length', 159)]
+body: b'<!DOCTYPE html>\n<html lang="en">\n<head>\n    <meta charset="UTF-8">\n    <title>2.html</title>\n</head>\n<body>\n    <h1>2.html was sent to you</h1>\n</body>\n</html>'
+INFO:root:Threaded client serving started ('127.0.0.1', 50870)
+INFO:root:Got request from ('127.0.0.1', 50870) method: GET
+target: /2.html
+version: HTTP/1.1
+headers: Host: 0.0.0.0:8000
+Upgrade-Insecure-Requests: 1
+Accept: text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8
+User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_1) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/13.0.3 Safari/605.1.15
+Accept-Language: en-us
+Accept-Encoding: gzip, deflate
+Connection: keep-alive
+
+
+file: <_io.BufferedReader name=-1>
+user: ('127.0.0.1', 50870)
+url: ParseResult(scheme='', netloc='', path='/2.html', params='', query='', fragment='')
+path: /2.html
+query: {}
+INFO:root:processing /2.html
+INFO:root:path found tmp/pages/2.html
+INFO:root:type for /2.html
+INFO:root:Response status: 200
+reason: OK
+headers: [('Content-Type', 'text/html'), ('Content-Disposition', 'inline; filename=2.html'), ('Content-Length', 159)]
+body: b'<!DOCTYPE html>\n<html lang="en">\n<head>\n    <meta charset="UTF-8">\n    <title>2.html</title>\n</head>\n<body>\n    <h1>2.html was sent to you</h1>\n</body>\n</html>'
+INFO:root:Threaded client serving started ('127.0.0.1', 50871)
+INFO:root:Got request from ('127.0.0.1', 50871) method: GET
+target: /
+version: HTTP/1.1
+headers: Host: 0.0.0.0:8000
+Upgrade-Insecure-Requests: 1
+Accept: text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8
+User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_1) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/13.0.3 Safari/605.1.15
+Accept-Language: en-us
+Accept-Encoding: gzip, deflate
+Connection: keep-alive
+
+
+file: <_io.BufferedReader name=-1>
+user: ('127.0.0.1', 50871)
+url: ParseResult(scheme='', netloc='', path='/', params='', query='', fragment='')
+path: /
+query: {}
+INFO:root:processing /
+INFO:root:path found tmp/index.html
+INFO:root:type for /
+INFO:root:Response status: 200
+reason: OK
+headers: [('Content-Type', 'text/html'), ('Content-Disposition', 'inline; filename=index.html'), ('Content-Length', 156)]
+body: b'<!DOCTYPE html>\n<html lang="en">\n<head>\n    <meta charset="UTF-8">\n    <title>index.html</title>\n</head>\n<body>\n    <h1>Python Rule it!</h1>\n</body>\n</html>'
+INFO:root:Threaded client serving started ('127.0.0.1', 50872)
+INFO:root:Got request from ('127.0.0.1', 50872) method: GET
+target: /
+version: HTTP/1.1
+headers: Host: 0.0.0.0:8000
+Upgrade-Insecure-Requests: 1
+Accept: text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8
+User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_1) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/13.0.3 Safari/605.1.15
+Accept-Language: en-us
+Accept-Encoding: gzip, deflate
+Connection: keep-alive
+
+
+file: <_io.BufferedReader name=-1>
+user: ('127.0.0.1', 50872)
+url: ParseResult(scheme='', netloc='', path='/', params='', query='', fragment='')
+path: /
+query: {}
+INFO:root:processing /
+INFO:root:path found tmp/index.html
+INFO:root:type for /
+INFO:root:Response status: 200
+reason: OK
+headers: [('Content-Type', 'text/html'), ('Content-Disposition', 'inline; filename=index.html'), ('Content-Length', 156)]
+body: b'<!DOCTYPE html>\n<html lang="en">\n<head>\n    <meta charset="UTF-8">\n    <title>index.html</title>\n</head>\n<body>\n    <h1>Python Rule it!</h1>\n</body>\n</html>'
+INFO:root:Threaded client serving started ('127.0.0.1', 50873)
+INFO:root:Got request from ('127.0.0.1', 50873) method: GET
+target: /1.png
+version: HTTP/1.1
+headers: Host: 0.0.0.0:8000
+Upgrade-Insecure-Requests: 1
+Accept: text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8
+User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_1) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/13.0.3 Safari/605.1.15
+Accept-Language: en-us
+Accept-Encoding: gzip, deflate
+Connection: keep-alive
+
+
+file: <_io.BufferedReader name=-1>
+user: ('127.0.0.1', 50873)
+url: ParseResult(scheme='', netloc='', path='/1.png', params='', query='', fragment='')
+path: /1.png
+query: {}
+INFO:root:processing /1.png
+INFO:root:path found tmp/pictures/1.png
+INFO:root:type for /1.png
+INFO:root:Response status: 200
+reason: OK
+headers: [('Content-Type', 'image/png'), ('Content-Disposition', 'inline; filename=1.png'), ('Content-Length', 383589)]
+body: b'\x89PNG\r\n\x1a\n\x00\x00\x00\rIHDR\x00\x00\x03 \x00\x00\x02X\x08\x06\x00\x00\x00\x9av\x82p\x00\x05\xda,IDATx^\xec\xbd\x07tSW\xbe\xef\xaf;\x93\xc0\xa4S\xd2HH2\x10B\x12\x08\xd5\xc6\xbd\xf7*\x17\xb9H\xb6d\x15\xcb\x92e\xd9r\xb7\xc1\x06L\xef\xa1\x97\x982@B1\xee\x15SC/\xee\xb6z\xb3\x8a\x8bd\xf5f\xd9\xa6\x85\xb7\x8f\x81\xdc\xcc\xdc\xf9\xaf\xbc\xfb\xbf\xef\xbd;wf\x7fX\xdf\xb5\x8f$\x97s$`\x9d\xcf\xfa\xed\xdf\xde(\x14\x04\x02\x81@ \x10\x08\x04\x02\x81@ \x10\x08\x04\x02\x81@ \x10\x08\x04\x02\x81@ \x10\x
+ERROR:root:str() argument 2 must be str, not None
+Traceback (most recent call last):
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 109, in serve_client
+    req = self.parse_req_connection(connection)
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 139, in parse_req_connection
+    *self.parse_req_file(file), file, connection.getpeername())
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 146, in parse_req_file
+    method, target, ver = self.parse_request_line(file)
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 160, in parse_request_line
+    req_line = (self.decode(raw))
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 189, in decode
+    return str(b, chardet.detect(b)['encoding'])
+TypeError: str() argument 2 must be str, not None
+ERROR:root:[Errno 22] Invalid argument
+Traceback (most recent call last):
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 332, in <module>
+    s.serve()
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 77, in serve
+    callback(key.fileobj, mask)
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 92, in _read
+    logging.info(f'Threaded client serving started {sock.getpeername()}')
+OSError: [Errno 22] Invalid argument
+ERROR:root:client stopped receiving [Errno 32] Broken pipe
+Traceback (most recent call last):
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 242, in send_response
+    bytes_sent = connection.send(line)
+BrokenPipeError: [Errno 32] Broken pipe
+INFO:root:server is DOWN
+ERROR:root:[Errno 32] Broken pipe
+Traceback (most recent call last):
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 113, in serve_client
+    self.send_response(connection, res)
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 254, in send_response
+    raise e
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 242, in send_response
+    bytes_sent = connection.send(line)
+BrokenPipeError: [Errno 32] Broken pipe
+INFO:root:server is UP on 0.0.0.0:8000
+INFO:root:Threaded client serving started ('127.0.0.1', 50892)
+INFO:root:Got request from ('127.0.0.1', 50892) method: GET
+target: /big
+version: HTTP/1.1
+headers: Host: 0.0.0.0:8000
+Upgrade-Insecure-Requests: 1
+Accept: text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8
+User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_1) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/13.0.3 Safari/605.1.15
+Accept-Language: en-us
+Accept-Encoding: gzip, deflate
+Connection: keep-alive
+
+
+file: <_io.BufferedReader name=-1>
+user: ('127.0.0.1', 50892)
+url: ParseResult(scheme='', netloc='', path='/big', params='', query='', fragment='')
+path: /big
+query: {}
+INFO:root:processing /big
+INFO:root:path found tmp/pictures/chroma.jpg
+INFO:root:type for /big
+INFO:root:Response status: 200
+reason: OK
+headers: [('Content-Type', 'image/jpg'), ('Content-Disposition', 'inline; filename=chroma.jpg'), ('Content-Length', 22853829)]
+body: b'\xff\xd8\xff\xe0\x00\x10JFIF\x00\x01\x01\x00\x00H\x00H\x00\x00\xff\xe1\x00@Exif\x00\x00MM\x00*\x00\x00\x00\x08\x00\x01\x87i\x00\x04\x00\x00\x00\x01\x00\x00\x00\x1a\x00\x00\x00\x00\x00\x02\xa0\x02\x00\x04\x00\x00\x00\x01\x00\x00\x14\x00\xa0\x03\x00\x04\x00\x00\x00\x01\x00\x00\x0b@\x00\x00\x00\x00\xff\xed\x008Photoshop 3.0\x008BIM\x04\x04\x00\x00\x00\x00\x00\x008BIM\x04%\x00\x00\x00\x00\x00\x10\xd4\x1d\x8c\xd9\x8f\x00\xb2\x04\xe9\x80\t\x98\xec\xf8B~\xff\xe2\x024ICC_PROFILE\x00\x01\x01\x00\x00\x0
+INFO:root:Got request from ('127.0.0.1', 50893) method: GET
+target: /
+version: HTTP/1.1
+headers: Host: 0.0.0.0:8000
+Upgrade-Insecure-Requests: 1
+Accept: text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8
+User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_1) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/13.0.3 Safari/605.1.15
+Accept-Language: en-us
+Accept-Encoding: gzip, deflate
+Connection: keep-alive
+
+
+file: <_io.BufferedReader name=-1>
+user: ('127.0.0.1', 50893)
+url: ParseResult(scheme='', netloc='', path='/', params='', query='', fragment='')
+path: /
+query: {}
+INFO:root:Threaded client serving started ('127.0.0.1', 50893)
+INFO:root:processing /
+INFO:root:path found tmp/index.html
+INFO:root:type for /
+INFO:root:Response status: 200
+reason: OK
+headers: [('Content-Type', 'text/html'), ('Content-Disposition', 'inline; filename=index.html'), ('Content-Length', 156)]
+body: b'<!DOCTYPE html>\n<html lang="en">\n<head>\n    <meta charset="UTF-8">\n    <title>index.html</title>\n</head>\n<body>\n    <h1>Python Rule it!</h1>\n</body>\n</html>'
+INFO:root:Got request from ('127.0.0.1', 50894) method: GET
+target: /
+version: HTTP/1.1
+headers: Host: 0.0.0.0:8000
+Upgrade-Insecure-Requests: 1
+Accept: text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8
+User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_1) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/13.0.3 Safari/605.1.15
+Accept-Language: en-us
+Accept-Encoding: gzip, deflate
+Connection: keep-alive
+
+
+file: <_io.BufferedReader name=-1>
+user: ('127.0.0.1', 50894)
+url: ParseResult(scheme='', netloc='', path='/', params='', query='', fragment='')
+path: /
+query: {}
+INFO:root:Threaded client serving started ('127.0.0.1', 50894)
+INFO:root:processing /
+INFO:root:path found tmp/index.html
+INFO:root:type for /
+INFO:root:Response status: 200
+reason: OK
+headers: [('Content-Type', 'text/html'), ('Content-Disposition', 'inline; filename=index.html'), ('Content-Length', 156)]
+body: b'<!DOCTYPE html>\n<html lang="en">\n<head>\n    <meta charset="UTF-8">\n    <title>index.html</title>\n</head>\n<body>\n    <h1>Python Rule it!</h1>\n</body>\n</html>'
+INFO:root:Got request from ('127.0.0.1', 50895) method: GET
+target: /1
+version: HTTP/1.1
+headers: Host: 0.0.0.0:8000
+Upgrade-Insecure-Requests: 1
+Accept: text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8
+User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_1) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/13.0.3 Safari/605.1.15
+Accept-Language: en-us
+Accept-Encoding: gzip, deflate
+Connection: keep-alive
+
+
+file: <_io.BufferedReader name=-1>
+user: ('127.0.0.1', 50895)
+url: ParseResult(scheme='', netloc='', path='/1', params='', query='', fragment='')
+path: /1
+query: {}
+INFO:root:Threaded client serving started ('127.0.0.1', 50895)
+INFO:root:processing /1
+ERROR:root:(404, 'Not found')
+Traceback (most recent call last):
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 200, in handle_req
+    destination = self.ruler.get_destination(req.path, rules, True)
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/ruler.py", line 55, in get_destination
+    raise FileNotFoundError(url, rules)
+FileNotFoundError: [Errno /1] {'/': 'tmp/index.html', '/favicon.ico': 'tmp/pictures/favicon.ico', '/index.html': 'tmp/index.html', '/2.html': 'tmp/pages/2.html', '/1.2.3.txt': 'tmp/1.2.3.txt', '/[name].html': 'tmp/pages/[name].html', '/[name].css': 'tmp/pages/css/[name].css', '/[name].[ext]': 'tmp/pictures/[name].[ext]', '/png/[name].png': 'tmp/pictures/[name].png', '/pictures/[ext]/1': 'tmp/pictures/1.[ext]', '/[DD]/[MM]/[YY]': 'tmp/dates/[DD].[MM].[YY].png', '/mime/': {'path': 'tmp/pictures/1.png', 'mime': 'text/txt'}, '/big': {'path': 'tmp/pictures/chroma.jpg', 'mime': 'image/jpg'}}
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 111, in serve_client
+    res = self.handle_req(req)
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 202, in handle_req
+    raise Errors.NOT_FOUND
+Error: (404, 'Not found')
+INFO:root:Threaded client serving started ('127.0.0.1', 50896)
+INFO:root:Got request from ('127.0.0.1', 50896) method: GET
+target: /1.png
+version: HTTP/1.1
+headers: Host: 0.0.0.0:8000
+Upgrade-Insecure-Requests: 1
+Accept: text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8
+User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_1) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/13.0.3 Safari/605.1.15
+Accept-Language: en-us
+Accept-Encoding: gzip, deflate
+Connection: keep-alive
+
+
+file: <_io.BufferedReader name=-1>
+user: ('127.0.0.1', 50896)
+url: ParseResult(scheme='', netloc='', path='/1.png', params='', query='', fragment='')
+path: /1.png
+query: {}
+INFO:root:processing /1.png
+INFO:root:path found tmp/pictures/1.png
+INFO:root:type for /1.png
+INFO:root:Response status: 200
+reason: OK
+headers: [('Content-Type', 'image/png'), ('Content-Disposition', 'inline; filename=1.png'), ('Content-Length', 383589)]
+body: b'\x89PNG\r\n\x1a\n\x00\x00\x00\rIHDR\x00\x00\x03 \x00\x00\x02X\x08\x06\x00\x00\x00\x9av\x82p\x00\x05\xda,IDATx^\xec\xbd\x07tSW\xbe\xef\xaf;\x93\xc0\xa4S\xd2HH2\x10B\x12\x08\xd5\xc6\xbd\xf7*\x17\xb9H\xb6d\x15\xcb\x92e\xd9r\xb7\xc1\x06L\xef\xa1\x97\x982@B1\xee\x15SC/\xee\xb6z\xb3\x8a\x8bd\xf5f\xd9\xa6\x85\xb7\x8f\x81\xdc\xcc\xdc\xf9\xaf\xbc\xfb\xbf\xef\xbd;wf\x7fX\xdf\xb5\x8f$\x97s$`\x9d\xcf\xfa\xed\xdf\xde(\x14\x04\x02\x81@ \x10\x08\x04\x02\x81@ \x10\x08\x04\x02\x81@ \x10\x08\x04\x02\x81@ \x10\x
+INFO:root:Threaded client serving started ('127.0.0.1', 50897)
+INFO:root:Got request from ('127.0.0.1', 50897) method: GET
+target: /1.png
+version: HTTP/1.1
+headers: Host: 0.0.0.0:8000
+Upgrade-Insecure-Requests: 1
+Accept: text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8
+User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_1) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/13.0.3 Safari/605.1.15
+Accept-Language: en-us
+Accept-Encoding: gzip, deflate
+Connection: keep-alive
+
+
+file: <_io.BufferedReader name=-1>
+user: ('127.0.0.1', 50897)
+url: ParseResult(scheme='', netloc='', path='/1.png', params='', query='', fragment='')
+path: /1.png
+query: {}
+INFO:root:processing /1.png
+INFO:root:path found tmp/pictures/1.png
+INFO:root:type for /1.png
+INFO:root:Response status: 200
+reason: OK
+headers: [('Content-Type', 'image/png'), ('Content-Disposition', 'inline; filename=1.png'), ('Content-Length', 383589)]
+body: b'\x89PNG\r\n\x1a\n\x00\x00\x00\rIHDR\x00\x00\x03 \x00\x00\x02X\x08\x06\x00\x00\x00\x9av\x82p\x00\x05\xda,IDATx^\xec\xbd\x07tSW\xbe\xef\xaf;\x93\xc0\xa4S\xd2HH2\x10B\x12\x08\xd5\xc6\xbd\xf7*\x17\xb9H\xb6d\x15\xcb\x92e\xd9r\xb7\xc1\x06L\xef\xa1\x97\x982@B1\xee\x15SC/\xee\xb6z\xb3\x8a\x8bd\xf5f\xd9\xa6\x85\xb7\x8f\x81\xdc\xcc\xdc\xf9\xaf\xbc\xfb\xbf\xef\xbd;wf\x7fX\xdf\xb5\x8f$\x97s$`\x9d\xcf\xfa\xed\xdf\xde(\x14\x04\x02\x81@ \x10\x08\x04\x02\x81@ \x10\x08\x04\x02\x81@ \x10\x08\x04\x02\x81@ \x10\x
+ERROR:root:str() argument 2 must be str, not None
+Traceback (most recent call last):
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 109, in serve_client
+    req = self.parse_req_connection(connection)
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 139, in parse_req_connection
+    *self.parse_req_file(file), file, connection.getpeername())
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 146, in parse_req_file
+    method, target, ver = self.parse_request_line(file)
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 160, in parse_request_line
+    req_line = (self.decode(raw))
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 189, in decode
+    return str(b, chardet.detect(b)['encoding'])
+TypeError: str() argument 2 must be str, not None
+INFO:root:Threaded client serving started ('127.0.0.1', 50892)
+INFO:root:Threaded client serving started ('127.0.0.1', 50909)
+INFO:root:Got request from ('127.0.0.1', 50909) method: GET
+target: /
+version: HTTP/1.1
+headers: Host: 0.0.0.0:8000
+Upgrade-Insecure-Requests: 1
+Accept: text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8
+User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_1) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/13.0.3 Safari/605.1.15
+Accept-Language: en-us
+Accept-Encoding: gzip, deflate
+Connection: keep-alive
+
+
+file: <_io.BufferedReader name=-1>
+user: ('127.0.0.1', 50909)
+url: ParseResult(scheme='', netloc='', path='/', params='', query='', fragment='')
+path: /
+query: {}
+INFO:root:processing /
+INFO:root:path found tmp/index.html
+INFO:root:type for /
+INFO:root:Response status: 200
+reason: OK
+headers: [('Content-Type', 'text/html'), ('Content-Disposition', 'inline; filename=index.html'), ('Content-Length', 156)]
+body: b'<!DOCTYPE html>\n<html lang="en">\n<head>\n    <meta charset="UTF-8">\n    <title>index.html</title>\n</head>\n<body>\n    <h1>Python Rule it!</h1>\n</body>\n</html>'
+ERROR:root:
+Traceback (most recent call last):
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 332, in <module>
+    s.serve()
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 75, in serve
+    while True:
+  File "/usr/local/Cellar/python/3.7.4_1/Frameworks/Python.framework/Versions/3.7/lib/python3.7/selectors.py", line 558, in select
+    kev_list = self._selector.control(None, max_ev, timeout)
+KeyboardInterrupt
+INFO:root:server is DOWN
+INFO:root:server is UP on 0.0.0.0:8000
+INFO:root:Threaded client serving started ('127.0.0.1', 50924)
+INFO:root:Got request from ('127.0.0.1', 50924) method: GET
+target: /
+version: HTTP/1.1
+headers: Host: 0.0.0.0:8000
+Upgrade-Insecure-Requests: 1
+Accept: text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8
+User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_1) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/13.0.3 Safari/605.1.15
+Accept-Language: en-us
+Accept-Encoding: gzip, deflate
+Connection: keep-alive
+
+
+file: <_io.BufferedReader name=-1>
+user: ('127.0.0.1', 50924)
+url: ParseResult(scheme='', netloc='', path='/', params='', query='', fragment='')
+path: /
+query: {}
+INFO:root:processing /
+INFO:root:path found tmp/index.html
+INFO:root:type for /
+INFO:root:Response status: 200
+reason: OK
+headers: [('Content-Type', 'text/html'), ('Content-Disposition', 'inline; filename=index.html'), ('Content-Length', 156)]
+body: b'<!DOCTYPE html>\n<html lang="en">\n<head>\n    <meta charset="UTF-8">\n    <title>index.html</title>\n</head>\n<body>\n    <h1>Python Rule it!</h1>\n</body>\n</html>'
+INFO:root:Threaded client serving started ('127.0.0.1', 50926)
+INFO:root:Got request from ('127.0.0.1', 50926) method: GET
+target: /.idea/
+version: HTTP/1.1
+headers: Host: 0.0.0.0:8000
+Upgrade-Insecure-Requests: 1
+Accept: text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8
+User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_1) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/13.0.3 Safari/605.1.15
+Accept-Language: en-us
+Accept-Encoding: gzip, deflate
+Connection: keep-alive
+
+
+file: <_io.BufferedReader name=-1>
+user: ('127.0.0.1', 50926)
+url: ParseResult(scheme='', netloc='', path='/.idea/', params='', query='', fragment='')
+path: /.idea/
+query: {}
+INFO:root:processing /.idea/
+INFO:root:path found tmp/pictures/.idea/
+ERROR:root:(404, 'Not found')
+Traceback (most recent call last):
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 201, in handle_req
+    destination = self.ruler.get_destination(req.path, rules, True)
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/ruler.py", line 54, in get_destination
+    raise FileNotFoundError(path, url, rule, absolute)
+FileNotFoundError: [Errno /Users/irusland/Desktop/UrFU/python/httpserver/tmp/pictures/.idea/] /.idea/: re.compile('/(?P<name>.*)\\.(?P<ext>.*)')
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 112, in serve_client
+    res = self.handle_req(req)
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 203, in handle_req
+    raise Errors.NOT_FOUND
+Error: (404, 'Not found')
+INFO:root:Threaded client serving started ('127.0.0.1', 50928)
+INFO:root:Got request from ('127.0.0.1', 50928) method: GET
+target: /.idea/
+version: HTTP/1.1
+headers: Host: 0.0.0.0:8000
+Upgrade-Insecure-Requests: 1
+Accept: text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8
+User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_1) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/13.0.3 Safari/605.1.15
+Accept-Language: en-us
+Accept-Encoding: gzip, deflate
+Connection: keep-alive
+
+
+file: <_io.BufferedReader name=-1>
+user: ('127.0.0.1', 50928)
+url: ParseResult(scheme='', netloc='', path='/.idea/', params='', query='', fragment='')
+path: /.idea/
+query: {}
+INFO:root:processing /.idea/
+INFO:root:path found tmp/pictures/.idea/
+ERROR:root:(404, 'Not found')
+Traceback (most recent call last):
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 201, in handle_req
+    destination = self.ruler.get_destination(req.path, rules, True)
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/ruler.py", line 54, in get_destination
+    raise FileNotFoundError(path, url, rule, absolute)
+FileNotFoundError: [Errno /Users/irusland/Desktop/UrFU/python/httpserver/tmp/pictures/.idea/] /.idea/: re.compile('/(?P<name>.*)\\.(?P<ext>.*)')
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 112, in serve_client
+    res = self.handle_req(req)
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 203, in handle_req
+    raise Errors.NOT_FOUND
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 112, in serve_client
+    res = self.handle_req(req)
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 203, in handle_req
+    raise Errors.NOT_FOUND
+Error: (404, 'Not found')
+INFO:root:Threaded client serving started ('127.0.0.1', 50929)
+INFO:root:Got request from ('127.0.0.1', 50929) method: GET
+target: /
+version: HTTP/1.1
+headers: Host: 0.0.0.0:8000
+Upgrade-Insecure-Requests: 1
+Accept: text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8
+User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_1) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/13.0.3 Safari/605.1.15
+Accept-Language: en-us
+Accept-Encoding: gzip, deflate
+Connection: keep-alive
+
+
+file: <_io.BufferedReader name=-1>
+user: ('127.0.0.1', 50929)
+url: ParseResult(scheme='', netloc='', path='/', params='', query='', fragment='')
+path: /
+query: {}
+INFO:root:processing /
+INFO:root:path found tmp/index.html
+INFO:root:type for /
+INFO:root:Response status: 200
+reason: OK
+headers: [('Content-Type', 'text/html'), ('Content-Disposition', 'inline; filename=index.html'), ('Content-Length', 156)]
+body: b'<!DOCTYPE html>\n<html lang="en">\n<head>\n    <meta charset="UTF-8">\n    <title>index.html</title>\n</head>\n<body>\n    <h1>Python Rule it!</h1>\n</body>\n</html>'
+INFO:root:Threaded client serving started ('127.0.0.1', 50930)
+INFO:root:Got request from ('127.0.0.1', 50930) method: GET
+target: /big
+version: HTTP/1.1
+headers: Host: 0.0.0.0:8000
+Upgrade-Insecure-Requests: 1
+Accept: text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8
+User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_1) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/13.0.3 Safari/605.1.15
+Accept-Language: en-us
+Accept-Encoding: gzip, deflate
+Connection: keep-alive
+
+
+file: <_io.BufferedReader name=-1>
+user: ('127.0.0.1', 50930)
+url: ParseResult(scheme='', netloc='', path='/big', params='', query='', fragment='')
+path: /big
+query: {}
+INFO:root:processing /big
+INFO:root:path found tmp/pictures/chroma.jpg
+INFO:root:type for /big
+INFO:root:Response status: 200
+reason: OK
+headers: [('Content-Type', 'image/jpg'), ('Content-Disposition', 'inline; filename=chroma.jpg'), ('Content-Length', 22853829)]
+body: b'\xff\xd8\xff\xe0\x00\x10JFIF\x00\x01\x01\x00\x00H\x00H\x00\x00\xff\xe1\x00@Exif\x00\x00MM\x00*\x00\x00\x00\x08\x00\x01\x87i\x00\x04\x00\x00\x00\x01\x00\x00\x00\x1a\x00\x00\x00\x00\x00\x02\xa0\x02\x00\x04\x00\x00\x00\x01\x00\x00\x14\x00\xa0\x03\x00\x04\x00\x00\x00\x01\x00\x00\x0b@\x00\x00\x00\x00\xff\xed\x008Photoshop 3.0\x008BIM\x04\x04\x00\x00\x00\x00\x00\x008BIM\x04%\x00\x00\x00\x00\x00\x10\xd4\x1d\x8c\xd9\x8f\x00\xb2\x04\xe9\x80\t\x98\xec\xf8B~\xff\xe2\x024ICC_PROFILE\x00\x01\x01\x00\x00\x0
+ERROR:root:[Errno 35] Resource temporarily unavailable Sleeping 0.1s
+ERROR:root:str() argument 2 must be str, not None
+Traceback (most recent call last):
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 110, in serve_client
+    req = self.parse_req_connection(connection)
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 140, in parse_req_connection
+    *self.parse_req_file(file), file, connection.getpeername())
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 147, in parse_req_file
+    method, target, ver = self.parse_request_line(file)
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 161, in parse_request_line
+    req_line = (self.decode(raw))
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 190, in decode
+    return str(b, chardet.detect(b)['encoding'])
+TypeError: str() argument 2 must be str, not None
+INFO:root:Threaded client serving started ('127.0.0.1', 50930)
+ERROR:root:
+Traceback (most recent call last):
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 332, in <module>
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 76, in serve
+  File "/usr/local/Cellar/python/3.7.4_1/Frameworks/Python.framework/Versions/3.7/lib/python3.7/selectors.py", line 558, in select
+    kev_list = self._selector.control(None, max_ev, timeout)
+KeyboardInterrupt
+INFO:root:server is DOWN
+INFO:root:server is UP on 0.0.0.0:8000
+INFO:root:Threaded client serving started ('127.0.0.1', 51017)
+INFO:root:Got request from ('127.0.0.1', 51017) method: GET
+target: /
+version: HTTP/1.1
+headers: Host: 0.0.0.0:8000
+Upgrade-Insecure-Requests: 1
+Accept: text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8
+User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_1) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/13.0.3 Safari/605.1.15
+Accept-Language: en-us
+Accept-Encoding: gzip, deflate
+Connection: keep-alive
+
+
+file: <_io.BufferedReader name=-1>
+user: ('127.0.0.1', 51017)
+url: ParseResult(scheme='', netloc='', path='/', params='', query='', fragment='')
+path: /
+query: {}
+INFO:root:processing /
+INFO:root:path found tmp/index.html
+INFO:root:/Users/irusland/Desktop/UrFU/python/httpserver/tmp/index.html type text/html
+INFO:root:Response status: 200
+reason: OK
+headers: [('Content-Type', 'text/html'), ('Content-Disposition', 'inline; filename=index.html'), ('Content-Length', 156)]
+body: b'<!DOCTYPE html>\n<html lang="en">\n<head>\n    <meta charset="UTF-8">\n    <title>index.html</title>\n</head>\n<body>\n    <h1>Python Rule it!</h1>\n</body>\n</html>'
+INFO:root:271B sent to ('127.0.0.1', 51017)
+INFO:root:File sent to ('127.0.0.1', 51017)
+INFO:root:Threaded client serving started ('127.0.0.1', 51022)
+INFO:root:Got request from ('127.0.0.1', 51022) method: GET
+target: /
+version: HTTP/1.1
+headers: Host: 0.0.0.0:8000
+Upgrade-Insecure-Requests: 1
+Accept: text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8
+User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_1) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/13.0.3 Safari/605.1.15
+Accept-Language: en-us
+Accept-Encoding: gzip, deflate
+Connection: keep-alive
+
+
+file: <_io.BufferedReader name=-1>
+user: ('127.0.0.1', 51022)
+url: ParseResult(scheme='', netloc='', path='/', params='', query='', fragment='')
+path: /
+query: {}
+INFO:root:processing /
+INFO:root:path found tmp/index.html
+INFO:root:/Users/irusland/Desktop/UrFU/python/httpserver/tmp/index.html type text/html
+INFO:root:Response status: 200
+reason: OK
+headers: [('Content-Type', 'text/html'), ('Content-Disposition', 'inline; filename=index.html'), ('Content-Length', 156)]
+body: b'<!DOCTYPE html>\n<html lang="en">\n<head>\n    <meta charset="UTF-8">\n    <title>index.html</title>\n</head>\n<body>\n    <h1>Python Rule it!</h1>\n</body>\n</html>'
+INFO:root:271B sent to ('127.0.0.1', 51022)
+INFO:root:File sent to ('127.0.0.1', 51022)
+INFO:root:Threaded client serving started ('127.0.0.1', 51023)
+INFO:root:Got request from ('127.0.0.1', 51023) method: GET
+target: /.idea/
+version: HTTP/1.1
+headers: Host: 0.0.0.0:8000
+Upgrade-Insecure-Requests: 1
+Accept: text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8
+User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_1) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/13.0.3 Safari/605.1.15
+Accept-Language: en-us
+Accept-Encoding: gzip, deflate
+Connection: keep-alive
+
+
+file: <_io.BufferedReader name=-1>
+user: ('127.0.0.1', 51023)
+url: ParseResult(scheme='', netloc='', path='/.idea/', params='', query='', fragment='')
+path: /.idea/
+query: {}
+INFO:root:processing /.idea/
+INFO:root:path found tmp/pictures/.idea/
+ERROR:root:(404, 'Not found')
+Traceback (most recent call last):
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 183, in handle_req
+    destination = self.ruler.get_destination(req.path, rules, True)
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/ruler.py", line 54, in get_destination
+    raise FileNotFoundError(path, url, rule, absolute)
+FileNotFoundError: [Errno /Users/irusland/Desktop/UrFU/python/httpserver/tmp/pictures/.idea/] /.idea/: re.compile('/(?P<name>.*)\\.(?P<ext>.*)')
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 94, in serve_client
+    res = self.handle_req(req)
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 185, in handle_req
+    raise Errors.NOT_FOUND
+Error: (404, 'Not found')
+INFO:root:54B sent to ('127.0.0.1', 51023)
+INFO:root:File sent to ('127.0.0.1', 51023)
+INFO:root:Threaded client serving started ('127.0.0.1', 51024)
+INFO:root:Got request from ('127.0.0.1', 51024) method: GET
+target: /.idea/
+version: HTTP/1.1
+headers: Host: 0.0.0.0:8000
+Upgrade-Insecure-Requests: 1
+Accept: text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8
+User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_1) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/13.0.3 Safari/605.1.15
+Accept-Language: en-us
+Accept-Encoding: gzip, deflate
+Connection: keep-alive
+
+
+file: <_io.BufferedReader name=-1>
+user: ('127.0.0.1', 51024)
+url: ParseResult(scheme='', netloc='', path='/.idea/', params='', query='', fragment='')
+path: /.idea/
+query: {}
+INFO:root:processing /.idea/
+INFO:root:path found tmp/pictures/.idea/
+ERROR:root:(404, 'Not found')
+Traceback (most recent call last):
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 183, in handle_req
+    destination = self.ruler.get_destination(req.path, rules, True)
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/ruler.py", line 54, in get_destination
+    raise FileNotFoundError(path, url, rule, absolute)
+FileNotFoundError: [Errno /Users/irusland/Desktop/UrFU/python/httpserver/tmp/pictures/.idea/] /.idea/: re.compile('/(?P<name>.*)\\.(?P<ext>.*)')
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 94, in serve_client
+    res = self.handle_req(req)
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 185, in handle_req
+    raise Errors.NOT_FOUND
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 94, in serve_client
+    res = self.handle_req(req)
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 185, in handle_req
+    raise Errors.NOT_FOUND
+Error: (404, 'Not found')
+INFO:root:54B sent to ('127.0.0.1', 51024)
+INFO:root:File sent to ('127.0.0.1', 51024)
+INFO:root:Threaded client serving started ('127.0.0.1', 51025)
+INFO:root:Got request from ('127.0.0.1', 51025) method: GET
+target: /
+version: HTTP/1.1
+headers: Host: 0.0.0.0:8000
+Upgrade-Insecure-Requests: 1
+Accept: text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8
+User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_1) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/13.0.3 Safari/605.1.15
+Accept-Language: en-us
+Accept-Encoding: gzip, deflate
+Connection: keep-alive
+
+
+file: <_io.BufferedReader name=-1>
+user: ('127.0.0.1', 51025)
+url: ParseResult(scheme='', netloc='', path='/', params='', query='', fragment='')
+path: /
+query: {}
+INFO:root:processing /
+INFO:root:path found tmp/index.html
+INFO:root:/Users/irusland/Desktop/UrFU/python/httpserver/tmp/index.html type text/html
+INFO:root:Response status: 200
+reason: OK
+headers: [('Content-Type', 'text/html'), ('Content-Disposition', 'inline; filename=index.html'), ('Content-Length', 156)]
+body: b'<!DOCTYPE html>\n<html lang="en">\n<head>\n    <meta charset="UTF-8">\n    <title>index.html</title>\n</head>\n<body>\n    <h1>Python Rule it!</h1>\n</body>\n</html>'
+INFO:root:271B sent to ('127.0.0.1', 51025)
+INFO:root:File sent to ('127.0.0.1', 51025)
+INFO:root:Got request from ('127.0.0.1', 51026) method: GET
+target: /big
+version: HTTP/1.1
+headers: Host: 0.0.0.0:8000
+Upgrade-Insecure-Requests: 1
+Accept: text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8
+User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_1) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/13.0.3 Safari/605.1.15
+Accept-Language: en-us
+Accept-Encoding: gzip, deflate
+Connection: keep-alive
+
+
+file: <_io.BufferedReader name=-1>
+user: ('127.0.0.1', 51026)
+url: ParseResult(scheme='', netloc='', path='/big', params='', query='', fragment='')
+path: /big
+query: {}
+INFO:root:Threaded client serving started ('127.0.0.1', 51026)
+INFO:root:processing /big
+INFO:root:path found tmp/pictures/chroma.jpg
+INFO:root:/Users/irusland/Desktop/UrFU/python/httpserver/tmp/pictures/chroma.jpg type image/jpg
+INFO:root:Response status: 200
+reason: OK
+headers: [('Content-Type', 'image/jpg'), ('Content-Disposition', 'inline; filename=chroma.jpg'), ('Content-Length', 22853829)]
+body: b'\xff\xd8\xff\xe0\x00\x10JFIF\x00\x01\x01\x00\x00H\x00H\x00\x00\xff\xe1\x00@Exif\x00\x00MM\x00*\x00\x00\x00\x08\x00\x01\x87i\x00\x04\x00\x00\x00\x01\x00\x00\x00\x1a\x00\x00\x00\x00\x00\x02\xa0\x02\x00\x04\x00\x00\x00\x01\x00\x00\x14\x00\xa0\x03\x00\x04\x00\x00\x00\x01\x00\x00\x0b@\x00\x00\x00\x00\xff\xed\x008Photoshop 3.0\x008BIM\x04\x04\x00\x00\x00\x00\x00\x008BIM\x04%\x00\x00\x00\x00\x00\x10\xd4\x1d\x8c\xd9\x8f\x00\xb2\x04\xe9\x80\t\x98\xec\xf8B~\xff\xe2\x024ICC_PROFILE\x00\x01\x01\x00\x00\x0
+INFO:root:261676B sent to ('127.0.0.1', 51026)
+INFO:root:670808B sent to ('127.0.0.1', 51026)
+ERROR:root:[Errno 35] Resource temporarily unavailable Sleeping 0.1s
+INFO:root:3715736B sent to ('127.0.0.1', 51026)
+INFO:root:1964572B sent to ('127.0.0.1', 51026)
+INFO:root:2315684B sent to ('127.0.0.1', 51026)
+INFO:root:2365252B sent to ('127.0.0.1', 51026)
+INFO:root:2235012B sent to ('127.0.0.1', 51026)
+INFO:root:2233764B sent to ('127.0.0.1', 51026)
+INFO:root:2079832B sent to ('127.0.0.1', 51026)
+INFO:root:1817272B sent to ('127.0.0.1', 51026)
+INFO:root:2586800B sent to ('127.0.0.1', 51026)
+INFO:root:607541B sent to ('127.0.0.1', 51026)
+INFO:root:File sent to ('127.0.0.1', 51026)
+INFO:root:Threaded client serving started ('127.0.0.1', 51029)
+INFO:root:Got request from ('127.0.0.1', 51029) method: GET
+target: /
+version: HTTP/1.1
+headers: Host: 0.0.0.0:8000
+Upgrade-Insecure-Requests: 1
+Accept: text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8
+User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_1) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/13.0.3 Safari/605.1.15
+Accept-Language: en-us
+Accept-Encoding: gzip, deflate
+Connection: keep-alive
+
+
+file: <_io.BufferedReader name=-1>
+user: ('127.0.0.1', 51029)
+url: ParseResult(scheme='', netloc='', path='/', params='', query='', fragment='')
+path: /
+query: {}
+INFO:root:processing /
+INFO:root:path found tmp/index.html
+INFO:root:/Users/irusland/Desktop/UrFU/python/httpserver/tmp/index.html type text/html
+INFO:root:Response status: 200
+reason: OK
+headers: [('Content-Type', 'text/html'), ('Content-Disposition', 'inline; filename=index.html'), ('Content-Length', 156)]
+body: b'<!DOCTYPE html>\n<html lang="en">\n<head>\n    <meta charset="UTF-8">\n    <title>index.html</title>\n</head>\n<body>\n    <h1>Python Rule it!</h1>\n</body>\n</html>'
+INFO:root:271B sent to ('127.0.0.1', 51029)
+INFO:root:File sent to ('127.0.0.1', 51029)
+INFO:root:Got request from ('127.0.0.1', 51032) method: GET
+target: /
+version: HTTP/1.1
+headers: Host: 0.0.0.0:8000
+Upgrade-Insecure-Requests: 1
+Accept: text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8
+User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_1) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/13.0.3 Safari/605.1.15
+Accept-Language: en-us
+Accept-Encoding: gzip, deflate
+Connection: keep-alive
+
+
+file: <_io.BufferedReader name=-1>
+user: ('127.0.0.1', 51032)
+url: ParseResult(scheme='', netloc='', path='/', params='', query='', fragment='')
+path: /
+query: {}
+INFO:root:Threaded client serving started ('127.0.0.1', 51032)
+INFO:root:processing /
+INFO:root:path found tmp/index.html
+INFO:root:/Users/irusland/Desktop/UrFU/python/httpserver/tmp/index.html type text/html
+INFO:root:Response status: 200
+reason: OK
+headers: [('Content-Type', 'text/html'), ('Content-Disposition', 'inline; filename=index.html'), ('Content-Length', 156)]
+body: b'<!DOCTYPE html>\n<html lang="en">\n<head>\n    <meta charset="UTF-8">\n    <title>index.html</title>\n</head>\n<body>\n    <h1>Python Rule it!</h1>\n</body>\n</html>'
+INFO:root:271B sent to ('127.0.0.1', 51032)
+INFO:root:File sent to ('127.0.0.1', 51032)
+INFO:root:Threaded client serving started ('127.0.0.1', 51033)
+INFO:root:Got request from ('127.0.0.1', 51033) method: GET
+target: /
+version: HTTP/1.1
+headers: Host: 0.0.0.0:8000
+Upgrade-Insecure-Requests: 1
+Accept: text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8
+User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_1) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/13.0.3 Safari/605.1.15
+Accept-Language: en-us
+Accept-Encoding: gzip, deflate
+Connection: keep-alive
+
+
+file: <_io.BufferedReader name=-1>
+user: ('127.0.0.1', 51033)
+url: ParseResult(scheme='', netloc='', path='/', params='', query='', fragment='')
+path: /
+query: {}
+INFO:root:processing /
+INFO:root:path found tmp/index.html
+INFO:root:/Users/irusland/Desktop/UrFU/python/httpserver/tmp/index.html type text/html
+INFO:root:Response status: 200
+reason: OK
+headers: [('Content-Type', 'text/html'), ('Content-Disposition', 'inline; filename=index.html'), ('Content-Length', 156)]
+body: b'<!DOCTYPE html>\n<html lang="en">\n<head>\n    <meta charset="UTF-8">\n    <title>index.html</title>\n</head>\n<body>\n    <h1>Python Rule it!</h1>\n</body>\n</html>'
+INFO:root:271B sent to ('127.0.0.1', 51033)
+INFO:root:File sent to ('127.0.0.1', 51033)
+INFO:root:Threaded client serving started ('127.0.0.1', 51034)
+INFO:root:Got request from ('127.0.0.1', 51034) method: GET
+target: /
+version: HTTP/1.1
+headers: Host: 0.0.0.0:8000
+Upgrade-Insecure-Requests: 1
+Accept: text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8
+User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_1) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/13.0.3 Safari/605.1.15
+Accept-Language: en-us
+Accept-Encoding: gzip, deflate
+Connection: keep-alive
+
+
+file: <_io.BufferedReader name=-1>
+user: ('127.0.0.1', 51034)
+url: ParseResult(scheme='', netloc='', path='/', params='', query='', fragment='')
+path: /
+query: {}
+INFO:root:processing /
+INFO:root:path found tmp/index.html
+INFO:root:/Users/irusland/Desktop/UrFU/python/httpserver/tmp/index.html type text/html
+INFO:root:Response status: 200
+reason: OK
+headers: [('Content-Type', 'text/html'), ('Content-Disposition', 'inline; filename=index.html'), ('Content-Length', 156)]
+body: b'<!DOCTYPE html>\n<html lang="en">\n<head>\n    <meta charset="UTF-8">\n    <title>index.html</title>\n</head>\n<body>\n    <h1>Python Rule it!</h1>\n</body>\n</html>'
+INFO:root:271B sent to ('127.0.0.1', 51034)
+INFO:root:File sent to ('127.0.0.1', 51034)
+INFO:root:Threaded client serving started ('127.0.0.1', 51036)
+INFO:root:Got request from ('127.0.0.1', 51036) method: GET
+target: /big
+version: HTTP/1.1
+headers: Host: 0.0.0.0:8000
+Upgrade-Insecure-Requests: 1
+Accept: text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8
+User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_1) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/13.0.3 Safari/605.1.15
+Accept-Language: en-us
+Accept-Encoding: gzip, deflate
+Connection: keep-alive
+
+
+file: <_io.BufferedReader name=-1>
+user: ('127.0.0.1', 51036)
+url: ParseResult(scheme='', netloc='', path='/big', params='', query='', fragment='')
+path: /big
+query: {}
+INFO:root:processing /big
+INFO:root:path found tmp/pictures/chroma.jpg
+INFO:root:/Users/irusland/Desktop/UrFU/python/httpserver/tmp/pictures/chroma.jpg type image/jpg
+INFO:root:Response status: 200
+reason: OK
+headers: [('Content-Type', 'image/jpg'), ('Content-Disposition', 'inline; filename=chroma.jpg'), ('Content-Length', 22853829)]
+body: b'\xff\xd8\xff\xe0\x00\x10JFIF\x00\x01\x01\x00\x00H\x00H\x00\x00\xff\xe1\x00@Exif\x00\x00MM\x00*\x00\x00\x00\x08\x00\x01\x87i\x00\x04\x00\x00\x00\x01\x00\x00\x00\x1a\x00\x00\x00\x00\x00\x02\xa0\x02\x00\x04\x00\x00\x00\x01\x00\x00\x14\x00\xa0\x03\x00\x04\x00\x00\x00\x01\x00\x00\x0b@\x00\x00\x00\x00\xff\xed\x008Photoshop 3.0\x008BIM\x04\x04\x00\x00\x00\x00\x00\x008BIM\x04%\x00\x00\x00\x00\x00\x10\xd4\x1d\x8c\xd9\x8f\x00\xb2\x04\xe9\x80\t\x98\xec\xf8B~\xff\xe2\x024ICC_PROFILE\x00\x01\x01\x00\x00\x0
+INFO:root:261676B sent to ('127.0.0.1', 51036)
+INFO:root:965616B sent to ('127.0.0.1', 51036)
+ERROR:root:[Errno 35] Resource temporarily unavailable Sleeping 0.1s
+ERROR:root:[Errno 35] Resource temporarily unavailable Sleeping 0.1s
+INFO:root:817848B sent to ('127.0.0.1', 51036)
+INFO:root:400940B sent to ('127.0.0.1', 51036)
+INFO:root:2143132B sent to ('127.0.0.1', 51036)
+INFO:root:2701436B sent to ('127.0.0.1', 51036)
+INFO:root:2274412B sent to ('127.0.0.1', 51036)
+INFO:root:2307908B sent to ('127.0.0.1', 51036)
+INFO:root:2046180B sent to ('127.0.0.1', 51036)
+INFO:root:2111716B sent to ('127.0.0.1', 51036)
+INFO:root:2823952B sent to ('127.0.0.1', 51036)
+INFO:root:2250980B sent to ('127.0.0.1', 51036)
+INFO:root:1748153B sent to ('127.0.0.1', 51036)
+INFO:root:File sent to ('127.0.0.1', 51036)
+INFO:root:Got request from ('127.0.0.1', 51037) method: GET
+target: /big
+version: HTTP/1.1
+headers: Host: 0.0.0.0:8000
+Upgrade-Insecure-Requests: 1
+Accept: text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8
+User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_1) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/13.0.3 Safari/605.1.15
+Accept-Language: en-us
+Accept-Encoding: gzip, deflate
+Connection: keep-alive
+
+
+file: <_io.BufferedReader name=-1>
+user: ('127.0.0.1', 51037)
+url: ParseResult(scheme='', netloc='', path='/big', params='', query='', fragment='')
+path: /big
+query: {}
+INFO:root:Threaded client serving started ('127.0.0.1', 51037)
+INFO:root:processing /big
+INFO:root:path found tmp/pictures/chroma.jpg
+INFO:root:/Users/irusland/Desktop/UrFU/python/httpserver/tmp/pictures/chroma.jpg type image/jpg
+INFO:root:Response status: 200
+reason: OK
+headers: [('Content-Type', 'image/jpg'), ('Content-Disposition', 'inline; filename=chroma.jpg'), ('Content-Length', 22853829)]
+body: b'\xff\xd8\xff\xe0\x00\x10JFIF\x00\x01\x01\x00\x00H\x00H\x00\x00\xff\xe1\x00@Exif\x00\x00MM\x00*\x00\x00\x00\x08\x00\x01\x87i\x00\x04\x00\x00\x00\x01\x00\x00\x00\x1a\x00\x00\x00\x00\x00\x02\xa0\x02\x00\x04\x00\x00\x00\x01\x00\x00\x14\x00\xa0\x03\x00\x04\x00\x00\x00\x01\x00\x00\x0b@\x00\x00\x00\x00\xff\xed\x008Photoshop 3.0\x008BIM\x04\x04\x00\x00\x00\x00\x00\x008BIM\x04%\x00\x00\x00\x00\x00\x10\xd4\x1d\x8c\xd9\x8f\x00\xb2\x04\xe9\x80\t\x98\xec\xf8B~\xff\xe2\x024ICC_PROFILE\x00\x01\x01\x00\x00\x0
+INFO:root:261676B sent to ('127.0.0.1', 51037)
+INFO:root:1627348B sent to ('127.0.0.1', 51037)
+ERROR:root:[Errno 35] Resource temporarily unavailable Sleeping 0.1s
+INFO:root:1742556B sent to ('127.0.0.1', 51037)
+INFO:root:2642792B sent to ('127.0.0.1', 51037)
+INFO:root:2192388B sent to ('127.0.0.1', 51037)
+INFO:root:2275140B sent to ('127.0.0.1', 51037)
+INFO:root:2445924B sent to ('127.0.0.1', 51037)
+INFO:root:2316516B sent to ('127.0.0.1', 51037)
+INFO:root:2643780B sent to ('127.0.0.1', 51037)
+INFO:root:2251396B sent to ('127.0.0.1', 51037)
+INFO:root:1717720B sent to ('127.0.0.1', 51037)
+INFO:root:293976B sent to ('127.0.0.1', 51037)
+INFO:root:442737B sent to ('127.0.0.1', 51037)
+INFO:root:File sent to ('127.0.0.1', 51037)
+INFO:root:Threaded client serving started ('127.0.0.1', 51042)
+INFO:root:Got request from ('127.0.0.1', 51042) method: GET
+target: /
+version: HTTP/1.1
+headers: Host: 0.0.0.0:8000
+Upgrade-Insecure-Requests: 1
+Accept: text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8
+User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_1) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/13.0.3 Safari/605.1.15
+Accept-Language: en-us
+Accept-Encoding: gzip, deflate
+Connection: keep-alive
+
+
+file: <_io.BufferedReader name=-1>
+user: ('127.0.0.1', 51042)
+url: ParseResult(scheme='', netloc='', path='/', params='', query='', fragment='')
+path: /
+query: {}
+INFO:root:processing /
+INFO:root:path found tmp/index.html
+INFO:root:/Users/irusland/Desktop/UrFU/python/httpserver/tmp/index.html type text/html
+INFO:root:Response status: 200
+reason: OK
+headers: [('Content-Type', 'text/html'), ('Content-Disposition', 'inline; filename=index.html'), ('Content-Length', 156)]
+body: b'<!DOCTYPE html>\n<html lang="en">\n<head>\n    <meta charset="UTF-8">\n    <title>index.html</title>\n</head>\n<body>\n    <h1>Python Rule it!</h1>\n</body>\n</html>'
+INFO:root:271B sent to ('127.0.0.1', 51042)
+INFO:root:File sent to ('127.0.0.1', 51042)
+INFO:root:Got request from ('127.0.0.1', 51043) method: GET
+target: /big
+version: HTTP/1.1
+headers: Host: 0.0.0.0:8000
+Upgrade-Insecure-Requests: 1
+Accept: text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8
+User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_1) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/13.0.3 Safari/605.1.15
+Accept-Language: en-us
+Accept-Encoding: gzip, deflate
+Connection: keep-alive
+
+
+file: <_io.BufferedReader name=-1>
+user: ('127.0.0.1', 51043)
+url: ParseResult(scheme='', netloc='', path='/big', params='', query='', fragment='')
+path: /big
+query: {}
+INFO:root:Threaded client serving started ('127.0.0.1', 51043)
+INFO:root:processing /big
+INFO:root:path found tmp/pictures/chroma.jpg
+INFO:root:/Users/irusland/Desktop/UrFU/python/httpserver/tmp/pictures/chroma.jpg type image/jpg
+INFO:root:Response status: 200
+reason: OK
+headers: [('Content-Type', 'image/jpg'), ('Content-Disposition', 'inline; filename=chroma.jpg'), ('Content-Length', 22853829)]
+body: b'\xff\xd8\xff\xe0\x00\x10JFIF\x00\x01\x01\x00\x00H\x00H\x00\x00\xff\xe1\x00@Exif\x00\x00MM\x00*\x00\x00\x00\x08\x00\x01\x87i\x00\x04\x00\x00\x00\x01\x00\x00\x00\x1a\x00\x00\x00\x00\x00\x02\xa0\x02\x00\x04\x00\x00\x00\x01\x00\x00\x14\x00\xa0\x03\x00\x04\x00\x00\x00\x01\x00\x00\x0b@\x00\x00\x00\x00\xff\xed\x008Photoshop 3.0\x008BIM\x04\x04\x00\x00\x00\x00\x00\x008BIM\x04%\x00\x00\x00\x00\x00\x10\xd4\x1d\x8c\xd9\x8f\x00\xb2\x04\xe9\x80\t\x98\xec\xf8B~\xff\xe2\x024ICC_PROFILE\x00\x01\x01\x00\x00\x0
+INFO:root:261676B sent to ('127.0.0.1', 51043)
+INFO:root:670392B sent to ('127.0.0.1', 51043)
+ERROR:root:[Errno 35] Resource temporarily unavailable Sleeping 0.1s
+ERROR:root:[Errno 35] Resource temporarily unavailable Sleeping 0.1s
+INFO:root:1161756B sent to ('127.0.0.1', 51043)
+INFO:root:1170104B sent to ('127.0.0.1', 51043)
+INFO:root:2004700B sent to ('127.0.0.1', 51043)
+INFO:root:2430580B sent to ('127.0.0.1', 51043)
+INFO:root:2324656B sent to ('127.0.0.1', 51043)
+INFO:root:2429124B sent to ('127.0.0.1', 51043)
+INFO:root:2103108B sent to ('127.0.0.1', 51043)
+INFO:root:2103524B sent to ('127.0.0.1', 51043)
+INFO:root:2103108B sent to ('127.0.0.1', 51043)
+INFO:root:2365668B sent to ('127.0.0.1', 51043)
+INFO:root:1725553B sent to ('127.0.0.1', 51043)
+INFO:root:File sent to ('127.0.0.1', 51043)
+INFO:root:Threaded client serving started ('127.0.0.1', 51045)
+INFO:root:Got request from ('127.0.0.1', 51045) method: GET
+target: /
+version: HTTP/1.1
+headers: Host: 0.0.0.0:8000
+Upgrade-Insecure-Requests: 1
+Accept: text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8
+User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_1) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/13.0.3 Safari/605.1.15
+Accept-Language: en-us
+Accept-Encoding: gzip, deflate
+Connection: keep-alive
+
+
+file: <_io.BufferedReader name=-1>
+user: ('127.0.0.1', 51045)
+url: ParseResult(scheme='', netloc='', path='/', params='', query='', fragment='')
+path: /
+query: {}
+INFO:root:processing /
+INFO:root:path found tmp/index.html
+INFO:root:/Users/irusland/Desktop/UrFU/python/httpserver/tmp/index.html type text/html
+INFO:root:Response status: 200
+reason: OK
+headers: [('Content-Type', 'text/html'), ('Content-Disposition', 'inline; filename=index.html'), ('Content-Length', 156)]
+body: b'<!DOCTYPE html>\n<html lang="en">\n<head>\n    <meta charset="UTF-8">\n    <title>index.html</title>\n</head>\n<body>\n    <h1>Python Rule it!</h1>\n</body>\n</html>'
+INFO:root:271B sent to ('127.0.0.1', 51045)
+INFO:root:File sent to ('127.0.0.1', 51045)
+INFO:root:Threaded client serving started ('127.0.0.1', 51048)
+INFO:root:Got request from ('127.0.0.1', 51048) method: GET
+target: /
+version: HTTP/1.1
+headers: Host: 0.0.0.0:8000
+Upgrade-Insecure-Requests: 1
+Accept: text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8
+User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_1) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/13.0.3 Safari/605.1.15
+Accept-Language: en-us
+Accept-Encoding: gzip, deflate
+Connection: keep-alive
+
+
+file: <_io.BufferedReader name=-1>
+user: ('127.0.0.1', 51048)
+url: ParseResult(scheme='', netloc='', path='/', params='', query='', fragment='')
+path: /
+query: {}
+INFO:root:processing /
+INFO:root:path found tmp/index.html
+INFO:root:/Users/irusland/Desktop/UrFU/python/httpserver/tmp/index.html type text/html
+INFO:root:Response status: 200
+reason: OK
+headers: [('Content-Type', 'text/html'), ('Content-Disposition', 'inline; filename=index.html'), ('Content-Length', 156)]
+body: b'<!DOCTYPE html>\n<html lang="en">\n<head>\n    <meta charset="UTF-8">\n    <title>index.html</title>\n</head>\n<body>\n    <h1>Python Rule it!</h1>\n</body>\n</html>'
+INFO:root:271B sent to ('127.0.0.1', 51048)
+INFO:root:File sent to ('127.0.0.1', 51048)
+INFO:root:Threaded client serving started ('127.0.0.1', 51049)
+INFO:root:Got request from ('127.0.0.1', 51049) method: GET
+target: /
+version: HTTP/1.1
+headers: Host: 0.0.0.0:8000
+Upgrade-Insecure-Requests: 1
+Accept: text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8
+User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_1) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/13.0.3 Safari/605.1.15
+Accept-Language: en-us
+Accept-Encoding: gzip, deflate
+Connection: keep-alive
+
+
+file: <_io.BufferedReader name=-1>
+user: ('127.0.0.1', 51049)
+url: ParseResult(scheme='', netloc='', path='/', params='', query='', fragment='')
+path: /
+query: {}
+INFO:root:processing /
+INFO:root:path found tmp/index.html
+INFO:root:/Users/irusland/Desktop/UrFU/python/httpserver/tmp/index.html type text/html
+INFO:root:Response status: 200
+reason: OK
+headers: [('Content-Type', 'text/html'), ('Content-Disposition', 'inline; filename=index.html'), ('Content-Length', 156)]
+body: b'<!DOCTYPE html>\n<html lang="en">\n<head>\n    <meta charset="UTF-8">\n    <title>index.html</title>\n</head>\n<body>\n    <h1>Python Rule it!</h1>\n</body>\n</html>'
+INFO:root:271B sent to ('127.0.0.1', 51049)
+INFO:root:File sent to ('127.0.0.1', 51049)
+INFO:root:Threaded client serving started ('127.0.0.1', 51050)
+INFO:root:Got request from ('127.0.0.1', 51050) method: GET
+target: /big
+version: HTTP/1.1
+headers: Host: 0.0.0.0:8000
+Upgrade-Insecure-Requests: 1
+Accept: text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8
+User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_1) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/13.0.3 Safari/605.1.15
+Accept-Language: en-us
+Accept-Encoding: gzip, deflate
+Connection: keep-alive
+
+
+file: <_io.BufferedReader name=-1>
+user: ('127.0.0.1', 51050)
+url: ParseResult(scheme='', netloc='', path='/big', params='', query='', fragment='')
+path: /big
+query: {}
+INFO:root:processing /big
+INFO:root:path found tmp/pictures/chroma.jpg
+INFO:root:/Users/irusland/Desktop/UrFU/python/httpserver/tmp/pictures/chroma.jpg type image/jpg
+INFO:root:Response status: 200
+reason: OK
+headers: [('Content-Type', 'image/jpg'), ('Content-Disposition', 'inline; filename=chroma.jpg'), ('Content-Length', 22853829)]
+body: b'\xff\xd8\xff\xe0\x00\x10JFIF\x00\x01\x01\x00\x00H\x00H\x00\x00\xff\xe1\x00@Exif\x00\x00MM\x00*\x00\x00\x00\x08\x00\x01\x87i\x00\x04\x00\x00\x00\x01\x00\x00\x00\x1a\x00\x00\x00\x00\x00\x02\xa0\x02\x00\x04\x00\x00\x00\x01\x00\x00\x14\x00\xa0\x03\x00\x04\x00\x00\x00\x01\x00\x00\x0b@\x00\x00\x00\x00\xff\xed\x008Photoshop 3.0\x008BIM\x04\x04\x00\x00\x00\x00\x00\x008BIM\x04%\x00\x00\x00\x00\x00\x10\xd4\x1d\x8c\xd9\x8f\x00\xb2\x04\xe9\x80\t\x98\xec\xf8B~\xff\xe2\x024ICC_PROFILE\x00\x01\x01\x00\x00\x0
+INFO:root:964836B sent to ('127.0.0.1', 51050)
+INFO:root:408924B sent to ('127.0.0.1', 51050)
+ERROR:root:[Errno 35] Resource temporarily unavailable Sleeping 0.1s
+INFO:root:417324B sent to ('127.0.0.1', 51050)
+INFO:root:1817012B sent to ('127.0.0.1', 51050)
+INFO:root:2333212B sent to ('127.0.0.1', 51050)
+INFO:root:2128828B sent to ('127.0.0.1', 51050)
+INFO:root:1750904B sent to ('127.0.0.1', 51050)
+INFO:root:1883224B sent to ('127.0.0.1', 51050)
+INFO:root:1948760B sent to ('127.0.0.1', 51050)
+INFO:root:2014296B sent to ('127.0.0.1', 51050)
+INFO:root:1881560B sent to ('127.0.0.1', 51050)
+INFO:root:1841796B sent to ('127.0.0.1', 51050)
+INFO:root:2013464B sent to ('127.0.0.1', 51050)
+INFO:root:1449809B sent to ('127.0.0.1', 51050)
+INFO:root:File sent to ('127.0.0.1', 51050)
+INFO:root:Threaded client serving started ('127.0.0.1', 51053)
+INFO:root:Got request from ('127.0.0.1', 51053) method: GET
+target: /
+version: HTTP/1.1
+headers: Host: 0.0.0.0:8000
+Upgrade-Insecure-Requests: 1
+Accept: text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8
+User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_1) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/13.0.3 Safari/605.1.15
+Accept-Language: en-us
+Accept-Encoding: gzip, deflate
+Connection: keep-alive
+
+
+file: <_io.BufferedReader name=-1>
+user: ('127.0.0.1', 51053)
+url: ParseResult(scheme='', netloc='', path='/', params='', query='', fragment='')
+path: /
+query: {}
+INFO:root:processing /
+INFO:root:path found tmp/index.html
+INFO:root:/Users/irusland/Desktop/UrFU/python/httpserver/tmp/index.html type text/html
+INFO:root:Response status: 200
+reason: OK
+headers: [('Content-Type', 'text/html'), ('Content-Disposition', 'inline; filename=index.html'), ('Content-Length', 156)]
+body: b'<!DOCTYPE html>\n<html lang="en">\n<head>\n    <meta charset="UTF-8">\n    <title>index.html</title>\n</head>\n<body>\n    <h1>Python Rule it!</h1>\n</body>\n</html>'
+INFO:root:271B sent to ('127.0.0.1', 51053)
+INFO:root:File sent to ('127.0.0.1', 51053)
+INFO:root:Got request from ('127.0.0.1', 51054) method: GET
+target: /big
+version: HTTP/1.1
+headers: Host: 0.0.0.0:8000
+Upgrade-Insecure-Requests: 1
+Accept: text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8
+User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_1) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/13.0.3 Safari/605.1.15
+Accept-Language: en-us
+Accept-Encoding: gzip, deflate
+Connection: keep-alive
+
+
+file: <_io.BufferedReader name=-1>
+user: ('127.0.0.1', 51054)
+url: ParseResult(scheme='', netloc='', path='/big', params='', query='', fragment='')
+path: /big
+query: {}
+INFO:root:Threaded client serving started ('127.0.0.1', 51054)
+INFO:root:processing /big
+INFO:root:path found tmp/pictures/chroma.jpg
+INFO:root:/Users/irusland/Desktop/UrFU/python/httpserver/tmp/pictures/chroma.jpg type image/jpg
+INFO:root:Response status: 200
+reason: OK
+headers: [('Content-Type', 'image/jpg'), ('Content-Disposition', 'inline; filename=chroma.jpg'), ('Content-Length', 22853829)]
+body: b'\xff\xd8\xff\xe0\x00\x10JFIF\x00\x01\x01\x00\x00H\x00H\x00\x00\xff\xe1\x00@Exif\x00\x00MM\x00*\x00\x00\x00\x08\x00\x01\x87i\x00\x04\x00\x00\x00\x01\x00\x00\x00\x1a\x00\x00\x00\x00\x00\x02\xa0\x02\x00\x04\x00\x00\x00\x01\x00\x00\x14\x00\xa0\x03\x00\x04\x00\x00\x00\x01\x00\x00\x0b@\x00\x00\x00\x00\xff\xed\x008Photoshop 3.0\x008BIM\x04\x04\x00\x00\x00\x00\x00\x008BIM\x04%\x00\x00\x00\x00\x00\x10\xd4\x1d\x8c\xd9\x8f\x00\xb2\x04\xe9\x80\t\x98\xec\xf8B~\xff\xe2\x024ICC_PROFILE\x00\x01\x01\x00\x00\x0
+INFO:root:891316B sent to ('127.0.0.1', 51054)
+INFO:root:Got request from ('127.0.0.1', 51055) method: GET
+target: /big
+version: HTTP/1.1
+headers: Host: 0.0.0.0:8000
+Upgrade-Insecure-Requests: 1
+Accept: text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8
+User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_1) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/13.0.3 Safari/605.1.15
+Accept-Language: en-us
+Accept-Encoding: gzip, deflate
+Connection: keep-alive
+
+
+file: <_io.BufferedReader name=-1>
+user: ('127.0.0.1', 51055)
+url: ParseResult(scheme='', netloc='', path='/big', params='', query='', fragment='')
+path: /big
+query: {}
+INFO:root:278060B sent to ('127.0.0.1', 51054)
+INFO:root:Threaded client serving started ('127.0.0.1', 51055)
+INFO:root:32664B sent to ('127.0.0.1', 51054)
+INFO:root:processing /big
+ERROR:root:[Errno 35] Resource temporarily unavailable Sleeping 0.1s
+INFO:root:path found tmp/pictures/chroma.jpg
+INFO:root:/Users/irusland/Desktop/UrFU/python/httpserver/tmp/pictures/chroma.jpg type image/jpg
+INFO:root:Response status: 200
+reason: OK
+headers: [('Content-Type', 'image/jpg'), ('Content-Disposition', 'inline; filename=chroma.jpg'), ('Content-Length', 22853829)]
+body: b'\xff\xd8\xff\xe0\x00\x10JFIF\x00\x01\x01\x00\x00H\x00H\x00\x00\xff\xe1\x00@Exif\x00\x00MM\x00*\x00\x00\x00\x08\x00\x01\x87i\x00\x04\x00\x00\x00\x01\x00\x00\x00\x1a\x00\x00\x00\x00\x00\x02\xa0\x02\x00\x04\x00\x00\x00\x01\x00\x00\x14\x00\xa0\x03\x00\x04\x00\x00\x00\x01\x00\x00\x0b@\x00\x00\x00\x00\xff\xed\x008Photoshop 3.0\x008BIM\x04\x04\x00\x00\x00\x00\x00\x008BIM\x04%\x00\x00\x00\x00\x00\x10\xd4\x1d\x8c\xd9\x8f\x00\xb2\x04\xe9\x80\t\x98\xec\xf8B~\xff\xe2\x024ICC_PROFILE\x00\x01\x01\x00\x00\x0
+INFO:root:932848B sent to ('127.0.0.1', 51054)
+INFO:root:261676B sent to ('127.0.0.1', 51055)
+INFO:root:1521996B sent to ('127.0.0.1', 51054)
+INFO:root:670808B sent to ('127.0.0.1', 51055)
+ERROR:root:[Errno 35] Resource temporarily unavailable Sleeping 0.1s
+INFO:root:1980956B sent to ('127.0.0.1', 51054)
+INFO:root:2111820B sent to ('127.0.0.1', 51054)
+INFO:root:1620196B sent to ('127.0.0.1', 51054)
+INFO:root:1619364B sent to ('127.0.0.1', 51054)
+INFO:root:1555076B sent to ('127.0.0.1', 51054)
+INFO:root:1816804B sent to ('127.0.0.1', 51054)
+INFO:root:1619364B sent to ('127.0.0.1', 51054)
+INFO:root:1686148B sent to ('127.0.0.1', 51054)
+INFO:root:1816388B sent to ('127.0.0.1', 51054)
+INFO:root:1987588B sent to ('127.0.0.1', 51054)
+ERROR:root:[Errno 35] Resource temporarily unavailable Sleeping 0.1s
+ERROR:root:[Errno 35] Resource temporarily unavailable Sleeping 0.1s
+INFO:root:1383361B sent to ('127.0.0.1', 51054)
+INFO:root:File sent to ('127.0.0.1', 51054)
+INFO:root:1194420B sent to ('127.0.0.1', 51055)
+INFO:root:948712B sent to ('127.0.0.1', 51055)
+INFO:root:1031256B sent to ('127.0.0.1', 51055)
+INFO:root:801776B sent to ('127.0.0.1', 51055)
+INFO:root:900184B sent to ('127.0.0.1', 51055)
+INFO:root:1030840B sent to ('127.0.0.1', 51055)
+INFO:root:523612B sent to ('127.0.0.1', 51055)
+INFO:root:2029328B sent to ('127.0.0.1', 51055)
+INFO:root:2094864B sent to ('127.0.0.1', 51055)
+INFO:root:1963428B sent to ('127.0.0.1', 51055)
+INFO:root:1766820B sent to ('127.0.0.1', 51055)
+INFO:root:2094864B sent to ('127.0.0.1', 51055)
+INFO:root:1963012B sent to ('127.0.0.1', 51055)
+INFO:root:916568B sent to ('127.0.0.1', 51055)
+INFO:root:1505508B sent to ('127.0.0.1', 51055)
+INFO:root:1156273B sent to ('127.0.0.1', 51055)
+INFO:root:File sent to ('127.0.0.1', 51055)
+INFO:root:Threaded client serving started ('127.0.0.1', 51057)
+INFO:root:Got request from ('127.0.0.1', 51057) method: GET
+target: /
+version: HTTP/1.1
+headers: Host: 0.0.0.0:8000
+Upgrade-Insecure-Requests: 1
+Accept: text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8
+User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_1) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/13.0.3 Safari/605.1.15
+Accept-Language: en-us
+Accept-Encoding: gzip, deflate
+Connection: keep-alive
+
+
+file: <_io.BufferedReader name=-1>
+user: ('127.0.0.1', 51057)
+url: ParseResult(scheme='', netloc='', path='/', params='', query='', fragment='')
+path: /
+query: {}
+INFO:root:processing /
+INFO:root:path found tmp/index.html
+INFO:root:/Users/irusland/Desktop/UrFU/python/httpserver/tmp/index.html type text/html
+INFO:root:Response status: 200
+reason: OK
+headers: [('Content-Type', 'text/html'), ('Content-Disposition', 'inline; filename=index.html'), ('Content-Length', 156)]
+body: b'<!DOCTYPE html>\n<html lang="en">\n<head>\n    <meta charset="UTF-8">\n    <title>index.html</title>\n</head>\n<body>\n    <h1>Python Rule it!</h1>\n</body>\n</html>'
+INFO:root:271B sent to ('127.0.0.1', 51057)
+INFO:root:File sent to ('127.0.0.1', 51057)
+INFO:root:Got request from ('127.0.0.1', 51066) method: GET
+target: /
+version: HTTP/1.1
+headers: Host: 0.0.0.0:8000
+Upgrade-Insecure-Requests: 1
+Accept: text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8
+User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_1) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/13.0.3 Safari/605.1.15
+Accept-Language: en-us
+Accept-Encoding: gzip, deflate
+Connection: keep-alive
+
+
+file: <_io.BufferedReader name=-1>
+user: ('127.0.0.1', 51066)
+url: ParseResult(scheme='', netloc='', path='/', params='', query='', fragment='')
+path: /
+query: {}
+INFO:root:processing /
+INFO:root:path found tmp/index.html
+INFO:root:Threaded client serving started ('127.0.0.1', 51066)
+INFO:root:/Users/irusland/Desktop/UrFU/python/httpserver/tmp/index.html type text/html
+INFO:root:Response status: 200
+reason: OK
+headers: [('Content-Type', 'text/html'), ('Content-Disposition', 'inline; filename=index.html'), ('Content-Length', 156)]
+body: b'<!DOCTYPE html>\n<html lang="en">\n<head>\n    <meta charset="UTF-8">\n    <title>index.html</title>\n</head>\n<body>\n    <h1>Python Rule it!</h1>\n</body>\n</html>'
+INFO:root:271B sent to ('127.0.0.1', 51066)
+INFO:root:File sent to ('127.0.0.1', 51066)
+INFO:root:Threaded client serving started ('127.0.0.1', 51068)
+INFO:root:Got request from ('127.0.0.1', 51068) method: GET
+target: /
+version: HTTP/1.1
+headers: Host: 0.0.0.0:8000
+Upgrade-Insecure-Requests: 1
+Accept: text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8
+User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_1) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/13.0.3 Safari/605.1.15
+Accept-Language: en-us
+Accept-Encoding: gzip, deflate
+Connection: keep-alive
+
+
+file: <_io.BufferedReader name=-1>
+user: ('127.0.0.1', 51068)
+url: ParseResult(scheme='', netloc='', path='/', params='', query='', fragment='')
+path: /
+query: {}
+INFO:root:processing /
+INFO:root:path found tmp/index.html
+INFO:root:/Users/irusland/Desktop/UrFU/python/httpserver/tmp/index.html type text/html
+INFO:root:Response status: 200
+reason: OK
+headers: [('Content-Type', 'text/html'), ('Content-Disposition', 'inline; filename=index.html'), ('Content-Length', 156)]
+body: b'<!DOCTYPE html>\n<html lang="en">\n<head>\n    <meta charset="UTF-8">\n    <title>index.html</title>\n</head>\n<body>\n    <h1>Python Rule it!</h1>\n</body>\n</html>'
+INFO:root:271B sent to ('127.0.0.1', 51068)
+INFO:root:File sent to ('127.0.0.1', 51068)
+INFO:root:Threaded client serving started ('127.0.0.1', 51069)
+INFO:root:Got request from ('127.0.0.1', 51069) method: GET
+target: /big
+version: HTTP/1.1
+headers: Host: 0.0.0.0:8000
+Upgrade-Insecure-Requests: 1
+Accept: text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8
+User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_1) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/13.0.3 Safari/605.1.15
+Accept-Language: en-us
+Accept-Encoding: gzip, deflate
+Connection: keep-alive
+
+
+file: <_io.BufferedReader name=-1>
+user: ('127.0.0.1', 51069)
+url: ParseResult(scheme='', netloc='', path='/big', params='', query='', fragment='')
+path: /big
+query: {}
+INFO:root:processing /big
+INFO:root:path found tmp/pictures/chroma.jpg
+INFO:root:/Users/irusland/Desktop/UrFU/python/httpserver/tmp/pictures/chroma.jpg type image/jpg
+INFO:root:Response status: 200
+reason: OK
+headers: [('Content-Type', 'image/jpg'), ('Content-Disposition', 'inline; filename=chroma.jpg'), ('Content-Length', 22853829)]
+body: b'\xff\xd8\xff\xe0\x00\x10JFIF\x00\x01\x01\x00\x00H\x00H\x00\x00\xff\xe1\x00@Exif\x00\x00MM\x00*\x00\x00\x00\x08\x00\x01\x87i\x00\x04\x00\x00\x00\x01\x00\x00\x00\x1a\x00\x00\x00\x00\x00\x02\xa0\x02\x00\x04\x00\x00\x00\x01\x00\x00\x14\x00\xa0\x03\x00\x04\x00\x00\x00\x01\x00\x00\x0b@\x00\x00\x00\x00\xff\xed\x008Photoshop 3.0\x008BIM\x04\x04\x00\x00\x00\x00\x00\x008BIM\x04%\x00\x00\x00\x00\x00\x10\xd4\x1d\x8c\xd9\x8f\x00\xb2\x04\xe9\x80\t\x98\xec\xf8B~\xff\xe2\x024ICC_PROFILE\x00\x01\x01\x00\x00\x0
+INFO:root:621240B sent to ('127.0.0.1', 51069)
+INFO:root:Got request from ('127.0.0.1', 51070) method: GET
+target: /
+version: HTTP/1.1
+headers: Host: 0.0.0.0:8000
+Upgrade-Insecure-Requests: 1
+Accept: text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8
+User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_1) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/13.0.3 Safari/605.1.15
+Accept-Language: en-us
+Accept-Encoding: gzip, deflate
+Connection: keep-alive
+
+
+file: <_io.BufferedReader name=-1>
+user: ('127.0.0.1', 51070)
+url: ParseResult(scheme='', netloc='', path='/', params='', query='', fragment='')
+path: /
+query: {}
+INFO:root:Threaded client serving started ('127.0.0.1', 51070)
+INFO:root:523352B sent to ('127.0.0.1', 51069)
+INFO:root:processing /
+INFO:root:path found tmp/index.html
+INFO:root:32664B sent to ('127.0.0.1', 51069)
+ERROR:root:[Errno 35] Resource temporarily unavailable Sleeping 0.1s
+INFO:root:/Users/irusland/Desktop/UrFU/python/httpserver/tmp/index.html type text/html
+INFO:root:Response status: 200
+reason: OK
+headers: [('Content-Type', 'text/html'), ('Content-Disposition', 'inline; filename=index.html'), ('Content-Length', 156)]
+body: b'<!DOCTYPE html>\n<html lang="en">\n<head>\n    <meta charset="UTF-8">\n    <title>index.html</title>\n</head>\n<body>\n    <h1>Python Rule it!</h1>\n</body>\n</html>'
+INFO:root:271B sent to ('127.0.0.1', 51070)
+INFO:root:File sent to ('127.0.0.1', 51070)
+ERROR:root:[Errno 35] Resource temporarily unavailable Sleeping 0.1s
+INFO:root:351788B sent to ('127.0.0.1', 51069)
+INFO:root:932952B sent to ('127.0.0.1', 51069)
+INFO:root:1030840B sent to ('127.0.0.1', 51069)
+INFO:root:2136136B sent to ('127.0.0.1', 51069)
+INFO:root:2513020B sent to ('127.0.0.1', 51069)
+INFO:root:2390660B sent to ('127.0.0.1', 51069)
+INFO:root:2128100B sent to ('127.0.0.1', 51069)
+INFO:root:2127268B sent to ('127.0.0.1', 51069)
+INFO:root:2388580B sent to ('127.0.0.1', 51069)
+INFO:root:2389828B sent to ('127.0.0.1', 51069)
+INFO:root:1997028B sent to ('127.0.0.1', 51069)
+INFO:root:1290493B sent to ('127.0.0.1', 51069)
+INFO:root:File sent to ('127.0.0.1', 51069)
+ERROR:root:
+Traceback (most recent call last):
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 299, in <module>
+    s.serve()
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 71, in serve
+    for key, mask in self.poller.select():
+  File "/usr/local/Cellar/python/3.7.4_1/Frameworks/Python.framework/Versions/3.7/lib/python3.7/selectors.py", line 558, in select
+    kev_list = self._selector.control(None, max_ev, timeout)
+KeyboardInterrupt
+INFO:root:server is DOWN
+INFO:root:server is UP on 0.0.0.0:8000
+INFO:root:Threaded client serving started ('127.0.0.1', 51086)
+INFO:root:Got request from ('127.0.0.1', 51086) method: GET
+target: /
+version: HTTP/1.1
+headers: Host: 0.0.0.0:8000
+Upgrade-Insecure-Requests: 1
+Accept: text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8
+User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_1) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/13.0.3 Safari/605.1.15
+Accept-Language: en-us
+Accept-Encoding: gzip, deflate
+Connection: keep-alive
+
+
+file: <_io.BufferedReader name=-1>
+user: ('127.0.0.1', 51086)
+url: ParseResult(scheme='', netloc='', path='/', params='', query='', fragment='')
+path: /
+query: {}
+INFO:root:processing /
+INFO:root:path found tmp/index.html
+INFO:root:/Users/irusland/Desktop/UrFU/python/httpserver/tmp/index.html type text/html
+INFO:root:Response status: 200
+reason: OK
+headers: [('Content-Type', 'text/html'), ('Content-Disposition', 'inline; filename=index.html'), ('Content-Length', 156)]
+body: b'<!DOCTYPE html>\n<html lang="en">\n<head>\n    <meta charset="UTF-8">\n    <title>index.html</title>\n</head>\n<body>\n    <h1>Python Rule it!</h1>\n</body>\n</html>'
+INFO:root:271B sent to ('127.0.0.1', 51086)
+INFO:root:File sent to ('127.0.0.1', 51086)
+INFO:root:Threaded client serving started ('127.0.0.1', 51088)
+INFO:root:Got request from ('127.0.0.1', 51088) method: GET
+target: /
+version: HTTP/1.1
+headers: Host: 0.0.0.0:8000
+Upgrade-Insecure-Requests: 1
+Accept: text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8
+User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_1) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/13.0.3 Safari/605.1.15
+Accept-Language: en-us
+Accept-Encoding: gzip, deflate
+Connection: keep-alive
+
+
+file: <_io.BufferedReader name=-1>
+user: ('127.0.0.1', 51088)
+url: ParseResult(scheme='', netloc='', path='/', params='', query='', fragment='')
+path: /
+query: {}
+INFO:root:processing /
+INFO:root:path found tmp/index.html
+INFO:root:/Users/irusland/Desktop/UrFU/python/httpserver/tmp/index.html type text/html
+INFO:root:Response status: 200
+reason: OK
+headers: [('Content-Type', 'text/html'), ('Content-Disposition', 'inline; filename=index.html'), ('Content-Length', 156)]
+body: b'<!DOCTYPE html>\n<html lang="en">\n<head>\n    <meta charset="UTF-8">\n    <title>index.html</title>\n</head>\n<body>\n    <h1>Python Rule it!</h1>\n</body>\n</html>'
+INFO:root:271B sent to ('127.0.0.1', 51088)
+INFO:root:File sent to ('127.0.0.1', 51088)
+INFO:root:Threaded client serving started ('127.0.0.1', 51089)
+INFO:root:Got request from ('127.0.0.1', 51089) method: GET
+target: /
+version: HTTP/1.1
+headers: Host: 0.0.0.0:8000
+Upgrade-Insecure-Requests: 1
+Accept: text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8
+User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_1) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/13.0.3 Safari/605.1.15
+Accept-Language: en-us
+Accept-Encoding: gzip, deflate
+Connection: keep-alive
+
+
+file: <_io.BufferedReader name=-1>
+user: ('127.0.0.1', 51089)
+url: ParseResult(scheme='', netloc='', path='/', params='', query='', fragment='')
+path: /
+query: {}
+INFO:root:processing /
+INFO:root:path found tmp/index.html
+INFO:root:/Users/irusland/Desktop/UrFU/python/httpserver/tmp/index.html type text/html
+INFO:root:Response status: 200
+reason: OK
+headers: [('Content-Type', 'text/html'), ('Content-Disposition', 'inline; filename=index.html'), ('Content-Length', 156)]
+body: b'<!DOCTYPE html>\n<html lang="en">\n<head>\n    <meta charset="UTF-8">\n    <title>index.html</title>\n</head>\n<body>\n    <h1>Python Rule it!</h1>\n</body>\n</html>'
+INFO:root:271B sent to ('127.0.0.1', 51089)
+INFO:root:File sent to ('127.0.0.1', 51089)
+INFO:root:Got request from ('127.0.0.1', 51090) method: GET
+target: /asdasd
+version: HTTP/1.1
+headers: Host: 0.0.0.0:8000
+Upgrade-Insecure-Requests: 1
+Accept: text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8
+User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_1) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/13.0.3 Safari/605.1.15
+Accept-Language: en-us
+Accept-Encoding: gzip, deflate
+Connection: keep-alive
+
+
+file: <_io.BufferedReader name=-1>
+user: ('127.0.0.1', 51090)
+url: ParseResult(scheme='', netloc='', path='/asdasd', params='', query='', fragment='')
+path: /asdasd
+query: {}
+INFO:root:Threaded client serving started ('127.0.0.1', 51090)
+INFO:root:processing /asdasd
+ERROR:root:(404, 'Not found')
+Traceback (most recent call last):
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 183, in handle_req
+    destination = self.ruler.get_destination(req.path, rules, True)
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/ruler.py", line 55, in get_destination
+    raise FileNotFoundError(url, rules)
+FileNotFoundError: [Errno /asdasd] {'/': 'tmp/index.html', '/favicon.ico': 'tmp/pictures/favicon.ico', '/index.html': 'tmp/index.html', '/2.html': 'tmp/pages/2.html', '/1.2.3.txt': 'tmp/1.2.3.txt', '/[name].html': 'tmp/pages/[name].html', '/[name].css': 'tmp/pages/css/[name].css', '/[name].[ext]': 'tmp/pictures/[name].[ext]', '/png/[name].png': 'tmp/pictures/[name].png', '/pictures/[ext]/1': 'tmp/pictures/1.[ext]', '/[DD]/[MM]/[YY]': 'tmp/dates/[DD].[MM].[YY].png', '/mime/': {'path': 'tmp/pictures/1.png', 'mime': 'text/txt'}, '/big': {'path': 'tmp/pictures/chroma.jpg', 'mime': 'image/jpg'}}
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 94, in serve_client
+    res = self.handle_req(req)
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 185, in handle_req
+    raise Errors.NOT_FOUND
+Error: (404, 'Not found')
+INFO:root:54B sent to ('127.0.0.1', 51090)
+INFO:root:File sent to ('127.0.0.1', 51090)
+INFO:root:Got request from ('127.0.0.1', 51091) method: GET
+target: /asd
+version: HTTP/1.1
+headers: Host: 0.0.0.0:8000
+Upgrade-Insecure-Requests: 1
+Accept: text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8
+User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_1) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/13.0.3 Safari/605.1.15
+Accept-Language: en-us
+Accept-Encoding: gzip, deflate
+Connection: keep-alive
+
+
+file: <_io.BufferedReader name=-1>
+user: ('127.0.0.1', 51091)
+url: ParseResult(scheme='', netloc='', path='/asd', params='', query='', fragment='')
+path: /asd
+query: {}
+INFO:root:Threaded client serving started ('127.0.0.1', 51091)
+INFO:root:processing /asd
+ERROR:root:(404, 'Not found')
+Traceback (most recent call last):
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 183, in handle_req
+    destination = self.ruler.get_destination(req.path, rules, True)
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/ruler.py", line 55, in get_destination
+    raise FileNotFoundError(url, rules)
+FileNotFoundError: [Errno /asd] {'/': 'tmp/index.html', '/favicon.ico': 'tmp/pictures/favicon.ico', '/index.html': 'tmp/index.html', '/2.html': 'tmp/pages/2.html', '/1.2.3.txt': 'tmp/1.2.3.txt', '/[name].html': 'tmp/pages/[name].html', '/[name].css': 'tmp/pages/css/[name].css', '/[name].[ext]': 'tmp/pictures/[name].[ext]', '/png/[name].png': 'tmp/pictures/[name].png', '/pictures/[ext]/1': 'tmp/pictures/1.[ext]', '/[DD]/[MM]/[YY]': 'tmp/dates/[DD].[MM].[YY].png', '/mime/': {'path': 'tmp/pictures/1.png', 'mime': 'text/txt'}, '/big': {'path': 'tmp/pictures/chroma.jpg', 'mime': 'image/jpg'}}
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 94, in serve_client
+    res = self.handle_req(req)
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 185, in handle_req
+    raise Errors.NOT_FOUND
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 94, in serve_client
+    res = self.handle_req(req)
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 185, in handle_req
+    raise Errors.NOT_FOUND
+Error: (404, 'Not found')
+INFO:root:54B sent to ('127.0.0.1', 51091)
+INFO:root:File sent to ('127.0.0.1', 51091)
+INFO:root:Threaded client serving started ('127.0.0.1', 51092)
+INFO:root:Got request from ('127.0.0.1', 51092) method: GET
+target: /asdasd
+version: HTTP/1.1
+headers: Host: 0.0.0.0:8000
+Upgrade-Insecure-Requests: 1
+Accept: text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8
+User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_1) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/13.0.3 Safari/605.1.15
+Accept-Language: en-us
+Accept-Encoding: gzip, deflate
+Connection: keep-alive
+
+
+file: <_io.BufferedReader name=-1>
+user: ('127.0.0.1', 51092)
+url: ParseResult(scheme='', netloc='', path='/asdasd', params='', query='', fragment='')
+path: /asdasd
+query: {}
+INFO:root:processing /asdasd
+ERROR:root:(404, 'Not found')
+Traceback (most recent call last):
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 183, in handle_req
+    destination = self.ruler.get_destination(req.path, rules, True)
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/ruler.py", line 55, in get_destination
+    raise FileNotFoundError(url, rules)
+FileNotFoundError: [Errno /asdasd] {'/': 'tmp/index.html', '/favicon.ico': 'tmp/pictures/favicon.ico', '/index.html': 'tmp/index.html', '/2.html': 'tmp/pages/2.html', '/1.2.3.txt': 'tmp/1.2.3.txt', '/[name].html': 'tmp/pages/[name].html', '/[name].css': 'tmp/pages/css/[name].css', '/[name].[ext]': 'tmp/pictures/[name].[ext]', '/png/[name].png': 'tmp/pictures/[name].png', '/pictures/[ext]/1': 'tmp/pictures/1.[ext]', '/[DD]/[MM]/[YY]': 'tmp/dates/[DD].[MM].[YY].png', '/mime/': {'path': 'tmp/pictures/1.png', 'mime': 'text/txt'}, '/big': {'path': 'tmp/pictures/chroma.jpg', 'mime': 'image/jpg'}}
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 94, in serve_client
+    res = self.handle_req(req)
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 185, in handle_req
+    raise Errors.NOT_FOUND
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 94, in serve_client
+    res = self.handle_req(req)
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 185, in handle_req
+    raise Errors.NOT_FOUND
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 94, in serve_client
+    res = self.handle_req(req)
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 185, in handle_req
+    raise Errors.NOT_FOUND
+Error: (404, 'Not found')
+INFO:root:54B sent to ('127.0.0.1', 51092)
+INFO:root:File sent to ('127.0.0.1', 51092)
+INFO:root:Got request from ('127.0.0.1', 51094) method: GET
+target: /aasdasd
+version: HTTP/1.1
+headers: Host: 0.0.0.0:8000
+Upgrade-Insecure-Requests: 1
+Accept: text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8
+User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_1) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/13.0.3 Safari/605.1.15
+Accept-Language: en-us
+Accept-Encoding: gzip, deflate
+Connection: keep-alive
+
+
+file: <_io.BufferedReader name=-1>
+user: ('127.0.0.1', 51094)
+url: ParseResult(scheme='', netloc='', path='/aasdasd', params='', query='', fragment='')
+path: /aasdasd
+query: {}
+INFO:root:Threaded client serving started ('127.0.0.1', 51094)
+INFO:root:processing /aasdasd
+ERROR:root:(404, 'Not found')
+Traceback (most recent call last):
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 183, in handle_req
+    destination = self.ruler.get_destination(req.path, rules, True)
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/ruler.py", line 55, in get_destination
+    raise FileNotFoundError(url, rules)
+FileNotFoundError: [Errno /aasdasd] {'/': 'tmp/index.html', '/favicon.ico': 'tmp/pictures/favicon.ico', '/index.html': 'tmp/index.html', '/2.html': 'tmp/pages/2.html', '/1.2.3.txt': 'tmp/1.2.3.txt', '/[name].html': 'tmp/pages/[name].html', '/[name].css': 'tmp/pages/css/[name].css', '/[name].[ext]': 'tmp/pictures/[name].[ext]', '/png/[name].png': 'tmp/pictures/[name].png', '/pictures/[ext]/1': 'tmp/pictures/1.[ext]', '/[DD]/[MM]/[YY]': 'tmp/dates/[DD].[MM].[YY].png', '/mime/': {'path': 'tmp/pictures/1.png', 'mime': 'text/txt'}, '/big': {'path': 'tmp/pictures/chroma.jpg', 'mime': 'image/jpg'}}
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 94, in serve_client
+    res = self.handle_req(req)
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 185, in handle_req
+    raise Errors.NOT_FOUND
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 94, in serve_client
+    res = self.handle_req(req)
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 185, in handle_req
+    raise Errors.NOT_FOUND
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 94, in serve_client
+    res = self.handle_req(req)
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 185, in handle_req
+    raise Errors.NOT_FOUND
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 94, in serve_client
+    res = self.handle_req(req)
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 185, in handle_req
+    raise Errors.NOT_FOUND
+Error: (404, 'Not found')
+INFO:root:54B sent to ('127.0.0.1', 51094)
+INFO:root:File sent to ('127.0.0.1', 51094)
+INFO:root:Threaded client serving started ('127.0.0.1', 51097)
+INFO:root:Got request from ('127.0.0.1', 51097) method: GET
+target: /aasdasd
+version: HTTP/1.1
+headers: Host: 0.0.0.0:8000
+Upgrade-Insecure-Requests: 1
+Accept: text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8
+User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_1) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/13.0.3 Safari/605.1.15
+Accept-Language: en-us
+Accept-Encoding: gzip, deflate
+Connection: keep-alive
+
+
+file: <_io.BufferedReader name=-1>
+user: ('127.0.0.1', 51097)
+url: ParseResult(scheme='', netloc='', path='/aasdasd', params='', query='', fragment='')
+path: /aasdasd
+query: {}
+INFO:root:processing /aasdasd
+ERROR:root:(404, 'Not found')
+Traceback (most recent call last):
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 183, in handle_req
+    destination = self.ruler.get_destination(req.path, rules, True)
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/ruler.py", line 55, in get_destination
+    raise FileNotFoundError(url, rules)
+FileNotFoundError: [Errno /aasdasd] {'/': 'tmp/index.html', '/favicon.ico': 'tmp/pictures/favicon.ico', '/index.html': 'tmp/index.html', '/2.html': 'tmp/pages/2.html', '/1.2.3.txt': 'tmp/1.2.3.txt', '/[name].html': 'tmp/pages/[name].html', '/[name].css': 'tmp/pages/css/[name].css', '/[name].[ext]': 'tmp/pictures/[name].[ext]', '/png/[name].png': 'tmp/pictures/[name].png', '/pictures/[ext]/1': 'tmp/pictures/1.[ext]', '/[DD]/[MM]/[YY]': 'tmp/dates/[DD].[MM].[YY].png', '/mime/': {'path': 'tmp/pictures/1.png', 'mime': 'text/txt'}, '/big': {'path': 'tmp/pictures/chroma.jpg', 'mime': 'image/jpg'}}
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 94, in serve_client
+    res = self.handle_req(req)
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 185, in handle_req
+    raise Errors.NOT_FOUND
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 94, in serve_client
+    res = self.handle_req(req)
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 185, in handle_req
+    raise Errors.NOT_FOUND
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 94, in serve_client
+    res = self.handle_req(req)
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 185, in handle_req
+    raise Errors.NOT_FOUND
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 94, in serve_client
+    res = self.handle_req(req)
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 185, in handle_req
+    raise Errors.NOT_FOUND
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 94, in serve_client
+    res = self.handle_req(req)
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 185, in handle_req
+    raise Errors.NOT_FOUND
+Error: (404, 'Not found')
+INFO:root:54B sent to ('127.0.0.1', 51097)
+INFO:root:File sent to ('127.0.0.1', 51097)
+INFO:root:Threaded client serving started ('127.0.0.1', 51098)
+INFO:root:Got request from ('127.0.0.1', 51098) method: GET
+target: /
+version: HTTP/1.1
+headers: Host: 0.0.0.0:8000
+Upgrade-Insecure-Requests: 1
+Accept: text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8
+User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_1) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/13.0.3 Safari/605.1.15
+Accept-Language: en-us
+Accept-Encoding: gzip, deflate
+Connection: keep-alive
+
+
+file: <_io.BufferedReader name=-1>
+user: ('127.0.0.1', 51098)
+url: ParseResult(scheme='', netloc='', path='/', params='', query='', fragment='')
+path: /
+query: {}
+INFO:root:processing /
+INFO:root:path found tmp/index.html
+INFO:root:/Users/irusland/Desktop/UrFU/python/httpserver/tmp/index.html type text/html
+INFO:root:Response status: 200
+reason: OK
+headers: [('Content-Type', 'text/html'), ('Content-Disposition', 'inline; filename=index.html'), ('Content-Length', 156)]
+body: b'<!DOCTYPE html>\n<html lang="en">\n<head>\n    <meta charset="UTF-8">\n    <title>index.html</title>\n</head>\n<body>\n    <h1>Python Rule it!</h1>\n</body>\n</html>'
+INFO:root:271B sent to ('127.0.0.1', 51098)
+INFO:root:File sent to ('127.0.0.1', 51098)
+INFO:root:Threaded client serving started ('127.0.0.1', 51104)
+INFO:root:Got request from ('127.0.0.1', 51104) method: GET
+target: /
+version: HTTP/1.1
+headers: Host: 0.0.0.0:8000
+Upgrade-Insecure-Requests: 1
+Accept: text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8
+User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_1) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/13.0.3 Safari/605.1.15
+Accept-Language: en-us
+Accept-Encoding: gzip, deflate
+Connection: keep-alive
+
+
+file: <_io.BufferedReader name=-1>
+user: ('127.0.0.1', 51104)
+url: ParseResult(scheme='', netloc='', path='/', params='', query='', fragment='')
+path: /
+query: {}
+INFO:root:processing /
+INFO:root:path found tmp/index.html
+INFO:root:/Users/irusland/Desktop/UrFU/python/httpserver/tmp/index.html type text/html
+INFO:root:Response status: 200
+reason: OK
+headers: [('Content-Type', 'text/html'), ('Content-Disposition', 'inline; filename=index.html'), ('Content-Length', 156)]
+body: b'<!DOCTYPE html>\n<html lang="en">\n<head>\n    <meta charset="UTF-8">\n    <title>index.html</title>\n</head>\n<body>\n    <h1>Python Rule it!</h1>\n</body>\n</html>'
+INFO:root:271B sent to ('127.0.0.1', 51104)
+INFO:root:File sent to ('127.0.0.1', 51104)
+INFO:root:Threaded client serving started ('127.0.0.1', 51105)
+INFO:root:Got request from ('127.0.0.1', 51105) method: GET
+target: /
+version: HTTP/1.1
+headers: Host: 0.0.0.0:8000
+Upgrade-Insecure-Requests: 1
+Accept: text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8
+User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_1) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/13.0.3 Safari/605.1.15
+Accept-Language: en-us
+Accept-Encoding: gzip, deflate
+Connection: keep-alive
+
+
+file: <_io.BufferedReader name=-1>
+user: ('127.0.0.1', 51105)
+url: ParseResult(scheme='', netloc='', path='/', params='', query='', fragment='')
+path: /
+query: {}
+INFO:root:processing /
+INFO:root:path found tmp/index.html
+INFO:root:/Users/irusland/Desktop/UrFU/python/httpserver/tmp/index.html type text/html
+INFO:root:Response status: 200
+reason: OK
+headers: [('Content-Type', 'text/html'), ('Content-Disposition', 'inline; filename=index.html'), ('Content-Length', 156)]
+body: b'<!DOCTYPE html>\n<html lang="en">\n<head>\n    <meta charset="UTF-8">\n    <title>index.html</title>\n</head>\n<body>\n    <h1>Python Rule it!</h1>\n</body>\n</html>'
+INFO:root:271B sent to ('127.0.0.1', 51105)
+INFO:root:File sent to ('127.0.0.1', 51105)
+INFO:root:Threaded client serving started ('127.0.0.1', 51106)
+INFO:root:Got request from ('127.0.0.1', 51106) method: GET
+target: /asdasd
+version: HTTP/1.1
+headers: Host: 0.0.0.0:8000
+Upgrade-Insecure-Requests: 1
+Accept: text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8
+User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_1) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/13.0.3 Safari/605.1.15
+Accept-Language: en-us
+Accept-Encoding: gzip, deflate
+Connection: keep-alive
+
+
+file: <_io.BufferedReader name=-1>
+user: ('127.0.0.1', 51106)
+url: ParseResult(scheme='', netloc='', path='/asdasd', params='', query='', fragment='')
+path: /asdasd
+query: {}
+INFO:root:processing /asdasd
+ERROR:root:(404, 'Not found')
+Traceback (most recent call last):
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 183, in handle_req
+    destination = self.ruler.get_destination(req.path, rules, True)
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/ruler.py", line 55, in get_destination
+    raise FileNotFoundError(url, rules)
+FileNotFoundError: [Errno /asdasd] {'/': 'tmp/index.html', '/favicon.ico': 'tmp/pictures/favicon.ico', '/index.html': 'tmp/index.html', '/2.html': 'tmp/pages/2.html', '/1.2.3.txt': 'tmp/1.2.3.txt', '/[name].html': 'tmp/pages/[name].html', '/[name].css': 'tmp/pages/css/[name].css', '/[name].[ext]': 'tmp/pictures/[name].[ext]', '/png/[name].png': 'tmp/pictures/[name].png', '/pictures/[ext]/1': 'tmp/pictures/1.[ext]', '/[DD]/[MM]/[YY]': 'tmp/dates/[DD].[MM].[YY].png', '/mime/': {'path': 'tmp/pictures/1.png', 'mime': 'text/txt'}, '/big': {'path': 'tmp/pictures/chroma.jpg', 'mime': 'image/jpg'}}
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 94, in serve_client
+    res = self.handle_req(req)
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 185, in handle_req
+    raise Errors.NOT_FOUND
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 94, in serve_client
+    res = self.handle_req(req)
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 185, in handle_req
+    raise Errors.NOT_FOUND
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 94, in serve_client
+    res = self.handle_req(req)
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 185, in handle_req
+    raise Errors.NOT_FOUND
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 94, in serve_client
+    res = self.handle_req(req)
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 185, in handle_req
+    raise Errors.NOT_FOUND
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 94, in serve_client
+    res = self.handle_req(req)
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 185, in handle_req
+    raise Errors.NOT_FOUND
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 94, in serve_client
+    res = self.handle_req(req)
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 185, in handle_req
+    raise Errors.NOT_FOUND
+Error: (404, 'Not found')
+INFO:root:54B sent to ('127.0.0.1', 51106)
+INFO:root:File sent to ('127.0.0.1', 51106)
+INFO:root:Got request from ('127.0.0.1', 51107) method: GET
+target: /asd
+version: HTTP/1.1
+headers: Host: 0.0.0.0:8000
+Upgrade-Insecure-Requests: 1
+Accept: text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8
+User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_1) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/13.0.3 Safari/605.1.15
+Accept-Language: en-us
+Accept-Encoding: gzip, deflate
+Connection: keep-alive
+
+
+file: <_io.BufferedReader name=-1>
+user: ('127.0.0.1', 51107)
+url: ParseResult(scheme='', netloc='', path='/asd', params='', query='', fragment='')
+path: /asd
+query: {}
+INFO:root:Threaded client serving started ('127.0.0.1', 51107)
+INFO:root:processing /asd
+ERROR:root:(404, 'Not found')
+Traceback (most recent call last):
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 183, in handle_req
+    destination = self.ruler.get_destination(req.path, rules, True)
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/ruler.py", line 55, in get_destination
+    raise FileNotFoundError(url, rules)
+FileNotFoundError: [Errno /asd] {'/': 'tmp/index.html', '/favicon.ico': 'tmp/pictures/favicon.ico', '/index.html': 'tmp/index.html', '/2.html': 'tmp/pages/2.html', '/1.2.3.txt': 'tmp/1.2.3.txt', '/[name].html': 'tmp/pages/[name].html', '/[name].css': 'tmp/pages/css/[name].css', '/[name].[ext]': 'tmp/pictures/[name].[ext]', '/png/[name].png': 'tmp/pictures/[name].png', '/pictures/[ext]/1': 'tmp/pictures/1.[ext]', '/[DD]/[MM]/[YY]': 'tmp/dates/[DD].[MM].[YY].png', '/mime/': {'path': 'tmp/pictures/1.png', 'mime': 'text/txt'}, '/big': {'path': 'tmp/pictures/chroma.jpg', 'mime': 'image/jpg'}}
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 94, in serve_client
+    res = self.handle_req(req)
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 185, in handle_req
+    raise Errors.NOT_FOUND
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 94, in serve_client
+    res = self.handle_req(req)
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 185, in handle_req
+    raise Errors.NOT_FOUND
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 94, in serve_client
+    res = self.handle_req(req)
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 185, in handle_req
+    raise Errors.NOT_FOUND
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 94, in serve_client
+    res = self.handle_req(req)
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 185, in handle_req
+    raise Errors.NOT_FOUND
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 94, in serve_client
+    res = self.handle_req(req)
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 185, in handle_req
+    raise Errors.NOT_FOUND
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 94, in serve_client
+    res = self.handle_req(req)
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 185, in handle_req
+    raise Errors.NOT_FOUND
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 94, in serve_client
+    res = self.handle_req(req)
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 185, in handle_req
+    raise Errors.NOT_FOUND
+Error: (404, 'Not found')
+INFO:root:54B sent to ('127.0.0.1', 51107)
+INFO:root:File sent to ('127.0.0.1', 51107)
+INFO:root:Threaded client serving started ('127.0.0.1', 51108)
+INFO:root:Got request from ('127.0.0.1', 51108) method: GET
+target: /asdasd
+version: HTTP/1.1
+headers: Host: 0.0.0.0:8000
+Upgrade-Insecure-Requests: 1
+Accept: text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8
+User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_1) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/13.0.3 Safari/605.1.15
+Accept-Language: en-us
+Accept-Encoding: gzip, deflate
+Connection: keep-alive
+
+
+file: <_io.BufferedReader name=-1>
+user: ('127.0.0.1', 51108)
+url: ParseResult(scheme='', netloc='', path='/asdasd', params='', query='', fragment='')
+path: /asdasd
+query: {}
+INFO:root:processing /asdasd
+ERROR:root:(404, 'Not found')
+Traceback (most recent call last):
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 183, in handle_req
+    destination = self.ruler.get_destination(req.path, rules, True)
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/ruler.py", line 55, in get_destination
+    raise FileNotFoundError(url, rules)
+FileNotFoundError: [Errno /asdasd] {'/': 'tmp/index.html', '/favicon.ico': 'tmp/pictures/favicon.ico', '/index.html': 'tmp/index.html', '/2.html': 'tmp/pages/2.html', '/1.2.3.txt': 'tmp/1.2.3.txt', '/[name].html': 'tmp/pages/[name].html', '/[name].css': 'tmp/pages/css/[name].css', '/[name].[ext]': 'tmp/pictures/[name].[ext]', '/png/[name].png': 'tmp/pictures/[name].png', '/pictures/[ext]/1': 'tmp/pictures/1.[ext]', '/[DD]/[MM]/[YY]': 'tmp/dates/[DD].[MM].[YY].png', '/mime/': {'path': 'tmp/pictures/1.png', 'mime': 'text/txt'}, '/big': {'path': 'tmp/pictures/chroma.jpg', 'mime': 'image/jpg'}}
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 94, in serve_client
+    res = self.handle_req(req)
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 185, in handle_req
+    raise Errors.NOT_FOUND
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 94, in serve_client
+    res = self.handle_req(req)
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 185, in handle_req
+    raise Errors.NOT_FOUND
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 94, in serve_client
+    res = self.handle_req(req)
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 185, in handle_req
+    raise Errors.NOT_FOUND
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 94, in serve_client
+    res = self.handle_req(req)
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 185, in handle_req
+    raise Errors.NOT_FOUND
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 94, in serve_client
+    res = self.handle_req(req)
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 185, in handle_req
+    raise Errors.NOT_FOUND
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 94, in serve_client
+    res = self.handle_req(req)
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 185, in handle_req
+    raise Errors.NOT_FOUND
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 94, in serve_client
+    res = self.handle_req(req)
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 185, in handle_req
+    raise Errors.NOT_FOUND
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 94, in serve_client
+    res = self.handle_req(req)
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 185, in handle_req
+    raise Errors.NOT_FOUND
+Error: (404, 'Not found')
+INFO:root:54B sent to ('127.0.0.1', 51108)
+INFO:root:File sent to ('127.0.0.1', 51108)
+INFO:root:Got request from ('127.0.0.1', 51109) method: GET
+target: /
+version: HTTP/1.1
+headers: Host: 0.0.0.0:8000
+Upgrade-Insecure-Requests: 1
+Accept: text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8
+User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_1) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/13.0.3 Safari/605.1.15
+Accept-Language: en-us
+Accept-Encoding: gzip, deflate
+Connection: keep-alive
+
+
+file: <_io.BufferedReader name=-1>
+user: ('127.0.0.1', 51109)
+url: ParseResult(scheme='', netloc='', path='/', params='', query='', fragment='')
+path: /
+query: {}
+INFO:root:Threaded client serving started ('127.0.0.1', 51109)
+INFO:root:processing /
+INFO:root:path found tmp/index.html
+INFO:root:/Users/irusland/Desktop/UrFU/python/httpserver/tmp/index.html type text/html
+INFO:root:Response status: 200
+reason: OK
+headers: [('Content-Type', 'text/html'), ('Content-Disposition', 'inline; filename=index.html'), ('Content-Length', 156)]
+body: b'<!DOCTYPE html>\n<html lang="en">\n<head>\n    <meta charset="UTF-8">\n    <title>index.html</title>\n</head>\n<body>\n    <h1>Python Rule it!</h1>\n</body>\n</html>'
+INFO:root:271B sent to ('127.0.0.1', 51109)
+INFO:root:File sent to ('127.0.0.1', 51109)
+INFO:root:Got request from ('127.0.0.1', 51110) method: GET
+target: /big
+version: HTTP/1.1
+headers: Host: 0.0.0.0:8000
+Upgrade-Insecure-Requests: 1
+Accept: text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8
+User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_1) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/13.0.3 Safari/605.1.15
+Accept-Language: en-us
+Accept-Encoding: gzip, deflate
+Connection: keep-alive
+
+
+file: <_io.BufferedReader name=-1>
+user: ('127.0.0.1', 51110)
+url: ParseResult(scheme='', netloc='', path='/big', params='', query='', fragment='')
+path: /big
+query: {}
+INFO:root:Threaded client serving started ('127.0.0.1', 51110)
+INFO:root:processing /big
+INFO:root:path found tmp/pictures/chroma.jpg
+INFO:root:/Users/irusland/Desktop/UrFU/python/httpserver/tmp/pictures/chroma.jpg type image/jpg
+INFO:root:Response status: 200
+reason: OK
+headers: [('Content-Type', 'image/jpg'), ('Content-Disposition', 'inline; filename=chroma.jpg'), ('Content-Length', 22853829)]
+body: b'\xff\xd8\xff\xe0\x00\x10JFIF\x00\x01\x01\x00\x00H\x00H\x00\x00\xff\xe1\x00@Exif\x00\x00MM\x00*\x00\x00\x00\x08\x00\x01\x87i\x00\x04\x00\x00\x00\x01\x00\x00\x00\x1a\x00\x00\x00\x00\x00\x02\xa0\x02\x00\x04\x00\x00\x00\x01\x00\x00\x14\x00\xa0\x03\x00\x04\x00\x00\x00\x01\x00\x00\x0b@\x00\x00\x00\x00\xff\xed\x008Photoshop 3.0\x008BIM\x04\x04\x00\x00\x00\x00\x00\x008BIM\x04%\x00\x00\x00\x00\x00\x10\xd4\x1d\x8c\xd9\x8f\x00\xb2\x04\xe9\x80\t\x98\xec\xf8B~\xff\xe2\x024ICC_PROFILE\x00\x01\x01\x00\x00\x0
+INFO:root:261676B sent to ('127.0.0.1', 51110)
+ERROR:root:str() argument 2 must be str, not None
+Traceback (most recent call last):
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 92, in serve_client
+    req = self.parse_req_connection(connection)
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 122, in parse_req_connection
+    *self.parse_req_file(file), file, connection.getpeername())
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 129, in parse_req_file
+    method, target, ver = self.parse_request_line(file)
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 143, in parse_request_line
+    req_line = (self.decode(raw))
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 172, in decode
+    return str(b, chardet.detect(b)['encoding'])
+TypeError: str() argument 2 must be str, not None
+ERROR:root:[Errno 22] Invalid argument
+Traceback (most recent call last):
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 299, in <module>
+    s.serve()
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 73, in serve
+    callback(key.fileobj, mask)
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 88, in _read
+    logging.info(f'Threaded client serving started {sock.getpeername()}')
+OSError: [Errno 22] Invalid argument
+INFO:root:server is DOWN
+ERROR:root:[Errno 41] Protocol wrong type for socket
+Traceback (most recent call last):
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 96, in serve_client
+    self.send_response(connection, res)
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 232, in send_response
+    raise e
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 218, in send_response
+    bytes_sent = connection.send(contents)
+OSError: [Errno 41] Protocol wrong type for socket
+INFO:root:server is UP on 0.0.0.0:8000
+INFO:root:Threaded client serving started ('127.0.0.1', 51141)
+INFO:root:Got request from ('127.0.0.1', 51141) method: GET
+target: /
+version: HTTP/1.1
+headers: Host: 0.0.0.0:8000
+Upgrade-Insecure-Requests: 1
+Accept: text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8
+User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_1) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/13.0.3 Safari/605.1.15
+Accept-Language: en-us
+Accept-Encoding: gzip, deflate
+Connection: keep-alive
+
+
+file: <_io.BufferedReader name=-1>
+user: ('127.0.0.1', 51141)
+url: ParseResult(scheme='', netloc='', path='/', params='', query='', fragment='')
+path: /
+query: {}
+INFO:root:processing /
+INFO:root:path found tmp/index.html
+INFO:root:/Users/irusland/Desktop/UrFU/python/httpserver/tmp/index.html type text/html
+INFO:root:Response status: 200
+reason: OK
+headers: [('Content-Type', 'text/html'), ('Content-Disposition', 'inline; filename=index.html'), ('Content-Length', 156)]
+body: b'<!DOCTYPE html>\n<html lang="en">\n<head>\n    <meta charset="UTF-8">\n    <title>index.html</title>\n</head>\n<body>\n    <h1>Python Rule it!</h1>\n</body>\n</html>'
+INFO:root:271B sent to ('127.0.0.1', 51141)
+INFO:root:File sent to ('127.0.0.1', 51141)
+INFO:root:Threaded client serving started ('127.0.0.1', 51142)
+INFO:root:Got request from ('127.0.0.1', 51142) method: GET
+target: /
+version: HTTP/1.1
+headers: Host: 0.0.0.0:8000
+Upgrade-Insecure-Requests: 1
+Accept: text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8
+User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_1) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/13.0.3 Safari/605.1.15
+Accept-Language: en-us
+Accept-Encoding: gzip, deflate
+Connection: keep-alive
+
+
+file: <_io.BufferedReader name=-1>
+user: ('127.0.0.1', 51142)
+url: ParseResult(scheme='', netloc='', path='/', params='', query='', fragment='')
+path: /
+query: {}
+INFO:root:processing /
+INFO:root:path found tmp/index.html
+INFO:root:/Users/irusland/Desktop/UrFU/python/httpserver/tmp/index.html type text/html
+INFO:root:Response status: 200
+reason: OK
+headers: [('Content-Type', 'text/html'), ('Content-Disposition', 'inline; filename=index.html'), ('Content-Length', 156)]
+body: b'<!DOCTYPE html>\n<html lang="en">\n<head>\n    <meta charset="UTF-8">\n    <title>index.html</title>\n</head>\n<body>\n    <h1>Python Rule it!</h1>\n</body>\n</html>'
+INFO:root:271B sent to ('127.0.0.1', 51142)
+INFO:root:File sent to ('127.0.0.1', 51142)
+INFO:root:Threaded client serving started ('127.0.0.1', 51143)
+INFO:root:Got request from ('127.0.0.1', 51143) method: GET
+target: /
+version: HTTP/1.1
+headers: Host: 0.0.0.0:8000
+Upgrade-Insecure-Requests: 1
+Accept: text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8
+User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_1) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/13.0.3 Safari/605.1.15
+Accept-Language: en-us
+Accept-Encoding: gzip, deflate
+Connection: keep-alive
+
+
+file: <_io.BufferedReader name=-1>
+user: ('127.0.0.1', 51143)
+url: ParseResult(scheme='', netloc='', path='/', params='', query='', fragment='')
+path: /
+query: {}
+INFO:root:processing /
+INFO:root:path found tmp/index.html
+INFO:root:/Users/irusland/Desktop/UrFU/python/httpserver/tmp/index.html type text/html
+INFO:root:Response status: 200
+reason: OK
+headers: [('Content-Type', 'text/html'), ('Content-Disposition', 'inline; filename=index.html'), ('Content-Length', 156)]
+body: b'<!DOCTYPE html>\n<html lang="en">\n<head>\n    <meta charset="UTF-8">\n    <title>index.html</title>\n</head>\n<body>\n    <h1>Python Rule it!</h1>\n</body>\n</html>'
+INFO:root:271B sent to ('127.0.0.1', 51143)
+INFO:root:File sent to ('127.0.0.1', 51143)

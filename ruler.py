@@ -65,19 +65,20 @@ class Ruler:
         return reg_rep
 
     def get_type(self, url, rules):
-        logging.info(f'type for {url}')
         if url in self.URL_TO_RULE:
             description = rules[self.URL_TO_RULE[url]]
-            try:
-                return description['mime']
-            except KeyError:
-                return None
+            if not isinstance(description, str):
+                try:
+                    return description['mime']
+                except KeyError:
+                    return None
 
 
 if __name__ == '__main__':
-    ruler = Ruler()
-    r = ruler.get_rules()
-    url = '/pictures/png/1'
-    d = ruler.get_destination(url, r)
-    t = ruler.get_type(url, r)
-    print(d, t)
+    pass
+    # ruler = Ruler()
+    # r = ruler.get_rules()
+    # url = '/pictures/png/1'
+    # d = ruler.get_destination(url, r)
+    # t = ruler.get_type(url, r)
+    # print(d, t)
