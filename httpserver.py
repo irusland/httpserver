@@ -23,18 +23,20 @@ class Server:
     MAX_SEND_SIZE = 1024
     MAX_HEADERS = 100
 
-    def __init__(self, host, port, server_name, debug=True):
+    def __init__(self, host, port, server_name, debug=True, accept_refresh=0):
         self._host = host
         self._port = port
         self._server_name = server_name
         self._list = {}
         self._debug = debug
         self.ruler = Ruler()
-        self.running = True
+        self._running = True
+        print('init Running ==', self._running)
 
         self.addr = (host, port)
         self.server = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
         self.poller = selectors.DefaultSelector()
+        socket.setdefaulttimeout(accept_refresh)
         self.conns = {}
 
         logging.basicConfig(filename=LOGGER_PATH, level=logging.INFO)
@@ -51,32 +53,45 @@ class Server:
         # TODO Exception handling from serve_client
         # TODO Ask about zombie lasting threads
         logging.exception(exc_val)
+        self._running = False
+        print('exit Running ==', self._running)
         logging.info('server is DOWN')
         self.poller.close()
         self.server.close()
         return False
 
     def shutdown(self):
-        self.running = False
-        # socket.socket(socket.AF_INET,
-        #               socket.SOCK_STREAM).connect(('0.0.0.0', 8000))
         self.server.close()
+        self._running = False
+        print('shutdown Running ==', self._running)
 
     def serve(self):
         self.conns[self.server.fileno()] = self.server
         self.poller.register(self.server, selectors.EVENT_READ,
                              self._accept)
 
-        while True:
-            for key, mask in self.poller.select():
+        while self._running:
+            print('entering select')
+            poll = self.poller.select(1)
+            print('exited select')
+            for key, mask in poll:
                 callback = key.data
+                print('entering callback')
                 callback(key.fileobj, mask)
+                print('exited callback')
+            print('server Running ==', self._running)
 
     def _accept(self, sock, mask):
-
+        print('entering accept')
         (client, addr) = sock.accept()
+        print('accept Running ==', self._running)
+        if not self._running:
+            self.server.close()
+            client.close()
+            raise KeyboardInterrupt
+        print('connected or timeout')
         self.conns[client.fileno()] = client
-        print(f'Connected {addr}')
+        logging.info(f'Connected {addr}')
 
         client.setblocking(False)
         self.poller.register(client, selectors.EVENT_READ, self._read)
@@ -98,7 +113,7 @@ class Server:
             logging.exception(e)
             self.send_error(connection, e)
 
-        print(f'Disconnected {connection.getpeername()}')
+        logging.info(f'Disconnected {connection.getpeername()}')
         self.poller.unregister(connection)
         del self.conns[connection.fileno()]
         connection.close()

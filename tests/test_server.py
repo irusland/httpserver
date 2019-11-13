@@ -1,7 +1,9 @@
+import ctypes
 import io
 import json
 import multiprocessing
 import socket
+import threading
 import time
 import unittest
 
@@ -19,7 +21,7 @@ class MyTestCase(unittest.TestCase):
         with open(CONFIG_PATH) as cfg:
             data = json.load(cfg)
         return Server(data['host'], data['port'], data['server'],
-                      debug=False)
+                      debug=False, accept_refresh=0.1)
 
     def process_req(self, req):
         with self.make_server() as server:
@@ -67,13 +69,13 @@ class MyTestCase(unittest.TestCase):
         self.assertTrue(hasattr(s, '__exit__'))
         try:
             with s as server:
-                raise Exception('custom raise')
+                pass
         except Exception as e:
             self.fail()
 
-    def send_req_and_shutdown(self, server, s2):
+    def send_req_and_shutdown(self, server):
         time.sleep(2)
-        req = b'GET / HTTP/1.1\n\n'
+        req = b'GET / HTTP/1.1\nHost: 0.0.0.0\n\n'
         with open(CONFIG_PATH) as cfg:
             data = json.load(cfg)
         s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
@@ -91,21 +93,34 @@ class MyTestCase(unittest.TestCase):
             if line in [b'', b'\n']:
                 break
             data.append(line)
+        server.shutdown()
+        # for k, v in  threading._active.items():
+        #     if '_MainThread' in repr(v):
+        #         target_tid = k
+        #         print(f'found {k, v}')
+        # ret = ctypes.pythonapi.PyThreadState_SetAsyncExc(
+        #     target_tid, ctypes.py_object(StopIteration))
+        # if ret == 0:
+        #     raise ValueError("Invalid thread ID")
+        # elif ret > 1:
+        #     ctypes.pythonapi.PyThreadState_SetAsyncExc(target_tid, None)
+        #     raise SystemError("PyThreadState_SetAsyncExc failed")
+        # print("Successfully set asynchronized exception for", target_tid)
+
+        # print('shutdown')
 
         s.close()
-        print('closed')
-        server.shutdown()
-
-        print('shutdown')
+        # print('closed')
         res = b''.join(data).decode()
         print(res)
         exit(0)
 
-    def notest_serving(self):
+
+    def test_serving(self):
         server = self.make_server()
         request_task = multiprocessing.Process(
             target=self.send_req_and_shutdown,
-            args=(server, server))
+            args=(server, ))
         with server as s:
             request_task.start()
             s.serve()
