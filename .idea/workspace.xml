@@ -2,14 +2,24 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="d9b829f2-82a6-4d22-9393-7353395c203d" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/pages/PAGE_NOT_FOUND.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pages/page-load-errors-extras.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pages/page-load-errors.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.coverage" beforeDir="false" afterPath="$PROJECT_DIR$/.coverage" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/_CHAT.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/_CHAT_ON_EPOLL.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/_ECHOER.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/config.json" beforeDir="false" afterPath="$PROJECT_DIR$/config.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/httpserver.py" beforeDir="false" afterPath="$PROJECT_DIR$/httpserver.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages" beforeDir="false" afterPath="$PROJECT_DIR$/packages" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/requirements.txt" beforeDir="false" afterPath="$PROJECT_DIR$/requirements.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ruler.py" beforeDir="false" afterPath="$PROJECT_DIR$/ruler.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/server.log" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/tests/test_server.py" beforeDir="false" afterPath="$PROJECT_DIR$/tests/test_server.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/bin/easy_install" beforeDir="false" afterPath="$PROJECT_DIR$/venv/bin/easy_install" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/bin/easy_install-3.7" beforeDir="false" afterPath="$PROJECT_DIR$/venv/bin/easy_install-3.7" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/bin/pip" beforeDir="false" afterPath="$PROJECT_DIR$/venv/bin/pip" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/bin/pip3" beforeDir="false" afterPath="$PROJECT_DIR$/venv/bin/pip3" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/bin/pip3.7" beforeDir="false" afterPath="$PROJECT_DIR$/venv/bin/pip3.7" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/lib/python3.7/site-packages/setuptools-40.8.0-py3.7.egg" beforeDir="false" afterPath="$PROJECT_DIR$/venv/lib/python3.7/site-packages/setuptools-40.8.0-py3.7.egg" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -37,7 +47,7 @@
     <property name="DefaultHtmlFileTemplate" value="HTML File" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/../httpclient" />
-    <property name="settings.editor.selected.configurable" value="preferences.keymap" />
+    <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
@@ -65,7 +75,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Python tests.Unittests for test_server.MyTestCase.test_serving">
+  <component name="RunManager" selected="Python tests.Unittests in tests">
     <configuration name="SELEX" type="PythonConfigurationType" factoryName="Python">
       <module name="httpserver" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -225,10 +235,10 @@
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Python.ruler" />
         <item itemvalue="Python tests.Unittests for test_server.MyTestCase.test_serving" />
         <item itemvalue="Python._CHAT" />
         <item itemvalue="Python tests.Unittests for test_ruler.MyTestCase.test_file_with_mime" />
-        <item itemvalue="Python.ruler" />
       </list>
     </recent_temporary>
   </component>
@@ -257,16 +267,5 @@
         </entry>
       </map>
     </option>
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/httpserver.py</url>
-          <line>64</line>
-          <option name="timeStamp" value="1" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
   </component>
 </project>

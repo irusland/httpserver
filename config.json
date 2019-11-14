@@ -8,6 +8,7 @@
     "/index.html" : "tmp/index.html",
     "/2.html" : "tmp/pages/2.html",
     "/1.2.3.txt" : "tmp/1.2.3.txt",
+    "/page-load-errors[extras].css": "pages/page-load-errors[extras].css",
     "/[name].html" : "tmp/pages/[name].html",
     "/[name].css" : "tmp/pages/css/[name].css",
     "/[name].[ext]" : "tmp/pictures/[name].[ext]",
@@ -19,5 +20,12 @@
       "mime" : "text/txt"
     },
     "/big" : { "path" : "tmp/pictures/chroma.jpg", "mime" : "image/jpg" }
+  },
+  "error-pages": {
+    "styles" : [
+      "pages/page-load-errors.css",
+      "pages/page-load-errors-extras.css"
+    ],
+    "PAGE_NOT_FOUND": "pages/PAGE_NOT_FOUND.html"
   }
 }

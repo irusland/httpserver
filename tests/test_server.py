@@ -21,7 +21,7 @@ class MyTestCase(unittest.TestCase):
         with open(CONFIG_PATH) as cfg:
             data = json.load(cfg)
         return Server(data['host'], data['port'], data['server'],
-                      debug=False, accept_refresh=0.1)
+                      debug=False, refresh_rate=0.1)
 
     def process_req(self, req):
         with self.make_server() as server:
@@ -75,7 +75,7 @@ class MyTestCase(unittest.TestCase):
 
     def send_req_and_shutdown(self, server):
         time.sleep(2)
-        req = b'GET / HTTP/1.1\nHost: 0.0.0.0\n\n'
+        req = b'GET / HTTP/1.1\nHost: 0.0.0.0\nAccept: */*\n\n'
         with open(CONFIG_PATH) as cfg:
             data = json.load(cfg)
         s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
@@ -85,8 +85,6 @@ class MyTestCase(unittest.TestCase):
             print('sent', req)
         except Exception as e:
             print('Cant connect and send', e)
-        # finally:
-            # s.close()
         data = []
         while True:
             line = s.recv(Server.MAX_LINE)
@@ -94,29 +92,13 @@ class MyTestCase(unittest.TestCase):
                 break
             data.append(line)
         server.shutdown()
-        # for k, v in  threading._active.items():
-        #     if '_MainThread' in repr(v):
-        #         target_tid = k
-        #         print(f'found {k, v}')
-        # ret = ctypes.pythonapi.PyThreadState_SetAsyncExc(
-        #     target_tid, ctypes.py_object(StopIteration))
-        # if ret == 0:
-        #     raise ValueError("Invalid thread ID")
-        # elif ret > 1:
-        #     ctypes.pythonapi.PyThreadState_SetAsyncExc(target_tid, None)
-        #     raise SystemError("PyThreadState_SetAsyncExc failed")
-        # print("Successfully set asynchronized exception for", target_tid)
-
-        # print('shutdown')
-
         s.close()
-        # print('closed')
+
         res = b''.join(data).decode()
-        print(res)
+        self.assertIsNotNone(res)
         exit(0)
 
-
-    def test_serving(self):
+    def ttest_serving(self):
         server = self.make_server()
         request_task = multiprocessing.Process(
             target=self.send_req_and_shutdown,

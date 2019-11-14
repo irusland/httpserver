@@ -23,7 +23,7 @@ class Server:
     MAX_SEND_SIZE = 1024
     MAX_HEADERS = 100
 
-    def __init__(self, host, port, server_name, debug=True, accept_refresh=0):
+    def __init__(self, host, port, server_name, debug=True, refresh_rate=0):
         self._host = host
         self._port = port
         self._server_name = server_name
@@ -31,12 +31,12 @@ class Server:
         self._debug = debug
         self.ruler = Ruler()
         self._running = True
-        print('init Running ==', self._running)
+        self.refresh_rate = refresh_rate
 
         self.addr = (host, port)
         self.server = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
         self.poller = selectors.DefaultSelector()
-        socket.setdefaulttimeout(accept_refresh)
+        socket.setdefaulttimeout(refresh_rate)
         self.conns = {}
 
         logging.basicConfig(filename=LOGGER_PATH, level=logging.INFO)
@@ -54,7 +54,6 @@ class Server:
         # TODO Ask about zombie lasting threads
         logging.exception(exc_val)
         self._running = False
-        print('exit Running ==', self._running)
         logging.info('server is DOWN')
         self.poller.close()
         self.server.close()
@@ -63,7 +62,6 @@ class Server:
     def shutdown(self):
         self.server.close()
         self._running = False
-        print('shutdown Running ==', self._running)
 
     def serve(self):
         self.conns[self.server.fileno()] = self.server
@@ -71,25 +69,13 @@ class Server:
                              self._accept)
 
         while self._running:
-            print('entering select')
-            poll = self.poller.select(1)
-            print('exited select')
+            poll = self.poller.select(self.refresh_rate)
             for key, mask in poll:
                 callback = key.data
-                print('entering callback')
                 callback(key.fileobj, mask)
-                print('exited callback')
-            print('server Running ==', self._running)
 
     def _accept(self, sock, mask):
-        print('entering accept')
         (client, addr) = sock.accept()
-        print('accept Running ==', self._running)
-        if not self._running:
-            self.server.close()
-            client.close()
-            raise KeyboardInterrupt
-        print('connected or timeout')
         self.conns[client.fileno()] = client
         logging.info(f'Connected {addr}')
 
@@ -98,7 +84,7 @@ class Server:
 
     def _read(self, sock, mask):
         t = threading.Thread(target=self.serve_client,
-                             args=(sock, ))
+                             args=(sock,))
         t.start()
         logging.info(f'Threaded client serving started {sock.getpeername()}')
 
@@ -120,16 +106,35 @@ class Server:
 
     def send_error(self, connection, err):
         try:
-            res = self.build_err_res(err.status, err.reason,
-                                     (err.body or err.reason).encode('utf-8'))
+            if err.page:
+                with open(err.page, 'rb') as p:
+                    p = p.read()
+                styles = []
+                for style in err.page_styles:
+                    with open(style, 'rb') as s:
+                        styles.append(s.read())
+
+                res = self.build_err_res(err.status, err.reason, p)
+                res_css = [self.build_err_res(err.status,
+                                              err.reason,
+                                              s,
+                                              css=True) for s in styles]
+                res = [res, *res_css]
+            else:
+                res = [self.build_err_res(
+                    err.status, err.reason,
+                    (err.body or err.reason).encode('utf-8'))]
         except AttributeError as e:
-            res = self.build_err_res(500, b'Internal Server Error',
-                                     b'Internal Server Error')
-        self.send_response(connection, res)
+            res = [self.build_err_res(500, b'Internal Server Error',
+                                      b'Internal Server Error')]
+        self.send_response(connection, *res)
 
     @staticmethod
-    def build_err_res(status, reason, body):
-        return Response(status, reason, [('Content-Length', len(body))], body)
+    def build_err_res(status, reason, body, css=False):
+        return Response(
+            status, reason,
+            [('Content-Type', f'text/{"css" if css else "html"}'),
+             ('Content-Length', len(body))], body)
 
     def parse_req_connection(self, connection):
         with connection.makefile('rb') as file:
@@ -223,32 +228,33 @@ class Server:
                    ('Content-Length', len(body))]
         return Response(200, 'OK', headers, body)
 
-    def send_response(self, connection, res):
-        contents = b''.join((
-            self.status_to_str(res).encode('utf-8'),
-            self.headers_to_str(res).encode('utf-8'),
-            b'\r\n',
-            res.body
-        ))
-        peer = connection.getpeername()
-        while contents:
-            try:
-                bytes_sent = connection.send(contents)
-                contents = contents[bytes_sent:]
-                logging.info(f'{bytes_sent}B sent to {peer}')
-            except socket.error as e:
-                # TODO ask about fixing this
-                if str(e) == "[Errno 35] Resource temporarily unavailable":
-                    logging.error('[Errno 35] Resource temporarily '
-                                  'unavailable Sleeping 0.1s')
-                    time.sleep(0.1)
-                elif str(e) == "[Errno 32] Broken pipe":
-                    msg = f'client stopped receiving {e}'
-                    logging.exception(msg)
-                    raise e
-                else:
-                    raise e
-        logging.info(f'File sent to {connection.getpeername()}')
+    def send_response(self, connection, *res):
+        for response in res:
+            contents = b''.join((
+                self.status_to_str(response).encode('utf-8'),
+                self.headers_to_str(response).encode('utf-8'),
+                b'\r\n',
+                response.body
+            ))
+            peer = connection.getpeername()
+            while contents:
+                try:
+                    bytes_sent = connection.send(contents)
+                    contents = contents[bytes_sent:]
+                    logging.info(f'{bytes_sent}B sent to {peer}')
+                except socket.error as e:
+                    # TODO ask about fixing this
+                    if str(e) == "[Errno 35] Resource temporarily unavailable":
+                        logging.error('[Errno 35] Resource temporarily '
+                                      'unavailable Sleeping 0.1s')
+                        time.sleep(0.1)
+                    elif str(e) == "[Errno 32] Broken pipe":
+                        msg = f'client stopped receiving {e}'
+                        logging.exception(msg)
+                        raise e
+                    else:
+                        raise e
+            logging.info(f'File sent to {connection.getpeername()}')
 
     @staticmethod
     def headers_to_str(res):
@@ -290,10 +296,15 @@ class Response:
 
 
 class Error(Exception):
-    def __init__(self, status, reason, body=None):
+    def __init__(self, status, reason, body=None, page=None):
         self.status = status
         self.reason = reason
         self.body = body
+        if page:
+            with open(CONFIG_PATH) as cfg:
+                data = json.load(cfg)
+                self.page = data["error-pages"][page]
+                self.page_styles = data["error-pages"]['styles']
 
 
 class Errors(Error):
@@ -303,7 +314,7 @@ class Errors(Error):
                           'Malformed request line')
     HEADER_MISSING = Error(400, 'Bad request',
                            'Host header is missing')
-    NOT_FOUND = Error(404, 'Not found')
+    NOT_FOUND = Error(404, 'Not found', "", "PAGE_NOT_FOUND")
     HEADER_TOO_LARGE = Error(494, 'Request header too large')
     TOO_MANY_HEADERS = Error(494, 'Too many headers')
     VERSION_NOT_SUPPORTED = Error(505, 'HTTP Version Not Supported')
