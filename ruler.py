@@ -75,10 +75,10 @@ class Ruler:
 
 
 if __name__ == '__main__':
-    # pass
-    ruler = Ruler()
-    r = ruler.get_rules()
-    url = '/page-load-errors.css'
-    d = ruler.get_destination(url, r)
-    t = ruler.get_type(url, r)
-    print(d, t)
+    pass
+    # ruler = Ruler()
+    # r = ruler.get_rules()
+    # url = '/page-load-errors.css'
+    # d = ruler.get_destination(url, r)
+    # t = ruler.get_type(url, r)
+    # print(d, t)

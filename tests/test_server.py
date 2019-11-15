@@ -1,7 +1,9 @@
+import concurrent.futures
 import ctypes
 import io
 import json
 import multiprocessing
+import signal
 import socket
 import threading
 import time
@@ -9,6 +11,7 @@ import unittest
 
 from httpserver import Server
 from defenitions import CONFIG_PATH
+from stopper import AsyncStopper
 
 
 class MyTestCase(unittest.TestCase):
@@ -48,8 +51,8 @@ class MyTestCase(unittest.TestCase):
 
     def test_get_res(self):
         str_req = 'GET / HTTP/1.1\n' \
-              'Host: 0.0.0.0:8000\n' \
-              'Accept: */*\n\n'
+                  'Host: 0.0.0.0:8000\n' \
+                  'Accept: */*\n\n'
 
         server = self.make_server()
         file = io.BytesIO(str_req.encode('utf-8'))
@@ -74,7 +77,7 @@ class MyTestCase(unittest.TestCase):
             self.fail()
 
     def send_req_and_shutdown(self, server):
-        time.sleep(2)
+        time.sleep(1)
         req = b'GET / HTTP/1.1\nHost: 0.0.0.0\nAccept: */*\n\n'
         with open(CONFIG_PATH) as cfg:
             data = json.load(cfg)
@@ -95,17 +98,24 @@ class MyTestCase(unittest.TestCase):
         s.close()
 
         res = b''.join(data).decode()
-        self.assertIsNotNone(res)
+        self.assertTrue(res)
         exit(0)
 
-    def ttest_serving(self):
+    def test_serving(self):
         server = self.make_server()
         request_task = multiprocessing.Process(
             target=self.send_req_and_shutdown,
-            args=(server, ))
+            args=(server,))
+
         with server as s:
             request_task.start()
-            s.serve()
+            try:
+                with AsyncStopper(5):
+                    s.serve()
+            except StopIteration:
+                pass
+        msg = f'Request failed exitcode: {request_task.exitcode}'
+        self.assertEqual(request_task.exitcode, 0, msg)
         request_task.terminate()
 
 

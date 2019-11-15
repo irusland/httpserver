@@ -621,3 +621,1036 @@ INFO:root:server is UP on 0.0.0.0:8000
 ERROR:root:None
 NoneType: None
 INFO:root:server is DOWN
+INFO:root:processing /norulefile.py
+INFO:root:path found tmp/pictures/norulefile.py
+INFO:root:processing /pictures/png/1
+INFO:root:path found tmp/pictures/1.png
+INFO:root:processing /no.css
+INFO:root:path found tmp/pages/css/no.css
+INFO:root:processing /mime/
+INFO:root:path found tmp/pictures/1.png
+INFO:root:processing /index.html
+INFO:root:path found tmp/index.html
+INFO:root:processing /1.2.3.txt
+INFO:root:path found tmp/1.2.3.txt
+INFO:root:processing /foo.bar
+INFO:root:path found tmp/pictures/foo.bar
+INFO:root:processing /any.html
+INFO:root:path found tmp/pages/any.html
+INFO:root:processing /2.html
+INFO:root:path found tmp/pages/2.html
+INFO:root:processing /123.css
+INFO:root:path found tmp/pages/css/123.css
+INFO:root:processing /
+INFO:root:path found tmp/index.html
+INFO:root:processing /
+INFO:root:path found tmp/index.html
+INFO:root:/Users/irusland/Desktop/UrFU/python/httpserver/tmp/index.html type text/html
+INFO:root:server is UP on 0.0.0.0:8000
+ERROR:root:None
+NoneType: None
+INFO:root:server is DOWN
+INFO:root:server is UP on 0.0.0.0:8000
+ERROR:root:None
+NoneType: None
+INFO:root:server is DOWN
+INFO:root:server is UP on 0.0.0.0:8000
+INFO:root:Connected ('127.0.0.1', 49553)
+INFO:root:Threaded client serving started ('127.0.0.1', 49553)
+INFO:root:Got request from ('127.0.0.1', 49553) method: GET
+target: /
+version: HTTP/1.1
+headers: Host: 0.0.0.0
+Accept: */*
+
+
+file: <_io.BufferedReader name=-1>
+user: ('127.0.0.1', 49553)
+url: ParseResult(scheme='', netloc='', path='/', params='', query='', fragment='')
+path: /
+query: {}
+INFO:root:processing /
+INFO:root:path found tmp/index.html
+INFO:root:/Users/irusland/Desktop/UrFU/python/httpserver/tmp/index.html type text/html
+INFO:root:Response status: 200
+reason: OK
+headers: [('Content-Type', 'text/html'), ('Content-Disposition', 'inline; filename=index.html'), ('Content-Length', 156)]
+body: b'<!DOCTYPE html>\n<html lang="en">\n<head>\n    <meta charset="UTF-8">\n    <title>index.html</title>\n</head>\n<body>\n    <h1>Python Rule it!</h1>\n</body>\n</html>'
+INFO:root:271B sent to ('127.0.0.1', 49553)
+INFO:root:File sent to ('127.0.0.1', 49553)
+INFO:root:Disconnected ('127.0.0.1', 49553)
+ERROR:root:test timed out after 10s.
+Traceback (most recent call last):
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/tests/test_server.py", line 110, in test_serving
+    s.serve()
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 72, in serve
+    poll = self.poller.select(self.refresh_rate)
+  File "/usr/local/Cellar/python/3.7.4_1/Frameworks/Python.framework/Versions/3.7/lib/python3.7/selectors.py", line 558, in select
+    kev_list = self._selector.control(None, max_ev, timeout)
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/tests/test_server.py", line 126, in handle_timeout
+    raise TestTimeout(self.error_message)
+test_server.TestTimeout: test timed out after 10s.
+INFO:root:server is DOWN
+INFO:root:processing /norulefile.py
+INFO:root:path found tmp/pictures/norulefile.py
+INFO:root:processing /pictures/png/1
+INFO:root:path found tmp/pictures/1.png
+INFO:root:processing /no.css
+INFO:root:path found tmp/pages/css/no.css
+INFO:root:processing /mime/
+INFO:root:path found tmp/pictures/1.png
+INFO:root:processing /index.html
+INFO:root:path found tmp/index.html
+INFO:root:processing /1.2.3.txt
+INFO:root:path found tmp/1.2.3.txt
+INFO:root:processing /foo.bar
+INFO:root:path found tmp/pictures/foo.bar
+INFO:root:processing /any.html
+INFO:root:path found tmp/pages/any.html
+INFO:root:processing /2.html
+INFO:root:path found tmp/pages/2.html
+INFO:root:processing /123.css
+INFO:root:path found tmp/pages/css/123.css
+INFO:root:processing /
+INFO:root:path found tmp/index.html
+INFO:root:processing /
+INFO:root:path found tmp/index.html
+INFO:root:/Users/irusland/Desktop/UrFU/python/httpserver/tmp/index.html type text/html
+INFO:root:server is UP on 0.0.0.0:8000
+ERROR:root:None
+NoneType: None
+INFO:root:server is DOWN
+INFO:root:server is UP on 0.0.0.0:8000
+ERROR:root:None
+NoneType: None
+INFO:root:server is DOWN
+INFO:root:server is UP on 0.0.0.0:8000
+INFO:root:Connected ('127.0.0.1', 49562)
+INFO:root:Threaded client serving started ('127.0.0.1', 49562)
+INFO:root:Got request from ('127.0.0.1', 49562) method: GET
+target: /
+version: HTTP/1.1
+headers: Host: 0.0.0.0
+Accept: */*
+
+
+file: <_io.BufferedReader name=-1>
+user: ('127.0.0.1', 49562)
+url: ParseResult(scheme='', netloc='', path='/', params='', query='', fragment='')
+path: /
+query: {}
+INFO:root:processing /
+INFO:root:path found tmp/index.html
+INFO:root:/Users/irusland/Desktop/UrFU/python/httpserver/tmp/index.html type text/html
+INFO:root:Response status: 200
+reason: OK
+headers: [('Content-Type', 'text/html'), ('Content-Disposition', 'inline; filename=index.html'), ('Content-Length', 156)]
+body: b'<!DOCTYPE html>\n<html lang="en">\n<head>\n    <meta charset="UTF-8">\n    <title>index.html</title>\n</head>\n<body>\n    <h1>Python Rule it!</h1>\n</body>\n</html>'
+INFO:root:271B sent to ('127.0.0.1', 49562)
+INFO:root:File sent to ('127.0.0.1', 49562)
+INFO:root:Disconnected ('127.0.0.1', 49562)
+ERROR:root:test timed out after 10s.
+Traceback (most recent call last):
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/tests/test_server.py", line 111, in test_serving
+    s.serve()
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 72, in serve
+    poll = self.poller.select(self.refresh_rate)
+  File "/usr/local/Cellar/python/3.7.4_1/Frameworks/Python.framework/Versions/3.7/lib/python3.7/selectors.py", line 558, in select
+    kev_list = self._selector.control(None, max_ev, timeout)
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/tests/test_server.py", line 127, in handle_timeout
+    raise TestTimeout(self.error_message)
+test_server.TestTimeout: test timed out after 10s.
+INFO:root:server is DOWN
+INFO:root:processing /norulefile.py
+INFO:root:path found tmp/pictures/norulefile.py
+INFO:root:processing /pictures/png/1
+INFO:root:path found tmp/pictures/1.png
+INFO:root:processing /no.css
+INFO:root:path found tmp/pages/css/no.css
+INFO:root:processing /mime/
+INFO:root:path found tmp/pictures/1.png
+INFO:root:processing /index.html
+INFO:root:path found tmp/index.html
+INFO:root:processing /1.2.3.txt
+INFO:root:path found tmp/1.2.3.txt
+INFO:root:processing /foo.bar
+INFO:root:path found tmp/pictures/foo.bar
+INFO:root:processing /any.html
+INFO:root:path found tmp/pages/any.html
+INFO:root:processing /2.html
+INFO:root:path found tmp/pages/2.html
+INFO:root:processing /123.css
+INFO:root:path found tmp/pages/css/123.css
+INFO:root:processing /
+INFO:root:path found tmp/index.html
+INFO:root:processing /
+INFO:root:path found tmp/index.html
+INFO:root:/Users/irusland/Desktop/UrFU/python/httpserver/tmp/index.html type text/html
+INFO:root:server is UP on 0.0.0.0:8000
+ERROR:root:None
+NoneType: None
+INFO:root:server is DOWN
+INFO:root:server is UP on 0.0.0.0:8000
+ERROR:root:None
+NoneType: None
+INFO:root:server is DOWN
+INFO:root:server is UP on 0.0.0.0:8000
+INFO:root:Connected ('127.0.0.1', 49568)
+INFO:root:Threaded client serving started ('127.0.0.1', 49568)
+INFO:root:Got request from ('127.0.0.1', 49568) method: GET
+target: /
+version: HTTP/1.1
+headers: Host: 0.0.0.0
+Accept: */*
+
+
+file: <_io.BufferedReader name=-1>
+user: ('127.0.0.1', 49568)
+url: ParseResult(scheme='', netloc='', path='/', params='', query='', fragment='')
+path: /
+query: {}
+INFO:root:processing /
+INFO:root:path found tmp/index.html
+INFO:root:/Users/irusland/Desktop/UrFU/python/httpserver/tmp/index.html type text/html
+INFO:root:Response status: 200
+reason: OK
+headers: [('Content-Type', 'text/html'), ('Content-Disposition', 'inline; filename=index.html'), ('Content-Length', 156)]
+body: b'<!DOCTYPE html>\n<html lang="en">\n<head>\n    <meta charset="UTF-8">\n    <title>index.html</title>\n</head>\n<body>\n    <h1>Python Rule it!</h1>\n</body>\n</html>'
+INFO:root:271B sent to ('127.0.0.1', 49568)
+INFO:root:File sent to ('127.0.0.1', 49568)
+INFO:root:Disconnected ('127.0.0.1', 49568)
+ERROR:root:
+Traceback (most recent call last):
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/tests/test_server.py", line 111, in test_serving
+    s.serve()
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 72, in serve
+    poll = self.poller.select(self.refresh_rate)
+  File "/usr/local/Cellar/python/3.7.4_1/Frameworks/Python.framework/Versions/3.7/lib/python3.7/selectors.py", line 558, in select
+    kev_list = self._selector.control(None, max_ev, timeout)
+KeyboardInterrupt
+INFO:root:server is DOWN
+INFO:root:processing /norulefile.py
+INFO:root:path found tmp/pictures/norulefile.py
+INFO:root:processing /pictures/png/1
+INFO:root:path found tmp/pictures/1.png
+INFO:root:processing /no.css
+INFO:root:path found tmp/pages/css/no.css
+INFO:root:processing /mime/
+INFO:root:path found tmp/pictures/1.png
+INFO:root:processing /index.html
+INFO:root:path found tmp/index.html
+INFO:root:processing /1.2.3.txt
+INFO:root:path found tmp/1.2.3.txt
+INFO:root:processing /foo.bar
+INFO:root:path found tmp/pictures/foo.bar
+INFO:root:processing /any.html
+INFO:root:path found tmp/pages/any.html
+INFO:root:processing /2.html
+INFO:root:path found tmp/pages/2.html
+INFO:root:processing /123.css
+INFO:root:path found tmp/pages/css/123.css
+INFO:root:processing /
+INFO:root:path found tmp/index.html
+INFO:root:processing /
+INFO:root:path found tmp/index.html
+INFO:root:/Users/irusland/Desktop/UrFU/python/httpserver/tmp/index.html type text/html
+INFO:root:server is UP on 0.0.0.0:8000
+ERROR:root:None
+NoneType: None
+INFO:root:server is DOWN
+INFO:root:server is UP on 0.0.0.0:8000
+ERROR:root:None
+NoneType: None
+INFO:root:server is DOWN
+INFO:root:server is UP on 0.0.0.0:8000
+INFO:root:Connected ('127.0.0.1', 49576)
+INFO:root:Threaded client serving started ('127.0.0.1', 49576)
+INFO:root:Got request from ('127.0.0.1', 49576) method: GET
+target: /
+version: HTTP/1.1
+headers: Host: 0.0.0.0
+Accept: */*
+
+
+file: <_io.BufferedReader name=-1>
+user: ('127.0.0.1', 49576)
+url: ParseResult(scheme='', netloc='', path='/', params='', query='', fragment='')
+path: /
+query: {}
+INFO:root:processing /
+INFO:root:path found tmp/index.html
+INFO:root:/Users/irusland/Desktop/UrFU/python/httpserver/tmp/index.html type text/html
+INFO:root:Response status: 200
+reason: OK
+headers: [('Content-Type', 'text/html'), ('Content-Disposition', 'inline; filename=index.html'), ('Content-Length', 156)]
+body: b'<!DOCTYPE html>\n<html lang="en">\n<head>\n    <meta charset="UTF-8">\n    <title>index.html</title>\n</head>\n<body>\n    <h1>Python Rule it!</h1>\n</body>\n</html>'
+INFO:root:271B sent to ('127.0.0.1', 49576)
+INFO:root:File sent to ('127.0.0.1', 49576)
+INFO:root:Disconnected ('127.0.0.1', 49576)
+ERROR:root:test timed out after 5s.
+Traceback (most recent call last):
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/tests/test_server.py", line 111, in test_serving
+    s.serve()
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 72, in serve
+    poll = self.poller.select(self.refresh_rate)
+  File "/usr/local/Cellar/python/3.7.4_1/Frameworks/Python.framework/Versions/3.7/lib/python3.7/selectors.py", line 558, in select
+    kev_list = self._selector.control(None, max_ev, timeout)
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/tests/test_server.py", line 127, in handle_timeout
+    raise TestTimeout(self.error_message)
+test_server.TestTimeout: test timed out after 5s.
+INFO:root:server is DOWN
+INFO:root:processing /norulefile.py
+INFO:root:path found tmp/pictures/norulefile.py
+INFO:root:processing /pictures/png/1
+INFO:root:path found tmp/pictures/1.png
+INFO:root:processing /no.css
+INFO:root:path found tmp/pages/css/no.css
+INFO:root:processing /mime/
+INFO:root:path found tmp/pictures/1.png
+INFO:root:processing /index.html
+INFO:root:path found tmp/index.html
+INFO:root:processing /1.2.3.txt
+INFO:root:path found tmp/1.2.3.txt
+INFO:root:processing /foo.bar
+INFO:root:path found tmp/pictures/foo.bar
+INFO:root:processing /any.html
+INFO:root:path found tmp/pages/any.html
+INFO:root:processing /2.html
+INFO:root:path found tmp/pages/2.html
+INFO:root:processing /123.css
+INFO:root:path found tmp/pages/css/123.css
+INFO:root:processing /
+INFO:root:path found tmp/index.html
+INFO:root:processing /
+INFO:root:path found tmp/index.html
+INFO:root:/Users/irusland/Desktop/UrFU/python/httpserver/tmp/index.html type text/html
+INFO:root:server is UP on 0.0.0.0:8000
+ERROR:root:None
+NoneType: None
+INFO:root:server is DOWN
+INFO:root:server is UP on 0.0.0.0:8000
+ERROR:root:None
+NoneType: None
+INFO:root:server is DOWN
+INFO:root:server is UP on 0.0.0.0:8000
+INFO:root:Connected ('127.0.0.1', 49622)
+INFO:root:Threaded client serving started ('127.0.0.1', 49622)
+INFO:root:Got request from ('127.0.0.1', 49622) method: GET
+target: /
+version: HTTP/1.1
+headers: Host: 0.0.0.0
+Accept: */*
+
+
+file: <_io.BufferedReader name=-1>
+user: ('127.0.0.1', 49622)
+url: ParseResult(scheme='', netloc='', path='/', params='', query='', fragment='')
+path: /
+query: {}
+INFO:root:processing /
+INFO:root:path found tmp/index.html
+INFO:root:/Users/irusland/Desktop/UrFU/python/httpserver/tmp/index.html type text/html
+INFO:root:Response status: 200
+reason: OK
+headers: [('Content-Type', 'text/html'), ('Content-Disposition', 'inline; filename=index.html'), ('Content-Length', 156)]
+body: b'<!DOCTYPE html>\n<html lang="en">\n<head>\n    <meta charset="UTF-8">\n    <title>index.html</title>\n</head>\n<body>\n    <h1>Python Rule it!</h1>\n</body>\n</html>'
+INFO:root:271B sent to ('127.0.0.1', 49622)
+INFO:root:File sent to ('127.0.0.1', 49622)
+INFO:root:Disconnected ('127.0.0.1', 49622)
+ERROR:root:None
+NoneType: None
+INFO:root:server is DOWN
+INFO:root:processing /norulefile.py
+INFO:root:path found tmp/pictures/norulefile.py
+INFO:root:processing /pictures/png/1
+INFO:root:path found tmp/pictures/1.png
+INFO:root:processing /no.css
+INFO:root:path found tmp/pages/css/no.css
+INFO:root:processing /mime/
+INFO:root:path found tmp/pictures/1.png
+INFO:root:processing /index.html
+INFO:root:path found tmp/index.html
+INFO:root:processing /1.2.3.txt
+INFO:root:path found tmp/1.2.3.txt
+INFO:root:processing /foo.bar
+INFO:root:path found tmp/pictures/foo.bar
+INFO:root:processing /any.html
+INFO:root:path found tmp/pages/any.html
+INFO:root:processing /2.html
+INFO:root:path found tmp/pages/2.html
+INFO:root:processing /123.css
+INFO:root:path found tmp/pages/css/123.css
+INFO:root:processing /
+INFO:root:path found tmp/index.html
+INFO:root:processing /
+INFO:root:path found tmp/index.html
+INFO:root:/Users/irusland/Desktop/UrFU/python/httpserver/tmp/index.html type text/html
+INFO:root:server is UP on 0.0.0.0:8000
+ERROR:root:None
+NoneType: None
+INFO:root:server is DOWN
+INFO:root:server is UP on 0.0.0.0:8000
+ERROR:root:None
+NoneType: None
+INFO:root:server is DOWN
+INFO:root:server is UP on 0.0.0.0:8000
+INFO:root:Connected ('127.0.0.1', 49627)
+INFO:root:Threaded client serving started ('127.0.0.1', 49627)
+INFO:root:Got request from ('127.0.0.1', 49627) method: GET
+target: /
+version: HTTP/1.1
+headers: Host: 0.0.0.0
+Accept: */*
+
+
+file: <_io.BufferedReader name=-1>
+user: ('127.0.0.1', 49627)
+url: ParseResult(scheme='', netloc='', path='/', params='', query='', fragment='')
+path: /
+query: {}
+INFO:root:processing /
+INFO:root:path found tmp/index.html
+INFO:root:/Users/irusland/Desktop/UrFU/python/httpserver/tmp/index.html type text/html
+INFO:root:Response status: 200
+reason: OK
+headers: [('Content-Type', 'text/html'), ('Content-Disposition', 'inline; filename=index.html'), ('Content-Length', 156)]
+body: b'<!DOCTYPE html>\n<html lang="en">\n<head>\n    <meta charset="UTF-8">\n    <title>index.html</title>\n</head>\n<body>\n    <h1>Python Rule it!</h1>\n</body>\n</html>'
+INFO:root:271B sent to ('127.0.0.1', 49627)
+INFO:root:File sent to ('127.0.0.1', 49627)
+INFO:root:Disconnected ('127.0.0.1', 49627)
+ERROR:root:None
+NoneType: None
+INFO:root:server is DOWN
+INFO:root:processing /norulefile.py
+INFO:root:path found tmp/pictures/norulefile.py
+INFO:root:processing /pictures/png/1
+INFO:root:path found tmp/pictures/1.png
+INFO:root:processing /no.css
+INFO:root:path found tmp/pages/css/no.css
+INFO:root:processing /mime/
+INFO:root:path found tmp/pictures/1.png
+INFO:root:processing /index.html
+INFO:root:path found tmp/index.html
+INFO:root:processing /1.2.3.txt
+INFO:root:path found tmp/1.2.3.txt
+INFO:root:processing /foo.bar
+INFO:root:path found tmp/pictures/foo.bar
+INFO:root:processing /any.html
+INFO:root:path found tmp/pages/any.html
+INFO:root:processing /2.html
+INFO:root:path found tmp/pages/2.html
+INFO:root:processing /123.css
+INFO:root:path found tmp/pages/css/123.css
+INFO:root:processing /
+INFO:root:path found tmp/index.html
+INFO:root:processing /
+INFO:root:path found tmp/index.html
+INFO:root:/Users/irusland/Desktop/UrFU/python/httpserver/tmp/index.html type text/html
+INFO:root:server is UP on 0.0.0.0:8000
+ERROR:root:None
+NoneType: None
+INFO:root:server is DOWN
+INFO:root:server is UP on 0.0.0.0:8000
+ERROR:root:None
+NoneType: None
+INFO:root:server is DOWN
+INFO:root:server is UP on 0.0.0.0:8000
+INFO:root:Connected ('127.0.0.1', 49636)
+INFO:root:Threaded client serving started ('127.0.0.1', 49636)
+INFO:root:Got request from ('127.0.0.1', 49636) method: GET
+target: /
+version: HTTP/1.1
+headers: Host: 0.0.0.0
+Accept: */*
+
+
+file: <_io.BufferedReader name=-1>
+user: ('127.0.0.1', 49636)
+url: ParseResult(scheme='', netloc='', path='/', params='', query='', fragment='')
+path: /
+query: {}
+INFO:root:processing /
+INFO:root:path found tmp/index.html
+INFO:root:/Users/irusland/Desktop/UrFU/python/httpserver/tmp/index.html type text/html
+INFO:root:Response status: 200
+reason: OK
+headers: [('Content-Type', 'text/html'), ('Content-Disposition', 'inline; filename=index.html'), ('Content-Length', 156)]
+body: b'<!DOCTYPE html>\n<html lang="en">\n<head>\n    <meta charset="UTF-8">\n    <title>index.html</title>\n</head>\n<body>\n    <h1>Python Rule it!</h1>\n</body>\n</html>'
+INFO:root:271B sent to ('127.0.0.1', 49636)
+INFO:root:File sent to ('127.0.0.1', 49636)
+INFO:root:Disconnected ('127.0.0.1', 49636)
+ERROR:root:
+Traceback (most recent call last):
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/tests/test_server.py", line 113, in test_serving
+    s.serve()
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 72, in serve
+    poll = self.poller.select(self.refresh_rate)
+  File "/usr/local/Cellar/python/3.7.4_1/Frameworks/Python.framework/Versions/3.7/lib/python3.7/selectors.py", line 558, in select
+    kev_list = self._selector.control(None, max_ev, timeout)
+KeyboardInterrupt
+INFO:root:server is DOWN
+INFO:root:processing /norulefile.py
+INFO:root:path found tmp/pictures/norulefile.py
+INFO:root:processing /pictures/png/1
+INFO:root:path found tmp/pictures/1.png
+INFO:root:processing /no.css
+INFO:root:path found tmp/pages/css/no.css
+INFO:root:processing /mime/
+INFO:root:path found tmp/pictures/1.png
+INFO:root:processing /index.html
+INFO:root:path found tmp/index.html
+INFO:root:processing /1.2.3.txt
+INFO:root:path found tmp/1.2.3.txt
+INFO:root:processing /foo.bar
+INFO:root:path found tmp/pictures/foo.bar
+INFO:root:processing /any.html
+INFO:root:path found tmp/pages/any.html
+INFO:root:processing /2.html
+INFO:root:path found tmp/pages/2.html
+INFO:root:processing /123.css
+INFO:root:path found tmp/pages/css/123.css
+INFO:root:processing /
+INFO:root:path found tmp/index.html
+INFO:root:processing /
+INFO:root:path found tmp/index.html
+INFO:root:/Users/irusland/Desktop/UrFU/python/httpserver/tmp/index.html type text/html
+INFO:root:server is UP on 0.0.0.0:8000
+ERROR:root:None
+NoneType: None
+INFO:root:server is DOWN
+INFO:root:server is UP on 0.0.0.0:8000
+ERROR:root:None
+NoneType: None
+INFO:root:server is DOWN
+INFO:root:server is UP on 0.0.0.0:8000
+INFO:root:Connected ('127.0.0.1', 49643)
+INFO:root:Threaded client serving started ('127.0.0.1', 49643)
+INFO:root:Got request from ('127.0.0.1', 49643) method: GET
+target: /
+version: HTTP/1.1
+headers: Host: 0.0.0.0
+Accept: */*
+
+
+file: <_io.BufferedReader name=-1>
+user: ('127.0.0.1', 49643)
+url: ParseResult(scheme='', netloc='', path='/', params='', query='', fragment='')
+path: /
+query: {}
+INFO:root:processing /
+INFO:root:path found tmp/index.html
+INFO:root:/Users/irusland/Desktop/UrFU/python/httpserver/tmp/index.html type text/html
+INFO:root:Response status: 200
+reason: OK
+headers: [('Content-Type', 'text/html'), ('Content-Disposition', 'inline; filename=index.html'), ('Content-Length', 156)]
+body: b'<!DOCTYPE html>\n<html lang="en">\n<head>\n    <meta charset="UTF-8">\n    <title>index.html</title>\n</head>\n<body>\n    <h1>Python Rule it!</h1>\n</body>\n</html>'
+INFO:root:271B sent to ('127.0.0.1', 49643)
+INFO:root:File sent to ('127.0.0.1', 49643)
+INFO:root:Disconnected ('127.0.0.1', 49643)
+ERROR:root:None
+NoneType: None
+INFO:root:server is DOWN
+INFO:root:processing /norulefile.py
+INFO:root:path found tmp/pictures/norulefile.py
+INFO:root:processing /pictures/png/1
+INFO:root:path found tmp/pictures/1.png
+INFO:root:processing /no.css
+INFO:root:path found tmp/pages/css/no.css
+INFO:root:processing /mime/
+INFO:root:path found tmp/pictures/1.png
+INFO:root:processing /index.html
+INFO:root:path found tmp/index.html
+INFO:root:processing /1.2.3.txt
+INFO:root:path found tmp/1.2.3.txt
+INFO:root:processing /foo.bar
+INFO:root:path found tmp/pictures/foo.bar
+INFO:root:processing /any.html
+INFO:root:path found tmp/pages/any.html
+INFO:root:processing /2.html
+INFO:root:path found tmp/pages/2.html
+INFO:root:processing /123.css
+INFO:root:path found tmp/pages/css/123.css
+INFO:root:processing /
+INFO:root:path found tmp/index.html
+INFO:root:processing /
+INFO:root:path found tmp/index.html
+INFO:root:/Users/irusland/Desktop/UrFU/python/httpserver/tmp/index.html type text/html
+INFO:root:server is UP on 0.0.0.0:8000
+ERROR:root:None
+NoneType: None
+INFO:root:server is DOWN
+INFO:root:server is UP on 0.0.0.0:8000
+ERROR:root:None
+NoneType: None
+INFO:root:server is DOWN
+INFO:root:server is UP on 0.0.0.0:8000
+INFO:root:Connected ('127.0.0.1', 49944)
+INFO:root:Threaded client serving started ('127.0.0.1', 49944)
+INFO:root:Got request from ('127.0.0.1', 49944) method: GET
+target: /
+version: HTTP/1.1
+headers: Host: 0.0.0.0
+Accept: */*
+
+
+file: <_io.BufferedReader name=-1>
+user: ('127.0.0.1', 49944)
+url: ParseResult(scheme='', netloc='', path='/', params='', query='', fragment='')
+path: /
+query: {}
+INFO:root:processing /
+INFO:root:path found tmp/index.html
+INFO:root:/Users/irusland/Desktop/UrFU/python/httpserver/tmp/index.html type text/html
+INFO:root:Response status: 200
+reason: OK
+headers: [('Content-Type', 'text/html'), ('Content-Disposition', 'inline; filename=index.html'), ('Content-Length', 156)]
+body: b'<!DOCTYPE html>\n<html lang="en">\n<head>\n    <meta charset="UTF-8">\n    <title>index.html</title>\n</head>\n<body>\n    <h1>Python Rule it!</h1>\n</body>\n</html>'
+INFO:root:271B sent to ('127.0.0.1', 49944)
+INFO:root:File sent to ('127.0.0.1', 49944)
+INFO:root:Disconnected ('127.0.0.1', 49944)
+ERROR:root:timed out
+Traceback (most recent call last):
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/tests/test_server.py", line 119, in test_serving
+    return_value = future.result()
+  File "/usr/local/Cellar/python/3.7.4_1/Frameworks/Python.framework/Versions/3.7/lib/python3.7/concurrent/futures/_base.py", line 428, in result
+    return self.__get_result()
+  File "/usr/local/Cellar/python/3.7.4_1/Frameworks/Python.framework/Versions/3.7/lib/python3.7/concurrent/futures/_base.py", line 384, in __get_result
+    raise self._exception
+  File "/usr/local/Cellar/python/3.7.4_1/Frameworks/Python.framework/Versions/3.7/lib/python3.7/concurrent/futures/thread.py", line 57, in run
+    result = self.fn(*self.args, **self.kwargs)
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/tests/test_server.py", line 92, in send_req_and_shutdown
+    line = s.recv(Server.MAX_LINE)
+socket.timeout: timed out
+INFO:root:server is DOWN
+INFO:root:processing /norulefile.py
+INFO:root:path found tmp/pictures/norulefile.py
+INFO:root:processing /pictures/png/1
+INFO:root:path found tmp/pictures/1.png
+INFO:root:processing /no.css
+INFO:root:path found tmp/pages/css/no.css
+INFO:root:processing /mime/
+INFO:root:path found tmp/pictures/1.png
+INFO:root:processing /index.html
+INFO:root:path found tmp/index.html
+INFO:root:processing /1.2.3.txt
+INFO:root:path found tmp/1.2.3.txt
+INFO:root:processing /foo.bar
+INFO:root:path found tmp/pictures/foo.bar
+INFO:root:processing /any.html
+INFO:root:path found tmp/pages/any.html
+INFO:root:processing /2.html
+INFO:root:path found tmp/pages/2.html
+INFO:root:processing /123.css
+INFO:root:path found tmp/pages/css/123.css
+INFO:root:processing /
+INFO:root:path found tmp/index.html
+INFO:root:processing /
+INFO:root:path found tmp/index.html
+INFO:root:/Users/irusland/Desktop/UrFU/python/httpserver/tmp/index.html type text/html
+INFO:root:server is UP on 0.0.0.0:8000
+ERROR:root:None
+NoneType: None
+INFO:root:server is DOWN
+INFO:root:server is UP on 0.0.0.0:8000
+ERROR:root:None
+NoneType: None
+INFO:root:server is DOWN
+INFO:root:server is UP on 0.0.0.0:8000
+INFO:root:Connected ('127.0.0.1', 49954)
+INFO:root:Threaded client serving started ('127.0.0.1', 49954)
+INFO:root:Got request from ('127.0.0.1', 49954) method: GET
+target: /
+version: HTTP/1.1
+headers: Host: 0.0.0.0
+Accept: */*
+
+
+file: <_io.BufferedReader name=-1>
+user: ('127.0.0.1', 49954)
+url: ParseResult(scheme='', netloc='', path='/', params='', query='', fragment='')
+path: /
+query: {}
+INFO:root:processing /
+INFO:root:path found tmp/index.html
+INFO:root:/Users/irusland/Desktop/UrFU/python/httpserver/tmp/index.html type text/html
+INFO:root:Response status: 200
+reason: OK
+headers: [('Content-Type', 'text/html'), ('Content-Disposition', 'inline; filename=index.html'), ('Content-Length', 156)]
+body: b'<!DOCTYPE html>\n<html lang="en">\n<head>\n    <meta charset="UTF-8">\n    <title>index.html</title>\n</head>\n<body>\n    <h1>Python Rule it!</h1>\n</body>\n</html>'
+INFO:root:271B sent to ('127.0.0.1', 49954)
+INFO:root:File sent to ('127.0.0.1', 49954)
+INFO:root:Disconnected ('127.0.0.1', 49954)
+ERROR:root:timed out
+Traceback (most recent call last):
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/tests/test_server.py", line 118, in test_serving
+    return_value = future.result()
+  File "/usr/local/Cellar/python/3.7.4_1/Frameworks/Python.framework/Versions/3.7/lib/python3.7/concurrent/futures/_base.py", line 428, in result
+    return self.__get_result()
+  File "/usr/local/Cellar/python/3.7.4_1/Frameworks/Python.framework/Versions/3.7/lib/python3.7/concurrent/futures/_base.py", line 384, in __get_result
+    raise self._exception
+  File "/usr/local/Cellar/python/3.7.4_1/Frameworks/Python.framework/Versions/3.7/lib/python3.7/concurrent/futures/thread.py", line 57, in run
+    result = self.fn(*self.args, **self.kwargs)
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/tests/test_server.py", line 92, in send_req_and_shutdown
+    line = s.recv(Server.MAX_LINE)
+socket.timeout: timed out
+INFO:root:server is DOWN
+INFO:root:processing /norulefile.py
+INFO:root:path found tmp/pictures/norulefile.py
+INFO:root:processing /pictures/png/1
+INFO:root:path found tmp/pictures/1.png
+INFO:root:processing /no.css
+INFO:root:path found tmp/pages/css/no.css
+INFO:root:processing /mime/
+INFO:root:path found tmp/pictures/1.png
+INFO:root:processing /index.html
+INFO:root:path found tmp/index.html
+INFO:root:processing /1.2.3.txt
+INFO:root:path found tmp/1.2.3.txt
+INFO:root:processing /foo.bar
+INFO:root:path found tmp/pictures/foo.bar
+INFO:root:processing /any.html
+INFO:root:path found tmp/pages/any.html
+INFO:root:processing /2.html
+INFO:root:path found tmp/pages/2.html
+INFO:root:processing /123.css
+INFO:root:path found tmp/pages/css/123.css
+INFO:root:processing /
+INFO:root:path found tmp/index.html
+INFO:root:processing /
+INFO:root:path found tmp/index.html
+INFO:root:/Users/irusland/Desktop/UrFU/python/httpserver/tmp/index.html type text/html
+INFO:root:server is UP on 0.0.0.0:8000
+ERROR:root:None
+NoneType: None
+INFO:root:server is DOWN
+INFO:root:server is UP on 0.0.0.0:8000
+ERROR:root:None
+NoneType: None
+INFO:root:server is DOWN
+INFO:root:server is UP on 0.0.0.0:8000
+ERROR:root:timed out
+Traceback (most recent call last):
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/tests/test_server.py", line 113, in test_serving
+    return_value = future.result()
+  File "/usr/local/Cellar/python/3.7.4_1/Frameworks/Python.framework/Versions/3.7/lib/python3.7/concurrent/futures/_base.py", line 435, in result
+    return self.__get_result()
+  File "/usr/local/Cellar/python/3.7.4_1/Frameworks/Python.framework/Versions/3.7/lib/python3.7/concurrent/futures/_base.py", line 384, in __get_result
+    raise self._exception
+  File "/usr/local/Cellar/python/3.7.4_1/Frameworks/Python.framework/Versions/3.7/lib/python3.7/concurrent/futures/thread.py", line 57, in run
+    result = self.fn(*self.args, **self.kwargs)
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/tests/test_server.py", line 92, in send_req_and_shutdown
+    line = s.recv(Server.MAX_LINE)
+socket.timeout: timed out
+INFO:root:server is DOWN
+INFO:root:processing /norulefile.py
+INFO:root:path found tmp/pictures/norulefile.py
+INFO:root:processing /pictures/png/1
+INFO:root:path found tmp/pictures/1.png
+INFO:root:processing /no.css
+INFO:root:path found tmp/pages/css/no.css
+INFO:root:processing /mime/
+INFO:root:path found tmp/pictures/1.png
+INFO:root:processing /index.html
+INFO:root:path found tmp/index.html
+INFO:root:processing /1.2.3.txt
+INFO:root:path found tmp/1.2.3.txt
+INFO:root:processing /foo.bar
+INFO:root:path found tmp/pictures/foo.bar
+INFO:root:processing /any.html
+INFO:root:path found tmp/pages/any.html
+INFO:root:processing /2.html
+INFO:root:path found tmp/pages/2.html
+INFO:root:processing /123.css
+INFO:root:path found tmp/pages/css/123.css
+INFO:root:processing /
+INFO:root:path found tmp/index.html
+INFO:root:processing /
+INFO:root:path found tmp/index.html
+INFO:root:/Users/irusland/Desktop/UrFU/python/httpserver/tmp/index.html type text/html
+INFO:root:server is UP on 0.0.0.0:8000
+ERROR:root:None
+NoneType: None
+INFO:root:server is DOWN
+INFO:root:server is UP on 0.0.0.0:8000
+ERROR:root:None
+NoneType: None
+INFO:root:server is DOWN
+INFO:root:server is UP on 0.0.0.0:8000
+INFO:root:Connected ('127.0.0.1', 49966)
+INFO:root:Threaded client serving started ('127.0.0.1', 49966)
+INFO:root:Got request from ('127.0.0.1', 49966) method: GET
+target: /
+version: HTTP/1.1
+headers: Host: 0.0.0.0
+Accept: */*
+
+
+file: <_io.BufferedReader name=-1>
+user: ('127.0.0.1', 49966)
+url: ParseResult(scheme='', netloc='', path='/', params='', query='', fragment='')
+path: /
+query: {}
+INFO:root:processing /
+INFO:root:path found tmp/index.html
+INFO:root:/Users/irusland/Desktop/UrFU/python/httpserver/tmp/index.html type text/html
+INFO:root:Response status: 200
+reason: OK
+headers: [('Content-Type', 'text/html'), ('Content-Disposition', 'inline; filename=index.html'), ('Content-Length', 156)]
+body: b'<!DOCTYPE html>\n<html lang="en">\n<head>\n    <meta charset="UTF-8">\n    <title>index.html</title>\n</head>\n<body>\n    <h1>Python Rule it!</h1>\n</body>\n</html>'
+INFO:root:271B sent to ('127.0.0.1', 49966)
+INFO:root:File sent to ('127.0.0.1', 49966)
+INFO:root:Disconnected ('127.0.0.1', 49966)
+ERROR:root:None
+NoneType: None
+INFO:root:server is DOWN
+INFO:root:processing /norulefile.py
+INFO:root:path found tmp/pictures/norulefile.py
+INFO:root:processing /pictures/png/1
+INFO:root:path found tmp/pictures/1.png
+INFO:root:processing /no.css
+INFO:root:path found tmp/pages/css/no.css
+INFO:root:processing /mime/
+INFO:root:path found tmp/pictures/1.png
+INFO:root:processing /index.html
+INFO:root:path found tmp/index.html
+INFO:root:processing /1.2.3.txt
+INFO:root:path found tmp/1.2.3.txt
+INFO:root:processing /foo.bar
+INFO:root:path found tmp/pictures/foo.bar
+INFO:root:processing /any.html
+INFO:root:path found tmp/pages/any.html
+INFO:root:processing /2.html
+INFO:root:path found tmp/pages/2.html
+INFO:root:processing /123.css
+INFO:root:path found tmp/pages/css/123.css
+INFO:root:processing /
+INFO:root:path found tmp/index.html
+INFO:root:processing /
+INFO:root:path found tmp/index.html
+INFO:root:/Users/irusland/Desktop/UrFU/python/httpserver/tmp/index.html type text/html
+INFO:root:server is UP on 0.0.0.0:8000
+ERROR:root:None
+NoneType: None
+INFO:root:server is DOWN
+INFO:root:server is UP on 0.0.0.0:8000
+ERROR:root:None
+NoneType: None
+INFO:root:server is DOWN
+INFO:root:server is UP on 0.0.0.0:8000
+INFO:root:Connected ('127.0.0.1', 49972)
+INFO:root:Threaded client serving started ('127.0.0.1', 49972)
+INFO:root:Got request from ('127.0.0.1', 49972) method: GET
+target: /
+version: HTTP/1.1
+headers: Host: 0.0.0.0
+Accept: */*
+
+
+file: <_io.BufferedReader name=-1>
+user: ('127.0.0.1', 49972)
+url: ParseResult(scheme='', netloc='', path='/', params='', query='', fragment='')
+path: /
+query: {}
+INFO:root:processing /
+INFO:root:path found tmp/index.html
+INFO:root:/Users/irusland/Desktop/UrFU/python/httpserver/tmp/index.html type text/html
+INFO:root:Response status: 200
+reason: OK
+headers: [('Content-Type', 'text/html'), ('Content-Disposition', 'inline; filename=index.html'), ('Content-Length', 156)]
+body: b'<!DOCTYPE html>\n<html lang="en">\n<head>\n    <meta charset="UTF-8">\n    <title>index.html</title>\n</head>\n<body>\n    <h1>Python Rule it!</h1>\n</body>\n</html>'
+INFO:root:271B sent to ('127.0.0.1', 49972)
+INFO:root:File sent to ('127.0.0.1', 49972)
+INFO:root:Disconnected ('127.0.0.1', 49972)
+ERROR:root:
+Traceback (most recent call last):
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/tests/test_server.py", line 113, in test_serving
+    s.serve()
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 72, in serve
+    poll = self.poller.select(self.refresh_rate)
+  File "/usr/local/Cellar/python/3.7.4_1/Frameworks/Python.framework/Versions/3.7/lib/python3.7/selectors.py", line 558, in select
+    kev_list = self._selector.control(None, max_ev, timeout)
+KeyboardInterrupt
+INFO:root:server is DOWN
+INFO:root:processing /norulefile.py
+INFO:root:path found tmp/pictures/norulefile.py
+INFO:root:processing /pictures/png/1
+INFO:root:path found tmp/pictures/1.png
+INFO:root:processing /no.css
+INFO:root:path found tmp/pages/css/no.css
+INFO:root:processing /mime/
+INFO:root:path found tmp/pictures/1.png
+INFO:root:processing /index.html
+INFO:root:path found tmp/index.html
+INFO:root:processing /1.2.3.txt
+INFO:root:path found tmp/1.2.3.txt
+INFO:root:processing /foo.bar
+INFO:root:path found tmp/pictures/foo.bar
+INFO:root:processing /any.html
+INFO:root:path found tmp/pages/any.html
+INFO:root:processing /2.html
+INFO:root:path found tmp/pages/2.html
+INFO:root:processing /123.css
+INFO:root:path found tmp/pages/css/123.css
+INFO:root:processing /
+INFO:root:path found tmp/index.html
+INFO:root:processing /
+INFO:root:path found tmp/index.html
+INFO:root:/Users/irusland/Desktop/UrFU/python/httpserver/tmp/index.html type text/html
+INFO:root:server is UP on 0.0.0.0:8000
+ERROR:root:None
+NoneType: None
+INFO:root:server is DOWN
+INFO:root:server is UP on 0.0.0.0:8000
+ERROR:root:None
+NoneType: None
+INFO:root:server is DOWN
+INFO:root:server is UP on 0.0.0.0:8000
+INFO:root:Connected ('127.0.0.1', 49979)
+INFO:root:Threaded client serving started ('127.0.0.1', 49979)
+INFO:root:Got request from ('127.0.0.1', 49979) method: GET
+target: /
+version: HTTP/1.1
+headers: Host: 0.0.0.0
+Accept: */*
+
+
+file: <_io.BufferedReader name=-1>
+user: ('127.0.0.1', 49979)
+url: ParseResult(scheme='', netloc='', path='/', params='', query='', fragment='')
+path: /
+query: {}
+INFO:root:processing /
+INFO:root:path found tmp/index.html
+INFO:root:/Users/irusland/Desktop/UrFU/python/httpserver/tmp/index.html type text/html
+INFO:root:Response status: 200
+reason: OK
+headers: [('Content-Type', 'text/html'), ('Content-Disposition', 'inline; filename=index.html'), ('Content-Length', 156)]
+body: b'<!DOCTYPE html>\n<html lang="en">\n<head>\n    <meta charset="UTF-8">\n    <title>index.html</title>\n</head>\n<body>\n    <h1>Python Rule it!</h1>\n</body>\n</html>'
+INFO:root:271B sent to ('127.0.0.1', 49979)
+INFO:root:File sent to ('127.0.0.1', 49979)
+INFO:root:Disconnected ('127.0.0.1', 49979)
+ERROR:root:None
+NoneType: None
+INFO:root:server is DOWN
+INFO:root:processing /norulefile.py
+INFO:root:path found tmp/pictures/norulefile.py
+INFO:root:processing /pictures/png/1
+INFO:root:path found tmp/pictures/1.png
+INFO:root:processing /no.css
+INFO:root:path found tmp/pages/css/no.css
+INFO:root:processing /mime/
+INFO:root:path found tmp/pictures/1.png
+INFO:root:processing /index.html
+INFO:root:path found tmp/index.html
+INFO:root:processing /1.2.3.txt
+INFO:root:path found tmp/1.2.3.txt
+INFO:root:processing /foo.bar
+INFO:root:path found tmp/pictures/foo.bar
+INFO:root:processing /any.html
+INFO:root:path found tmp/pages/any.html
+INFO:root:processing /2.html
+INFO:root:path found tmp/pages/2.html
+INFO:root:processing /123.css
+INFO:root:path found tmp/pages/css/123.css
+INFO:root:processing /
+INFO:root:path found tmp/index.html
+INFO:root:processing /
+INFO:root:path found tmp/index.html
+INFO:root:/Users/irusland/Desktop/UrFU/python/httpserver/tmp/index.html type text/html
+INFO:root:server is UP on 0.0.0.0:8000
+ERROR:root:None
+NoneType: None
+INFO:root:server is DOWN
+INFO:root:server is UP on 0.0.0.0:8000
+ERROR:root:None
+NoneType: None
+INFO:root:server is DOWN
+INFO:root:server is UP on 0.0.0.0:8000
+INFO:root:Connected ('127.0.0.1', 49984)
+INFO:root:Threaded client serving started ('127.0.0.1', 49984)
+INFO:root:Got request from ('127.0.0.1', 49984) method: GET
+target: /
+version: HTTP/1.1
+headers: Host: 0.0.0.0
+Accept: */*
+
+
+file: <_io.BufferedReader name=-1>
+user: ('127.0.0.1', 49984)
+url: ParseResult(scheme='', netloc='', path='/', params='', query='', fragment='')
+path: /
+query: {}
+INFO:root:processing /
+INFO:root:path found tmp/index.html
+INFO:root:/Users/irusland/Desktop/UrFU/python/httpserver/tmp/index.html type text/html
+INFO:root:Response status: 200
+reason: OK
+headers: [('Content-Type', 'text/html'), ('Content-Disposition', 'inline; filename=index.html'), ('Content-Length', 156)]
+body: b'<!DOCTYPE html>\n<html lang="en">\n<head>\n    <meta charset="UTF-8">\n    <title>index.html</title>\n</head>\n<body>\n    <h1>Python Rule it!</h1>\n</body>\n</html>'
+INFO:root:271B sent to ('127.0.0.1', 49984)
+INFO:root:File sent to ('127.0.0.1', 49984)
+INFO:root:Disconnected ('127.0.0.1', 49984)
+ERROR:root:None
+NoneType: None
+INFO:root:server is DOWN
+INFO:root:processing /norulefile.py
+INFO:root:path found tmp/pictures/norulefile.py
+INFO:root:processing /pictures/png/1
+INFO:root:path found tmp/pictures/1.png
+INFO:root:processing /no.css
+INFO:root:path found tmp/pages/css/no.css
+INFO:root:processing /mime/
+INFO:root:path found tmp/pictures/1.png
+INFO:root:processing /index.html
+INFO:root:path found tmp/index.html
+INFO:root:processing /1.2.3.txt
+INFO:root:path found tmp/1.2.3.txt
+INFO:root:processing /foo.bar
+INFO:root:path found tmp/pictures/foo.bar
+INFO:root:processing /any.html
+INFO:root:path found tmp/pages/any.html
+INFO:root:processing /2.html
+INFO:root:path found tmp/pages/2.html
+INFO:root:processing /123.css
+INFO:root:path found tmp/pages/css/123.css
+INFO:root:processing /
+INFO:root:path found tmp/index.html
+INFO:root:processing /
+INFO:root:path found tmp/index.html
+INFO:root:/Users/irusland/Desktop/UrFU/python/httpserver/tmp/index.html type text/html
+INFO:root:server is UP on 0.0.0.0:8000
+ERROR:root:None
+NoneType: None
+INFO:root:server is DOWN
+INFO:root:server is UP on 0.0.0.0:8000
+ERROR:root:None
+NoneType: None
+INFO:root:server is DOWN
+INFO:root:server is UP on 0.0.0.0:8000
+INFO:root:Connected ('127.0.0.1', 50000)
+INFO:root:Threaded client serving started ('127.0.0.1', 50000)
+INFO:root:Got request from ('127.0.0.1', 50000) method: GET
+target: /
+version: HTTP/1.1
+headers: Host: 0.0.0.0
+Accept: */*
+
+
+file: <_io.BufferedReader name=-1>
+user: ('127.0.0.1', 50000)
+url: ParseResult(scheme='', netloc='', path='/', params='', query='', fragment='')
+path: /
+query: {}
+INFO:root:processing /
+INFO:root:path found tmp/index.html
+INFO:root:/Users/irusland/Desktop/UrFU/python/httpserver/tmp/index.html type text/html
+INFO:root:Response status: 200
+reason: OK
+headers: [('Content-Type', 'text/html'), ('Content-Disposition', 'inline; filename=index.html'), ('Content-Length', 156)]
+body: b'<!DOCTYPE html>\n<html lang="en">\n<head>\n    <meta charset="UTF-8">\n    <title>index.html</title>\n</head>\n<body>\n    <h1>Python Rule it!</h1>\n</body>\n</html>'
+INFO:root:271B sent to ('127.0.0.1', 50000)
+INFO:root:File sent to ('127.0.0.1', 50000)
+INFO:root:Disconnected ('127.0.0.1', 50000)
+ERROR:root:None
+NoneType: None
+INFO:root:server is DOWN
