@@ -4914,3 +4914,2457 @@ Traceback (most recent call last):
     logging.info(f'Threaded client serving started {sock.getpeername()}')
 OSError: [Errno 22] Invalid argument
 INFO:root:server is DOWN
+INFO:root:server is UP on 0.0.0.0:8000
+INFO:root:Connected ('127.0.0.1', 50203)
+INFO:root:Connected ('127.0.0.1', 50204)
+INFO:root:Threaded client serving started ('127.0.0.1', 50203)
+INFO:root:Threaded client serving started ('127.0.0.1', 50204)
+INFO:root:Got request from ('127.0.0.1', 50204) method: GET
+target: /
+version: HTTP/1.1
+headers: Host: 0.0.0.0:8000
+Upgrade-Insecure-Requests: 1
+Accept: text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8
+User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_1) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/13.0.3 Safari/605.1.15
+Accept-Language: en-us
+Accept-Encoding: gzip, deflate
+Connection: keep-alive
+
+
+file: <_io.BufferedReader name=-1>
+user: ('127.0.0.1', 50204)
+url: ParseResult(scheme='', netloc='', path='/', params='', query='', fragment='')
+path: /
+query: {}
+INFO:root:Got request from ('127.0.0.1', 50203) method: GET
+target: /favicon.ico
+version: HTTP/1.1
+headers: Host: 0.0.0.0:8000
+Connection: keep-alive
+Accept: */*
+User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_1) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/13.0.3 Safari/605.1.15
+Accept-Language: en-us
+Referer: http://0.0.0.0:8000/
+Accept-Encoding: gzip, deflate
+
+
+file: <_io.BufferedReader name=-1>
+user: ('127.0.0.1', 50203)
+url: ParseResult(scheme='', netloc='', path='/favicon.ico', params='', query='', fragment='')
+path: /favicon.ico
+query: {}
+INFO:root:processing /favicon.ico
+INFO:root:processing /
+INFO:root:path found tmp/pictures/favicon.ico
+INFO:root:path found tmp/index.html
+INFO:root:/Users/irusland/Desktop/UrFU/python/httpserver/tmp/pictures/favicon.ico type image/vnd.microsoft.icon
+INFO:root:Response status: 200
+reason: OK
+headers: [('Content-Type', 'image/vnd.microsoft.icon'), ('Content-Disposition', 'inline; filename=favicon.ico'), ('Content-Length', 22382)]
+body: b'\x00\x00\x01\x00\x03\x00\x10\x10\x00\x00\x01\x00 \x00h\x04\x00\x006\x00\x00\x00  \x00\x00\x01\x00 \x00\xa8\x10\x00\x00\x9e\x04\x00\x00@@\x00\x00\x01\x00 \x00(B\x00\x00F\x15\x00\x00(\x00\x00\x00\x10\x00\x00\x00 \x00\x00\x00\x01\x00 \x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x004,(\xff3+(\xff4,(\xff3+(\xff4,(\xff3+(\xff4,(\xff3+(\xff4,(\xff3+(\xff4,(\xff3+(\xff4,(\xff3+(\xff4,(\xff3+(\xff4+(\xff4+(\xff4+(\xff4+(\xffOQ \xff^g\x1d\xff;6&\xff4+(
+INFO:root:22515B sent to ('127.0.0.1', 50203)
+INFO:root:File sent to ('127.0.0.1', 50203)
+INFO:root:Disconnected ('127.0.0.1', 50203)
+INFO:root:/Users/irusland/Desktop/UrFU/python/httpserver/tmp/index.html type text/html
+INFO:root:Response status: 200
+reason: OK
+headers: [('Content-Type', 'text/html'), ('Content-Disposition', 'inline; filename=index.html'), ('Content-Length', 156)]
+body: b'<!DOCTYPE html>\n<html lang="en">\n<head>\n    <meta charset="UTF-8">\n    <title>index.html</title>\n</head>\n<body>\n    <h1>Python Rule it!</h1>\n</body>\n</html>'
+INFO:root:271B sent to ('127.0.0.1', 50204)
+INFO:root:File sent to ('127.0.0.1', 50204)
+INFO:root:Disconnected ('127.0.0.1', 50204)
+INFO:root:Connected ('127.0.0.1', 50205)
+INFO:root:Threaded client serving started ('127.0.0.1', 50205)
+INFO:root:Got request from ('127.0.0.1', 50205) method: GET
+target: /apple-touch-icon-precomposed.png
+version: HTTP/1.1
+headers: Host: 0.0.0.0:8000
+Accept: */*
+Accept-Language: en-us
+Connection: keep-alive
+Accept-Encoding: gzip, deflate
+User-Agent: Safari/15608.3.10.1.4 CFNetwork/1120 Darwin/19.0.0 (x86_64)
+
+
+file: <_io.BufferedReader name=-1>
+user: ('127.0.0.1', 50205)
+url: ParseResult(scheme='', netloc='', path='/apple-touch-icon-precomposed.png', params='', query='', fragment='')
+path: /apple-touch-icon-precomposed.png
+query: {}
+INFO:root:processing /apple-touch-icon-precomposed.png
+INFO:root:path found tmp/pictures/apple-touch-icon-precomposed.png
+ERROR:root:(404, 'Not found', '', 'PAGE_NOT_FOUND')
+Traceback (most recent call last):
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 206, in handle_req
+    destination = self.ruler.get_destination(req.path, rules, True)
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/ruler.py", line 54, in get_destination
+    raise FileNotFoundError(path, url, rule, absolute)
+FileNotFoundError: [Errno /Users/irusland/Desktop/UrFU/python/httpserver/tmp/pictures/apple-touch-icon-precomposed.png] /apple-touch-icon-precomposed.png: re.compile('/(?P<name>.*)\\.(?P<ext>.*)')
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 95, in serve_client
+    res = self.handle_req(req)
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 208, in handle_req
+    raise Errors.NOT_FOUND
+Error: (404, 'Not found', '', 'PAGE_NOT_FOUND')
+INFO:root:1089B sent to ('127.0.0.1', 50205)
+INFO:root:File sent to ('127.0.0.1', 50205)
+INFO:root:1201B sent to ('127.0.0.1', 50205)
+INFO:root:File sent to ('127.0.0.1', 50205)
+INFO:root:478B sent to ('127.0.0.1', 50205)
+INFO:root:File sent to ('127.0.0.1', 50205)
+INFO:root:Disconnected ('127.0.0.1', 50205)
+ERROR:root:[Errno 9] Bad file descriptor
+Traceback (most recent call last):
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 93, in serve_client
+    req = self.parse_req_connection(connection)
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 142, in parse_req_connection
+    *self.parse_req_file(file), file, connection.getpeername())
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 149, in parse_req_file
+    method, target, ver = self.parse_request_line(file)
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 160, in parse_request_line
+    raw = file.readline(self.MAX_LINE + 1)
+  File "/usr/local/Cellar/python/3.7.4_1/Frameworks/Python.framework/Versions/3.7/lib/python3.7/socket.py", line 589, in readinto
+    return self._sock.recv_into(b)
+OSError: [Errno 9] Bad file descriptor
+ERROR:root:[Errno 9] Bad file descriptor
+Traceback (most recent call last):
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 328, in <module>
+    s.serve()
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 75, in serve
+    callback(key.fileobj, mask)
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 89, in _read
+    logging.info(f'Threaded client serving started {sock.getpeername()}')
+OSError: [Errno 9] Bad file descriptor
+INFO:root:server is DOWN
+INFO:root:server is UP on 0.0.0.0:8000
+INFO:root:Connected ('127.0.0.1', 50215)
+INFO:root:Connected ('127.0.0.1', 50216)
+INFO:root:Threaded client serving started ('127.0.0.1', 50215)
+INFO:root:Threaded client serving started ('127.0.0.1', 50216)
+INFO:root:Got request from ('127.0.0.1', 50215) method: GET
+target: /
+version: HTTP/1.1
+headers: Host: 0.0.0.0:8000
+Upgrade-Insecure-Requests: 1
+Accept: text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8
+User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_1) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/13.0.3 Safari/605.1.15
+Accept-Language: en-us
+Accept-Encoding: gzip, deflate
+Connection: keep-alive
+
+
+file: <_io.BufferedReader name=-1>
+user: ('127.0.0.1', 50215)
+url: ParseResult(scheme='', netloc='', path='/', params='', query='', fragment='')
+path: /
+query: {}
+INFO:root:Got request from ('127.0.0.1', 50216) method: GET
+target: /favicon.ico
+version: HTTP/1.1
+headers: Host: 0.0.0.0:8000
+Connection: keep-alive
+Accept: */*
+User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_1) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/13.0.3 Safari/605.1.15
+Accept-Language: en-us
+Referer: http://0.0.0.0:8000/
+Accept-Encoding: gzip, deflate
+
+
+file: <_io.BufferedReader name=-1>
+user: ('127.0.0.1', 50216)
+url: ParseResult(scheme='', netloc='', path='/favicon.ico', params='', query='', fragment='')
+path: /favicon.ico
+query: {}
+INFO:root:processing /
+INFO:root:path found tmp/index.html
+INFO:root:processing /favicon.ico
+INFO:root:path found tmp/pictures/favicon.ico
+INFO:root:/Users/irusland/Desktop/UrFU/python/httpserver/tmp/pictures/favicon.ico type image/vnd.microsoft.icon
+INFO:root:Response status: 200
+reason: OK
+headers: [('Content-Type', 'image/vnd.microsoft.icon'), ('Content-Disposition', 'inline; filename=favicon.ico'), ('Content-Length', 22382)]
+body: b'\x00\x00\x01\x00\x03\x00\x10\x10\x00\x00\x01\x00 \x00h\x04\x00\x006\x00\x00\x00  \x00\x00\x01\x00 \x00\xa8\x10\x00\x00\x9e\x04\x00\x00@@\x00\x00\x01\x00 \x00(B\x00\x00F\x15\x00\x00(\x00\x00\x00\x10\x00\x00\x00 \x00\x00\x00\x01\x00 \x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x004,(\xff3+(\xff4,(\xff3+(\xff4,(\xff3+(\xff4,(\xff3+(\xff4,(\xff3+(\xff4,(\xff3+(\xff4,(\xff3+(\xff4,(\xff3+(\xff4+(\xff4+(\xff4+(\xff4+(\xffOQ \xff^g\x1d\xff;6&\xff4+(
+INFO:root:22515B sent to ('127.0.0.1', 50216)
+INFO:root:File sent to ('127.0.0.1', 50216)
+INFO:root:Disconnected ('127.0.0.1', 50216)
+INFO:root:/Users/irusland/Desktop/UrFU/python/httpserver/tmp/index.html type text/html
+INFO:root:Response status: 200
+reason: OK
+headers: [('Content-Type', 'text/html'), ('Content-Disposition', 'inline; filename=index.html'), ('Content-Length', 156)]
+body: b'<!DOCTYPE html>\n<html lang="en">\n<head>\n    <meta charset="UTF-8">\n    <title>index.html</title>\n</head>\n<body>\n    <h1>Python Rule it!</h1>\n</body>\n</html>'
+INFO:root:271B sent to ('127.0.0.1', 50215)
+INFO:root:File sent to ('127.0.0.1', 50215)
+INFO:root:Disconnected ('127.0.0.1', 50215)
+INFO:root:Connected ('127.0.0.1', 50217)
+INFO:root:Connected ('127.0.0.1', 50218)
+INFO:root:Threaded client serving started ('127.0.0.1', 50217)
+INFO:root:Got request from ('127.0.0.1', 50217) method: GET
+target: /
+version: HTTP/1.1
+headers: Host: 0.0.0.0:8000
+Upgrade-Insecure-Requests: 1
+Accept: text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8
+User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_1) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/13.0.3 Safari/605.1.15
+Accept-Language: en-us
+Accept-Encoding: gzip, deflate
+Connection: keep-alive
+
+
+file: <_io.BufferedReader name=-1>
+user: ('127.0.0.1', 50217)
+url: ParseResult(scheme='', netloc='', path='/', params='', query='', fragment='')
+path: /
+query: {}
+INFO:root:Threaded client serving started ('127.0.0.1', 50218)
+INFO:root:processing /
+INFO:root:path found tmp/index.html
+INFO:root:Got request from ('127.0.0.1', 50218) method: GET
+target: /favicon.ico
+version: HTTP/1.1
+headers: Host: 0.0.0.0:8000
+Connection: keep-alive
+Accept: */*
+User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_1) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/13.0.3 Safari/605.1.15
+Accept-Language: en-us
+Referer: http://0.0.0.0:8000/
+Accept-Encoding: gzip, deflate
+
+
+file: <_io.BufferedReader name=-1>
+user: ('127.0.0.1', 50218)
+url: ParseResult(scheme='', netloc='', path='/favicon.ico', params='', query='', fragment='')
+path: /favicon.ico
+query: {}
+INFO:root:processing /favicon.ico
+INFO:root:path found tmp/pictures/favicon.ico
+INFO:root:/Users/irusland/Desktop/UrFU/python/httpserver/tmp/pictures/favicon.ico type image/vnd.microsoft.icon
+INFO:root:Response status: 200
+reason: OK
+headers: [('Content-Type', 'image/vnd.microsoft.icon'), ('Content-Disposition', 'inline; filename=favicon.ico'), ('Content-Length', 22382)]
+body: b'\x00\x00\x01\x00\x03\x00\x10\x10\x00\x00\x01\x00 \x00h\x04\x00\x006\x00\x00\x00  \x00\x00\x01\x00 \x00\xa8\x10\x00\x00\x9e\x04\x00\x00@@\x00\x00\x01\x00 \x00(B\x00\x00F\x15\x00\x00(\x00\x00\x00\x10\x00\x00\x00 \x00\x00\x00\x01\x00 \x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x004,(\xff3+(\xff4,(\xff3+(\xff4,(\xff3+(\xff4,(\xff3+(\xff4,(\xff3+(\xff4,(\xff3+(\xff4,(\xff3+(\xff4,(\xff3+(\xff4+(\xff4+(\xff4+(\xff4+(\xffOQ \xff^g\x1d\xff;6&\xff4+(
+INFO:root:22515B sent to ('127.0.0.1', 50218)
+INFO:root:File sent to ('127.0.0.1', 50218)
+INFO:root:Disconnected ('127.0.0.1', 50218)
+INFO:root:/Users/irusland/Desktop/UrFU/python/httpserver/tmp/index.html type text/html
+INFO:root:Response status: 200
+reason: OK
+headers: [('Content-Type', 'text/html'), ('Content-Disposition', 'inline; filename=index.html'), ('Content-Length', 156)]
+body: b'<!DOCTYPE html>\n<html lang="en">\n<head>\n    <meta charset="UTF-8">\n    <title>index.html</title>\n</head>\n<body>\n    <h1>Python Rule it!</h1>\n</body>\n</html>'
+INFO:root:271B sent to ('127.0.0.1', 50217)
+INFO:root:File sent to ('127.0.0.1', 50217)
+INFO:root:Disconnected ('127.0.0.1', 50217)
+INFO:root:Connected ('127.0.0.1', 50219)
+INFO:root:Connected ('127.0.0.1', 50220)
+INFO:root:Threaded client serving started ('127.0.0.1', 50219)
+INFO:root:Got request from ('127.0.0.1', 50219) method: GET
+target: /
+version: HTTP/1.1
+headers: Host: 0.0.0.0:8000
+Upgrade-Insecure-Requests: 1
+Accept: text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8
+User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_1) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/13.0.3 Safari/605.1.15
+Accept-Language: en-us
+Accept-Encoding: gzip, deflate
+Connection: keep-alive
+
+
+file: <_io.BufferedReader name=-1>
+user: ('127.0.0.1', 50219)
+url: ParseResult(scheme='', netloc='', path='/', params='', query='', fragment='')
+path: /
+query: {}
+INFO:root:Threaded client serving started ('127.0.0.1', 50220)
+INFO:root:Got request from ('127.0.0.1', 50220) method: GET
+target: /favicon.ico
+version: HTTP/1.1
+headers: Host: 0.0.0.0:8000
+Connection: keep-alive
+Accept: */*
+User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_1) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/13.0.3 Safari/605.1.15
+Accept-Language: en-us
+Referer: http://0.0.0.0:8000/
+Accept-Encoding: gzip, deflate
+
+
+file: <_io.BufferedReader name=-1>
+user: ('127.0.0.1', 50220)
+url: ParseResult(scheme='', netloc='', path='/favicon.ico', params='', query='', fragment='')
+path: /favicon.ico
+query: {}
+INFO:root:processing /
+INFO:root:path found tmp/index.html
+INFO:root:processing /favicon.ico
+INFO:root:path found tmp/pictures/favicon.ico
+INFO:root:/Users/irusland/Desktop/UrFU/python/httpserver/tmp/pictures/favicon.ico type image/vnd.microsoft.icon
+INFO:root:Response status: 200
+reason: OK
+headers: [('Content-Type', 'image/vnd.microsoft.icon'), ('Content-Disposition', 'inline; filename=favicon.ico'), ('Content-Length', 22382)]
+body: b'\x00\x00\x01\x00\x03\x00\x10\x10\x00\x00\x01\x00 \x00h\x04\x00\x006\x00\x00\x00  \x00\x00\x01\x00 \x00\xa8\x10\x00\x00\x9e\x04\x00\x00@@\x00\x00\x01\x00 \x00(B\x00\x00F\x15\x00\x00(\x00\x00\x00\x10\x00\x00\x00 \x00\x00\x00\x01\x00 \x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x004,(\xff3+(\xff4,(\xff3+(\xff4,(\xff3+(\xff4,(\xff3+(\xff4,(\xff3+(\xff4,(\xff3+(\xff4,(\xff3+(\xff4,(\xff3+(\xff4+(\xff4+(\xff4+(\xff4+(\xffOQ \xff^g\x1d\xff;6&\xff4+(
+INFO:root:22515B sent to ('127.0.0.1', 50220)
+INFO:root:File sent to ('127.0.0.1', 50220)
+INFO:root:Disconnected ('127.0.0.1', 50220)
+INFO:root:/Users/irusland/Desktop/UrFU/python/httpserver/tmp/index.html type text/html
+INFO:root:Response status: 200
+reason: OK
+headers: [('Content-Type', 'text/html'), ('Content-Disposition', 'inline; filename=index.html'), ('Content-Length', 156)]
+body: b'<!DOCTYPE html>\n<html lang="en">\n<head>\n    <meta charset="UTF-8">\n    <title>index.html</title>\n</head>\n<body>\n    <h1>Python Rule it!</h1>\n</body>\n</html>'
+INFO:root:271B sent to ('127.0.0.1', 50219)
+INFO:root:File sent to ('127.0.0.1', 50219)
+INFO:root:Disconnected ('127.0.0.1', 50219)
+INFO:root:Connected ('127.0.0.1', 50221)
+INFO:root:Connected ('127.0.0.1', 50222)
+INFO:root:Threaded client serving started ('127.0.0.1', 50221)
+INFO:root:Got request from ('127.0.0.1', 50221) method: GET
+target: /
+version: HTTP/1.1
+headers: Host: 0.0.0.0:8000
+Upgrade-Insecure-Requests: 1
+Accept: text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8
+User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_1) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/13.0.3 Safari/605.1.15
+Accept-Language: en-us
+Accept-Encoding: gzip, deflate
+Connection: keep-alive
+
+
+file: <_io.BufferedReader name=-1>
+user: ('127.0.0.1', 50221)
+url: ParseResult(scheme='', netloc='', path='/', params='', query='', fragment='')
+path: /
+query: {}
+INFO:root:Threaded client serving started ('127.0.0.1', 50222)
+INFO:root:Got request from ('127.0.0.1', 50222) method: GET
+target: /favicon.ico
+version: HTTP/1.1
+headers: Host: 0.0.0.0:8000
+Connection: keep-alive
+Accept: */*
+User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_1) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/13.0.3 Safari/605.1.15
+Accept-Language: en-us
+Referer: http://0.0.0.0:8000/
+Accept-Encoding: gzip, deflate
+
+
+file: <_io.BufferedReader name=-1>
+user: ('127.0.0.1', 50222)
+url: ParseResult(scheme='', netloc='', path='/favicon.ico', params='', query='', fragment='')
+path: /favicon.ico
+query: {}
+INFO:root:processing /
+INFO:root:path found tmp/index.html
+INFO:root:processing /favicon.ico
+INFO:root:path found tmp/pictures/favicon.ico
+INFO:root:/Users/irusland/Desktop/UrFU/python/httpserver/tmp/pictures/favicon.ico type image/vnd.microsoft.icon
+INFO:root:Response status: 200
+reason: OK
+headers: [('Content-Type', 'image/vnd.microsoft.icon'), ('Content-Disposition', 'inline; filename=favicon.ico'), ('Content-Length', 22382)]
+body: b'\x00\x00\x01\x00\x03\x00\x10\x10\x00\x00\x01\x00 \x00h\x04\x00\x006\x00\x00\x00  \x00\x00\x01\x00 \x00\xa8\x10\x00\x00\x9e\x04\x00\x00@@\x00\x00\x01\x00 \x00(B\x00\x00F\x15\x00\x00(\x00\x00\x00\x10\x00\x00\x00 \x00\x00\x00\x01\x00 \x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x004,(\xff3+(\xff4,(\xff3+(\xff4,(\xff3+(\xff4,(\xff3+(\xff4,(\xff3+(\xff4,(\xff3+(\xff4,(\xff3+(\xff4,(\xff3+(\xff4+(\xff4+(\xff4+(\xff4+(\xffOQ \xff^g\x1d\xff;6&\xff4+(
+INFO:root:22515B sent to ('127.0.0.1', 50222)
+INFO:root:File sent to ('127.0.0.1', 50222)
+INFO:root:Disconnected ('127.0.0.1', 50222)
+INFO:root:/Users/irusland/Desktop/UrFU/python/httpserver/tmp/index.html type text/html
+INFO:root:Response status: 200
+reason: OK
+headers: [('Content-Type', 'text/html'), ('Content-Disposition', 'inline; filename=index.html'), ('Content-Length', 156)]
+body: b'<!DOCTYPE html>\n<html lang="en">\n<head>\n    <meta charset="UTF-8">\n    <title>index.html</title>\n</head>\n<body>\n    <h1>Python Rule it!</h1>\n</body>\n</html>'
+INFO:root:271B sent to ('127.0.0.1', 50221)
+INFO:root:File sent to ('127.0.0.1', 50221)
+INFO:root:Disconnected ('127.0.0.1', 50221)
+INFO:root:Connected ('127.0.0.1', 50223)
+INFO:root:Threaded client serving started ('127.0.0.1', 50223)
+INFO:root:Got request from ('127.0.0.1', 50223) method: GET
+target: /
+version: HTTP/1.1
+headers: Host: 0.0.0.0:8000
+Upgrade-Insecure-Requests: 1
+Accept: text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8
+User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_1) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/13.0.3 Safari/605.1.15
+Accept-Language: en-us
+Accept-Encoding: gzip, deflate
+Connection: keep-alive
+
+
+file: <_io.BufferedReader name=-1>
+user: ('127.0.0.1', 50223)
+url: ParseResult(scheme='', netloc='', path='/', params='', query='', fragment='')
+path: /
+query: {}
+INFO:root:Connected ('127.0.0.1', 50224)
+INFO:root:Threaded client serving started ('127.0.0.1', 50224)
+INFO:root:Got request from ('127.0.0.1', 50224) method: GET
+target: /favicon.ico
+version: HTTP/1.1
+headers: Host: 0.0.0.0:8000
+Connection: keep-alive
+Accept: */*
+User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_1) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/13.0.3 Safari/605.1.15
+Accept-Language: en-us
+Referer: http://0.0.0.0:8000/
+Accept-Encoding: gzip, deflate
+
+
+file: <_io.BufferedReader name=-1>
+user: ('127.0.0.1', 50224)
+url: ParseResult(scheme='', netloc='', path='/favicon.ico', params='', query='', fragment='')
+path: /favicon.ico
+query: {}
+INFO:root:processing /
+INFO:root:path found tmp/index.html
+INFO:root:processing /favicon.ico
+INFO:root:path found tmp/pictures/favicon.ico
+INFO:root:/Users/irusland/Desktop/UrFU/python/httpserver/tmp/pictures/favicon.ico type image/vnd.microsoft.icon
+INFO:root:Response status: 200
+reason: OK
+headers: [('Content-Type', 'image/vnd.microsoft.icon'), ('Content-Disposition', 'inline; filename=favicon.ico'), ('Content-Length', 22382)]
+body: b'\x00\x00\x01\x00\x03\x00\x10\x10\x00\x00\x01\x00 \x00h\x04\x00\x006\x00\x00\x00  \x00\x00\x01\x00 \x00\xa8\x10\x00\x00\x9e\x04\x00\x00@@\x00\x00\x01\x00 \x00(B\x00\x00F\x15\x00\x00(\x00\x00\x00\x10\x00\x00\x00 \x00\x00\x00\x01\x00 \x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x004,(\xff3+(\xff4,(\xff3+(\xff4,(\xff3+(\xff4,(\xff3+(\xff4,(\xff3+(\xff4,(\xff3+(\xff4,(\xff3+(\xff4,(\xff3+(\xff4+(\xff4+(\xff4+(\xff4+(\xffOQ \xff^g\x1d\xff;6&\xff4+(
+INFO:root:22515B sent to ('127.0.0.1', 50224)
+INFO:root:File sent to ('127.0.0.1', 50224)
+INFO:root:Disconnected ('127.0.0.1', 50224)
+INFO:root:/Users/irusland/Desktop/UrFU/python/httpserver/tmp/index.html type text/html
+INFO:root:Response status: 200
+reason: OK
+headers: [('Content-Type', 'text/html'), ('Content-Disposition', 'inline; filename=index.html'), ('Content-Length', 156)]
+body: b'<!DOCTYPE html>\n<html lang="en">\n<head>\n    <meta charset="UTF-8">\n    <title>index.html</title>\n</head>\n<body>\n    <h1>Python Rule it!</h1>\n</body>\n</html>'
+INFO:root:271B sent to ('127.0.0.1', 50223)
+INFO:root:File sent to ('127.0.0.1', 50223)
+INFO:root:Disconnected ('127.0.0.1', 50223)
+INFO:root:Connected ('127.0.0.1', 50225)
+INFO:root:Threaded client serving started ('127.0.0.1', 50225)
+INFO:root:Got request from ('127.0.0.1', 50225) method: GET
+target: /
+version: HTTP/1.1
+headers: Host: 0.0.0.0:8000
+Upgrade-Insecure-Requests: 1
+Accept: text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8
+User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_1) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/13.0.3 Safari/605.1.15
+Accept-Language: en-us
+Accept-Encoding: gzip, deflate
+Connection: keep-alive
+
+
+file: <_io.BufferedReader name=-1>
+user: ('127.0.0.1', 50225)
+url: ParseResult(scheme='', netloc='', path='/', params='', query='', fragment='')
+path: /
+query: {}
+INFO:root:Connected ('127.0.0.1', 50226)
+INFO:root:Threaded client serving started ('127.0.0.1', 50226)
+INFO:root:Got request from ('127.0.0.1', 50226) method: GET
+target: /favicon.ico
+version: HTTP/1.1
+headers: Host: 0.0.0.0:8000
+Connection: keep-alive
+Accept: */*
+User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_1) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/13.0.3 Safari/605.1.15
+Accept-Language: en-us
+Referer: http://0.0.0.0:8000/
+Accept-Encoding: gzip, deflate
+
+
+file: <_io.BufferedReader name=-1>
+user: ('127.0.0.1', 50226)
+url: ParseResult(scheme='', netloc='', path='/favicon.ico', params='', query='', fragment='')
+path: /favicon.ico
+query: {}
+INFO:root:processing /
+INFO:root:path found tmp/index.html
+INFO:root:processing /favicon.ico
+INFO:root:path found tmp/pictures/favicon.ico
+INFO:root:/Users/irusland/Desktop/UrFU/python/httpserver/tmp/pictures/favicon.ico type image/vnd.microsoft.icon
+INFO:root:Response status: 200
+reason: OK
+headers: [('Content-Type', 'image/vnd.microsoft.icon'), ('Content-Disposition', 'inline; filename=favicon.ico'), ('Content-Length', 22382)]
+body: b'\x00\x00\x01\x00\x03\x00\x10\x10\x00\x00\x01\x00 \x00h\x04\x00\x006\x00\x00\x00  \x00\x00\x01\x00 \x00\xa8\x10\x00\x00\x9e\x04\x00\x00@@\x00\x00\x01\x00 \x00(B\x00\x00F\x15\x00\x00(\x00\x00\x00\x10\x00\x00\x00 \x00\x00\x00\x01\x00 \x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x004,(\xff3+(\xff4,(\xff3+(\xff4,(\xff3+(\xff4,(\xff3+(\xff4,(\xff3+(\xff4,(\xff3+(\xff4,(\xff3+(\xff4,(\xff3+(\xff4+(\xff4+(\xff4+(\xff4+(\xffOQ \xff^g\x1d\xff;6&\xff4+(
+INFO:root:22515B sent to ('127.0.0.1', 50226)
+INFO:root:File sent to ('127.0.0.1', 50226)
+INFO:root:Disconnected ('127.0.0.1', 50226)
+INFO:root:/Users/irusland/Desktop/UrFU/python/httpserver/tmp/index.html type text/html
+INFO:root:Response status: 200
+reason: OK
+headers: [('Content-Type', 'text/html'), ('Content-Disposition', 'inline; filename=index.html'), ('Content-Length', 156)]
+body: b'<!DOCTYPE html>\n<html lang="en">\n<head>\n    <meta charset="UTF-8">\n    <title>index.html</title>\n</head>\n<body>\n    <h1>Python Rule it!</h1>\n</body>\n</html>'
+INFO:root:271B sent to ('127.0.0.1', 50225)
+INFO:root:File sent to ('127.0.0.1', 50225)
+INFO:root:Disconnected ('127.0.0.1', 50225)
+INFO:root:Connected ('127.0.0.1', 50227)
+INFO:root:Connected ('127.0.0.1', 50228)
+INFO:root:Threaded client serving started ('127.0.0.1', 50227)
+INFO:root:Got request from ('127.0.0.1', 50227) method: GET
+target: /
+version: HTTP/1.1
+headers: Host: 0.0.0.0:8000
+Upgrade-Insecure-Requests: 1
+Accept: text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8
+User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_1) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/13.0.3 Safari/605.1.15
+Accept-Language: en-us
+Accept-Encoding: gzip, deflate
+Connection: keep-alive
+
+
+file: <_io.BufferedReader name=-1>
+user: ('127.0.0.1', 50227)
+url: ParseResult(scheme='', netloc='', path='/', params='', query='', fragment='')
+path: /
+query: {}
+INFO:root:Threaded client serving started ('127.0.0.1', 50228)
+INFO:root:Got request from ('127.0.0.1', 50228) method: GET
+target: /favicon.ico
+version: HTTP/1.1
+headers: Host: 0.0.0.0:8000
+Connection: keep-alive
+Accept: */*
+User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_1) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/13.0.3 Safari/605.1.15
+Accept-Language: en-us
+Referer: http://0.0.0.0:8000/
+Accept-Encoding: gzip, deflate
+
+
+file: <_io.BufferedReader name=-1>
+user: ('127.0.0.1', 50228)
+url: ParseResult(scheme='', netloc='', path='/favicon.ico', params='', query='', fragment='')
+path: /favicon.ico
+query: {}
+INFO:root:processing /
+INFO:root:path found tmp/index.html
+INFO:root:processing /favicon.ico
+INFO:root:path found tmp/pictures/favicon.ico
+INFO:root:/Users/irusland/Desktop/UrFU/python/httpserver/tmp/pictures/favicon.ico type image/vnd.microsoft.icon
+INFO:root:Response status: 200
+reason: OK
+headers: [('Content-Type', 'image/vnd.microsoft.icon'), ('Content-Disposition', 'inline; filename=favicon.ico'), ('Content-Length', 22382)]
+body: b'\x00\x00\x01\x00\x03\x00\x10\x10\x00\x00\x01\x00 \x00h\x04\x00\x006\x00\x00\x00  \x00\x00\x01\x00 \x00\xa8\x10\x00\x00\x9e\x04\x00\x00@@\x00\x00\x01\x00 \x00(B\x00\x00F\x15\x00\x00(\x00\x00\x00\x10\x00\x00\x00 \x00\x00\x00\x01\x00 \x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x004,(\xff3+(\xff4,(\xff3+(\xff4,(\xff3+(\xff4,(\xff3+(\xff4,(\xff3+(\xff4,(\xff3+(\xff4,(\xff3+(\xff4,(\xff3+(\xff4+(\xff4+(\xff4+(\xff4+(\xffOQ \xff^g\x1d\xff;6&\xff4+(
+INFO:root:22515B sent to ('127.0.0.1', 50228)
+INFO:root:File sent to ('127.0.0.1', 50228)
+INFO:root:Disconnected ('127.0.0.1', 50228)
+INFO:root:/Users/irusland/Desktop/UrFU/python/httpserver/tmp/index.html type text/html
+INFO:root:Response status: 200
+reason: OK
+headers: [('Content-Type', 'text/html'), ('Content-Disposition', 'inline; filename=index.html'), ('Content-Length', 156)]
+body: b'<!DOCTYPE html>\n<html lang="en">\n<head>\n    <meta charset="UTF-8">\n    <title>index.html</title>\n</head>\n<body>\n    <h1>Python Rule it!</h1>\n</body>\n</html>'
+INFO:root:271B sent to ('127.0.0.1', 50227)
+INFO:root:File sent to ('127.0.0.1', 50227)
+INFO:root:Disconnected ('127.0.0.1', 50227)
+INFO:root:Connected ('127.0.0.1', 50229)
+INFO:root:Connected ('127.0.0.1', 50230)
+INFO:root:Threaded client serving started ('127.0.0.1', 50229)
+INFO:root:Got request from ('127.0.0.1', 50229) method: GET
+target: /
+version: HTTP/1.1
+headers: Host: 0.0.0.0:8000
+Upgrade-Insecure-Requests: 1
+Accept: text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8
+User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_1) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/13.0.3 Safari/605.1.15
+Accept-Language: en-us
+Accept-Encoding: gzip, deflate
+Connection: keep-alive
+
+
+file: <_io.BufferedReader name=-1>
+user: ('127.0.0.1', 50229)
+url: ParseResult(scheme='', netloc='', path='/', params='', query='', fragment='')
+path: /
+query: {}
+INFO:root:Threaded client serving started ('127.0.0.1', 50230)
+INFO:root:Got request from ('127.0.0.1', 50230) method: GET
+target: /favicon.ico
+version: HTTP/1.1
+headers: Host: 0.0.0.0:8000
+Connection: keep-alive
+Accept: */*
+User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_1) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/13.0.3 Safari/605.1.15
+Accept-Language: en-us
+Referer: http://0.0.0.0:8000/
+Accept-Encoding: gzip, deflate
+
+
+file: <_io.BufferedReader name=-1>
+user: ('127.0.0.1', 50230)
+url: ParseResult(scheme='', netloc='', path='/favicon.ico', params='', query='', fragment='')
+path: /favicon.ico
+query: {}
+INFO:root:processing /
+INFO:root:path found tmp/index.html
+INFO:root:processing /favicon.ico
+INFO:root:path found tmp/pictures/favicon.ico
+INFO:root:/Users/irusland/Desktop/UrFU/python/httpserver/tmp/pictures/favicon.ico type image/vnd.microsoft.icon
+INFO:root:Response status: 200
+reason: OK
+headers: [('Content-Type', 'image/vnd.microsoft.icon'), ('Content-Disposition', 'inline; filename=favicon.ico'), ('Content-Length', 22382)]
+body: b'\x00\x00\x01\x00\x03\x00\x10\x10\x00\x00\x01\x00 \x00h\x04\x00\x006\x00\x00\x00  \x00\x00\x01\x00 \x00\xa8\x10\x00\x00\x9e\x04\x00\x00@@\x00\x00\x01\x00 \x00(B\x00\x00F\x15\x00\x00(\x00\x00\x00\x10\x00\x00\x00 \x00\x00\x00\x01\x00 \x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x004,(\xff3+(\xff4,(\xff3+(\xff4,(\xff3+(\xff4,(\xff3+(\xff4,(\xff3+(\xff4,(\xff3+(\xff4,(\xff3+(\xff4,(\xff3+(\xff4+(\xff4+(\xff4+(\xff4+(\xffOQ \xff^g\x1d\xff;6&\xff4+(
+INFO:root:22515B sent to ('127.0.0.1', 50230)
+INFO:root:File sent to ('127.0.0.1', 50230)
+INFO:root:Disconnected ('127.0.0.1', 50230)
+INFO:root:/Users/irusland/Desktop/UrFU/python/httpserver/tmp/index.html type text/html
+INFO:root:Response status: 200
+reason: OK
+headers: [('Content-Type', 'text/html'), ('Content-Disposition', 'inline; filename=index.html'), ('Content-Length', 156)]
+body: b'<!DOCTYPE html>\n<html lang="en">\n<head>\n    <meta charset="UTF-8">\n    <title>index.html</title>\n</head>\n<body>\n    <h1>Python Rule it!</h1>\n</body>\n</html>'
+INFO:root:271B sent to ('127.0.0.1', 50229)
+INFO:root:File sent to ('127.0.0.1', 50229)
+INFO:root:Disconnected ('127.0.0.1', 50229)
+INFO:root:Connected ('127.0.0.1', 50231)
+INFO:root:Connected ('127.0.0.1', 50232)
+INFO:root:Threaded client serving started ('127.0.0.1', 50231)
+INFO:root:Got request from ('127.0.0.1', 50231) method: GET
+target: /
+version: HTTP/1.1
+headers: Host: 0.0.0.0:8000
+Upgrade-Insecure-Requests: 1
+Accept: text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8
+User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_1) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/13.0.3 Safari/605.1.15
+Accept-Language: en-us
+Accept-Encoding: gzip, deflate
+Connection: keep-alive
+
+
+file: <_io.BufferedReader name=-1>
+user: ('127.0.0.1', 50231)
+url: ParseResult(scheme='', netloc='', path='/', params='', query='', fragment='')
+path: /
+query: {}
+INFO:root:Threaded client serving started ('127.0.0.1', 50232)
+INFO:root:Got request from ('127.0.0.1', 50232) method: GET
+target: /favicon.ico
+version: HTTP/1.1
+headers: Host: 0.0.0.0:8000
+Connection: keep-alive
+Accept: */*
+User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_1) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/13.0.3 Safari/605.1.15
+Accept-Language: en-us
+Referer: http://0.0.0.0:8000/
+Accept-Encoding: gzip, deflate
+
+
+file: <_io.BufferedReader name=-1>
+user: ('127.0.0.1', 50232)
+url: ParseResult(scheme='', netloc='', path='/favicon.ico', params='', query='', fragment='')
+path: /favicon.ico
+query: {}
+INFO:root:processing /
+INFO:root:path found tmp/index.html
+INFO:root:processing /favicon.ico
+INFO:root:path found tmp/pictures/favicon.ico
+INFO:root:/Users/irusland/Desktop/UrFU/python/httpserver/tmp/pictures/favicon.ico type image/vnd.microsoft.icon
+INFO:root:Response status: 200
+reason: OK
+headers: [('Content-Type', 'image/vnd.microsoft.icon'), ('Content-Disposition', 'inline; filename=favicon.ico'), ('Content-Length', 22382)]
+body: b'\x00\x00\x01\x00\x03\x00\x10\x10\x00\x00\x01\x00 \x00h\x04\x00\x006\x00\x00\x00  \x00\x00\x01\x00 \x00\xa8\x10\x00\x00\x9e\x04\x00\x00@@\x00\x00\x01\x00 \x00(B\x00\x00F\x15\x00\x00(\x00\x00\x00\x10\x00\x00\x00 \x00\x00\x00\x01\x00 \x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x004,(\xff3+(\xff4,(\xff3+(\xff4,(\xff3+(\xff4,(\xff3+(\xff4,(\xff3+(\xff4,(\xff3+(\xff4,(\xff3+(\xff4,(\xff3+(\xff4+(\xff4+(\xff4+(\xff4+(\xffOQ \xff^g\x1d\xff;6&\xff4+(
+INFO:root:22515B sent to ('127.0.0.1', 50232)
+INFO:root:File sent to ('127.0.0.1', 50232)
+INFO:root:Disconnected ('127.0.0.1', 50232)
+INFO:root:/Users/irusland/Desktop/UrFU/python/httpserver/tmp/index.html type text/html
+INFO:root:Response status: 200
+reason: OK
+headers: [('Content-Type', 'text/html'), ('Content-Disposition', 'inline; filename=index.html'), ('Content-Length', 156)]
+body: b'<!DOCTYPE html>\n<html lang="en">\n<head>\n    <meta charset="UTF-8">\n    <title>index.html</title>\n</head>\n<body>\n    <h1>Python Rule it!</h1>\n</body>\n</html>'
+INFO:root:271B sent to ('127.0.0.1', 50231)
+INFO:root:File sent to ('127.0.0.1', 50231)
+INFO:root:Disconnected ('127.0.0.1', 50231)
+INFO:root:Connected ('127.0.0.1', 50233)
+INFO:root:Threaded client serving started ('127.0.0.1', 50233)
+INFO:root:Got request from ('127.0.0.1', 50233) method: GET
+target: /
+version: HTTP/1.1
+headers: Host: 0.0.0.0:8000
+Upgrade-Insecure-Requests: 1
+Accept: text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8
+User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_1) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/13.0.3 Safari/605.1.15
+Accept-Language: en-us
+Accept-Encoding: gzip, deflate
+Connection: keep-alive
+
+
+file: <_io.BufferedReader name=-1>
+user: ('127.0.0.1', 50233)
+url: ParseResult(scheme='', netloc='', path='/', params='', query='', fragment='')
+path: /
+query: {}
+INFO:root:Connected ('127.0.0.1', 50234)
+INFO:root:Got request from ('127.0.0.1', 50234) method: GET
+target: /favicon.ico
+version: HTTP/1.1
+headers: Host: 0.0.0.0:8000
+Connection: keep-alive
+Accept: */*
+User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_1) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/13.0.3 Safari/605.1.15
+Accept-Language: en-us
+Referer: http://0.0.0.0:8000/
+Accept-Encoding: gzip, deflate
+
+
+file: <_io.BufferedReader name=-1>
+user: ('127.0.0.1', 50234)
+url: ParseResult(scheme='', netloc='', path='/favicon.ico', params='', query='', fragment='')
+path: /favicon.ico
+query: {}
+INFO:root:processing /
+INFO:root:Threaded client serving started ('127.0.0.1', 50234)
+INFO:root:path found tmp/index.html
+INFO:root:processing /favicon.ico
+INFO:root:path found tmp/pictures/favicon.ico
+INFO:root:/Users/irusland/Desktop/UrFU/python/httpserver/tmp/pictures/favicon.ico type image/vnd.microsoft.icon
+INFO:root:Response status: 200
+reason: OK
+headers: [('Content-Type', 'image/vnd.microsoft.icon'), ('Content-Disposition', 'inline; filename=favicon.ico'), ('Content-Length', 22382)]
+body: b'\x00\x00\x01\x00\x03\x00\x10\x10\x00\x00\x01\x00 \x00h\x04\x00\x006\x00\x00\x00  \x00\x00\x01\x00 \x00\xa8\x10\x00\x00\x9e\x04\x00\x00@@\x00\x00\x01\x00 \x00(B\x00\x00F\x15\x00\x00(\x00\x00\x00\x10\x00\x00\x00 \x00\x00\x00\x01\x00 \x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x004,(\xff3+(\xff4,(\xff3+(\xff4,(\xff3+(\xff4,(\xff3+(\xff4,(\xff3+(\xff4,(\xff3+(\xff4,(\xff3+(\xff4,(\xff3+(\xff4+(\xff4+(\xff4+(\xff4+(\xffOQ \xff^g\x1d\xff;6&\xff4+(
+INFO:root:22515B sent to ('127.0.0.1', 50234)
+INFO:root:File sent to ('127.0.0.1', 50234)
+INFO:root:Disconnected ('127.0.0.1', 50234)
+INFO:root:/Users/irusland/Desktop/UrFU/python/httpserver/tmp/index.html type text/html
+INFO:root:Response status: 200
+reason: OK
+headers: [('Content-Type', 'text/html'), ('Content-Disposition', 'inline; filename=index.html'), ('Content-Length', 156)]
+body: b'<!DOCTYPE html>\n<html lang="en">\n<head>\n    <meta charset="UTF-8">\n    <title>index.html</title>\n</head>\n<body>\n    <h1>Python Rule it!</h1>\n</body>\n</html>'
+INFO:root:271B sent to ('127.0.0.1', 50233)
+INFO:root:File sent to ('127.0.0.1', 50233)
+INFO:root:Disconnected ('127.0.0.1', 50233)
+INFO:root:Connected ('127.0.0.1', 50235)
+INFO:root:Connected ('127.0.0.1', 50236)
+INFO:root:Threaded client serving started ('127.0.0.1', 50235)
+INFO:root:Got request from ('127.0.0.1', 50235) method: GET
+target: /
+version: HTTP/1.1
+headers: Host: 0.0.0.0:8000
+Upgrade-Insecure-Requests: 1
+Accept: text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8
+User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_1) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/13.0.3 Safari/605.1.15
+Accept-Language: en-us
+Accept-Encoding: gzip, deflate
+Connection: keep-alive
+
+
+file: <_io.BufferedReader name=-1>
+user: ('127.0.0.1', 50235)
+url: ParseResult(scheme='', netloc='', path='/', params='', query='', fragment='')
+path: /
+query: {}
+INFO:root:Threaded client serving started ('127.0.0.1', 50236)
+INFO:root:Got request from ('127.0.0.1', 50236) method: GET
+target: /favicon.ico
+version: HTTP/1.1
+headers: Host: 0.0.0.0:8000
+Connection: keep-alive
+Accept: */*
+User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_1) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/13.0.3 Safari/605.1.15
+Accept-Language: en-us
+Referer: http://0.0.0.0:8000/
+Accept-Encoding: gzip, deflate
+
+
+file: <_io.BufferedReader name=-1>
+user: ('127.0.0.1', 50236)
+url: ParseResult(scheme='', netloc='', path='/favicon.ico', params='', query='', fragment='')
+path: /favicon.ico
+query: {}
+INFO:root:processing /
+INFO:root:path found tmp/index.html
+INFO:root:processing /favicon.ico
+INFO:root:path found tmp/pictures/favicon.ico
+INFO:root:/Users/irusland/Desktop/UrFU/python/httpserver/tmp/pictures/favicon.ico type image/vnd.microsoft.icon
+INFO:root:Response status: 200
+reason: OK
+headers: [('Content-Type', 'image/vnd.microsoft.icon'), ('Content-Disposition', 'inline; filename=favicon.ico'), ('Content-Length', 22382)]
+body: b'\x00\x00\x01\x00\x03\x00\x10\x10\x00\x00\x01\x00 \x00h\x04\x00\x006\x00\x00\x00  \x00\x00\x01\x00 \x00\xa8\x10\x00\x00\x9e\x04\x00\x00@@\x00\x00\x01\x00 \x00(B\x00\x00F\x15\x00\x00(\x00\x00\x00\x10\x00\x00\x00 \x00\x00\x00\x01\x00 \x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x004,(\xff3+(\xff4,(\xff3+(\xff4,(\xff3+(\xff4,(\xff3+(\xff4,(\xff3+(\xff4,(\xff3+(\xff4,(\xff3+(\xff4,(\xff3+(\xff4+(\xff4+(\xff4+(\xff4+(\xffOQ \xff^g\x1d\xff;6&\xff4+(
+INFO:root:22515B sent to ('127.0.0.1', 50236)
+INFO:root:File sent to ('127.0.0.1', 50236)
+INFO:root:Disconnected ('127.0.0.1', 50236)
+INFO:root:/Users/irusland/Desktop/UrFU/python/httpserver/tmp/index.html type text/html
+INFO:root:Response status: 200
+reason: OK
+headers: [('Content-Type', 'text/html'), ('Content-Disposition', 'inline; filename=index.html'), ('Content-Length', 156)]
+body: b'<!DOCTYPE html>\n<html lang="en">\n<head>\n    <meta charset="UTF-8">\n    <title>index.html</title>\n</head>\n<body>\n    <h1>Python Rule it!</h1>\n</body>\n</html>'
+INFO:root:271B sent to ('127.0.0.1', 50235)
+INFO:root:File sent to ('127.0.0.1', 50235)
+INFO:root:Disconnected ('127.0.0.1', 50235)
+INFO:root:Connected ('127.0.0.1', 50237)
+INFO:root:Connected ('127.0.0.1', 50238)
+INFO:root:Got request from ('127.0.0.1', 50237) method: GET
+target: /favicon.ico
+version: HTTP/1.1
+headers: Host: 0.0.0.0:8000
+Connection: keep-alive
+Accept: */*
+User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_1) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/13.0.3 Safari/605.1.15
+Accept-Language: en-us
+Referer: http://0.0.0.0:8000/
+Accept-Encoding: gzip, deflate
+
+
+file: <_io.BufferedReader name=-1>
+user: ('127.0.0.1', 50237)
+url: ParseResult(scheme='', netloc='', path='/favicon.ico', params='', query='', fragment='')
+path: /favicon.ico
+query: {}
+INFO:root:Threaded client serving started ('127.0.0.1', 50237)
+INFO:root:Threaded client serving started ('127.0.0.1', 50238)
+INFO:root:Got request from ('127.0.0.1', 50238) method: GET
+target: /
+version: HTTP/1.1
+headers: Host: 0.0.0.0:8000
+Upgrade-Insecure-Requests: 1
+Accept: text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8
+User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_1) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/13.0.3 Safari/605.1.15
+Accept-Language: en-us
+Accept-Encoding: gzip, deflate
+Connection: keep-alive
+
+
+file: <_io.BufferedReader name=-1>
+user: ('127.0.0.1', 50238)
+url: ParseResult(scheme='', netloc='', path='/', params='', query='', fragment='')
+path: /
+query: {}
+INFO:root:processing /favicon.ico
+INFO:root:path found tmp/pictures/favicon.ico
+INFO:root:processing /
+INFO:root:path found tmp/index.html
+INFO:root:/Users/irusland/Desktop/UrFU/python/httpserver/tmp/pictures/favicon.ico type image/vnd.microsoft.icon
+INFO:root:Response status: 200
+reason: OK
+headers: [('Content-Type', 'image/vnd.microsoft.icon'), ('Content-Disposition', 'inline; filename=favicon.ico'), ('Content-Length', 22382)]
+body: b'\x00\x00\x01\x00\x03\x00\x10\x10\x00\x00\x01\x00 \x00h\x04\x00\x006\x00\x00\x00  \x00\x00\x01\x00 \x00\xa8\x10\x00\x00\x9e\x04\x00\x00@@\x00\x00\x01\x00 \x00(B\x00\x00F\x15\x00\x00(\x00\x00\x00\x10\x00\x00\x00 \x00\x00\x00\x01\x00 \x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x004,(\xff3+(\xff4,(\xff3+(\xff4,(\xff3+(\xff4,(\xff3+(\xff4,(\xff3+(\xff4,(\xff3+(\xff4,(\xff3+(\xff4,(\xff3+(\xff4+(\xff4+(\xff4+(\xff4+(\xffOQ \xff^g\x1d\xff;6&\xff4+(
+INFO:root:22515B sent to ('127.0.0.1', 50237)
+INFO:root:File sent to ('127.0.0.1', 50237)
+INFO:root:Disconnected ('127.0.0.1', 50237)
+INFO:root:/Users/irusland/Desktop/UrFU/python/httpserver/tmp/index.html type text/html
+INFO:root:Response status: 200
+reason: OK
+headers: [('Content-Type', 'text/html'), ('Content-Disposition', 'inline; filename=index.html'), ('Content-Length', 156)]
+body: b'<!DOCTYPE html>\n<html lang="en">\n<head>\n    <meta charset="UTF-8">\n    <title>index.html</title>\n</head>\n<body>\n    <h1>Python Rule it!</h1>\n</body>\n</html>'
+INFO:root:271B sent to ('127.0.0.1', 50238)
+INFO:root:File sent to ('127.0.0.1', 50238)
+INFO:root:Disconnected ('127.0.0.1', 50238)
+INFO:root:Connected ('127.0.0.1', 50239)
+INFO:root:Got request from ('127.0.0.1', 50239) method: GET
+target: /
+version: HTTP/1.1
+headers: Host: 0.0.0.0:8000
+Upgrade-Insecure-Requests: 1
+Accept: text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8
+User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_1) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/13.0.3 Safari/605.1.15
+Accept-Language: en-us
+Accept-Encoding: gzip, deflate
+Connection: keep-alive
+
+
+file: <_io.BufferedReader name=-1>
+user: ('127.0.0.1', 50239)
+url: ParseResult(scheme='', netloc='', path='/', params='', query='', fragment='')
+path: /
+query: {}
+INFO:root:Threaded client serving started ('127.0.0.1', 50239)
+INFO:root:Connected ('127.0.0.1', 50240)
+INFO:root:processing /
+INFO:root:path found tmp/index.html
+INFO:root:Got request from ('127.0.0.1', 50240) method: GET
+target: /favicon.ico
+version: HTTP/1.1
+headers: Host: 0.0.0.0:8000
+Connection: keep-alive
+Accept: */*
+User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_1) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/13.0.3 Safari/605.1.15
+Accept-Language: en-us
+Referer: http://0.0.0.0:8000/
+Accept-Encoding: gzip, deflate
+
+
+file: <_io.BufferedReader name=-1>
+user: ('127.0.0.1', 50240)
+url: ParseResult(scheme='', netloc='', path='/favicon.ico', params='', query='', fragment='')
+path: /favicon.ico
+query: {}
+INFO:root:Threaded client serving started ('127.0.0.1', 50240)
+INFO:root:processing /favicon.ico
+INFO:root:path found tmp/pictures/favicon.ico
+INFO:root:/Users/irusland/Desktop/UrFU/python/httpserver/tmp/pictures/favicon.ico type image/vnd.microsoft.icon
+INFO:root:Response status: 200
+reason: OK
+headers: [('Content-Type', 'image/vnd.microsoft.icon'), ('Content-Disposition', 'inline; filename=favicon.ico'), ('Content-Length', 22382)]
+body: b'\x00\x00\x01\x00\x03\x00\x10\x10\x00\x00\x01\x00 \x00h\x04\x00\x006\x00\x00\x00  \x00\x00\x01\x00 \x00\xa8\x10\x00\x00\x9e\x04\x00\x00@@\x00\x00\x01\x00 \x00(B\x00\x00F\x15\x00\x00(\x00\x00\x00\x10\x00\x00\x00 \x00\x00\x00\x01\x00 \x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x004,(\xff3+(\xff4,(\xff3+(\xff4,(\xff3+(\xff4,(\xff3+(\xff4,(\xff3+(\xff4,(\xff3+(\xff4,(\xff3+(\xff4,(\xff3+(\xff4+(\xff4+(\xff4+(\xff4+(\xffOQ \xff^g\x1d\xff;6&\xff4+(
+INFO:root:22515B sent to ('127.0.0.1', 50240)
+INFO:root:File sent to ('127.0.0.1', 50240)
+INFO:root:Disconnected ('127.0.0.1', 50240)
+INFO:root:/Users/irusland/Desktop/UrFU/python/httpserver/tmp/index.html type text/html
+INFO:root:Response status: 200
+reason: OK
+headers: [('Content-Type', 'text/html'), ('Content-Disposition', 'inline; filename=index.html'), ('Content-Length', 156)]
+body: b'<!DOCTYPE html>\n<html lang="en">\n<head>\n    <meta charset="UTF-8">\n    <title>index.html</title>\n</head>\n<body>\n    <h1>Python Rule it!</h1>\n</body>\n</html>'
+INFO:root:271B sent to ('127.0.0.1', 50239)
+INFO:root:File sent to ('127.0.0.1', 50239)
+INFO:root:Disconnected ('127.0.0.1', 50239)
+INFO:root:Connected ('127.0.0.1', 50241)
+INFO:root:Connected ('127.0.0.1', 50242)
+INFO:root:Got request from ('127.0.0.1', 50241) method: GET
+target: /favicon.ico
+version: HTTP/1.1
+headers: Host: 0.0.0.0:8000
+Connection: keep-alive
+Accept: */*
+User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_1) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/13.0.3 Safari/605.1.15
+Accept-Language: en-us
+Referer: http://0.0.0.0:8000/
+Accept-Encoding: gzip, deflate
+
+
+file: <_io.BufferedReader name=-1>
+user: ('127.0.0.1', 50241)
+url: ParseResult(scheme='', netloc='', path='/favicon.ico', params='', query='', fragment='')
+path: /favicon.ico
+query: {}
+INFO:root:Threaded client serving started ('127.0.0.1', 50241)
+INFO:root:Threaded client serving started ('127.0.0.1', 50242)
+INFO:root:Got request from ('127.0.0.1', 50242) method: GET
+target: /
+version: HTTP/1.1
+headers: Host: 0.0.0.0:8000
+Upgrade-Insecure-Requests: 1
+Accept: text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8
+User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_1) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/13.0.3 Safari/605.1.15
+Accept-Language: en-us
+Accept-Encoding: gzip, deflate
+Connection: keep-alive
+
+
+file: <_io.BufferedReader name=-1>
+user: ('127.0.0.1', 50242)
+url: ParseResult(scheme='', netloc='', path='/', params='', query='', fragment='')
+path: /
+query: {}
+INFO:root:processing /favicon.ico
+INFO:root:path found tmp/pictures/favicon.ico
+INFO:root:processing /
+INFO:root:path found tmp/index.html
+INFO:root:/Users/irusland/Desktop/UrFU/python/httpserver/tmp/pictures/favicon.ico type image/vnd.microsoft.icon
+INFO:root:Response status: 200
+reason: OK
+headers: [('Content-Type', 'image/vnd.microsoft.icon'), ('Content-Disposition', 'inline; filename=favicon.ico'), ('Content-Length', 22382)]
+body: b'\x00\x00\x01\x00\x03\x00\x10\x10\x00\x00\x01\x00 \x00h\x04\x00\x006\x00\x00\x00  \x00\x00\x01\x00 \x00\xa8\x10\x00\x00\x9e\x04\x00\x00@@\x00\x00\x01\x00 \x00(B\x00\x00F\x15\x00\x00(\x00\x00\x00\x10\x00\x00\x00 \x00\x00\x00\x01\x00 \x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x004,(\xff3+(\xff4,(\xff3+(\xff4,(\xff3+(\xff4,(\xff3+(\xff4,(\xff3+(\xff4,(\xff3+(\xff4,(\xff3+(\xff4,(\xff3+(\xff4+(\xff4+(\xff4+(\xff4+(\xffOQ \xff^g\x1d\xff;6&\xff4+(
+INFO:root:22515B sent to ('127.0.0.1', 50241)
+INFO:root:File sent to ('127.0.0.1', 50241)
+INFO:root:Disconnected ('127.0.0.1', 50241)
+INFO:root:/Users/irusland/Desktop/UrFU/python/httpserver/tmp/index.html type text/html
+INFO:root:Response status: 200
+reason: OK
+headers: [('Content-Type', 'text/html'), ('Content-Disposition', 'inline; filename=index.html'), ('Content-Length', 156)]
+body: b'<!DOCTYPE html>\n<html lang="en">\n<head>\n    <meta charset="UTF-8">\n    <title>index.html</title>\n</head>\n<body>\n    <h1>Python Rule it!</h1>\n</body>\n</html>'
+INFO:root:271B sent to ('127.0.0.1', 50242)
+INFO:root:File sent to ('127.0.0.1', 50242)
+INFO:root:Disconnected ('127.0.0.1', 50242)
+INFO:root:Connected ('127.0.0.1', 50243)
+INFO:root:Threaded client serving started ('127.0.0.1', 50243)
+INFO:root:Got request from ('127.0.0.1', 50243) method: GET
+target: /favicon.ico
+version: HTTP/1.1
+headers: Host: 0.0.0.0:8000
+Upgrade-Insecure-Requests: 1
+Accept: text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8
+User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_1) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/13.0.3 Safari/605.1.15
+Accept-Language: en-us
+Accept-Encoding: gzip, deflate
+Connection: keep-alive
+
+
+file: <_io.BufferedReader name=-1>
+user: ('127.0.0.1', 50243)
+url: ParseResult(scheme='', netloc='', path='/favicon.ico', params='', query='', fragment='')
+path: /favicon.ico
+query: {}
+INFO:root:processing /favicon.ico
+INFO:root:path found tmp/pictures/favicon.ico
+INFO:root:/Users/irusland/Desktop/UrFU/python/httpserver/tmp/pictures/favicon.ico type image/vnd.microsoft.icon
+INFO:root:Response status: 200
+reason: OK
+headers: [('Content-Type', 'image/vnd.microsoft.icon'), ('Content-Disposition', 'inline; filename=favicon.ico'), ('Content-Length', 22382)]
+body: b'\x00\x00\x01\x00\x03\x00\x10\x10\x00\x00\x01\x00 \x00h\x04\x00\x006\x00\x00\x00  \x00\x00\x01\x00 \x00\xa8\x10\x00\x00\x9e\x04\x00\x00@@\x00\x00\x01\x00 \x00(B\x00\x00F\x15\x00\x00(\x00\x00\x00\x10\x00\x00\x00 \x00\x00\x00\x01\x00 \x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x004,(\xff3+(\xff4,(\xff3+(\xff4,(\xff3+(\xff4,(\xff3+(\xff4,(\xff3+(\xff4,(\xff3+(\xff4,(\xff3+(\xff4,(\xff3+(\xff4+(\xff4+(\xff4+(\xff4+(\xffOQ \xff^g\x1d\xff;6&\xff4+(
+INFO:root:22515B sent to ('127.0.0.1', 50243)
+INFO:root:File sent to ('127.0.0.1', 50243)
+INFO:root:Disconnected ('127.0.0.1', 50243)
+INFO:root:Connected ('127.0.0.1', 50244)
+INFO:root:Threaded client serving started ('127.0.0.1', 50244)
+INFO:root:Got request from ('127.0.0.1', 50244) method: GET
+target: /favicon.ico
+version: HTTP/1.1
+headers: Host: 0.0.0.0:8000
+Upgrade-Insecure-Requests: 1
+Accept: text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8
+User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_1) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/13.0.3 Safari/605.1.15
+Accept-Language: en-us
+Accept-Encoding: gzip, deflate
+Connection: keep-alive
+
+
+file: <_io.BufferedReader name=-1>
+user: ('127.0.0.1', 50244)
+url: ParseResult(scheme='', netloc='', path='/favicon.ico', params='', query='', fragment='')
+path: /favicon.ico
+query: {}
+INFO:root:processing /favicon.ico
+INFO:root:path found tmp/pictures/favicon.ico
+INFO:root:/Users/irusland/Desktop/UrFU/python/httpserver/tmp/pictures/favicon.ico type image/vnd.microsoft.icon
+INFO:root:Response status: 200
+reason: OK
+headers: [('Content-Type', 'image/vnd.microsoft.icon'), ('Content-Disposition', 'inline; filename=favicon.ico'), ('Content-Length', 22382)]
+body: b'\x00\x00\x01\x00\x03\x00\x10\x10\x00\x00\x01\x00 \x00h\x04\x00\x006\x00\x00\x00  \x00\x00\x01\x00 \x00\xa8\x10\x00\x00\x9e\x04\x00\x00@@\x00\x00\x01\x00 \x00(B\x00\x00F\x15\x00\x00(\x00\x00\x00\x10\x00\x00\x00 \x00\x00\x00\x01\x00 \x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x004,(\xff3+(\xff4,(\xff3+(\xff4,(\xff3+(\xff4,(\xff3+(\xff4,(\xff3+(\xff4,(\xff3+(\xff4,(\xff3+(\xff4,(\xff3+(\xff4+(\xff4+(\xff4+(\xff4+(\xffOQ \xff^g\x1d\xff;6&\xff4+(
+INFO:root:22515B sent to ('127.0.0.1', 50244)
+INFO:root:File sent to ('127.0.0.1', 50244)
+INFO:root:Disconnected ('127.0.0.1', 50244)
+INFO:root:Connected ('127.0.0.1', 50245)
+INFO:root:Threaded client serving started ('127.0.0.1', 50245)
+INFO:root:Got request from ('127.0.0.1', 50245) method: GET
+target: /favicon.ico
+version: HTTP/1.1
+headers: Host: 0.0.0.0:8000
+Upgrade-Insecure-Requests: 1
+Accept: text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8
+User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_1) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/13.0.3 Safari/605.1.15
+Accept-Language: en-us
+Accept-Encoding: gzip, deflate
+Connection: keep-alive
+
+
+file: <_io.BufferedReader name=-1>
+user: ('127.0.0.1', 50245)
+url: ParseResult(scheme='', netloc='', path='/favicon.ico', params='', query='', fragment='')
+path: /favicon.ico
+query: {}
+INFO:root:processing /favicon.ico
+INFO:root:path found tmp/pictures/favicon.ico
+INFO:root:/Users/irusland/Desktop/UrFU/python/httpserver/tmp/pictures/favicon.ico type image/vnd.microsoft.icon
+INFO:root:Response status: 200
+reason: OK
+headers: [('Content-Type', 'image/vnd.microsoft.icon'), ('Content-Disposition', 'inline; filename=favicon.ico'), ('Content-Length', 22382)]
+body: b'\x00\x00\x01\x00\x03\x00\x10\x10\x00\x00\x01\x00 \x00h\x04\x00\x006\x00\x00\x00  \x00\x00\x01\x00 \x00\xa8\x10\x00\x00\x9e\x04\x00\x00@@\x00\x00\x01\x00 \x00(B\x00\x00F\x15\x00\x00(\x00\x00\x00\x10\x00\x00\x00 \x00\x00\x00\x01\x00 \x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x004,(\xff3+(\xff4,(\xff3+(\xff4,(\xff3+(\xff4,(\xff3+(\xff4,(\xff3+(\xff4,(\xff3+(\xff4,(\xff3+(\xff4,(\xff3+(\xff4+(\xff4+(\xff4+(\xff4+(\xffOQ \xff^g\x1d\xff;6&\xff4+(
+INFO:root:22515B sent to ('127.0.0.1', 50245)
+INFO:root:File sent to ('127.0.0.1', 50245)
+INFO:root:Disconnected ('127.0.0.1', 50245)
+INFO:root:Connected ('127.0.0.1', 50246)
+INFO:root:Connected ('127.0.0.1', 50247)
+INFO:root:Threaded client serving started ('127.0.0.1', 50246)
+INFO:root:Got request from ('127.0.0.1', 50246) method: GET
+target: /
+version: HTTP/1.1
+headers: Host: 0.0.0.0:8000
+Upgrade-Insecure-Requests: 1
+Accept: text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8
+User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_1) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/13.0.3 Safari/605.1.15
+Accept-Language: en-us
+Accept-Encoding: gzip, deflate
+Connection: keep-alive
+
+
+file: <_io.BufferedReader name=-1>
+user: ('127.0.0.1', 50246)
+url: ParseResult(scheme='', netloc='', path='/', params='', query='', fragment='')
+path: /
+query: {}
+INFO:root:Threaded client serving started ('127.0.0.1', 50247)
+INFO:root:Got request from ('127.0.0.1', 50247) method: GET
+target: /favicon.ico
+version: HTTP/1.1
+headers: Host: 0.0.0.0:8000
+Connection: keep-alive
+Accept: */*
+User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_1) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/13.0.3 Safari/605.1.15
+Accept-Language: en-us
+Referer: http://0.0.0.0:8000/
+Accept-Encoding: gzip, deflate
+
+
+file: <_io.BufferedReader name=-1>
+user: ('127.0.0.1', 50247)
+url: ParseResult(scheme='', netloc='', path='/favicon.ico', params='', query='', fragment='')
+path: /favicon.ico
+query: {}
+INFO:root:processing /
+INFO:root:path found tmp/index.html
+INFO:root:processing /favicon.ico
+INFO:root:path found tmp/pictures/favicon.ico
+INFO:root:/Users/irusland/Desktop/UrFU/python/httpserver/tmp/pictures/favicon.ico type image/vnd.microsoft.icon
+INFO:root:Response status: 200
+reason: OK
+headers: [('Content-Type', 'image/vnd.microsoft.icon'), ('Content-Disposition', 'inline; filename=favicon.ico'), ('Content-Length', 22382)]
+body: b'\x00\x00\x01\x00\x03\x00\x10\x10\x00\x00\x01\x00 \x00h\x04\x00\x006\x00\x00\x00  \x00\x00\x01\x00 \x00\xa8\x10\x00\x00\x9e\x04\x00\x00@@\x00\x00\x01\x00 \x00(B\x00\x00F\x15\x00\x00(\x00\x00\x00\x10\x00\x00\x00 \x00\x00\x00\x01\x00 \x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x004,(\xff3+(\xff4,(\xff3+(\xff4,(\xff3+(\xff4,(\xff3+(\xff4,(\xff3+(\xff4,(\xff3+(\xff4,(\xff3+(\xff4,(\xff3+(\xff4+(\xff4+(\xff4+(\xff4+(\xffOQ \xff^g\x1d\xff;6&\xff4+(
+INFO:root:22515B sent to ('127.0.0.1', 50247)
+INFO:root:File sent to ('127.0.0.1', 50247)
+INFO:root:Disconnected ('127.0.0.1', 50247)
+INFO:root:/Users/irusland/Desktop/UrFU/python/httpserver/tmp/index.html type text/html
+INFO:root:Response status: 200
+reason: OK
+headers: [('Content-Type', 'text/html'), ('Content-Disposition', 'inline; filename=index.html'), ('Content-Length', 156)]
+body: b'<!DOCTYPE html>\n<html lang="en">\n<head>\n    <meta charset="UTF-8">\n    <title>index.html</title>\n</head>\n<body>\n    <h1>Python Rule it!</h1>\n</body>\n</html>'
+INFO:root:271B sent to ('127.0.0.1', 50246)
+INFO:root:File sent to ('127.0.0.1', 50246)
+INFO:root:Disconnected ('127.0.0.1', 50246)
+INFO:root:Connected ('127.0.0.1', 50248)
+INFO:root:Threaded client serving started ('127.0.0.1', 50248)
+INFO:root:Got request from ('127.0.0.1', 50248) method: GET
+target: /asd
+version: HTTP/1.1
+headers: Host: 0.0.0.0:8000
+Upgrade-Insecure-Requests: 1
+Accept: text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8
+User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_1) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/13.0.3 Safari/605.1.15
+Accept-Language: en-us
+Accept-Encoding: gzip, deflate
+Connection: keep-alive
+
+
+file: <_io.BufferedReader name=-1>
+user: ('127.0.0.1', 50248)
+url: ParseResult(scheme='', netloc='', path='/asd', params='', query='', fragment='')
+path: /asd
+query: {}
+INFO:root:processing /asd
+ERROR:root:(404, 'Not found', '', 'PAGE_NOT_FOUND')
+Traceback (most recent call last):
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 206, in handle_req
+    destination = self.ruler.get_destination(req.path, rules, True)
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/ruler.py", line 55, in get_destination
+    raise FileNotFoundError(url, rules)
+FileNotFoundError: [Errno /asd] {'/': 'tmp/index.html', '/favicon.ico': 'tmp/pictures/favicon.ico', '/index.html': 'tmp/index.html', '/2.html': 'tmp/pages/2.html', '/1.2.3.txt': 'tmp/1.2.3.txt', '/page-load-errors[extras].css': 'pages/page-load-errors[extras].css', '/[name].html': 'tmp/pages/[name].html', '/[name].css': 'tmp/pages/css/[name].css', '/[name].[ext]': 'tmp/pictures/[name].[ext]', '/png/[name].png': 'tmp/pictures/[name].png', '/pictures/[ext]/1': 'tmp/pictures/1.[ext]', '/[DD]/[MM]/[YY]': 'tmp/dates/[DD].[MM].[YY].png', '/mime/': {'path': 'tmp/pictures/1.png', 'mime': 'text/txt'}, '/big': {'path': 'tmp/pictures/chroma.jpg', 'mime': 'image/jpg'}}
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 95, in serve_client
+    res = self.handle_req(req)
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 208, in handle_req
+    raise Errors.NOT_FOUND
+Error: (404, 'Not found', '', 'PAGE_NOT_FOUND')
+INFO:root:1089B sent to ('127.0.0.1', 50248)
+INFO:root:File sent to ('127.0.0.1', 50248)
+INFO:root:1201B sent to ('127.0.0.1', 50248)
+INFO:root:File sent to ('127.0.0.1', 50248)
+INFO:root:478B sent to ('127.0.0.1', 50248)
+INFO:root:File sent to ('127.0.0.1', 50248)
+INFO:root:Disconnected ('127.0.0.1', 50248)
+INFO:root:Connected ('127.0.0.1', 50249)
+INFO:root:Connected ('127.0.0.1', 50250)
+INFO:root:Threaded client serving started ('127.0.0.1', 50249)
+INFO:root:Got request from ('127.0.0.1', 50249) method: GET
+target: /page-load-errors.css
+version: HTTP/1.1
+headers: Host: 0.0.0.0:8000
+Connection: keep-alive
+Accept: text/css,*/*;q=0.1
+User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_1) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/13.0.3 Safari/605.1.15
+Accept-Language: en-us
+Referer: http://0.0.0.0:8000/asd
+Accept-Encoding: gzip, deflate
+
+
+file: <_io.BufferedReader name=-1>
+user: ('127.0.0.1', 50249)
+url: ParseResult(scheme='', netloc='', path='/page-load-errors.css', params='', query='', fragment='')
+path: /page-load-errors.css
+query: {}
+INFO:root:Threaded client serving started ('127.0.0.1', 50250)
+INFO:root:Got request from ('127.0.0.1', 50250) method: GET
+target: /page-load-errors-extras.css
+version: HTTP/1.1
+headers: Host: 0.0.0.0:8000
+Connection: keep-alive
+Accept: text/css,*/*;q=0.1
+User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_1) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/13.0.3 Safari/605.1.15
+Accept-Language: en-us
+Referer: http://0.0.0.0:8000/asd
+Accept-Encoding: gzip, deflate
+
+
+file: <_io.BufferedReader name=-1>
+user: ('127.0.0.1', 50250)
+url: ParseResult(scheme='', netloc='', path='/page-load-errors-extras.css', params='', query='', fragment='')
+path: /page-load-errors-extras.css
+query: {}
+INFO:root:processing /page-load-errors.css
+INFO:root:path found pages/page-load-errors.css
+INFO:root:processing /page-load-errors-extras.css
+INFO:root:path found pages/page-load-errors-extras.css
+INFO:root:/Users/irusland/Desktop/UrFU/python/httpserver/pages/page-load-errors-extras.css type text/plain
+INFO:root:/Users/irusland/Desktop/UrFU/python/httpserver/pages/page-load-errors.css type text/x-asm
+INFO:root:Response status: 200
+reason: OK
+headers: [('Content-Type', 'text/plain'), ('Content-Disposition', 'inline; filename=page-load-errors-extras.css'), ('Content-Length', 407)]
+body: b'/*\n    This file has a UTF-8 BOM in it so it can be included from a UTF-16 page\n    without specifying an explicit character set. When editing it, please be\n    sure to preserve the BOM (first three bytes of the file, EF BB BF).\n*/\n\n@media (prefers-dark-interface) {\n    body {\n        background: rgb(30, 30, 30);\n    }\n\n    .error-message, .suggestion-prompt {\n        color: rgb(110, 110, 110);\n    }\n}\n\n'
+INFO:root:Response status: 200
+reason: OK
+headers: [('Content-Type', 'text/x-asm'), ('Content-Disposition', 'inline; filename=page-load-errors.css'), ('Content-Length', 1129)]
+body: b'/*\n    This file has a UTF-8 BOM in it so it can be included from a UTF-16 page\n    without specifying an explicit character set. When editing it, please be\n    sure to preserve the BOM (first three bytes of the file, EF BB BF).\n */\n\nbody {\n    background: rgb(246, 246, 246);\n    cursor: default;\n    display: -webkit-box;\n    text-align: center;\n    -webkit-box-align: center;\n    -webkit-box-pack: center;\n    -webkit-user-select: none;\n}\n\na {\n    color: rgb(21, 126, 251);\n   
+INFO:root:540B sent to ('127.0.0.1', 50250)
+INFO:root:File sent to ('127.0.0.1', 50250)
+INFO:root:1256B sent to ('127.0.0.1', 50249)
+INFO:root:Disconnected ('127.0.0.1', 50250)
+INFO:root:File sent to ('127.0.0.1', 50249)
+INFO:root:Disconnected ('127.0.0.1', 50249)
+INFO:root:Connected ('127.0.0.1', 50251)
+INFO:root:Got request from ('127.0.0.1', 50251) method: GET
+target: /asd
+version: HTTP/1.1
+headers: Host: 0.0.0.0:8000
+Upgrade-Insecure-Requests: 1
+Accept: text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8
+User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_1) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/13.0.3 Safari/605.1.15
+Accept-Language: en-us
+Accept-Encoding: gzip, deflate
+Connection: keep-alive
+
+
+file: <_io.BufferedReader name=-1>
+user: ('127.0.0.1', 50251)
+url: ParseResult(scheme='', netloc='', path='/asd', params='', query='', fragment='')
+path: /asd
+query: {}
+INFO:root:Threaded client serving started ('127.0.0.1', 50251)
+INFO:root:processing /asd
+ERROR:root:(404, 'Not found', '', 'PAGE_NOT_FOUND')
+Traceback (most recent call last):
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 206, in handle_req
+    destination = self.ruler.get_destination(req.path, rules, True)
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/ruler.py", line 55, in get_destination
+    raise FileNotFoundError(url, rules)
+FileNotFoundError: [Errno /asd] {'/': 'tmp/index.html', '/favicon.ico': 'tmp/pictures/favicon.ico', '/index.html': 'tmp/index.html', '/2.html': 'tmp/pages/2.html', '/1.2.3.txt': 'tmp/1.2.3.txt', '/page-load-errors[extras].css': 'pages/page-load-errors[extras].css', '/[name].html': 'tmp/pages/[name].html', '/[name].css': 'tmp/pages/css/[name].css', '/[name].[ext]': 'tmp/pictures/[name].[ext]', '/png/[name].png': 'tmp/pictures/[name].png', '/pictures/[ext]/1': 'tmp/pictures/1.[ext]', '/[DD]/[MM]/[YY]': 'tmp/dates/[DD].[MM].[YY].png', '/mime/': {'path': 'tmp/pictures/1.png', 'mime': 'text/txt'}, '/big': {'path': 'tmp/pictures/chroma.jpg', 'mime': 'image/jpg'}}
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 95, in serve_client
+    res = self.handle_req(req)
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 208, in handle_req
+    raise Errors.NOT_FOUND
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 95, in serve_client
+    res = self.handle_req(req)
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 208, in handle_req
+    raise Errors.NOT_FOUND
+Error: (404, 'Not found', '', 'PAGE_NOT_FOUND')
+INFO:root:1089B sent to ('127.0.0.1', 50251)
+INFO:root:File sent to ('127.0.0.1', 50251)
+INFO:root:1201B sent to ('127.0.0.1', 50251)
+INFO:root:File sent to ('127.0.0.1', 50251)
+INFO:root:478B sent to ('127.0.0.1', 50251)
+INFO:root:File sent to ('127.0.0.1', 50251)
+INFO:root:Disconnected ('127.0.0.1', 50251)
+INFO:root:Connected ('127.0.0.1', 50252)
+INFO:root:Connected ('127.0.0.1', 50253)
+INFO:root:Threaded client serving started ('127.0.0.1', 50252)
+INFO:root:Got request from ('127.0.0.1', 50252) method: GET
+target: /page-load-errors.css
+version: HTTP/1.1
+headers: Host: 0.0.0.0:8000
+Connection: keep-alive
+Accept: text/css,*/*;q=0.1
+User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_1) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/13.0.3 Safari/605.1.15
+Accept-Language: en-us
+Referer: http://0.0.0.0:8000/asd
+Accept-Encoding: gzip, deflate
+
+
+file: <_io.BufferedReader name=-1>
+user: ('127.0.0.1', 50252)
+url: ParseResult(scheme='', netloc='', path='/page-load-errors.css', params='', query='', fragment='')
+path: /page-load-errors.css
+query: {}
+INFO:root:Threaded client serving started ('127.0.0.1', 50253)
+INFO:root:Got request from ('127.0.0.1', 50253) method: GET
+target: /page-load-errors-extras.css
+version: HTTP/1.1
+headers: Host: 0.0.0.0:8000
+Connection: keep-alive
+Accept: text/css,*/*;q=0.1
+User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_1) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/13.0.3 Safari/605.1.15
+Accept-Language: en-us
+Referer: http://0.0.0.0:8000/asd
+Accept-Encoding: gzip, deflate
+
+
+file: <_io.BufferedReader name=-1>
+user: ('127.0.0.1', 50253)
+url: ParseResult(scheme='', netloc='', path='/page-load-errors-extras.css', params='', query='', fragment='')
+path: /page-load-errors-extras.css
+query: {}
+INFO:root:processing /page-load-errors.css
+INFO:root:path found pages/page-load-errors.css
+INFO:root:processing /page-load-errors-extras.css
+INFO:root:path found pages/page-load-errors-extras.css
+INFO:root:/Users/irusland/Desktop/UrFU/python/httpserver/pages/page-load-errors-extras.css type text/plain
+INFO:root:Response status: 200
+reason: OK
+headers: [('Content-Type', 'text/plain'), ('Content-Disposition', 'inline; filename=page-load-errors-extras.css'), ('Content-Length', 407)]
+body: b'/*\n    This file has a UTF-8 BOM in it so it can be included from a UTF-16 page\n    without specifying an explicit character set. When editing it, please be\n    sure to preserve the BOM (first three bytes of the file, EF BB BF).\n*/\n\n@media (prefers-dark-interface) {\n    body {\n        background: rgb(30, 30, 30);\n    }\n\n    .error-message, .suggestion-prompt {\n        color: rgb(110, 110, 110);\n    }\n}\n\n'
+INFO:root:/Users/irusland/Desktop/UrFU/python/httpserver/pages/page-load-errors.css type text/x-asm
+INFO:root:540B sent to ('127.0.0.1', 50253)
+INFO:root:File sent to ('127.0.0.1', 50253)
+INFO:root:Disconnected ('127.0.0.1', 50253)
+INFO:root:Response status: 200
+reason: OK
+headers: [('Content-Type', 'text/x-asm'), ('Content-Disposition', 'inline; filename=page-load-errors.css'), ('Content-Length', 1129)]
+body: b'/*\n    This file has a UTF-8 BOM in it so it can be included from a UTF-16 page\n    without specifying an explicit character set. When editing it, please be\n    sure to preserve the BOM (first three bytes of the file, EF BB BF).\n */\n\nbody {\n    background: rgb(246, 246, 246);\n    cursor: default;\n    display: -webkit-box;\n    text-align: center;\n    -webkit-box-align: center;\n    -webkit-box-pack: center;\n    -webkit-user-select: none;\n}\n\na {\n    color: rgb(21, 126, 251);\n   
+INFO:root:1256B sent to ('127.0.0.1', 50252)
+INFO:root:File sent to ('127.0.0.1', 50252)
+INFO:root:Disconnected ('127.0.0.1', 50252)
+INFO:root:Connected ('127.0.0.1', 50328)
+INFO:root:Threaded client serving started ('127.0.0.1', 50328)
+ERROR:root:(404, 'Not found', '', 'PAGE_NOT_FOUND')
+Traceback (most recent call last):
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 206, in handle_req
+    destination = self.ruler.get_destination(req.path, rules, True)
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/ruler.py", line 55, in get_destination
+    raise FileNotFoundError(url, rules)
+FileNotFoundError: [Errno /asd] {'/': 'tmp/index.html', '/favicon.ico': 'tmp/pictures/favicon.ico', '/index.html': 'tmp/index.html', '/2.html': 'tmp/pages/2.html', '/1.2.3.txt': 'tmp/1.2.3.txt', '/page-load-errors[extras].css': 'pages/page-load-errors[extras].css', '/[name].html': 'tmp/pages/[name].html', '/[name].css': 'tmp/pages/css/[name].css', '/[name].[ext]': 'tmp/pictures/[name].[ext]', '/png/[name].png': 'tmp/pictures/[name].png', '/pictures/[ext]/1': 'tmp/pictures/1.[ext]', '/[DD]/[MM]/[YY]': 'tmp/dates/[DD].[MM].[YY].png', '/mime/': {'path': 'tmp/pictures/1.png', 'mime': 'text/txt'}, '/big': {'path': 'tmp/pictures/chroma.jpg', 'mime': 'image/jpg'}}
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 93, in serve_client
+    req = self.parse_req_connection(connection)
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 142, in parse_req_connection
+    *self.parse_req_file(file), file, connection.getpeername())
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 156, in parse_req_file
+    raise Errors.NOT_FOUND
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 95, in serve_client
+    res = self.handle_req(req)
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 208, in handle_req
+    raise Errors.NOT_FOUND
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 95, in serve_client
+    res = self.handle_req(req)
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 208, in handle_req
+    raise Errors.NOT_FOUND
+Error: (404, 'Not found', '', 'PAGE_NOT_FOUND')
+INFO:root:1089B sent to ('127.0.0.1', 50328)
+INFO:root:File sent to ('127.0.0.1', 50328)
+INFO:root:1201B sent to ('127.0.0.1', 50328)
+INFO:root:File sent to ('127.0.0.1', 50328)
+INFO:root:478B sent to ('127.0.0.1', 50328)
+INFO:root:File sent to ('127.0.0.1', 50328)
+INFO:root:Disconnected ('127.0.0.1', 50328)
+INFO:root:Connected ('127.0.0.1', 50335)
+ERROR:root:(404, 'Not found', '', 'PAGE_NOT_FOUND')
+Traceback (most recent call last):
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 206, in handle_req
+    destination = self.ruler.get_destination(req.path, rules, True)
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/ruler.py", line 55, in get_destination
+    raise FileNotFoundError(url, rules)
+FileNotFoundError: [Errno /asd] {'/': 'tmp/index.html', '/favicon.ico': 'tmp/pictures/favicon.ico', '/index.html': 'tmp/index.html', '/2.html': 'tmp/pages/2.html', '/1.2.3.txt': 'tmp/1.2.3.txt', '/page-load-errors[extras].css': 'pages/page-load-errors[extras].css', '/[name].html': 'tmp/pages/[name].html', '/[name].css': 'tmp/pages/css/[name].css', '/[name].[ext]': 'tmp/pictures/[name].[ext]', '/png/[name].png': 'tmp/pictures/[name].png', '/pictures/[ext]/1': 'tmp/pictures/1.[ext]', '/[DD]/[MM]/[YY]': 'tmp/dates/[DD].[MM].[YY].png', '/mime/': {'path': 'tmp/pictures/1.png', 'mime': 'text/txt'}, '/big': {'path': 'tmp/pictures/chroma.jpg', 'mime': 'image/jpg'}}
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 93, in serve_client
+    req = self.parse_req_connection(connection)
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 142, in parse_req_connection
+    *self.parse_req_file(file), file, connection.getpeername())
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 156, in parse_req_file
+    raise Errors.NOT_FOUND
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 93, in serve_client
+    req = self.parse_req_connection(connection)
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 142, in parse_req_connection
+    *self.parse_req_file(file), file, connection.getpeername())
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 156, in parse_req_file
+    raise Errors.NOT_FOUND
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 95, in serve_client
+    res = self.handle_req(req)
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 208, in handle_req
+    raise Errors.NOT_FOUND
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 95, in serve_client
+    res = self.handle_req(req)
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 208, in handle_req
+    raise Errors.NOT_FOUND
+Error: (404, 'Not found', '', 'PAGE_NOT_FOUND')
+INFO:root:Threaded client serving started ('127.0.0.1', 50335)
+INFO:root:1089B sent to ('127.0.0.1', 50335)
+INFO:root:File sent to ('127.0.0.1', 50335)
+INFO:root:1201B sent to ('127.0.0.1', 50335)
+INFO:root:File sent to ('127.0.0.1', 50335)
+INFO:root:478B sent to ('127.0.0.1', 50335)
+INFO:root:File sent to ('127.0.0.1', 50335)
+INFO:root:Disconnected ('127.0.0.1', 50335)
+INFO:root:Connected ('127.0.0.1', 50340)
+INFO:root:Threaded client serving started ('127.0.0.1', 50340)
+ERROR:root:(404, 'Not found', '', 'PAGE_NOT_FOUND')
+Traceback (most recent call last):
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 206, in handle_req
+    destination = self.ruler.get_destination(req.path, rules, True)
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/ruler.py", line 55, in get_destination
+    raise FileNotFoundError(url, rules)
+FileNotFoundError: [Errno /asd] {'/': 'tmp/index.html', '/favicon.ico': 'tmp/pictures/favicon.ico', '/index.html': 'tmp/index.html', '/2.html': 'tmp/pages/2.html', '/1.2.3.txt': 'tmp/1.2.3.txt', '/page-load-errors[extras].css': 'pages/page-load-errors[extras].css', '/[name].html': 'tmp/pages/[name].html', '/[name].css': 'tmp/pages/css/[name].css', '/[name].[ext]': 'tmp/pictures/[name].[ext]', '/png/[name].png': 'tmp/pictures/[name].png', '/pictures/[ext]/1': 'tmp/pictures/1.[ext]', '/[DD]/[MM]/[YY]': 'tmp/dates/[DD].[MM].[YY].png', '/mime/': {'path': 'tmp/pictures/1.png', 'mime': 'text/txt'}, '/big': {'path': 'tmp/pictures/chroma.jpg', 'mime': 'image/jpg'}}
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 93, in serve_client
+    req = self.parse_req_connection(connection)
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 142, in parse_req_connection
+    *self.parse_req_file(file), file, connection.getpeername())
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 156, in parse_req_file
+    raise Errors.NOT_FOUND
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 93, in serve_client
+    req = self.parse_req_connection(connection)
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 142, in parse_req_connection
+    *self.parse_req_file(file), file, connection.getpeername())
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 156, in parse_req_file
+    raise Errors.NOT_FOUND
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 93, in serve_client
+    req = self.parse_req_connection(connection)
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 142, in parse_req_connection
+    *self.parse_req_file(file), file, connection.getpeername())
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 156, in parse_req_file
+    raise Errors.NOT_FOUND
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 95, in serve_client
+    res = self.handle_req(req)
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 208, in handle_req
+    raise Errors.NOT_FOUND
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 95, in serve_client
+    res = self.handle_req(req)
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 208, in handle_req
+    raise Errors.NOT_FOUND
+Error: (404, 'Not found', '', 'PAGE_NOT_FOUND')
+INFO:root:1089B sent to ('127.0.0.1', 50340)
+INFO:root:File sent to ('127.0.0.1', 50340)
+INFO:root:1201B sent to ('127.0.0.1', 50340)
+INFO:root:File sent to ('127.0.0.1', 50340)
+INFO:root:478B sent to ('127.0.0.1', 50340)
+INFO:root:File sent to ('127.0.0.1', 50340)
+INFO:root:Disconnected ('127.0.0.1', 50340)
+INFO:root:Connected ('127.0.0.1', 50344)
+ERROR:root:(404, 'Not found', '', 'PAGE_NOT_FOUND')
+Traceback (most recent call last):
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 206, in handle_req
+    destination = self.ruler.get_destination(req.path, rules, True)
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/ruler.py", line 55, in get_destination
+    raise FileNotFoundError(url, rules)
+FileNotFoundError: [Errno /asd] {'/': 'tmp/index.html', '/favicon.ico': 'tmp/pictures/favicon.ico', '/index.html': 'tmp/index.html', '/2.html': 'tmp/pages/2.html', '/1.2.3.txt': 'tmp/1.2.3.txt', '/page-load-errors[extras].css': 'pages/page-load-errors[extras].css', '/[name].html': 'tmp/pages/[name].html', '/[name].css': 'tmp/pages/css/[name].css', '/[name].[ext]': 'tmp/pictures/[name].[ext]', '/png/[name].png': 'tmp/pictures/[name].png', '/pictures/[ext]/1': 'tmp/pictures/1.[ext]', '/[DD]/[MM]/[YY]': 'tmp/dates/[DD].[MM].[YY].png', '/mime/': {'path': 'tmp/pictures/1.png', 'mime': 'text/txt'}, '/big': {'path': 'tmp/pictures/chroma.jpg', 'mime': 'image/jpg'}}
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 93, in serve_client
+    req = self.parse_req_connection(connection)
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 142, in parse_req_connection
+    *self.parse_req_file(file), file, connection.getpeername())
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 156, in parse_req_file
+    raise Errors.NOT_FOUND
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 93, in serve_client
+    req = self.parse_req_connection(connection)
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 142, in parse_req_connection
+    *self.parse_req_file(file), file, connection.getpeername())
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 156, in parse_req_file
+    raise Errors.NOT_FOUND
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 93, in serve_client
+    req = self.parse_req_connection(connection)
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 142, in parse_req_connection
+    *self.parse_req_file(file), file, connection.getpeername())
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 156, in parse_req_file
+    raise Errors.NOT_FOUND
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 93, in serve_client
+    req = self.parse_req_connection(connection)
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 142, in parse_req_connection
+    *self.parse_req_file(file), file, connection.getpeername())
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 156, in parse_req_file
+    raise Errors.NOT_FOUND
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 95, in serve_client
+    res = self.handle_req(req)
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 208, in handle_req
+    raise Errors.NOT_FOUND
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 95, in serve_client
+    res = self.handle_req(req)
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 208, in handle_req
+    raise Errors.NOT_FOUND
+Error: (404, 'Not found', '', 'PAGE_NOT_FOUND')
+INFO:root:Threaded client serving started ('127.0.0.1', 50344)
+INFO:root:1089B sent to ('127.0.0.1', 50344)
+INFO:root:File sent to ('127.0.0.1', 50344)
+INFO:root:1201B sent to ('127.0.0.1', 50344)
+INFO:root:File sent to ('127.0.0.1', 50344)
+INFO:root:478B sent to ('127.0.0.1', 50344)
+INFO:root:File sent to ('127.0.0.1', 50344)
+INFO:root:Disconnected ('127.0.0.1', 50344)
+INFO:root:Connected ('127.0.0.1', 50350)
+ERROR:root:(404, 'Not found', '', 'PAGE_NOT_FOUND')
+Traceback (most recent call last):
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 206, in handle_req
+    destination = self.ruler.get_destination(req.path, rules, True)
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/ruler.py", line 55, in get_destination
+    raise FileNotFoundError(url, rules)
+FileNotFoundError: [Errno /asd] {'/': 'tmp/index.html', '/favicon.ico': 'tmp/pictures/favicon.ico', '/index.html': 'tmp/index.html', '/2.html': 'tmp/pages/2.html', '/1.2.3.txt': 'tmp/1.2.3.txt', '/page-load-errors[extras].css': 'pages/page-load-errors[extras].css', '/[name].html': 'tmp/pages/[name].html', '/[name].css': 'tmp/pages/css/[name].css', '/[name].[ext]': 'tmp/pictures/[name].[ext]', '/png/[name].png': 'tmp/pictures/[name].png', '/pictures/[ext]/1': 'tmp/pictures/1.[ext]', '/[DD]/[MM]/[YY]': 'tmp/dates/[DD].[MM].[YY].png', '/mime/': {'path': 'tmp/pictures/1.png', 'mime': 'text/txt'}, '/big': {'path': 'tmp/pictures/chroma.jpg', 'mime': 'image/jpg'}}
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 93, in serve_client
+    req = self.parse_req_connection(connection)
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 142, in parse_req_connection
+    *self.parse_req_file(file), file, connection.getpeername())
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 156, in parse_req_file
+    raise Errors.NOT_FOUND
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 93, in serve_client
+    req = self.parse_req_connection(connection)
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 142, in parse_req_connection
+    *self.parse_req_file(file), file, connection.getpeername())
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 156, in parse_req_file
+    raise Errors.NOT_FOUND
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 93, in serve_client
+    req = self.parse_req_connection(connection)
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 142, in parse_req_connection
+    *self.parse_req_file(file), file, connection.getpeername())
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 156, in parse_req_file
+    raise Errors.NOT_FOUND
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 93, in serve_client
+    req = self.parse_req_connection(connection)
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 142, in parse_req_connection
+    *self.parse_req_file(file), file, connection.getpeername())
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 156, in parse_req_file
+    raise Errors.NOT_FOUND
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 93, in serve_client
+    req = self.parse_req_connection(connection)
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 142, in parse_req_connection
+    *self.parse_req_file(file), file, connection.getpeername())
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 156, in parse_req_file
+    raise Errors.NOT_FOUND
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 95, in serve_client
+    res = self.handle_req(req)
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 208, in handle_req
+    raise Errors.NOT_FOUND
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 95, in serve_client
+    res = self.handle_req(req)
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 208, in handle_req
+    raise Errors.NOT_FOUND
+Error: (404, 'Not found', '', 'PAGE_NOT_FOUND')
+INFO:root:Threaded client serving started ('127.0.0.1', 50350)
+INFO:root:1089B sent to ('127.0.0.1', 50350)
+INFO:root:File sent to ('127.0.0.1', 50350)
+INFO:root:1201B sent to ('127.0.0.1', 50350)
+INFO:root:File sent to ('127.0.0.1', 50350)
+INFO:root:478B sent to ('127.0.0.1', 50350)
+INFO:root:File sent to ('127.0.0.1', 50350)
+INFO:root:Disconnected ('127.0.0.1', 50350)
+INFO:root:Connected ('127.0.0.1', 50354)
+INFO:root:Threaded client serving started ('127.0.0.1', 50354)
+ERROR:root:(404, 'Not found', '', 'PAGE_NOT_FOUND')
+Traceback (most recent call last):
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 206, in handle_req
+    destination = self.ruler.get_destination(req.path, rules, True)
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/ruler.py", line 55, in get_destination
+    raise FileNotFoundError(url, rules)
+FileNotFoundError: [Errno /asd] {'/': 'tmp/index.html', '/favicon.ico': 'tmp/pictures/favicon.ico', '/index.html': 'tmp/index.html', '/2.html': 'tmp/pages/2.html', '/1.2.3.txt': 'tmp/1.2.3.txt', '/page-load-errors[extras].css': 'pages/page-load-errors[extras].css', '/[name].html': 'tmp/pages/[name].html', '/[name].css': 'tmp/pages/css/[name].css', '/[name].[ext]': 'tmp/pictures/[name].[ext]', '/png/[name].png': 'tmp/pictures/[name].png', '/pictures/[ext]/1': 'tmp/pictures/1.[ext]', '/[DD]/[MM]/[YY]': 'tmp/dates/[DD].[MM].[YY].png', '/mime/': {'path': 'tmp/pictures/1.png', 'mime': 'text/txt'}, '/big': {'path': 'tmp/pictures/chroma.jpg', 'mime': 'image/jpg'}}
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 93, in serve_client
+    req = self.parse_req_connection(connection)
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 142, in parse_req_connection
+    *self.parse_req_file(file), file, connection.getpeername())
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 156, in parse_req_file
+    raise Errors.NOT_FOUND
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 93, in serve_client
+    req = self.parse_req_connection(connection)
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 142, in parse_req_connection
+    *self.parse_req_file(file), file, connection.getpeername())
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 156, in parse_req_file
+    raise Errors.NOT_FOUND
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 93, in serve_client
+    req = self.parse_req_connection(connection)
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 142, in parse_req_connection
+    *self.parse_req_file(file), file, connection.getpeername())
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 156, in parse_req_file
+    raise Errors.NOT_FOUND
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 93, in serve_client
+    req = self.parse_req_connection(connection)
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 142, in parse_req_connection
+    *self.parse_req_file(file), file, connection.getpeername())
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 156, in parse_req_file
+    raise Errors.NOT_FOUND
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 93, in serve_client
+    req = self.parse_req_connection(connection)
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 142, in parse_req_connection
+    *self.parse_req_file(file), file, connection.getpeername())
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 156, in parse_req_file
+    raise Errors.NOT_FOUND
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 93, in serve_client
+    req = self.parse_req_connection(connection)
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 142, in parse_req_connection
+    *self.parse_req_file(file), file, connection.getpeername())
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 156, in parse_req_file
+    raise Errors.NOT_FOUND
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 95, in serve_client
+    res = self.handle_req(req)
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 208, in handle_req
+    raise Errors.NOT_FOUND
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 95, in serve_client
+    res = self.handle_req(req)
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 208, in handle_req
+    raise Errors.NOT_FOUND
+Error: (404, 'Not found', '', 'PAGE_NOT_FOUND')
+INFO:root:1089B sent to ('127.0.0.1', 50354)
+INFO:root:File sent to ('127.0.0.1', 50354)
+INFO:root:1201B sent to ('127.0.0.1', 50354)
+INFO:root:File sent to ('127.0.0.1', 50354)
+INFO:root:478B sent to ('127.0.0.1', 50354)
+INFO:root:File sent to ('127.0.0.1', 50354)
+INFO:root:Disconnected ('127.0.0.1', 50354)
+INFO:root:Connected ('127.0.0.1', 50360)
+INFO:root:Threaded client serving started ('127.0.0.1', 50360)
+ERROR:root:(404, 'Not found', '', 'PAGE_NOT_FOUND')
+Traceback (most recent call last):
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 206, in handle_req
+    destination = self.ruler.get_destination(req.path, rules, True)
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/ruler.py", line 55, in get_destination
+    raise FileNotFoundError(url, rules)
+FileNotFoundError: [Errno /asd] {'/': 'tmp/index.html', '/favicon.ico': 'tmp/pictures/favicon.ico', '/index.html': 'tmp/index.html', '/2.html': 'tmp/pages/2.html', '/1.2.3.txt': 'tmp/1.2.3.txt', '/page-load-errors[extras].css': 'pages/page-load-errors[extras].css', '/[name].html': 'tmp/pages/[name].html', '/[name].css': 'tmp/pages/css/[name].css', '/[name].[ext]': 'tmp/pictures/[name].[ext]', '/png/[name].png': 'tmp/pictures/[name].png', '/pictures/[ext]/1': 'tmp/pictures/1.[ext]', '/[DD]/[MM]/[YY]': 'tmp/dates/[DD].[MM].[YY].png', '/mime/': {'path': 'tmp/pictures/1.png', 'mime': 'text/txt'}, '/big': {'path': 'tmp/pictures/chroma.jpg', 'mime': 'image/jpg'}}
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 93, in serve_client
+    req = self.parse_req_connection(connection)
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 142, in parse_req_connection
+    *self.parse_req_file(file), file, connection.getpeername())
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 156, in parse_req_file
+    raise Errors.NOT_FOUND
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 93, in serve_client
+    req = self.parse_req_connection(connection)
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 142, in parse_req_connection
+    *self.parse_req_file(file), file, connection.getpeername())
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 156, in parse_req_file
+    raise Errors.NOT_FOUND
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 93, in serve_client
+    req = self.parse_req_connection(connection)
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 142, in parse_req_connection
+    *self.parse_req_file(file), file, connection.getpeername())
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 156, in parse_req_file
+    raise Errors.NOT_FOUND
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 93, in serve_client
+    req = self.parse_req_connection(connection)
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 142, in parse_req_connection
+    *self.parse_req_file(file), file, connection.getpeername())
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 156, in parse_req_file
+    raise Errors.NOT_FOUND
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 93, in serve_client
+    req = self.parse_req_connection(connection)
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 142, in parse_req_connection
+    *self.parse_req_file(file), file, connection.getpeername())
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 156, in parse_req_file
+    raise Errors.NOT_FOUND
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 93, in serve_client
+    req = self.parse_req_connection(connection)
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 142, in parse_req_connection
+    *self.parse_req_file(file), file, connection.getpeername())
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 156, in parse_req_file
+    raise Errors.NOT_FOUND
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 93, in serve_client
+    req = self.parse_req_connection(connection)
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 142, in parse_req_connection
+    *self.parse_req_file(file), file, connection.getpeername())
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 156, in parse_req_file
+    raise Errors.NOT_FOUND
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 95, in serve_client
+    res = self.handle_req(req)
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 208, in handle_req
+    raise Errors.NOT_FOUND
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 95, in serve_client
+    res = self.handle_req(req)
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 208, in handle_req
+    raise Errors.NOT_FOUND
+Error: (404, 'Not found', '', 'PAGE_NOT_FOUND')
+INFO:root:1089B sent to ('127.0.0.1', 50360)
+INFO:root:File sent to ('127.0.0.1', 50360)
+INFO:root:1201B sent to ('127.0.0.1', 50360)
+INFO:root:File sent to ('127.0.0.1', 50360)
+INFO:root:478B sent to ('127.0.0.1', 50360)
+INFO:root:File sent to ('127.0.0.1', 50360)
+INFO:root:Disconnected ('127.0.0.1', 50360)
+INFO:root:Connected ('127.0.0.1', 50365)
+INFO:root:Threaded client serving started ('127.0.0.1', 50365)
+ERROR:root:(404, 'Not found', '', 'PAGE_NOT_FOUND')
+Traceback (most recent call last):
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 206, in handle_req
+    destination = self.ruler.get_destination(req.path, rules, True)
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/ruler.py", line 55, in get_destination
+    raise FileNotFoundError(url, rules)
+FileNotFoundError: [Errno /asd] {'/': 'tmp/index.html', '/favicon.ico': 'tmp/pictures/favicon.ico', '/index.html': 'tmp/index.html', '/2.html': 'tmp/pages/2.html', '/1.2.3.txt': 'tmp/1.2.3.txt', '/page-load-errors[extras].css': 'pages/page-load-errors[extras].css', '/[name].html': 'tmp/pages/[name].html', '/[name].css': 'tmp/pages/css/[name].css', '/[name].[ext]': 'tmp/pictures/[name].[ext]', '/png/[name].png': 'tmp/pictures/[name].png', '/pictures/[ext]/1': 'tmp/pictures/1.[ext]', '/[DD]/[MM]/[YY]': 'tmp/dates/[DD].[MM].[YY].png', '/mime/': {'path': 'tmp/pictures/1.png', 'mime': 'text/txt'}, '/big': {'path': 'tmp/pictures/chroma.jpg', 'mime': 'image/jpg'}}
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 93, in serve_client
+    req = self.parse_req_connection(connection)
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 142, in parse_req_connection
+    *self.parse_req_file(file), file, connection.getpeername())
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 156, in parse_req_file
+    raise Errors.NOT_FOUND
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 93, in serve_client
+    req = self.parse_req_connection(connection)
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 142, in parse_req_connection
+    *self.parse_req_file(file), file, connection.getpeername())
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 156, in parse_req_file
+    raise Errors.NOT_FOUND
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 93, in serve_client
+    req = self.parse_req_connection(connection)
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 142, in parse_req_connection
+    *self.parse_req_file(file), file, connection.getpeername())
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 156, in parse_req_file
+    raise Errors.NOT_FOUND
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 93, in serve_client
+    req = self.parse_req_connection(connection)
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 142, in parse_req_connection
+    *self.parse_req_file(file), file, connection.getpeername())
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 156, in parse_req_file
+    raise Errors.NOT_FOUND
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 93, in serve_client
+    req = self.parse_req_connection(connection)
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 142, in parse_req_connection
+    *self.parse_req_file(file), file, connection.getpeername())
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 156, in parse_req_file
+    raise Errors.NOT_FOUND
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 93, in serve_client
+    req = self.parse_req_connection(connection)
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 142, in parse_req_connection
+    *self.parse_req_file(file), file, connection.getpeername())
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 156, in parse_req_file
+    raise Errors.NOT_FOUND
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 93, in serve_client
+    req = self.parse_req_connection(connection)
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 142, in parse_req_connection
+    *self.parse_req_file(file), file, connection.getpeername())
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 156, in parse_req_file
+    raise Errors.NOT_FOUND
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 93, in serve_client
+    req = self.parse_req_connection(connection)
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 142, in parse_req_connection
+    *self.parse_req_file(file), file, connection.getpeername())
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 156, in parse_req_file
+    raise Errors.NOT_FOUND
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 95, in serve_client
+    res = self.handle_req(req)
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 208, in handle_req
+    raise Errors.NOT_FOUND
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 95, in serve_client
+    res = self.handle_req(req)
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 208, in handle_req
+    raise Errors.NOT_FOUND
+Error: (404, 'Not found', '', 'PAGE_NOT_FOUND')
+INFO:root:1089B sent to ('127.0.0.1', 50365)
+INFO:root:File sent to ('127.0.0.1', 50365)
+INFO:root:1201B sent to ('127.0.0.1', 50365)
+INFO:root:File sent to ('127.0.0.1', 50365)
+INFO:root:478B sent to ('127.0.0.1', 50365)
+INFO:root:File sent to ('127.0.0.1', 50365)
+INFO:root:Disconnected ('127.0.0.1', 50365)
+INFO:root:Connected ('127.0.0.1', 50369)
+ERROR:root:(404, 'Not found', '', 'PAGE_NOT_FOUND')
+Traceback (most recent call last):
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 206, in handle_req
+    destination = self.ruler.get_destination(req.path, rules, True)
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/ruler.py", line 55, in get_destination
+    raise FileNotFoundError(url, rules)
+FileNotFoundError: [Errno /asd] {'/': 'tmp/index.html', '/favicon.ico': 'tmp/pictures/favicon.ico', '/index.html': 'tmp/index.html', '/2.html': 'tmp/pages/2.html', '/1.2.3.txt': 'tmp/1.2.3.txt', '/page-load-errors[extras].css': 'pages/page-load-errors[extras].css', '/[name].html': 'tmp/pages/[name].html', '/[name].css': 'tmp/pages/css/[name].css', '/[name].[ext]': 'tmp/pictures/[name].[ext]', '/png/[name].png': 'tmp/pictures/[name].png', '/pictures/[ext]/1': 'tmp/pictures/1.[ext]', '/[DD]/[MM]/[YY]': 'tmp/dates/[DD].[MM].[YY].png', '/mime/': {'path': 'tmp/pictures/1.png', 'mime': 'text/txt'}, '/big': {'path': 'tmp/pictures/chroma.jpg', 'mime': 'image/jpg'}}
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 93, in serve_client
+    req = self.parse_req_connection(connection)
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 142, in parse_req_connection
+    *self.parse_req_file(file), file, connection.getpeername())
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 156, in parse_req_file
+    raise Errors.NOT_FOUND
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 93, in serve_client
+    req = self.parse_req_connection(connection)
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 142, in parse_req_connection
+    *self.parse_req_file(file), file, connection.getpeername())
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 156, in parse_req_file
+    raise Errors.NOT_FOUND
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 93, in serve_client
+    req = self.parse_req_connection(connection)
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 142, in parse_req_connection
+    *self.parse_req_file(file), file, connection.getpeername())
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 156, in parse_req_file
+    raise Errors.NOT_FOUND
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 93, in serve_client
+    req = self.parse_req_connection(connection)
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 142, in parse_req_connection
+    *self.parse_req_file(file), file, connection.getpeername())
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 156, in parse_req_file
+    raise Errors.NOT_FOUND
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 93, in serve_client
+    req = self.parse_req_connection(connection)
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 142, in parse_req_connection
+    *self.parse_req_file(file), file, connection.getpeername())
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 156, in parse_req_file
+    raise Errors.NOT_FOUND
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 93, in serve_client
+    req = self.parse_req_connection(connection)
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 142, in parse_req_connection
+    *self.parse_req_file(file), file, connection.getpeername())
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 156, in parse_req_file
+    raise Errors.NOT_FOUND
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 93, in serve_client
+    req = self.parse_req_connection(connection)
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 142, in parse_req_connection
+    *self.parse_req_file(file), file, connection.getpeername())
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 156, in parse_req_file
+    raise Errors.NOT_FOUND
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 93, in serve_client
+    req = self.parse_req_connection(connection)
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 142, in parse_req_connection
+    *self.parse_req_file(file), file, connection.getpeername())
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 156, in parse_req_file
+    raise Errors.NOT_FOUND
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 93, in serve_client
+    req = self.parse_req_connection(connection)
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 142, in parse_req_connection
+    *self.parse_req_file(file), file, connection.getpeername())
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 156, in parse_req_file
+    raise Errors.NOT_FOUND
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 95, in serve_client
+    res = self.handle_req(req)
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 208, in handle_req
+    raise Errors.NOT_FOUND
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 95, in serve_client
+    res = self.handle_req(req)
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 208, in handle_req
+    raise Errors.NOT_FOUND
+Error: (404, 'Not found', '', 'PAGE_NOT_FOUND')
+INFO:root:Threaded client serving started ('127.0.0.1', 50369)
+INFO:root:1089B sent to ('127.0.0.1', 50369)
+INFO:root:File sent to ('127.0.0.1', 50369)
+INFO:root:1201B sent to ('127.0.0.1', 50369)
+INFO:root:File sent to ('127.0.0.1', 50369)
+INFO:root:478B sent to ('127.0.0.1', 50369)
+INFO:root:File sent to ('127.0.0.1', 50369)
+INFO:root:Disconnected ('127.0.0.1', 50369)
+INFO:root:Connected ('127.0.0.1', 50374)
+ERROR:root:(404, 'Not found', '', 'PAGE_NOT_FOUND')
+Traceback (most recent call last):
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 206, in handle_req
+    destination = self.ruler.get_destination(req.path, rules, True)
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/ruler.py", line 55, in get_destination
+    raise FileNotFoundError(url, rules)
+FileNotFoundError: [Errno /asd] {'/': 'tmp/index.html', '/favicon.ico': 'tmp/pictures/favicon.ico', '/index.html': 'tmp/index.html', '/2.html': 'tmp/pages/2.html', '/1.2.3.txt': 'tmp/1.2.3.txt', '/page-load-errors[extras].css': 'pages/page-load-errors[extras].css', '/[name].html': 'tmp/pages/[name].html', '/[name].css': 'tmp/pages/css/[name].css', '/[name].[ext]': 'tmp/pictures/[name].[ext]', '/png/[name].png': 'tmp/pictures/[name].png', '/pictures/[ext]/1': 'tmp/pictures/1.[ext]', '/[DD]/[MM]/[YY]': 'tmp/dates/[DD].[MM].[YY].png', '/mime/': {'path': 'tmp/pictures/1.png', 'mime': 'text/txt'}, '/big': {'path': 'tmp/pictures/chroma.jpg', 'mime': 'image/jpg'}}
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 93, in serve_client
+    req = self.parse_req_connection(connection)
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 142, in parse_req_connection
+    *self.parse_req_file(file), file, connection.getpeername())
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 156, in parse_req_file
+    raise Errors.NOT_FOUND
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 93, in serve_client
+    req = self.parse_req_connection(connection)
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 142, in parse_req_connection
+    *self.parse_req_file(file), file, connection.getpeername())
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 156, in parse_req_file
+    raise Errors.NOT_FOUND
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 93, in serve_client
+    req = self.parse_req_connection(connection)
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 142, in parse_req_connection
+    *self.parse_req_file(file), file, connection.getpeername())
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 156, in parse_req_file
+    raise Errors.NOT_FOUND
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 93, in serve_client
+    req = self.parse_req_connection(connection)
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 142, in parse_req_connection
+    *self.parse_req_file(file), file, connection.getpeername())
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 156, in parse_req_file
+    raise Errors.NOT_FOUND
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 93, in serve_client
+    req = self.parse_req_connection(connection)
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 142, in parse_req_connection
+    *self.parse_req_file(file), file, connection.getpeername())
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 156, in parse_req_file
+    raise Errors.NOT_FOUND
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 93, in serve_client
+    req = self.parse_req_connection(connection)
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 142, in parse_req_connection
+    *self.parse_req_file(file), file, connection.getpeername())
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 156, in parse_req_file
+    raise Errors.NOT_FOUND
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 93, in serve_client
+    req = self.parse_req_connection(connection)
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 142, in parse_req_connection
+    *self.parse_req_file(file), file, connection.getpeername())
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 156, in parse_req_file
+    raise Errors.NOT_FOUND
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 93, in serve_client
+    req = self.parse_req_connection(connection)
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 142, in parse_req_connection
+    *self.parse_req_file(file), file, connection.getpeername())
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 156, in parse_req_file
+    raise Errors.NOT_FOUND
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 93, in serve_client
+    req = self.parse_req_connection(connection)
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 142, in parse_req_connection
+    *self.parse_req_file(file), file, connection.getpeername())
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 156, in parse_req_file
+    raise Errors.NOT_FOUND
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 93, in serve_client
+    req = self.parse_req_connection(connection)
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 142, in parse_req_connection
+    *self.parse_req_file(file), file, connection.getpeername())
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 156, in parse_req_file
+    raise Errors.NOT_FOUND
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 95, in serve_client
+    res = self.handle_req(req)
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 208, in handle_req
+    raise Errors.NOT_FOUND
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 95, in serve_client
+    res = self.handle_req(req)
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 208, in handle_req
+    raise Errors.NOT_FOUND
+Error: (404, 'Not found', '', 'PAGE_NOT_FOUND')
+INFO:root:Threaded client serving started ('127.0.0.1', 50374)
+INFO:root:1089B sent to ('127.0.0.1', 50374)
+INFO:root:File sent to ('127.0.0.1', 50374)
+INFO:root:1201B sent to ('127.0.0.1', 50374)
+INFO:root:File sent to ('127.0.0.1', 50374)
+INFO:root:478B sent to ('127.0.0.1', 50374)
+INFO:root:File sent to ('127.0.0.1', 50374)
+INFO:root:Disconnected ('127.0.0.1', 50374)
+INFO:root:Connected ('127.0.0.1', 50378)
+INFO:root:Threaded client serving started ('127.0.0.1', 50378)
+ERROR:root:(404, 'Not found', '', 'PAGE_NOT_FOUND')
+Traceback (most recent call last):
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 206, in handle_req
+    destination = self.ruler.get_destination(req.path, rules, True)
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/ruler.py", line 55, in get_destination
+    raise FileNotFoundError(url, rules)
+FileNotFoundError: [Errno /asd] {'/': 'tmp/index.html', '/favicon.ico': 'tmp/pictures/favicon.ico', '/index.html': 'tmp/index.html', '/2.html': 'tmp/pages/2.html', '/1.2.3.txt': 'tmp/1.2.3.txt', '/page-load-errors[extras].css': 'pages/page-load-errors[extras].css', '/[name].html': 'tmp/pages/[name].html', '/[name].css': 'tmp/pages/css/[name].css', '/[name].[ext]': 'tmp/pictures/[name].[ext]', '/png/[name].png': 'tmp/pictures/[name].png', '/pictures/[ext]/1': 'tmp/pictures/1.[ext]', '/[DD]/[MM]/[YY]': 'tmp/dates/[DD].[MM].[YY].png', '/mime/': {'path': 'tmp/pictures/1.png', 'mime': 'text/txt'}, '/big': {'path': 'tmp/pictures/chroma.jpg', 'mime': 'image/jpg'}}
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 93, in serve_client
+    req = self.parse_req_connection(connection)
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 142, in parse_req_connection
+    *self.parse_req_file(file), file, connection.getpeername())
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 156, in parse_req_file
+    raise Errors.NOT_FOUND
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 93, in serve_client
+    req = self.parse_req_connection(connection)
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 142, in parse_req_connection
+    *self.parse_req_file(file), file, connection.getpeername())
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 156, in parse_req_file
+    raise Errors.NOT_FOUND
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 93, in serve_client
+    req = self.parse_req_connection(connection)
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 142, in parse_req_connection
+    *self.parse_req_file(file), file, connection.getpeername())
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 156, in parse_req_file
+    raise Errors.NOT_FOUND
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 93, in serve_client
+    req = self.parse_req_connection(connection)
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 142, in parse_req_connection
+    *self.parse_req_file(file), file, connection.getpeername())
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 156, in parse_req_file
+    raise Errors.NOT_FOUND
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 93, in serve_client
+    req = self.parse_req_connection(connection)
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 142, in parse_req_connection
+    *self.parse_req_file(file), file, connection.getpeername())
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 156, in parse_req_file
+    raise Errors.NOT_FOUND
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 93, in serve_client
+    req = self.parse_req_connection(connection)
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 142, in parse_req_connection
+    *self.parse_req_file(file), file, connection.getpeername())
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 156, in parse_req_file
+    raise Errors.NOT_FOUND
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 93, in serve_client
+    req = self.parse_req_connection(connection)
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 142, in parse_req_connection
+    *self.parse_req_file(file), file, connection.getpeername())
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 156, in parse_req_file
+    raise Errors.NOT_FOUND
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 93, in serve_client
+    req = self.parse_req_connection(connection)
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 142, in parse_req_connection
+    *self.parse_req_file(file), file, connection.getpeername())
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 156, in parse_req_file
+    raise Errors.NOT_FOUND
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 93, in serve_client
+    req = self.parse_req_connection(connection)
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 142, in parse_req_connection
+    *self.parse_req_file(file), file, connection.getpeername())
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 156, in parse_req_file
+    raise Errors.NOT_FOUND
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 93, in serve_client
+    req = self.parse_req_connection(connection)
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 142, in parse_req_connection
+    *self.parse_req_file(file), file, connection.getpeername())
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 156, in parse_req_file
+    raise Errors.NOT_FOUND
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 93, in serve_client
+    req = self.parse_req_connection(connection)
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 142, in parse_req_connection
+    *self.parse_req_file(file), file, connection.getpeername())
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 156, in parse_req_file
+    raise Errors.NOT_FOUND
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 95, in serve_client
+    res = self.handle_req(req)
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 208, in handle_req
+    raise Errors.NOT_FOUND
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 95, in serve_client
+    res = self.handle_req(req)
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 208, in handle_req
+    raise Errors.NOT_FOUND
+Error: (404, 'Not found', '', 'PAGE_NOT_FOUND')
+INFO:root:1089B sent to ('127.0.0.1', 50378)
+INFO:root:File sent to ('127.0.0.1', 50378)
+INFO:root:1201B sent to ('127.0.0.1', 50378)
+INFO:root:File sent to ('127.0.0.1', 50378)
+INFO:root:478B sent to ('127.0.0.1', 50378)
+INFO:root:File sent to ('127.0.0.1', 50378)
+INFO:root:Disconnected ('127.0.0.1', 50378)
+INFO:root:Connected ('127.0.0.1', 50379)
+INFO:root:Threaded client serving started ('127.0.0.1', 50379)
+ERROR:root:(404, 'Not found', '', 'PAGE_NOT_FOUND')
+Traceback (most recent call last):
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 206, in handle_req
+    destination = self.ruler.get_destination(req.path, rules, True)
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/ruler.py", line 55, in get_destination
+    raise FileNotFoundError(url, rules)
+FileNotFoundError: [Errno /asd] {'/': 'tmp/index.html', '/favicon.ico': 'tmp/pictures/favicon.ico', '/index.html': 'tmp/index.html', '/2.html': 'tmp/pages/2.html', '/1.2.3.txt': 'tmp/1.2.3.txt', '/page-load-errors[extras].css': 'pages/page-load-errors[extras].css', '/[name].html': 'tmp/pages/[name].html', '/[name].css': 'tmp/pages/css/[name].css', '/[name].[ext]': 'tmp/pictures/[name].[ext]', '/png/[name].png': 'tmp/pictures/[name].png', '/pictures/[ext]/1': 'tmp/pictures/1.[ext]', '/[DD]/[MM]/[YY]': 'tmp/dates/[DD].[MM].[YY].png', '/mime/': {'path': 'tmp/pictures/1.png', 'mime': 'text/txt'}, '/big': {'path': 'tmp/pictures/chroma.jpg', 'mime': 'image/jpg'}}
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 93, in serve_client
+    req = self.parse_req_connection(connection)
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 142, in parse_req_connection
+    *self.parse_req_file(file), file, connection.getpeername())
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 156, in parse_req_file
+    raise Errors.NOT_FOUND
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 93, in serve_client
+    req = self.parse_req_connection(connection)
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 142, in parse_req_connection
+    *self.parse_req_file(file), file, connection.getpeername())
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 156, in parse_req_file
+    raise Errors.NOT_FOUND
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 93, in serve_client
+    req = self.parse_req_connection(connection)
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 142, in parse_req_connection
+    *self.parse_req_file(file), file, connection.getpeername())
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 156, in parse_req_file
+    raise Errors.NOT_FOUND
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 93, in serve_client
+    req = self.parse_req_connection(connection)
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 142, in parse_req_connection
+    *self.parse_req_file(file), file, connection.getpeername())
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 156, in parse_req_file
+    raise Errors.NOT_FOUND
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 93, in serve_client
+    req = self.parse_req_connection(connection)
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 142, in parse_req_connection
+    *self.parse_req_file(file), file, connection.getpeername())
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 156, in parse_req_file
+    raise Errors.NOT_FOUND
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 93, in serve_client
+    req = self.parse_req_connection(connection)
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 142, in parse_req_connection
+    *self.parse_req_file(file), file, connection.getpeername())
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 156, in parse_req_file
+    raise Errors.NOT_FOUND
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 93, in serve_client
+    req = self.parse_req_connection(connection)
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 142, in parse_req_connection
+    *self.parse_req_file(file), file, connection.getpeername())
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 156, in parse_req_file
+    raise Errors.NOT_FOUND
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 93, in serve_client
+    req = self.parse_req_connection(connection)
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 142, in parse_req_connection
+    *self.parse_req_file(file), file, connection.getpeername())
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 156, in parse_req_file
+    raise Errors.NOT_FOUND
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 93, in serve_client
+    req = self.parse_req_connection(connection)
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 142, in parse_req_connection
+    *self.parse_req_file(file), file, connection.getpeername())
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 156, in parse_req_file
+    raise Errors.NOT_FOUND
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 93, in serve_client
+    req = self.parse_req_connection(connection)
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 142, in parse_req_connection
+    *self.parse_req_file(file), file, connection.getpeername())
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 156, in parse_req_file
+    raise Errors.NOT_FOUND
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 93, in serve_client
+    req = self.parse_req_connection(connection)
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 142, in parse_req_connection
+    *self.parse_req_file(file), file, connection.getpeername())
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 156, in parse_req_file
+    raise Errors.NOT_FOUND
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 93, in serve_client
+    req = self.parse_req_connection(connection)
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 142, in parse_req_connection
+    *self.parse_req_file(file), file, connection.getpeername())
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 156, in parse_req_file
+    raise Errors.NOT_FOUND
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 95, in serve_client
+    res = self.handle_req(req)
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 208, in handle_req
+    raise Errors.NOT_FOUND
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 95, in serve_client
+    res = self.handle_req(req)
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 208, in handle_req
+    raise Errors.NOT_FOUND
+Error: (404, 'Not found', '', 'PAGE_NOT_FOUND')
+INFO:root:1089B sent to ('127.0.0.1', 50379)
+INFO:root:File sent to ('127.0.0.1', 50379)
+INFO:root:1201B sent to ('127.0.0.1', 50379)
+INFO:root:File sent to ('127.0.0.1', 50379)
+INFO:root:478B sent to ('127.0.0.1', 50379)
+INFO:root:File sent to ('127.0.0.1', 50379)
+INFO:root:Disconnected ('127.0.0.1', 50379)
+INFO:root:Connected ('127.0.0.1', 50385)
+INFO:root:Threaded client serving started ('127.0.0.1', 50385)
+ERROR:root:(404, 'Not found', '', 'PAGE_NOT_FOUND')
+Traceback (most recent call last):
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 206, in handle_req
+    destination = self.ruler.get_destination(req.path, rules, True)
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/ruler.py", line 55, in get_destination
+    raise FileNotFoundError(url, rules)
+FileNotFoundError: [Errno /asd] {'/': 'tmp/index.html', '/favicon.ico': 'tmp/pictures/favicon.ico', '/index.html': 'tmp/index.html', '/2.html': 'tmp/pages/2.html', '/1.2.3.txt': 'tmp/1.2.3.txt', '/page-load-errors[extras].css': 'pages/page-load-errors[extras].css', '/[name].html': 'tmp/pages/[name].html', '/[name].css': 'tmp/pages/css/[name].css', '/[name].[ext]': 'tmp/pictures/[name].[ext]', '/png/[name].png': 'tmp/pictures/[name].png', '/pictures/[ext]/1': 'tmp/pictures/1.[ext]', '/[DD]/[MM]/[YY]': 'tmp/dates/[DD].[MM].[YY].png', '/mime/': {'path': 'tmp/pictures/1.png', 'mime': 'text/txt'}, '/big': {'path': 'tmp/pictures/chroma.jpg', 'mime': 'image/jpg'}}
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 93, in serve_client
+    req = self.parse_req_connection(connection)
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 142, in parse_req_connection
+    *self.parse_req_file(file), file, connection.getpeername())
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 156, in parse_req_file
+    raise Errors.NOT_FOUND
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 93, in serve_client
+    req = self.parse_req_connection(connection)
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 142, in parse_req_connection
+    *self.parse_req_file(file), file, connection.getpeername())
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 156, in parse_req_file
+    raise Errors.NOT_FOUND
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 93, in serve_client
+    req = self.parse_req_connection(connection)
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 142, in parse_req_connection
+    *self.parse_req_file(file), file, connection.getpeername())
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 156, in parse_req_file
+    raise Errors.NOT_FOUND
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 93, in serve_client
+    req = self.parse_req_connection(connection)
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 142, in parse_req_connection
+    *self.parse_req_file(file), file, connection.getpeername())
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 156, in parse_req_file
+    raise Errors.NOT_FOUND
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 93, in serve_client
+    req = self.parse_req_connection(connection)
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 142, in parse_req_connection
+    *self.parse_req_file(file), file, connection.getpeername())
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 156, in parse_req_file
+    raise Errors.NOT_FOUND
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 93, in serve_client
+    req = self.parse_req_connection(connection)
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 142, in parse_req_connection
+    *self.parse_req_file(file), file, connection.getpeername())
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 156, in parse_req_file
+    raise Errors.NOT_FOUND
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 93, in serve_client
+    req = self.parse_req_connection(connection)
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 142, in parse_req_connection
+    *self.parse_req_file(file), file, connection.getpeername())
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 156, in parse_req_file
+    raise Errors.NOT_FOUND
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 93, in serve_client
+    req = self.parse_req_connection(connection)
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 142, in parse_req_connection
+    *self.parse_req_file(file), file, connection.getpeername())
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 156, in parse_req_file
+    raise Errors.NOT_FOUND
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 93, in serve_client
+    req = self.parse_req_connection(connection)
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 142, in parse_req_connection
+    *self.parse_req_file(file), file, connection.getpeername())
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 156, in parse_req_file
+    raise Errors.NOT_FOUND
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 93, in serve_client
+    req = self.parse_req_connection(connection)
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 142, in parse_req_connection
+    *self.parse_req_file(file), file, connection.getpeername())
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 156, in parse_req_file
+    raise Errors.NOT_FOUND
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 93, in serve_client
+    req = self.parse_req_connection(connection)
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 142, in parse_req_connection
+    *self.parse_req_file(file), file, connection.getpeername())
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 156, in parse_req_file
+    raise Errors.NOT_FOUND
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 93, in serve_client
+    req = self.parse_req_connection(connection)
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 142, in parse_req_connection
+    *self.parse_req_file(file), file, connection.getpeername())
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 156, in parse_req_file
+    raise Errors.NOT_FOUND
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 93, in serve_client
+    req = self.parse_req_connection(connection)
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 142, in parse_req_connection
+    *self.parse_req_file(file), file, connection.getpeername())
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 156, in parse_req_file
+    raise Errors.NOT_FOUND
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 95, in serve_client
+    res = self.handle_req(req)
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 208, in handle_req
+    raise Errors.NOT_FOUND
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 95, in serve_client
+    res = self.handle_req(req)
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 208, in handle_req
+    raise Errors.NOT_FOUND
+Error: (404, 'Not found', '', 'PAGE_NOT_FOUND')
+INFO:root:1089B sent to ('127.0.0.1', 50385)
+INFO:root:File sent to ('127.0.0.1', 50385)
+INFO:root:1201B sent to ('127.0.0.1', 50385)
+INFO:root:File sent to ('127.0.0.1', 50385)
+INFO:root:478B sent to ('127.0.0.1', 50385)
+INFO:root:File sent to ('127.0.0.1', 50385)
+INFO:root:Disconnected ('127.0.0.1', 50385)
+INFO:root:Connected ('127.0.0.1', 50394)
+INFO:root:Threaded client serving started ('127.0.0.1', 50394)
+ERROR:root:(404, 'Not found', '', 'PAGE_NOT_FOUND')
+Traceback (most recent call last):
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 206, in handle_req
+    destination = self.ruler.get_destination(req.path, rules, True)
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/ruler.py", line 55, in get_destination
+    raise FileNotFoundError(url, rules)
+FileNotFoundError: [Errno /asd] {'/': 'tmp/index.html', '/favicon.ico': 'tmp/pictures/favicon.ico', '/index.html': 'tmp/index.html', '/2.html': 'tmp/pages/2.html', '/1.2.3.txt': 'tmp/1.2.3.txt', '/page-load-errors[extras].css': 'pages/page-load-errors[extras].css', '/[name].html': 'tmp/pages/[name].html', '/[name].css': 'tmp/pages/css/[name].css', '/[name].[ext]': 'tmp/pictures/[name].[ext]', '/png/[name].png': 'tmp/pictures/[name].png', '/pictures/[ext]/1': 'tmp/pictures/1.[ext]', '/[DD]/[MM]/[YY]': 'tmp/dates/[DD].[MM].[YY].png', '/mime/': {'path': 'tmp/pictures/1.png', 'mime': 'text/txt'}, '/big': {'path': 'tmp/pictures/chroma.jpg', 'mime': 'image/jpg'}}
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 93, in serve_client
+    req = self.parse_req_connection(connection)
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 142, in parse_req_connection
+    *self.parse_req_file(file), file, connection.getpeername())
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 156, in parse_req_file
+    raise Errors.NOT_FOUND
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 93, in serve_client
+    req = self.parse_req_connection(connection)
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 142, in parse_req_connection
+    *self.parse_req_file(file), file, connection.getpeername())
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 156, in parse_req_file
+    raise Errors.NOT_FOUND
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 93, in serve_client
+    req = self.parse_req_connection(connection)
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 142, in parse_req_connection
+    *self.parse_req_file(file), file, connection.getpeername())
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 156, in parse_req_file
+    raise Errors.NOT_FOUND
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 93, in serve_client
+    req = self.parse_req_connection(connection)
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 142, in parse_req_connection
+    *self.parse_req_file(file), file, connection.getpeername())
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 156, in parse_req_file
+    raise Errors.NOT_FOUND
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 93, in serve_client
+    req = self.parse_req_connection(connection)
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 142, in parse_req_connection
+    *self.parse_req_file(file), file, connection.getpeername())
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 156, in parse_req_file
+    raise Errors.NOT_FOUND
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 93, in serve_client
+    req = self.parse_req_connection(connection)
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 142, in parse_req_connection
+    *self.parse_req_file(file), file, connection.getpeername())
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 156, in parse_req_file
+    raise Errors.NOT_FOUND
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 93, in serve_client
+    req = self.parse_req_connection(connection)
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 142, in parse_req_connection
+    *self.parse_req_file(file), file, connection.getpeername())
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 156, in parse_req_file
+    raise Errors.NOT_FOUND
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 93, in serve_client
+    req = self.parse_req_connection(connection)
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 142, in parse_req_connection
+    *self.parse_req_file(file), file, connection.getpeername())
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 156, in parse_req_file
+    raise Errors.NOT_FOUND
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 93, in serve_client
+    req = self.parse_req_connection(connection)
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 142, in parse_req_connection
+    *self.parse_req_file(file), file, connection.getpeername())
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 156, in parse_req_file
+    raise Errors.NOT_FOUND
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 93, in serve_client
+    req = self.parse_req_connection(connection)
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 142, in parse_req_connection
+    *self.parse_req_file(file), file, connection.getpeername())
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 156, in parse_req_file
+    raise Errors.NOT_FOUND
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 93, in serve_client
+    req = self.parse_req_connection(connection)
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 142, in parse_req_connection
+    *self.parse_req_file(file), file, connection.getpeername())
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 156, in parse_req_file
+    raise Errors.NOT_FOUND
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 93, in serve_client
+    req = self.parse_req_connection(connection)
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 142, in parse_req_connection
+    *self.parse_req_file(file), file, connection.getpeername())
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 156, in parse_req_file
+    raise Errors.NOT_FOUND
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 93, in serve_client
+    req = self.parse_req_connection(connection)
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 142, in parse_req_connection
+    *self.parse_req_file(file), file, connection.getpeername())
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 156, in parse_req_file
+    raise Errors.NOT_FOUND
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 93, in serve_client
+    req = self.parse_req_connection(connection)
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 142, in parse_req_connection
+    *self.parse_req_file(file), file, connection.getpeername())
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 156, in parse_req_file
+    raise Errors.NOT_FOUND
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 95, in serve_client
+    res = self.handle_req(req)
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 208, in handle_req
+    raise Errors.NOT_FOUND
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 95, in serve_client
+    res = self.handle_req(req)
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 208, in handle_req
+    raise Errors.NOT_FOUND
+Error: (404, 'Not found', '', 'PAGE_NOT_FOUND')
+INFO:root:1089B sent to ('127.0.0.1', 50394)
+INFO:root:File sent to ('127.0.0.1', 50394)
+INFO:root:1201B sent to ('127.0.0.1', 50394)
+INFO:root:File sent to ('127.0.0.1', 50394)
+INFO:root:478B sent to ('127.0.0.1', 50394)
+INFO:root:File sent to ('127.0.0.1', 50394)
+INFO:root:Disconnected ('127.0.0.1', 50394)
+INFO:root:Connected ('127.0.0.1', 50399)
+ERROR:root:(404, 'Not found', '', 'PAGE_NOT_FOUND')
+Traceback (most recent call last):
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 206, in handle_req
+    destination = self.ruler.get_destination(req.path, rules, True)
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/ruler.py", line 55, in get_destination
+    raise FileNotFoundError(url, rules)
+FileNotFoundError: [Errno /asd] {'/': 'tmp/index.html', '/favicon.ico': 'tmp/pictures/favicon.ico', '/index.html': 'tmp/index.html', '/2.html': 'tmp/pages/2.html', '/1.2.3.txt': 'tmp/1.2.3.txt', '/page-load-errors[extras].css': 'pages/page-load-errors[extras].css', '/[name].html': 'tmp/pages/[name].html', '/[name].css': 'tmp/pages/css/[name].css', '/[name].[ext]': 'tmp/pictures/[name].[ext]', '/png/[name].png': 'tmp/pictures/[name].png', '/pictures/[ext]/1': 'tmp/pictures/1.[ext]', '/[DD]/[MM]/[YY]': 'tmp/dates/[DD].[MM].[YY].png', '/mime/': {'path': 'tmp/pictures/1.png', 'mime': 'text/txt'}, '/big': {'path': 'tmp/pictures/chroma.jpg', 'mime': 'image/jpg'}}
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 93, in serve_client
+    req = self.parse_req_connection(connection)
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 142, in parse_req_connection
+    *self.parse_req_file(file), file, connection.getpeername())
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 156, in parse_req_file
+    raise Errors.NOT_FOUND
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 93, in serve_client
+    req = self.parse_req_connection(connection)
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 142, in parse_req_connection
+    *self.parse_req_file(file), file, connection.getpeername())
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 156, in parse_req_file
+    raise Errors.NOT_FOUND
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 93, in serve_client
+    req = self.parse_req_connection(connection)
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 142, in parse_req_connection
+    *self.parse_req_file(file), file, connection.getpeername())
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 156, in parse_req_file
+    raise Errors.NOT_FOUND
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 93, in serve_client
+    req = self.parse_req_connection(connection)
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 142, in parse_req_connection
+    *self.parse_req_file(file), file, connection.getpeername())
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 156, in parse_req_file
+    raise Errors.NOT_FOUND
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 93, in serve_client
+    req = self.parse_req_connection(connection)
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 142, in parse_req_connection
+    *self.parse_req_file(file), file, connection.getpeername())
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 156, in parse_req_file
+    raise Errors.NOT_FOUND
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 93, in serve_client
+    req = self.parse_req_connection(connection)
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 142, in parse_req_connection
+    *self.parse_req_file(file), file, connection.getpeername())
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 156, in parse_req_file
+    raise Errors.NOT_FOUND
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 93, in serve_client
+    req = self.parse_req_connection(connection)
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 142, in parse_req_connection
+    *self.parse_req_file(file), file, connection.getpeername())
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 156, in parse_req_file
+    raise Errors.NOT_FOUND
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 93, in serve_client
+    req = self.parse_req_connection(connection)
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 142, in parse_req_connection
+    *self.parse_req_file(file), file, connection.getpeername())
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 156, in parse_req_file
+    raise Errors.NOT_FOUND
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 93, in serve_client
+    req = self.parse_req_connection(connection)
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 142, in parse_req_connection
+    *self.parse_req_file(file), file, connection.getpeername())
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 156, in parse_req_file
+    raise Errors.NOT_FOUND
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 93, in serve_client
+    req = self.parse_req_connection(connection)
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 142, in parse_req_connection
+    *self.parse_req_file(file), file, connection.getpeername())
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 156, in parse_req_file
+    raise Errors.NOT_FOUND
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 93, in serve_client
+    req = self.parse_req_connection(connection)
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 142, in parse_req_connection
+    *self.parse_req_file(file), file, connection.getpeername())
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 156, in parse_req_file
+    raise Errors.NOT_FOUND
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 93, in serve_client
+    req = self.parse_req_connection(connection)
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 142, in parse_req_connection
+    *self.parse_req_file(file), file, connection.getpeername())
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 156, in parse_req_file
+    raise Errors.NOT_FOUND
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 93, in serve_client
+    req = self.parse_req_connection(connection)
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 142, in parse_req_connection
+    *self.parse_req_file(file), file, connection.getpeername())
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 156, in parse_req_file
+    raise Errors.NOT_FOUND
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 93, in serve_client
+    req = self.parse_req_connection(connection)
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 142, in parse_req_connection
+    *self.parse_req_file(file), file, connection.getpeername())
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 156, in parse_req_file
+    raise Errors.NOT_FOUND
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 93, in serve_client
+    req = self.parse_req_connection(connection)
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 142, in parse_req_connection
+    *self.parse_req_file(file), file, connection.getpeername())
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 156, in parse_req_file
+    raise Errors.NOT_FOUND
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 95, in serve_client
+    res = self.handle_req(req)
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 208, in handle_req
+    raise Errors.NOT_FOUND
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 95, in serve_client
+    res = self.handle_req(req)
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 208, in handle_req
+    raise Errors.NOT_FOUND
+Error: (404, 'Not found', '', 'PAGE_NOT_FOUND')
+INFO:root:Threaded client serving started ('127.0.0.1', 50399)
+INFO:root:1089B sent to ('127.0.0.1', 50399)
+INFO:root:File sent to ('127.0.0.1', 50399)
+INFO:root:1201B sent to ('127.0.0.1', 50399)
+INFO:root:File sent to ('127.0.0.1', 50399)
+INFO:root:478B sent to ('127.0.0.1', 50399)
+INFO:root:File sent to ('127.0.0.1', 50399)
+INFO:root:Disconnected ('127.0.0.1', 50399)
+ERROR:root:
+Traceback (most recent call last):
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 328, in <module>
+    s.serve()
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 72, in serve
+    poll = self.poller.select(self.refresh_rate)
+  File "/usr/local/Cellar/python/3.7.4_1/Frameworks/Python.framework/Versions/3.7/lib/python3.7/selectors.py", line 558, in select
+    kev_list = self._selector.control(None, max_ev, timeout)
+KeyboardInterrupt
+INFO:root:server is DOWN

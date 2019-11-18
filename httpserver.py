@@ -291,7 +291,7 @@ class Response:
     def __str__(self):
         lim = 500
         return '\n'.join(
-            f'{k}: {str(v) if len(str(v)) < lim else str(v)[:lim]}'
+            f'{k}: {str(v) if not lim else str(v)[:lim]}'
             for k, v in self.__dict__.items())
 
 

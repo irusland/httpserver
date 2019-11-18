@@ -7,3 +7,4 @@
 /httpserver.py,cover
 /ruler.py,cover
 /venv/
+*.xml
