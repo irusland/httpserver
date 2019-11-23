@@ -214,12 +214,12 @@
     </configuration>
     <list>
       <item itemvalue="Python.SELEX" />
+      <item itemvalue="Python._CHAT" />
       <item itemvalue="Python.httpserver" />
       <item itemvalue="Python.ruler" />
-      <item itemvalue="Python._CHAT" />
-      <item itemvalue="Python tests.Unittests in tests" />
       <item itemvalue="Python tests.Unittests for test_ruler.MyTestCase.test_file_with_mime" />
       <item itemvalue="Python tests.Unittests for test_server.MyTestCase.test_serving" />
+      <item itemvalue="Python tests.Unittests in tests" />
     </list>
     <recent_temporary>
       <list>
