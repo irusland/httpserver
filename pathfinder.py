@@ -6,7 +6,7 @@ from defenitions import CONFIG_PATH, ROOT_DIR, LOGGER_PATH
 import logging
 
 
-class Ruler:
+class PathFinder:
     URL_TO_RULE = {}
 
     def __init__(self):

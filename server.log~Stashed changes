@@ -1,0 +1,400 @@
+INFO:root:server is UP on 0.0.0.0:8000
+INFO:root:Connected ('127.0.0.1', 53566)
+INFO:root:Threaded client serving started ('127.0.0.1', 53566)
+INFO:root:Got request from ('127.0.0.1', 53566) method: GET
+target: /1.png
+version: HTTP/1.1
+headers: Host: 0.0.0.0:8000
+Upgrade-Insecure-Requests: 1
+Accept: text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8
+User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_1) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/13.0.3 Safari/605.1.15
+Accept-Language: en-us
+Accept-Encoding: gzip, deflate
+Connection: keep-alive
+
+
+file: <_io.BufferedReader name=-1>
+user: ('127.0.0.1', 53566)
+url: ParseResult(scheme='', netloc='', path='/1.png', params='', query='', fragment='')
+path: /1.png
+query: {}
+INFO:root:processing /1.png
+INFO:root:path found tmp/pictures/1.png
+INFO:root:/Users/irusland/Desktop/UrFU/python/httpserver/tmp/pictures/1.png type image/png
+INFO:root:Response status: 200
+reason: OK
+headers: [('Content-Type', 'image/png'), ('Content-Disposition', 'inline; filename=1.png'), ('Content-Length', 383589)]
+body: b'\x89PNG\r\n\x1a\n\x00\x00\x00\rIHDR\x00\x00\x03 \x00\x00\x02X\x08\x06\x00\x00\x00\x9av\x82p\x00\x05\xda,IDATx^\xec\xbd\x07tSW\xbe\xef\xaf;\x93\xc0\xa4S\xd2HH2\x10B\x12\x08\xd5\xc6\xbd\xf7*\x17\xb9H\xb6d\x15\xcb\x92e\xd9r\xb7\xc1\x06L\xef\xa1\x97\x982@B1\xee\x15SC/\xee\xb6z\xb3\x8a\x8bd\xf5f\xd9\xa6\x85\xb7\x8f\x81\xdc\xcc\xdc\xf9\xaf\xbc\xfb\xbf\xef\xbd;wf\x7fX\xdf\xb5\x8f$\x97s$`\x9d\xcf\xfa\xed\xdf\xde(\x14\x04\x02\x81@ \x10\x08\x04\x02\x81@ \x10\x08\x04\x02\x81@ \x10\x08\x04\x02\x81@ \x10\x
+INFO:root:383702B sent to ('127.0.0.1', 53566)
+INFO:root:File sent to ('127.0.0.1', 53566)
+INFO:root:Connected ('127.0.0.1', 53567)
+INFO:root:Threaded client serving started ('127.0.0.1', 53567)
+INFO:root:Got request from ('127.0.0.1', 53567) method: GET
+target: /1.png
+version: HTTP/1.1
+headers: Host: 0.0.0.0:8000
+Upgrade-Insecure-Requests: 1
+Accept: text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8
+User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_1) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/13.0.3 Safari/605.1.15
+Accept-Language: en-us
+Accept-Encoding: gzip, deflate
+Connection: keep-alive
+
+
+file: <_io.BufferedReader name=-1>
+user: ('127.0.0.1', 53567)
+url: ParseResult(scheme='', netloc='', path='/1.png', params='', query='', fragment='')
+path: /1.png
+query: {}
+INFO:root:processing /1.png
+INFO:root:path found tmp/pictures/1.png
+INFO:root:/Users/irusland/Desktop/UrFU/python/httpserver/tmp/pictures/1.png type image/png
+INFO:root:Response status: 200
+reason: OK
+headers: [('Content-Type', 'image/png'), ('Content-Disposition', 'inline; filename=1.png'), ('Content-Length', 383589)]
+body: b'\x89PNG\r\n\x1a\n\x00\x00\x00\rIHDR\x00\x00\x03 \x00\x00\x02X\x08\x06\x00\x00\x00\x9av\x82p\x00\x05\xda,IDATx^\xec\xbd\x07tSW\xbe\xef\xaf;\x93\xc0\xa4S\xd2HH2\x10B\x12\x08\xd5\xc6\xbd\xf7*\x17\xb9H\xb6d\x15\xcb\x92e\xd9r\xb7\xc1\x06L\xef\xa1\x97\x982@B1\xee\x15SC/\xee\xb6z\xb3\x8a\x8bd\xf5f\xd9\xa6\x85\xb7\x8f\x81\xdc\xcc\xdc\xf9\xaf\xbc\xfb\xbf\xef\xbd;wf\x7fX\xdf\xb5\x8f$\x97s$`\x9d\xcf\xfa\xed\xdf\xde(\x14\x04\x02\x81@ \x10\x08\x04\x02\x81@ \x10\x08\x04\x02\x81@ \x10\x08\x04\x02\x81@ \x10\x
+INFO:root:261676B sent to ('127.0.0.1', 53567)
+INFO:root:122026B sent to ('127.0.0.1', 53567)
+INFO:root:File sent to ('127.0.0.1', 53567)
+INFO:root:Threaded client serving started ('127.0.0.1', 53566)
+INFO:root:Got request from ('127.0.0.1', 53566) method: GET
+target: /page-load-errors.css
+version: HTTP/1.1
+headers: Host: 0.0.0.0:8000
+Connection: keep-alive
+Accept: text/css,*/*;q=0.1
+User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_1) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/13.0.3 Safari/605.1.15
+Accept-Language: en-us
+Referer: http://0.0.0.0:8000/1
+Accept-Encoding: gzip, deflate
+
+
+file: <_io.BufferedReader name=-1>
+user: ('127.0.0.1', 53566)
+url: ParseResult(scheme='', netloc='', path='/page-load-errors.css', params='', query='', fragment='')
+path: /page-load-errors.css
+query: {}
+INFO:root:Threaded client serving started ('127.0.0.1', 53567)
+INFO:root:Got request from ('127.0.0.1', 53567) method: GET
+target: /1
+version: HTTP/1.1
+headers: Host: 0.0.0.0:8000
+Upgrade-Insecure-Requests: 1
+Accept: text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8
+User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_1) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/13.0.3 Safari/605.1.15
+Accept-Language: en-us
+Accept-Encoding: gzip, deflate
+Connection: keep-alive
+
+
+file: <_io.BufferedReader name=-1>
+user: ('127.0.0.1', 53567)
+url: ParseResult(scheme='', netloc='', path='/1', params='', query='', fragment='')
+path: /1
+query: {}
+INFO:root:Connected ('127.0.0.1', 53568)
+INFO:root:processing /page-load-errors.css
+INFO:root:path found pages/page-load-errors.css
+INFO:root:processing /1
+ERROR:root:Response sending failed (404, 'Not found', '', 'PAGE_NOT_FOUND')
+Traceback (most recent call last):
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 224, in handle_req
+    destination = self.ruler.get_destination(req.path, rules, True)
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/pathfinder.py", line 55, in get_destination
+    raise FileNotFoundError(url, rules)
+FileNotFoundError: [Errno /1] {'/': 'tmp/index.html', '/favicon.ico': 'tmp/pictures/favicon.ico', '/index.html': 'tmp/index.html', '/2.html': 'tmp/pages/2.html', '/1.2.3.txt': 'tmp/1.2.3.txt', '/page-load-errors[extras].css': 'pages/page-load-errors[extras].css', '/[name].html': 'tmp/pages/[name].html', '/[name].css': 'tmp/pages/css/[name].css', '/[name].[ext]': 'tmp/pictures/[name].[ext]', '/png/[name].png': 'tmp/pictures/[name].png', '/pictures/[ext]/1': 'tmp/pictures/1.[ext]', '/[DD]/[MM]/[YY]': 'tmp/dates/[DD].[MM].[YY].png', '/mime/': {'path': 'tmp/pictures/1.png', 'mime': 'text/txt'}, '/big': {'path': 'tmp/pictures/chroma.jpg', 'mime': 'image/jpg'}}
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 108, in serve_client
+    res = self.handle_req(req)
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 226, in handle_req
+    raise Errors.NOT_FOUND
+Error: (404, 'Not found', '', 'PAGE_NOT_FOUND')
+INFO:root:Got request from ('127.0.0.1', 53568) method: GET
+target: /page-load-errors-extras.css
+version: HTTP/1.1
+headers: Host: 0.0.0.0:8000
+Connection: keep-alive
+Accept: text/css,*/*;q=0.1
+User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_1) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/13.0.3 Safari/605.1.15
+Accept-Language: en-us
+Referer: http://0.0.0.0:8000/1
+Accept-Encoding: gzip, deflate
+
+
+file: <_io.BufferedReader name=-1>
+user: ('127.0.0.1', 53568)
+url: ParseResult(scheme='', netloc='', path='/page-load-errors-extras.css', params='', query='', fragment='')
+path: /page-load-errors-extras.css
+query: {}
+INFO:root:Threaded client serving started ('127.0.0.1', 53568)
+INFO:root:processing /page-load-errors-extras.css
+INFO:root:path found pages/page-load-errors-extras.css
+INFO:root:1089B sent to ('127.0.0.1', 53567)
+INFO:root:File sent to ('127.0.0.1', 53567)
+INFO:root:1201B sent to ('127.0.0.1', 53567)
+INFO:root:File sent to ('127.0.0.1', 53567)
+INFO:root:478B sent to ('127.0.0.1', 53567)
+INFO:root:File sent to ('127.0.0.1', 53567)
+INFO:root:/Users/irusland/Desktop/UrFU/python/httpserver/pages/page-load-errors.css type text/x-asm
+INFO:root:/Users/irusland/Desktop/UrFU/python/httpserver/pages/page-load-errors-extras.css type text/plain
+INFO:root:Response status: 200
+reason: OK
+headers: [('Content-Type', 'text/x-asm'), ('Content-Disposition', 'inline; filename=page-load-errors.css'), ('Content-Length', 1129)]
+body: b'/*\n    This file has a UTF-8 BOM in it so it can be included from a UTF-16 page\n    without specifying an explicit character set. When editing it, please be\n    sure to preserve the BOM (first three bytes of the file, EF BB BF).\n */\n\nbody {\n    background: rgb(246, 246, 246);\n    cursor: default;\n    display: -webkit-box;\n    text-align: center;\n    -webkit-box-align: center;\n    -webkit-box-pack: center;\n    -webkit-user-select: none;\n}\n\na {\n    color: rgb(21, 126, 251);\n   
+INFO:root:Response status: 200
+reason: OK
+headers: [('Content-Type', 'text/plain'), ('Content-Disposition', 'inline; filename=page-load-errors-extras.css'), ('Content-Length', 407)]
+body: b'/*\n    This file has a UTF-8 BOM in it so it can be included from a UTF-16 page\n    without specifying an explicit character set. When editing it, please be\n    sure to preserve the BOM (first three bytes of the file, EF BB BF).\n*/\n\n@media (prefers-dark-interface) {\n    body {\n        background: rgb(30, 30, 30);\n    }\n\n    .error-message, .suggestion-prompt {\n        color: rgb(110, 110, 110);\n    }\n}\n\n'
+INFO:root:1256B sent to ('127.0.0.1', 53566)
+INFO:root:540B sent to ('127.0.0.1', 53568)
+INFO:root:File sent to ('127.0.0.1', 53566)
+INFO:root:File sent to ('127.0.0.1', 53568)
+INFO:root:Got request from ('127.0.0.1', 53567) method: GET
+target: /
+version: HTTP/1.1
+headers: Host: 0.0.0.0:8000
+Upgrade-Insecure-Requests: 1
+Accept: text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8
+User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_1) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/13.0.3 Safari/605.1.15
+Accept-Language: en-us
+Accept-Encoding: gzip, deflate
+Connection: keep-alive
+
+
+file: <_io.BufferedReader name=-1>
+user: ('127.0.0.1', 53567)
+url: ParseResult(scheme='', netloc='', path='/', params='', query='', fragment='')
+path: /
+query: {}
+INFO:root:Threaded client serving started ('127.0.0.1', 53567)
+ERROR:root:Could not parse request not enough values to unpack (expected 3, got 1)
+ERROR:root:Parsing failed (400, 'Bad request', 'Malformed request line')
+Traceback (most recent call last):
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 183, in parse_request_line
+    method, target, ver = req_line.split()
+ValueError: not enough values to unpack (expected 3, got 1)
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 150, in parse_req_connection
+    req = self.parse_req_file(file)
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 164, in parse_req_file
+    method, target, ver = self.parse_request_line(file)
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 186, in parse_request_line
+    raise Errors.MALFORMED_REQ
+Error: (400, 'Bad request', 'Malformed request line')
+INFO:root:Threaded client serving started ('127.0.0.1', 53567)
+ERROR:root:Request parsing failed (400, 'Bad request', 'Malformed request line')
+Traceback (most recent call last):
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 183, in parse_request_line
+    method, target, ver = req_line.split()
+ValueError: not enough values to unpack (expected 3, got 1)
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 101, in serve_client
+    req = self.parse_req_connection(connection)
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 155, in parse_req_connection
+    raise e
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 150, in parse_req_connection
+    req = self.parse_req_file(file)
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 164, in parse_req_file
+    method, target, ver = self.parse_request_line(file)
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 186, in parse_request_line
+    raise Errors.MALFORMED_REQ
+Error: (400, 'Bad request', 'Malformed request line')
+INFO:root:processing /
+INFO:root:Threaded client serving started ('127.0.0.1', 53567)
+ERROR:root:Could not parse request not enough values to unpack (expected 3, got 1)
+INFO:root:107B sent to ('127.0.0.1', 53567)
+INFO:root:path found tmp/index.html
+ERROR:root:Parsing failed (400, 'Bad request', 'Malformed request line')
+Traceback (most recent call last):
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 183, in parse_request_line
+    method, target, ver = req_line.split()
+ValueError: not enough values to unpack (expected 3, got 1)
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 150, in parse_req_connection
+    req = self.parse_req_file(file)
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 164, in parse_req_file
+    method, target, ver = self.parse_request_line(file)
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 186, in parse_request_line
+    raise Errors.MALFORMED_REQ
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 101, in serve_client
+    req = self.parse_req_connection(connection)
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 155, in parse_req_connection
+    raise e
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 150, in parse_req_connection
+    req = self.parse_req_file(file)
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 164, in parse_req_file
+    method, target, ver = self.parse_request_line(file)
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 186, in parse_request_line
+    raise Errors.MALFORMED_REQ
+Error: (400, 'Bad request', 'Malformed request line')
+ERROR:root:Parsing failed [Errno 54] Connection reset by peer
+Traceback (most recent call last):
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 150, in parse_req_connection
+    req = self.parse_req_file(file)
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 164, in parse_req_file
+    method, target, ver = self.parse_request_line(file)
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 177, in parse_request_line
+    raw = file.readline(self.MAX_LINE + 1)
+  File "/usr/local/Cellar/python/3.7.4_1/Frameworks/Python.framework/Versions/3.7/lib/python3.7/socket.py", line 589, in readinto
+    return self._sock.recv_into(b)
+ConnectionResetError: [Errno 54] Connection reset by peer
+ERROR:root:server is DOWN because of exception <class 'OSError'> [Errno 22] Invalid argument <traceback object at 0x103a3baa0>
+Traceback (most recent call last):
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 345, in <module>
+    s.serve()
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 76, in serve
+    callback(key.fileobj, mask)
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 91, in _read
+    logging.info(f'Threaded client serving started {sock.getpeername()}')
+OSError: [Errno 22] Invalid argument
+ERROR:root:Request parsing failed (400, 'Bad request', 'Malformed request line')
+Traceback (most recent call last):
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 183, in parse_request_line
+    method, target, ver = req_line.split()
+ValueError: not enough values to unpack (expected 3, got 1)
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 101, in serve_client
+    req = self.parse_req_connection(connection)
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 155, in parse_req_connection
+    raise e
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 150, in parse_req_connection
+    req = self.parse_req_file(file)
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 164, in parse_req_file
+    method, target, ver = self.parse_request_line(file)
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 186, in parse_request_line
+    raise Errors.MALFORMED_REQ
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 101, in serve_client
+    req = self.parse_req_connection(connection)
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 155, in parse_req_connection
+    raise e
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 150, in parse_req_connection
+    req = self.parse_req_file(file)
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 164, in parse_req_file
+    method, target, ver = self.parse_request_line(file)
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 186, in parse_request_line
+    raise Errors.MALFORMED_REQ
+Error: (400, 'Bad request', 'Malformed request line')
+ERROR:root:Request parsing failed [Errno 54] Connection reset by peer
+Traceback (most recent call last):
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 101, in serve_client
+    req = self.parse_req_connection(connection)
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 155, in parse_req_connection
+    raise e
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 150, in parse_req_connection
+    req = self.parse_req_file(file)
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 164, in parse_req_file
+    method, target, ver = self.parse_request_line(file)
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 177, in parse_request_line
+    raw = file.readline(self.MAX_LINE + 1)
+  File "/usr/local/Cellar/python/3.7.4_1/Frameworks/Python.framework/Versions/3.7/lib/python3.7/socket.py", line 589, in readinto
+    return self._sock.recv_into(b)
+ConnectionResetError: [Errno 54] Connection reset by peer
+ERROR:root:client stopped receiving [Errno 32] Broken pipe
+Traceback (most recent call last):
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 183, in parse_request_line
+    method, target, ver = req_line.split()
+ValueError: not enough values to unpack (expected 3, got 1)
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 101, in serve_client
+    req = self.parse_req_connection(connection)
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 155, in parse_req_connection
+    raise e
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 150, in parse_req_connection
+    req = self.parse_req_file(file)
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 164, in parse_req_file
+    method, target, ver = self.parse_request_line(file)
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 186, in parse_request_line
+    raise Errors.MALFORMED_REQ
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 101, in serve_client
+    req = self.parse_req_connection(connection)
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 155, in parse_req_connection
+    raise e
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 150, in parse_req_connection
+    req = self.parse_req_file(file)
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 164, in parse_req_file
+    method, target, ver = self.parse_request_line(file)
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 186, in parse_request_line
+    raise Errors.MALFORMED_REQ
+Error: (400, 'Bad request', 'Malformed request line')
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 259, in send_response
+    bytes_sent = client.send(contents)
+BrokenPipeError: [Errno 32] Broken pipe
+ERROR:root:client stopped receiving [Errno 32] Broken pipe
+Traceback (most recent call last):
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 101, in serve_client
+    req = self.parse_req_connection(connection)
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 155, in parse_req_connection
+    raise e
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 150, in parse_req_connection
+    req = self.parse_req_file(file)
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 164, in parse_req_file
+    method, target, ver = self.parse_request_line(file)
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 177, in parse_request_line
+    raw = file.readline(self.MAX_LINE + 1)
+  File "/usr/local/Cellar/python/3.7.4_1/Frameworks/Python.framework/Versions/3.7/lib/python3.7/socket.py", line 589, in readinto
+    return self._sock.recv_into(b)
+ConnectionResetError: [Errno 54] Connection reset by peer
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 259, in send_response
+    bytes_sent = client.send(contents)
+BrokenPipeError: [Errno 32] Broken pipe
+INFO:root:/Users/irusland/Desktop/UrFU/python/httpserver/tmp/index.html type text/html
+INFO:root:Response status: 200
+reason: OK
+headers: [('Content-Type', 'text/html'), ('Content-Disposition', 'inline; filename=index.html'), ('Content-Length', 156)]
+body: b'<!DOCTYPE html>\n<html lang="en">\n<head>\n    <meta charset="UTF-8">\n    <title>index.html</title>\n</head>\n<body>\n    <h1>Python Rule it!</h1>\n</body>\n</html>'
+ERROR:root:client stopped receiving [Errno 32] Broken pipe
+Traceback (most recent call last):
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 259, in send_response
+    bytes_sent = client.send(contents)
+BrokenPipeError: [Errno 32] Broken pipe
+ERROR:root:Response sending failed [Errno 32] Broken pipe
+Traceback (most recent call last):
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 110, in serve_client
+    self.send_response(connection, res)
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 271, in send_response
+    raise e
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 259, in send_response
+    bytes_sent = client.send(contents)
+BrokenPipeError: [Errno 32] Broken pipe
+ERROR:root:client stopped receiving [Errno 32] Broken pipe
+Traceback (most recent call last):
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 110, in serve_client
+    self.send_response(connection, res)
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 271, in send_response
+    raise e
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 259, in send_response
+    bytes_sent = client.send(contents)
+BrokenPipeError: [Errno 32] Broken pipe
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 259, in send_response
+    bytes_sent = client.send(contents)
+BrokenPipeError: [Errno 32] Broken pipe

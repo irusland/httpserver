@@ -2,12 +2,12 @@ import os
 import unittest
 
 from defenitions import ROOT_DIR
-from ruler import Ruler
+from pathfinder import PathFinder
 
 
 class MyTestCase(unittest.TestCase):
     def setUp(self):
-        self.ruler = Ruler()
+        self.ruler = PathFinder()
         self.rules = self.ruler.get_rules()
 
     def assertDestinationsEqual(self, url, path, rules=None):

@@ -11,7 +11,7 @@ from email.parser import Parser
 from urllib.parse import parse_qs, urlparse
 
 from defenitions import CONFIG_PATH, LOGGER_PATH
-from ruler import Ruler
+from pathfinder import PathFinder
 
 import magic
 import logging
@@ -29,7 +29,7 @@ class Server:
         self._server_name = server_name
         self._list = {}
         self._debug = debug
-        self.ruler = Ruler()
+        self.ruler = PathFinder()
         self._running = True
         self.refresh_rate = refresh_rate
 
@@ -50,11 +50,12 @@ class Server:
         return self
 
     def __exit__(self, exc_type, exc_val, exc_tb):
-        # TODO Exception handling from serve_client
-        # TODO Ask about zombie lasting threads
-        logging.exception(exc_val)
+        if exc_val:
+            logging.exception(f'server is DOWN because of exception '
+                              f'{exc_type} {exc_val} {exc_tb}')
+        else:
+            logging.info('server is DOWN with no exceptions')
         self._running = False
-        logging.info('server is DOWN')
         self.poller.close()
         self.server.close()
         return False
@@ -80,6 +81,7 @@ class Server:
         logging.info(f'Connected {addr}')
 
         client.setblocking(False)
+        client.setsockopt(socket.SOL_SOCKET, socket.SO_KEEPALIVE, 1)
         self.poller.register(client, selectors.EVENT_READ, self._read)
 
     def _read(self, sock, mask):
@@ -88,21 +90,27 @@ class Server:
         t.start()
         logging.info(f'Threaded client serving started {sock.getpeername()}')
 
-    def serve_client(self, connection):
-        try:
-            req = self.parse_req_connection(connection)
-            logging.info(f'Got request from {req.user} {req}')
-            res = self.handle_req(req)
-            logging.info(f'Response {res}')
-            self.send_response(connection, res)
-        except Exception as e:
-            logging.exception(e)
-            self.send_error(connection, e)
-
+    def _close(self, connection):
         logging.info(f'Disconnected {connection.getpeername()}')
         self.poller.unregister(connection)
         del self.conns[connection.fileno()]
         connection.close()
+
+    def serve_client(self, connection):
+        try:
+            req = self.parse_req_connection(connection)
+            logging.info(f'Got request from {req.user} {req}')
+        except Exception as e:
+            logging.exception(f'Request parsing failed {e}')
+            self.send_error(connection, e)
+        else:
+            try:
+                res = self.handle_req(req)
+                logging.info(f'Response {res}')
+                self.send_response(connection, res)
+            except Exception as e:
+                logging.exception(f'Response sending failed {e}')
+                self.send_error(connection, e)
 
     def send_error(self, connection, err):
         try:
@@ -138,14 +146,24 @@ class Server:
 
     def parse_req_connection(self, connection):
         with connection.makefile('rb') as file:
-            return self.parsed_req_to_request(
-                *self.parse_req_file(file), file, connection.getpeername())
+            try:
+                logging.info(f'parsing request by connection started')
+                req = self.parse_req_file(file)
+                request = self.parsed_req_to_request(
+                    *req, file, connection.getpeername())
+            except Exception as e:
+                logging.exception(f'Parsing failed {e}')
+                raise e
+            else:
+                logging.info(f'Request parsed')
+                return request
 
     def parsed_req_to_request(self, method, target,
                               ver, headers, file, peername=None):
         return Request(method, target, ver, headers, file, peername)
 
     def parse_req_file(self, file):
+        logging.info(f'Parsing request by file started')
         method, target, ver = self.parse_request_line(file)
         headers = self.parse_headers_from_file(file)
         host = headers.get('Host')
@@ -153,7 +171,9 @@ class Server:
             raise Errors.HEADER_MISSING
         if host not in (self._server_name,
                         f'{self._server_name}:{self._port}'):
-            raise Errors.NOT_FOUND
+            #todo work with subhosts if needed
+            # raise Errors.NOT_FOUND
+            pass
         return method, target, ver, headers
 
     def parse_request_line(self, file):
@@ -165,6 +185,7 @@ class Server:
         try:
             method, target, ver = req_line.split()
         except ValueError as e:
+            logging.error(f'Could not parse request {e}')
             raise Errors.MALFORMED_REQ
 
         if ver != 'HTTP/1.1':
@@ -228,7 +249,7 @@ class Server:
                    ('Content-Length', len(body))]
         return Response(200, 'OK', headers, body)
 
-    def send_response(self, connection, *res):
+    def send_response(self, client, *res):
         for response in res:
             contents = b''.join((
                 self.status_to_str(response).encode('utf-8'),
@@ -236,14 +257,13 @@ class Server:
                 b'\r\n',
                 response.body
             ))
-            peer = connection.getpeername()
             while contents:
                 try:
-                    bytes_sent = connection.send(contents)
+                    bytes_sent = client.send(contents)
                     contents = contents[bytes_sent:]
-                    logging.info(f'{bytes_sent}B sent to {peer}')
+                    logging.info(f'{bytes_sent}B sent to '
+                                 f'{client.getpeername()}')
                 except socket.error as e:
-                    # TODO ask about fixing this
                     if str(e) == "[Errno 35] Resource temporarily unavailable":
                         logging.error('[Errno 35] Resource temporarily '
                                       'unavailable Sleeping 0.1s')
@@ -254,7 +274,7 @@ class Server:
                         raise e
                     else:
                         raise e
-            logging.info(f'File sent to {connection.getpeername()}')
+            logging.info(f'File sent to {client.getpeername()}')
 
     @staticmethod
     def headers_to_str(res):
