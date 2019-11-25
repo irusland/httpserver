@@ -74,9 +74,9 @@ class PathFinder:
 
 if __name__ == '__main__':
     pass
-    # ruler = Ruler()
+    # ruler = PathFinder()
     # r = ruler.get_rules()
-    # url = '/page-load-errors.css'
+    # url = '/new page.html'
     # d = ruler.get_destination(url, r)
     # t = ruler.get_type(url, r)
     # print(d, t)

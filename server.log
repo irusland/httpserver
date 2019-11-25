@@ -4123,3 +4123,345 @@ reason: OK
 headers: [('Content-Type', 'text/html'), ('Content-Disposition', 'inline; filename=new page.html'), ('Content-Length', 133)]
 body: b'<!DOCTYPE html>\n<html lang="en">\n<head>\n    <meta charset="UTF-8">\n    <title>new probel paje</title>\n</head>\n<body>\n\n</body>\n</html>'
 INFO:root:server is DOWN with no exceptions
+INFO:root:server is UP on 0.0.0.0:8000
+INFO:root:Connected ('127.0.0.1', 52091)
+INFO:root:Threaded client serving started ('127.0.0.1', 52091) in thread 4499070400
+INFO:root:Request parsing by connection started
+INFO:root:Parsing request by file started
+INFO:root:Request parsed
+INFO:root:Request parsed from ('127.0.0.1', 52091) method: GET
+target: /new%20page.html
+version: HTTP/1.1
+headers: Host: localhost:8000
+Upgrade-Insecure-Requests: 1
+Accept: text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8
+User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_1) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/13.0.3 Safari/605.1.15
+Accept-Language: en-us
+Accept-Encoding: gzip, deflate
+Connection: keep-alive
+
+
+file: <_io.BytesIO object at 0x101d4b230>
+user: ('127.0.0.1', 52091)
+url: ParseResult(scheme='', netloc='', path='/new%20page.html', params='', query='', fragment='')
+path: /new%20page.html
+query: {}
+INFO:root:Path processing /new page.html
+INFO:root:Path found /Users/irusland/Desktop/UrFU/python/httpserver/tmp/new page.html
+INFO:root:Response prepared 
+status: 200
+reason: OK
+headers: [('Content-Type', 'text/html'), ('Content-Disposition', 'inline; filename=new page.html'), ('Content-Length', 133)]
+body: b'<!DOCTYPE html>\n<html lang="en">\n<head>\n    <meta charset="UTF-8">\n    <title>new probel paje</title>\n</head>\n<body>\n\n</body>\n</html>'
+INFO:root:251B sent to ('127.0.0.1', 52091)
+INFO:root:Files sent to ('127.0.0.1', 52091)
+INFO:root:Response sent 
+status: 200
+reason: OK
+headers: [('Content-Type', 'text/html'), ('Content-Disposition', 'inline; filename=new page.html'), ('Content-Length', 133)]
+body: b'<!DOCTYPE html>\n<html lang="en">\n<head>\n    <meta charset="UTF-8">\n    <title>new probel paje</title>\n</head>\n<body>\n\n</body>\n</html>'
+INFO:root:server is DOWN with no exceptions
+INFO:root:server is UP on 0.0.0.0:8000
+INFO:root:server is DOWN with no exceptions
+INFO:root:Path processing /pictures/png/1
+INFO:root:Path found /Users/irusland/Desktop/UrFU/python/httpserver/tmp/pictures/1.png
+INFO:root:Path processing /no.css
+INFO:root:Path processing /mime/
+INFO:root:Path found /Users/irusland/Desktop/UrFU/python/httpserver/tmp/pictures/1.png
+INFO:root:Path processing /index.html
+INFO:root:Path found /Users/irusland/Desktop/UrFU/python/httpserver/tmp/index.html
+INFO:root:Path processing /1.2.3.txt
+INFO:root:Path found /Users/irusland/Desktop/UrFU/python/httpserver/tmp/1.2.3.txt
+INFO:root:Path processing /foo.bar
+INFO:root:Path processing /any.html
+INFO:root:Path found /Users/irusland/Desktop/UrFU/python/httpserver/tmp/pages/any.html
+INFO:root:Path processing /2.html
+INFO:root:Path found /Users/irusland/Desktop/UrFU/python/httpserver/tmp/pages/2.html
+INFO:root:Path processing /123.css
+INFO:root:Path found /Users/irusland/Desktop/UrFU/python/httpserver/tmp/pages/css/123.css
+INFO:root:Path processing /
+INFO:root:Path found /Users/irusland/Desktop/UrFU/python/httpserver/tmp/index.html
+INFO:root:Path processing /new%20page.html
+INFO:root:Parsing request by file started
+INFO:root:Path processing /
+INFO:root:Path found /Users/irusland/Desktop/UrFU/python/httpserver/tmp/index.html
+INFO:root:server is UP on 0.0.0.0:8000
+INFO:root:Parsing request by file started
+ERROR:root:server is DOWN because of exception None None None
+NoneType: None
+INFO:root:server is UP on 0.0.0.0:8000
+ERROR:root:server is DOWN because of exception None None None
+NoneType: None
+INFO:root:server is UP on 0.0.0.0:8000
+INFO:root:Connected ('127.0.0.1', 52101)
+INFO:root:Threaded client serving started ('127.0.0.1', 52101) in thread 4400111040
+INFO:root:Request parsing by connection started
+INFO:root:Parsing request by file started
+INFO:root:Request parsed
+INFO:root:Request parsed from ('127.0.0.1', 52101) method: GET
+target: /
+version: HTTP/1.1
+headers: Host: 0.0.0.0
+Accept: */*
+
+
+file: <_io.BytesIO object at 0x104dfd710>
+user: ('127.0.0.1', 52101)
+url: ParseResult(scheme='', netloc='', path='/', params='', query='', fragment='')
+path: /
+query: {}
+INFO:root:Path processing /
+INFO:root:Path found /Users/irusland/Desktop/UrFU/python/httpserver/tmp/index.html
+INFO:root:Response prepared 
+status: 200
+reason: OK
+headers: [('Content-Type', 'text/html'), ('Content-Disposition', 'inline; filename=index.html'), ('Content-Length', 156)]
+body: b'<!DOCTYPE html>\n<html lang="en">\n<head>\n    <meta charset="UTF-8">\n    <title>index.html</title>\n</head>\n<body>\n    <h1>Python Rule it!</h1>\n</body>\n</html>'
+INFO:root:271B sent to ('127.0.0.1', 52101)
+INFO:root:Files sent to ('127.0.0.1', 52101)
+INFO:root:Response sent 
+status: 200
+reason: OK
+headers: [('Content-Type', 'text/html'), ('Content-Disposition', 'inline; filename=index.html'), ('Content-Length', 156)]
+body: b'<!DOCTYPE html>\n<html lang="en">\n<head>\n    <meta charset="UTF-8">\n    <title>index.html</title>\n</head>\n<body>\n    <h1>Python Rule it!</h1>\n</body>\n</html>'
+ERROR:root:No data received
+INFO:root:Threaded client serving started ('127.0.0.1', 52101) in thread 4400111040
+ERROR:root:Client handling failed (123145493467136) No data received
+Traceback (most recent call last):
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 111, in serve_client
+    req = self.parse_req_connection(connection)
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 146, in parse_req_connection
+    req_bytes = self.receive_from_client(client)
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 169, in receive_from_client
+    raise Exception('No data received')
+Exception: No data received
+ERROR:root:No data received
+INFO:root:Threaded client serving started ('127.0.0.1', 52101) in thread 4400111040
+INFO:root:107B sent to ('127.0.0.1', 52101)
+ERROR:root:Client handling failed (123145498722304) No data received
+Traceback (most recent call last):
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 111, in serve_client
+    req = self.parse_req_connection(connection)
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 146, in parse_req_connection
+    req_bytes = self.receive_from_client(client)
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 169, in receive_from_client
+    raise Exception('No data received')
+Exception: No data received
+INFO:root:Files sent to ('127.0.0.1', 52101)
+ERROR:root:No data received
+INFO:root:Socket in thread 4400111040 was disconnected
+ERROR:root:Client handling failed (123145503977472) No data received
+Traceback (most recent call last):
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 111, in serve_client
+    req = self.parse_req_connection(connection)
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 146, in parse_req_connection
+    req_bytes = self.receive_from_client(client)
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 169, in receive_from_client
+    raise Exception('No data received')
+Exception: No data received
+INFO:root:Socket Disconnected in thread 4400111040
+ERROR:root:server is DOWN because of exception None None None
+NoneType: None
+INFO:root:Path processing /pictures/png/1
+INFO:root:Path found /Users/irusland/Desktop/UrFU/python/httpserver/tmp/pictures/1.png
+INFO:root:Path processing /no.css
+INFO:root:Path processing /mime/
+INFO:root:Path found /Users/irusland/Desktop/UrFU/python/httpserver/tmp/pictures/1.png
+INFO:root:Path processing /index.html
+INFO:root:Path found /Users/irusland/Desktop/UrFU/python/httpserver/tmp/index.html
+INFO:root:Path processing /1.2.3.txt
+INFO:root:Path found /Users/irusland/Desktop/UrFU/python/httpserver/tmp/1.2.3.txt
+INFO:root:Path processing /foo.bar
+INFO:root:Path processing /any.html
+INFO:root:Path found /Users/irusland/Desktop/UrFU/python/httpserver/tmp/pages/any.html
+INFO:root:Path processing /2.html
+INFO:root:Path found /Users/irusland/Desktop/UrFU/python/httpserver/tmp/pages/2.html
+INFO:root:Path processing /123.css
+INFO:root:Path found /Users/irusland/Desktop/UrFU/python/httpserver/tmp/pages/css/123.css
+INFO:root:Path processing /
+INFO:root:Path found /Users/irusland/Desktop/UrFU/python/httpserver/tmp/index.html
+INFO:root:Path processing /new%20page.html
+INFO:root:Parsing request by file started
+INFO:root:Path processing /
+INFO:root:Path found /Users/irusland/Desktop/UrFU/python/httpserver/tmp/index.html
+INFO:root:server is UP on 0.0.0.0:8000
+INFO:root:Parsing request by file started
+ERROR:root:server is DOWN because of exception None None None
+NoneType: None
+INFO:root:server is UP on 0.0.0.0:8000
+ERROR:root:server is DOWN because of exception None None None
+NoneType: None
+INFO:root:server is UP on 0.0.0.0:8000
+INFO:root:Connected ('127.0.0.1', 52108)
+INFO:root:Threaded client serving started ('127.0.0.1', 52108) in thread 4499189184
+INFO:root:Request parsing by connection started
+INFO:root:Parsing request by file started
+INFO:root:Request parsed
+INFO:root:Request parsed from ('127.0.0.1', 52108) method: GET
+target: /
+version: HTTP/1.1
+headers: Host: 0.0.0.0
+Accept: */*
+
+
+file: <_io.BytesIO object at 0x106f1c710>
+user: ('127.0.0.1', 52108)
+url: ParseResult(scheme='', netloc='', path='/', params='', query='', fragment='')
+path: /
+query: {}
+INFO:root:Path processing /
+INFO:root:Path found /Users/irusland/Desktop/UrFU/python/httpserver/tmp/index.html
+INFO:root:Response prepared 
+status: 200
+reason: OK
+headers: [('Content-Type', 'text/html'), ('Content-Disposition', 'inline; filename=index.html'), ('Content-Length', 156)]
+body: b'<!DOCTYPE html>\n<html lang="en">\n<head>\n    <meta charset="UTF-8">\n    <title>index.html</title>\n</head>\n<body>\n    <h1>Python Rule it!</h1>\n</body>\n</html>'
+INFO:root:271B sent to ('127.0.0.1', 52108)
+INFO:root:Files sent to ('127.0.0.1', 52108)
+INFO:root:Response sent 
+status: 200
+reason: OK
+headers: [('Content-Type', 'text/html'), ('Content-Disposition', 'inline; filename=index.html'), ('Content-Length', 156)]
+body: b'<!DOCTYPE html>\n<html lang="en">\n<head>\n    <meta charset="UTF-8">\n    <title>index.html</title>\n</head>\n<body>\n    <h1>Python Rule it!</h1>\n</body>\n</html>'
+ERROR:root:No data received
+INFO:root:Threaded client serving started ('127.0.0.1', 52108) in thread 4499189184
+ERROR:root:Client handling failed (123145461051392) No data received
+Traceback (most recent call last):
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 111, in serve_client
+    req = self.parse_req_connection(connection)
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 146, in parse_req_connection
+    req_bytes = self.receive_from_client(client)
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 169, in receive_from_client
+    raise Exception('No data received')
+Exception: No data received
+ERROR:root:No data received
+INFO:root:Threaded client serving started ('127.0.0.1', 52108) in thread 4499189184
+INFO:root:107B sent to ('127.0.0.1', 52108)
+ERROR:root:Client handling failed (123145466306560) No data received
+Traceback (most recent call last):
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 111, in serve_client
+    req = self.parse_req_connection(connection)
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 146, in parse_req_connection
+    req_bytes = self.receive_from_client(client)
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 169, in receive_from_client
+    raise Exception('No data received')
+Exception: No data received
+ERROR:root:No data received
+INFO:root:Socket in thread 4499189184 was disconnected
+INFO:root:Files sent to ('127.0.0.1', 52108)
+ERROR:root:Client handling failed (123145471561728) No data received
+Traceback (most recent call last):
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 111, in serve_client
+    req = self.parse_req_connection(connection)
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 146, in parse_req_connection
+    req_bytes = self.receive_from_client(client)
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 169, in receive_from_client
+    raise Exception('No data received')
+Exception: No data received
+INFO:root:Socket Disconnected in thread 4499189184
+ERROR:root:server is DOWN because of exception None None None
+NoneType: None
+INFO:root:Path processing new%20page.html
+INFO:root:Path processing /new%20page.html
+INFO:root:Path processing /new page.html
+INFO:root:Path found /Users/irusland/Desktop/UrFU/python/httpserver/tmp/new page.html
+INFO:root:Path processing /pictures/png/1
+INFO:root:Path found /Users/irusland/Desktop/UrFU/python/httpserver/tmp/pictures/1.png
+INFO:root:Path processing /no.css
+INFO:root:Path processing /mime/
+INFO:root:Path found /Users/irusland/Desktop/UrFU/python/httpserver/tmp/pictures/1.png
+INFO:root:Path processing /index.html
+INFO:root:Path found /Users/irusland/Desktop/UrFU/python/httpserver/tmp/index.html
+INFO:root:Path processing /1.2.3.txt
+INFO:root:Path found /Users/irusland/Desktop/UrFU/python/httpserver/tmp/1.2.3.txt
+INFO:root:Path processing /foo.bar
+INFO:root:Path processing /any.html
+INFO:root:Path found /Users/irusland/Desktop/UrFU/python/httpserver/tmp/pages/any.html
+INFO:root:Path processing /2.html
+INFO:root:Path found /Users/irusland/Desktop/UrFU/python/httpserver/tmp/pages/2.html
+INFO:root:Path processing /123.css
+INFO:root:Path found /Users/irusland/Desktop/UrFU/python/httpserver/tmp/pages/css/123.css
+INFO:root:Path processing /
+INFO:root:Path found /Users/irusland/Desktop/UrFU/python/httpserver/tmp/index.html
+INFO:root:Path processing /new page.html
+INFO:root:Path found /Users/irusland/Desktop/UrFU/python/httpserver/tmp/new page.html
+INFO:root:Parsing request by file started
+INFO:root:Path processing /
+INFO:root:Path found /Users/irusland/Desktop/UrFU/python/httpserver/tmp/index.html
+INFO:root:server is UP on 0.0.0.0:8000
+INFO:root:Parsing request by file started
+ERROR:root:server is DOWN because of exception None None None
+NoneType: None
+INFO:root:server is UP on 0.0.0.0:8000
+ERROR:root:server is DOWN because of exception None None None
+NoneType: None
+INFO:root:server is UP on 0.0.0.0:8000
+INFO:root:Connected ('127.0.0.1', 52124)
+INFO:root:Request parsing by connection started
+INFO:root:Parsing request by file started
+INFO:root:Request parsed
+INFO:root:Threaded client serving started ('127.0.0.1', 52124) in thread 4427914688
+INFO:root:Request parsed from ('127.0.0.1', 52124) method: GET
+target: /
+version: HTTP/1.1
+headers: Host: 0.0.0.0
+Accept: */*
+
+
+file: <_io.BytesIO object at 0x108457d70>
+user: ('127.0.0.1', 52124)
+url: ParseResult(scheme='', netloc='', path='/', params='', query='', fragment='')
+path: /
+query: {}
+INFO:root:Path processing /
+INFO:root:Path found /Users/irusland/Desktop/UrFU/python/httpserver/tmp/index.html
+INFO:root:Response prepared 
+status: 200
+reason: OK
+headers: [('Content-Type', 'text/html'), ('Content-Disposition', 'inline; filename=index.html'), ('Content-Length', 156)]
+body: b'<!DOCTYPE html>\n<html lang="en">\n<head>\n    <meta charset="UTF-8">\n    <title>index.html</title>\n</head>\n<body>\n    <h1>Python Rule it!</h1>\n</body>\n</html>'
+INFO:root:271B sent to ('127.0.0.1', 52124)
+INFO:root:Files sent to ('127.0.0.1', 52124)
+INFO:root:Response sent 
+status: 200
+reason: OK
+headers: [('Content-Type', 'text/html'), ('Content-Disposition', 'inline; filename=index.html'), ('Content-Length', 156)]
+body: b'<!DOCTYPE html>\n<html lang="en">\n<head>\n    <meta charset="UTF-8">\n    <title>index.html</title>\n</head>\n<body>\n    <h1>Python Rule it!</h1>\n</body>\n</html>'
+ERROR:root:No data received
+INFO:root:Threaded client serving started ('127.0.0.1', 52124) in thread 4427914688
+ERROR:root:Client handling failed (123145563414528) No data received
+Traceback (most recent call last):
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 111, in serve_client
+    req = self.parse_req_connection(connection)
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 146, in parse_req_connection
+    req_bytes = self.receive_from_client(client)
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 169, in receive_from_client
+    raise Exception('No data received')
+Exception: No data received
+ERROR:root:No data received
+INFO:root:Threaded client serving started ('127.0.0.1', 52124) in thread 4427914688
+INFO:root:107B sent to ('127.0.0.1', 52124)
+ERROR:root:Client handling failed (123145568669696) No data received
+Traceback (most recent call last):
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 111, in serve_client
+    req = self.parse_req_connection(connection)
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 146, in parse_req_connection
+    req_bytes = self.receive_from_client(client)
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 169, in receive_from_client
+    raise Exception('No data received')
+Exception: No data received
+ERROR:root:No data received
+INFO:root:Socket in thread 4427914688 was disconnected
+INFO:root:Files sent to ('127.0.0.1', 52124)
+ERROR:root:Client handling failed (123145573924864) No data received
+Traceback (most recent call last):
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 111, in serve_client
+    req = self.parse_req_connection(connection)
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 146, in parse_req_connection
+    req_bytes = self.receive_from_client(client)
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 169, in receive_from_client
+    raise Exception('No data received')
+Exception: No data received
+INFO:root:Socket Disconnected in thread 4427914688
+ERROR:root:server is DOWN because of exception None None None
+NoneType: None

@@ -12,6 +12,7 @@ from email.parser import Parser
 from urllib.parse import parse_qs, urlparse
 
 from defenitions import CONFIG_PATH, LOGGER_PATH
+from errors import Errors
 from pathfinder import PathFinder
 
 import magic
@@ -41,7 +42,7 @@ class Server:
         self.conns = {}
 
         logging.basicConfig(filename=LOGGER_PATH, level=logging.INFO,
-                            filemode='w')
+                            filemode='w+')
 
     def __enter__(self):
         self.server.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, 1)
@@ -332,30 +333,6 @@ class Response:
         return '\n'.join(
             f'{k}: {str(v) if len(str(v)) < lim else str(v)[:lim]}'
             for k, v in self.__dict__.items())
-
-
-class Error(Exception):
-    def __init__(self, status, reason, body=None, page=None):
-        self.status = status
-        self.reason = reason
-        self.body = body
-        if page:
-            with open(CONFIG_PATH) as cfg:
-                data = json.load(cfg)
-                self.page = data["error-pages"][page]
-
-
-class Errors(Error):
-    REQ_TOO_LONG = Error(400, 'Bad request',
-                         'Request line is too long')
-    MALFORMED_REQ = Error(400, 'Bad request',
-                          'Malformed request line')
-    HEADER_MISSING = Error(400, 'Bad request',
-                           'Host header is missing')
-    NOT_FOUND = Error(404, 'Not found', "", "PAGE_NOT_FOUND")
-    HEADER_TOO_LARGE = Error(494, 'Request header too large')
-    TOO_MANY_HEADERS = Error(494, 'Too many headers')
-    VERSION_NOT_SUPPORTED = Error(505, 'HTTP Version Not Supported')
 
 
 if __name__ == '__main__':

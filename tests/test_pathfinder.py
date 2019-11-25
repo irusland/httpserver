@@ -65,6 +65,10 @@ class MyTestCase(unittest.TestCase):
         t = self.ruler.get_type(url, self.rules)
         self.assertEqual(t, 'text/txt')
 
+    def test_space_character(self):
+        self.assertDestinationsEqual(
+            '/new page.html', os.path.join(ROOT_DIR, 'tmp/new page.html'))
+
 
 if __name__ == '__main__':
     unittest.main()
