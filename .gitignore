@@ -7,3 +7,5 @@
 /httpserver.py,cover
 /ruler.py,cover
 /venv/
+venv/
+__pychache__

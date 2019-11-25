@@ -801,3 +801,491 @@ reason: OK
 headers: [('Content-Type', 'image/jpeg'), ('Content-Disposition', 'inline; filename=chroma.jpg'), ('Content-Length', 22853829)]
 body: b'\xff\xd8\xff\xe0\x00\x10JFIF\x00\x01\x01\x00\x00H\x00H\x00\x00\xff\xe1\x00@Exif\x00\x00MM\x00*\x00\x00\x00\x08\x00\x01\x87i\x00\x04\x00\x00\x00\x01\x00\x00\x00\x1a\x00\x00\x00\x00\x00\x02\xa0\x02\x00\x04\x00\x00\x00\x01\x00\x00\x14\x00\xa0\x03\x00\x04\x00\x00\x00\x01\x00\x00\x0b@\x00\x00\x00\x00\xff\xed\x008Photoshop 3.0\x008BIM\x04\x04\x00\x00\x00\x00\x00\x008BIM\x04%\x00\x00\x00\x00\x00\x10\xd4\x1d\x8c\xd9\x8f\x00\xb2\x04\xe9\x80\t\x98\xec\xf8B~\xff\xe2\x024ICC_PROFILE\x00\x01\x01\x00\x00\x0
 INFO:root:server is DOWN with no exceptions
+INFO:root:server is UP on 0.0.0.0:8000
+INFO:root:Connected ('127.0.0.1', 51487)
+INFO:root:Request parsing by connection started
+INFO:root:Parsing request by file started
+INFO:root:Threaded client serving started ('127.0.0.1', 51487) in thread 4434185664
+INFO:root:Request parsed
+INFO:root:Request parsed from ('127.0.0.1', 51487) method: GET
+target: /chroma.jpg
+version: HTTP/1.1
+headers: Host: localhost:8000
+Upgrade-Insecure-Requests: 1
+Accept: text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8
+User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_1) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/13.0.3 Safari/605.1.15
+Accept-Language: en-us
+Accept-Encoding: gzip, deflate
+Connection: keep-alive
+
+
+file: <_io.BytesIO object at 0x106ecd8f0>
+user: ('127.0.0.1', 51487)
+url: ParseResult(scheme='', netloc='', path='/chroma.jpg', params='', query='', fragment='')
+path: /chroma.jpg
+query: {}
+INFO:root:Path processing /chroma.jpg
+INFO:root:Path found /Users/irusland/Desktop/UrFU/python/httpserver/tmp/pictures/chroma.jpg
+INFO:root:/Users/irusland/Desktop/UrFU/python/httpserver/tmp/pictures/chroma.jpg type image/jpeg
+INFO:root:Response prepared 
+status: 200
+reason: OK
+headers: [('Content-Type', 'image/jpeg'), ('Content-Disposition', 'inline; filename=chroma.jpg'), ('Content-Length', 22853829)]
+body: b'\xff\xd8\xff\xe0\x00\x10JFIF\x00\x01\x01\x00\x00H\x00H\x00\x00\xff\xe1\x00@Exif\x00\x00MM\x00*\x00\x00\x00\x08\x00\x01\x87i\x00\x04\x00\x00\x00\x01\x00\x00\x00\x1a\x00\x00\x00\x00\x00\x02\xa0\x02\x00\x04\x00\x00\x00\x01\x00\x00\x14\x00\xa0\x03\x00\x04\x00\x00\x00\x01\x00\x00\x0b@\x00\x00\x00\x00\xff\xed\x008Photoshop 3.0\x008BIM\x04\x04\x00\x00\x00\x00\x00\x008BIM\x04%\x00\x00\x00\x00\x00\x10\xd4\x1d\x8c\xd9\x8f\x00\xb2\x04\xe9\x80\t\x98\xec\xf8B~\xff\xe2\x024ICC_PROFILE\x00\x01\x01\x00\x00\x0
+INFO:root:825676B sent to ('127.0.0.1', 51487)
+INFO:root:1160976B sent to ('127.0.0.1', 51487)
+INFO:root:1080408B sent to ('127.0.0.1', 51487)
+INFO:root:1046704B sent to ('127.0.0.1', 51487)
+INFO:root:1047328B sent to ('127.0.0.1', 51487)
+INFO:root:915840B sent to ('127.0.0.1', 51487)
+INFO:root:1047120B sent to ('127.0.0.1', 51487)
+INFO:root:916464B sent to ('127.0.0.1', 51487)
+INFO:root:1014872B sent to ('127.0.0.1', 51487)
+INFO:root:948504B sent to ('127.0.0.1', 51487)
+INFO:root:1014456B sent to ('127.0.0.1', 51487)
+INFO:root:1096324B sent to ('127.0.0.1', 51487)
+INFO:root:817848B sent to ('127.0.0.1', 51487)
+INFO:root:883800B sent to ('127.0.0.1', 51487)
+INFO:root:1096324B sent to ('127.0.0.1', 51487)
+INFO:root:817848B sent to ('127.0.0.1', 51487)
+INFO:root:948504B sent to ('127.0.0.1', 51487)
+INFO:root:817848B sent to ('127.0.0.1', 51487)
+INFO:root:817848B sent to ('127.0.0.1', 51487)
+INFO:root:817848B sent to ('127.0.0.1', 51487)
+INFO:root:883800B sent to ('127.0.0.1', 51487)
+INFO:root:817848B sent to ('127.0.0.1', 51487)
+INFO:root:1226980B sent to ('127.0.0.1', 51487)
+INFO:root:604908B sent to ('127.0.0.1', 51487)
+ERROR:root:[Errno 35] Resource temporarily unavailable Sleeping 0.1s
+INFO:root:187874B sent to ('127.0.0.1', 51487)
+INFO:root:Files sent to ('127.0.0.1', 51487)
+INFO:root:Response sent 
+status: 200
+reason: OK
+headers: [('Content-Type', 'image/jpeg'), ('Content-Disposition', 'inline; filename=chroma.jpg'), ('Content-Length', 22853829)]
+body: b'\xff\xd8\xff\xe0\x00\x10JFIF\x00\x01\x01\x00\x00H\x00H\x00\x00\xff\xe1\x00@Exif\x00\x00MM\x00*\x00\x00\x00\x08\x00\x01\x87i\x00\x04\x00\x00\x00\x01\x00\x00\x00\x1a\x00\x00\x00\x00\x00\x02\xa0\x02\x00\x04\x00\x00\x00\x01\x00\x00\x14\x00\xa0\x03\x00\x04\x00\x00\x00\x01\x00\x00\x0b@\x00\x00\x00\x00\xff\xed\x008Photoshop 3.0\x008BIM\x04\x04\x00\x00\x00\x00\x00\x008BIM\x04%\x00\x00\x00\x00\x00\x10\xd4\x1d\x8c\xd9\x8f\x00\xb2\x04\xe9\x80\t\x98\xec\xf8B~\xff\xe2\x024ICC_PROFILE\x00\x01\x01\x00\x00\x0
+INFO:root:Request parsing by connection started
+INFO:root:Threaded client serving started ('127.0.0.1', 51487) in thread 4434185664
+INFO:root:Parsing request by file started
+INFO:root:Request parsed
+INFO:root:Request parsed from ('127.0.0.1', 51487) method: GET
+target: /chroma.jpg
+version: HTTP/1.1
+headers: Host: localhost:8000
+Upgrade-Insecure-Requests: 1
+Accept: text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8
+User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_1) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/13.0.3 Safari/605.1.15
+Accept-Language: en-us
+Accept-Encoding: gzip, deflate
+Connection: keep-alive
+
+
+file: <_io.BytesIO object at 0x106eee890>
+user: ('127.0.0.1', 51487)
+url: ParseResult(scheme='', netloc='', path='/chroma.jpg', params='', query='', fragment='')
+path: /chroma.jpg
+query: {}
+INFO:root:Path processing /chroma.jpg
+INFO:root:Path found /Users/irusland/Desktop/UrFU/python/httpserver/tmp/pictures/chroma.jpg
+INFO:root:/Users/irusland/Desktop/UrFU/python/httpserver/tmp/pictures/chroma.jpg type image/jpeg
+ERROR:root:No data received
+ERROR:root:Client handling failed (123145410326528) No data received
+Traceback (most recent call last):
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 111, in serve_client
+    req = self.parse_req_connection(connection)
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 155, in parse_req_connection
+    req_bytes = self.receive_from_client(client)
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 178, in receive_from_client
+    raise Exception('No data received')
+Exception: No data received
+INFO:root:Response prepared 
+status: 200
+reason: OK
+headers: [('Content-Type', 'image/jpeg'), ('Content-Disposition', 'inline; filename=chroma.jpg'), ('Content-Length', 22853829)]
+body: b'\xff\xd8\xff\xe0\x00\x10JFIF\x00\x01\x01\x00\x00H\x00H\x00\x00\xff\xe1\x00@Exif\x00\x00MM\x00*\x00\x00\x00\x08\x00\x01\x87i\x00\x04\x00\x00\x00\x01\x00\x00\x00\x1a\x00\x00\x00\x00\x00\x02\xa0\x02\x00\x04\x00\x00\x00\x01\x00\x00\x14\x00\xa0\x03\x00\x04\x00\x00\x00\x01\x00\x00\x0b@\x00\x00\x00\x00\xff\xed\x008Photoshop 3.0\x008BIM\x04\x04\x00\x00\x00\x00\x00\x008BIM\x04%\x00\x00\x00\x00\x00\x10\xd4\x1d\x8c\xd9\x8f\x00\xb2\x04\xe9\x80\t\x98\xec\xf8B~\xff\xe2\x024ICC_PROFILE\x00\x01\x01\x00\x00\x0
+INFO:root:Threaded client serving started ('127.0.0.1', 51487) in thread 4434185664
+INFO:root:107B sent to ('127.0.0.1', 51487)
+INFO:root:Connected ('127.0.0.1', 51489)
+INFO:root:Files sent to ('127.0.0.1', 51487)
+INFO:root:Response sent 
+status: 200
+reason: OK
+headers: [('Content-Type', 'image/jpeg'), ('Content-Disposition', 'inline; filename=chroma.jpg'), ('Content-Length', 22853829)]
+body: b'\xff\xd8\xff\xe0\x00\x10JFIF\x00\x01\x01\x00\x00H\x00H\x00\x00\xff\xe1\x00@Exif\x00\x00MM\x00*\x00\x00\x00\x08\x00\x01\x87i\x00\x04\x00\x00\x00\x01\x00\x00\x00\x1a\x00\x00\x00\x00\x00\x02\xa0\x02\x00\x04\x00\x00\x00\x01\x00\x00\x14\x00\xa0\x03\x00\x04\x00\x00\x00\x01\x00\x00\x0b@\x00\x00\x00\x00\xff\xed\x008Photoshop 3.0\x008BIM\x04\x04\x00\x00\x00\x00\x00\x008BIM\x04%\x00\x00\x00\x00\x00\x10\xd4\x1d\x8c\xd9\x8f\x00\xb2\x04\xe9\x80\t\x98\xec\xf8B~\xff\xe2\x024ICC_PROFILE\x00\x01\x01\x00\x00\x0
+ERROR:root:No data received
+ERROR:root:Client handling failed (123145415581696) No data received
+Traceback (most recent call last):
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 111, in serve_client
+    req = self.parse_req_connection(connection)
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 155, in parse_req_connection
+    req_bytes = self.receive_from_client(client)
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 178, in receive_from_client
+    raise Exception('No data received')
+Exception: No data received
+INFO:root:Socket in thread 4434185664 was disconnected
+INFO:root:Socket Disconnected in thread 4434185664
+INFO:root:Threaded client serving started ('127.0.0.1', 51489) in thread 4434185664
+INFO:root:Request parsing by connection started
+INFO:root:Parsing request by file started
+INFO:root:Request parsed
+INFO:root:Request parsed from ('127.0.0.1', 51489) method: GET
+target: /chroma.jpg
+version: HTTP/1.1
+headers: Host: localhost:8000
+Upgrade-Insecure-Requests: 1
+Accept: text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8
+User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_1) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/13.0.3 Safari/605.1.15
+Accept-Language: en-us
+Accept-Encoding: gzip, deflate
+Connection: keep-alive
+
+
+file: <_io.BytesIO object at 0x106eee890>
+user: ('127.0.0.1', 51489)
+url: ParseResult(scheme='', netloc='', path='/chroma.jpg', params='', query='', fragment='')
+path: /chroma.jpg
+query: {}
+INFO:root:Path processing /chroma.jpg
+INFO:root:Path found /Users/irusland/Desktop/UrFU/python/httpserver/tmp/pictures/chroma.jpg
+INFO:root:/Users/irusland/Desktop/UrFU/python/httpserver/tmp/pictures/chroma.jpg type image/jpeg
+INFO:root:Response prepared 
+status: 200
+reason: OK
+headers: [('Content-Type', 'image/jpeg'), ('Content-Disposition', 'inline; filename=chroma.jpg'), ('Content-Length', 22853829)]
+body: b'\xff\xd8\xff\xe0\x00\x10JFIF\x00\x01\x01\x00\x00H\x00H\x00\x00\xff\xe1\x00@Exif\x00\x00MM\x00*\x00\x00\x00\x08\x00\x01\x87i\x00\x04\x00\x00\x00\x01\x00\x00\x00\x1a\x00\x00\x00\x00\x00\x02\xa0\x02\x00\x04\x00\x00\x00\x01\x00\x00\x14\x00\xa0\x03\x00\x04\x00\x00\x00\x01\x00\x00\x0b@\x00\x00\x00\x00\xff\xed\x008Photoshop 3.0\x008BIM\x04\x04\x00\x00\x00\x00\x00\x008BIM\x04%\x00\x00\x00\x00\x00\x10\xd4\x1d\x8c\xd9\x8f\x00\xb2\x04\xe9\x80\t\x98\xec\xf8B~\xff\xe2\x024ICC_PROFILE\x00\x01\x01\x00\x00\x0
+INFO:root:261676B sent to ('127.0.0.1', 51489)
+INFO:root:670600B sent to ('127.0.0.1', 51489)
+INFO:root:1071644B sent to ('127.0.0.1', 51489)
+INFO:root:1088028B sent to ('127.0.0.1', 51489)
+INFO:root:1030840B sent to ('127.0.0.1', 51489)
+INFO:root:900184B sent to ('127.0.0.1', 51489)
+INFO:root:1062880B sent to ('127.0.0.1', 51489)
+INFO:root:1030528B sent to ('127.0.0.1', 51489)
+INFO:root:997864B sent to ('127.0.0.1', 51489)
+INFO:root:932952B sent to ('127.0.0.1', 51489)
+INFO:root:736344B sent to ('127.0.0.1', 51489)
+INFO:root:997656B sent to ('127.0.0.1', 51489)
+INFO:root:785340B sent to ('127.0.0.1', 51489)
+INFO:root:932952B sent to ('127.0.0.1', 51489)
+INFO:root:867000B sent to ('127.0.0.1', 51489)
+INFO:root:1063608B sent to ('127.0.0.1', 51489)
+INFO:root:867000B sent to ('127.0.0.1', 51489)
+INFO:root:867000B sent to ('127.0.0.1', 51489)
+INFO:root:997656B sent to ('127.0.0.1', 51489)
+INFO:root:932952B sent to ('127.0.0.1', 51489)
+INFO:root:867000B sent to ('127.0.0.1', 51489)
+INFO:root:1129144B sent to ('127.0.0.1', 51489)
+INFO:root:1128312B sent to ('127.0.0.1', 51489)
+INFO:root:1366244B sent to ('127.0.0.1', 51489)
+INFO:root:268546B sent to ('127.0.0.1', 51489)
+INFO:root:Files sent to ('127.0.0.1', 51489)
+INFO:root:Response sent 
+status: 200
+reason: OK
+headers: [('Content-Type', 'image/jpeg'), ('Content-Disposition', 'inline; filename=chroma.jpg'), ('Content-Length', 22853829)]
+body: b'\xff\xd8\xff\xe0\x00\x10JFIF\x00\x01\x01\x00\x00H\x00H\x00\x00\xff\xe1\x00@Exif\x00\x00MM\x00*\x00\x00\x00\x08\x00\x01\x87i\x00\x04\x00\x00\x00\x01\x00\x00\x00\x1a\x00\x00\x00\x00\x00\x02\xa0\x02\x00\x04\x00\x00\x00\x01\x00\x00\x14\x00\xa0\x03\x00\x04\x00\x00\x00\x01\x00\x00\x0b@\x00\x00\x00\x00\xff\xed\x008Photoshop 3.0\x008BIM\x04\x04\x00\x00\x00\x00\x00\x008BIM\x04%\x00\x00\x00\x00\x00\x10\xd4\x1d\x8c\xd9\x8f\x00\xb2\x04\xe9\x80\t\x98\xec\xf8B~\xff\xe2\x024ICC_PROFILE\x00\x01\x01\x00\x00\x0
+INFO:root:Connected ('127.0.0.1', 51490)
+INFO:root:Threaded client serving started ('127.0.0.1', 51490) in thread 4434185664
+INFO:root:Request parsing by connection started
+INFO:root:Parsing request by file started
+INFO:root:Request parsed
+INFO:root:Request parsed from ('127.0.0.1', 51490) method: GET
+target: /chroma.jpg
+version: HTTP/1.1
+headers: Host: localhost:8000
+Upgrade-Insecure-Requests: 1
+Accept: text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8
+User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_1) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/13.0.3 Safari/605.1.15
+Accept-Language: en-us
+Accept-Encoding: gzip, deflate
+Connection: keep-alive
+
+
+file: <_io.BytesIO object at 0x106ecd770>
+user: ('127.0.0.1', 51490)
+url: ParseResult(scheme='', netloc='', path='/chroma.jpg', params='', query='', fragment='')
+path: /chroma.jpg
+query: {}
+INFO:root:Path processing /chroma.jpg
+INFO:root:Path found /Users/irusland/Desktop/UrFU/python/httpserver/tmp/pictures/chroma.jpg
+INFO:root:/Users/irusland/Desktop/UrFU/python/httpserver/tmp/pictures/chroma.jpg type image/jpeg
+INFO:root:Response prepared 
+status: 200
+reason: OK
+headers: [('Content-Type', 'image/jpeg'), ('Content-Disposition', 'inline; filename=chroma.jpg'), ('Content-Length', 22853829)]
+body: b'\xff\xd8\xff\xe0\x00\x10JFIF\x00\x01\x01\x00\x00H\x00H\x00\x00\xff\xe1\x00@Exif\x00\x00MM\x00*\x00\x00\x00\x08\x00\x01\x87i\x00\x04\x00\x00\x00\x01\x00\x00\x00\x1a\x00\x00\x00\x00\x00\x02\xa0\x02\x00\x04\x00\x00\x00\x01\x00\x00\x14\x00\xa0\x03\x00\x04\x00\x00\x00\x01\x00\x00\x0b@\x00\x00\x00\x00\xff\xed\x008Photoshop 3.0\x008BIM\x04\x04\x00\x00\x00\x00\x00\x008BIM\x04%\x00\x00\x00\x00\x00\x10\xd4\x1d\x8c\xd9\x8f\x00\xb2\x04\xe9\x80\t\x98\xec\xf8B~\xff\xe2\x024ICC_PROFILE\x00\x01\x01\x00\x00\x0
+INFO:root:858132B sent to ('127.0.0.1', 51490)
+INFO:root:866844B sent to ('127.0.0.1', 51490)
+INFO:root:981272B sent to ('127.0.0.1', 51490)
+INFO:root:1047224B sent to ('127.0.0.1', 51490)
+INFO:root:1562540B sent to ('127.0.0.1', 51490)
+INFO:root:736812B sent to ('127.0.0.1', 51490)
+INFO:root:1473468B sent to ('127.0.0.1', 51490)
+INFO:root:2652804B sent to ('127.0.0.1', 51490)
+INFO:root:1145164B sent to ('127.0.0.1', 51490)
+INFO:root:1416748B sent to ('127.0.0.1', 51490)
+INFO:root:3486776B sent to ('127.0.0.1', 51490)
+INFO:root:2203180B sent to ('127.0.0.1', 51490)
+INFO:root:2202764B sent to ('127.0.0.1', 51490)
+ERROR:root:[Errno 35] Resource temporarily unavailable Sleeping 0.1s
+INFO:root:2220222B sent to ('127.0.0.1', 51490)
+INFO:root:Files sent to ('127.0.0.1', 51490)
+INFO:root:Response sent 
+status: 200
+reason: OK
+headers: [('Content-Type', 'image/jpeg'), ('Content-Disposition', 'inline; filename=chroma.jpg'), ('Content-Length', 22853829)]
+body: b'\xff\xd8\xff\xe0\x00\x10JFIF\x00\x01\x01\x00\x00H\x00H\x00\x00\xff\xe1\x00@Exif\x00\x00MM\x00*\x00\x00\x00\x08\x00\x01\x87i\x00\x04\x00\x00\x00\x01\x00\x00\x00\x1a\x00\x00\x00\x00\x00\x02\xa0\x02\x00\x04\x00\x00\x00\x01\x00\x00\x14\x00\xa0\x03\x00\x04\x00\x00\x00\x01\x00\x00\x0b@\x00\x00\x00\x00\xff\xed\x008Photoshop 3.0\x008BIM\x04\x04\x00\x00\x00\x00\x00\x008BIM\x04%\x00\x00\x00\x00\x00\x10\xd4\x1d\x8c\xd9\x8f\x00\xb2\x04\xe9\x80\t\x98\xec\xf8B~\xff\xe2\x024ICC_PROFILE\x00\x01\x01\x00\x00\x0
+INFO:root:Threaded client serving started ('127.0.0.1', 51490) in thread 4434185664
+INFO:root:Request parsing by connection started
+INFO:root:Parsing request by file started
+INFO:root:Request parsed
+INFO:root:Request parsed from ('127.0.0.1', 51490) method: GET
+target: /
+version: HTTP/1.1
+headers: Host: localhost:8000
+Upgrade-Insecure-Requests: 1
+Accept: text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8
+User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_1) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/13.0.3 Safari/605.1.15
+Accept-Language: en-us
+Accept-Encoding: gzip, deflate
+Connection: keep-alive
+
+
+file: <_io.BytesIO object at 0x106f4a770>
+user: ('127.0.0.1', 51490)
+url: ParseResult(scheme='', netloc='', path='/', params='', query='', fragment='')
+path: /
+query: {}
+INFO:root:Path processing /
+INFO:root:Path found /Users/irusland/Desktop/UrFU/python/httpserver/tmp/index.html
+INFO:root:/Users/irusland/Desktop/UrFU/python/httpserver/tmp/index.html type text/html
+INFO:root:Response prepared 
+status: 200
+reason: OK
+headers: [('Content-Type', 'text/html'), ('Content-Disposition', 'inline; filename=index.html'), ('Content-Length', 156)]
+body: b'<!DOCTYPE html>\n<html lang="en">\n<head>\n    <meta charset="UTF-8">\n    <title>index.html</title>\n</head>\n<body>\n    <h1>Python Rule it!</h1>\n</body>\n</html>'
+INFO:root:271B sent to ('127.0.0.1', 51490)
+INFO:root:Files sent to ('127.0.0.1', 51490)
+INFO:root:Response sent 
+status: 200
+reason: OK
+headers: [('Content-Type', 'text/html'), ('Content-Disposition', 'inline; filename=index.html'), ('Content-Length', 156)]
+body: b'<!DOCTYPE html>\n<html lang="en">\n<head>\n    <meta charset="UTF-8">\n    <title>index.html</title>\n</head>\n<body>\n    <h1>Python Rule it!</h1>\n</body>\n</html>'
+INFO:root:Request parsing by connection started
+INFO:root:Threaded client serving started ('127.0.0.1', 51489) in thread 4434185664
+INFO:root:Parsing request by file started
+INFO:root:Request parsed
+INFO:root:Request parsed from ('127.0.0.1', 51489) method: GET
+target: /
+version: HTTP/1.1
+headers: Host: localhost:8000
+Upgrade-Insecure-Requests: 1
+Accept: text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8
+User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_1) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/13.0.3 Safari/605.1.15
+Accept-Language: en-us
+Accept-Encoding: gzip, deflate
+Connection: keep-alive
+
+
+file: <_io.BytesIO object at 0x106ecd7d0>
+user: ('127.0.0.1', 51489)
+url: ParseResult(scheme='', netloc='', path='/', params='', query='', fragment='')
+path: /
+query: {}
+INFO:root:Path processing /
+INFO:root:Path found /Users/irusland/Desktop/UrFU/python/httpserver/tmp/index.html
+INFO:root:/Users/irusland/Desktop/UrFU/python/httpserver/tmp/index.html type text/html
+INFO:root:Response prepared 
+status: 200
+reason: OK
+headers: [('Content-Type', 'text/html'), ('Content-Disposition', 'inline; filename=index.html'), ('Content-Length', 156)]
+body: b'<!DOCTYPE html>\n<html lang="en">\n<head>\n    <meta charset="UTF-8">\n    <title>index.html</title>\n</head>\n<body>\n    <h1>Python Rule it!</h1>\n</body>\n</html>'
+INFO:root:271B sent to ('127.0.0.1', 51489)
+INFO:root:Files sent to ('127.0.0.1', 51489)
+INFO:root:Response sent 
+status: 200
+reason: OK
+headers: [('Content-Type', 'text/html'), ('Content-Disposition', 'inline; filename=index.html'), ('Content-Length', 156)]
+body: b'<!DOCTYPE html>\n<html lang="en">\n<head>\n    <meta charset="UTF-8">\n    <title>index.html</title>\n</head>\n<body>\n    <h1>Python Rule it!</h1>\n</body>\n</html>'
+INFO:root:Request parsing by connection started
+INFO:root:Parsing request by file started
+INFO:root:Request parsed
+INFO:root:Request parsed from ('127.0.0.1', 51489) method: GET
+target: /
+version: HTTP/1.1
+headers: Host: localhost:8000
+Upgrade-Insecure-Requests: 1
+Accept: text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8
+User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_1) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/13.0.3 Safari/605.1.15
+Accept-Language: en-us
+Accept-Encoding: gzip, deflate
+Connection: keep-alive
+
+
+file: <_io.BytesIO object at 0x106ecd7d0>
+user: ('127.0.0.1', 51489)
+url: ParseResult(scheme='', netloc='', path='/', params='', query='', fragment='')
+path: /
+query: {}
+INFO:root:Threaded client serving started ('127.0.0.1', 51489) in thread 4434185664
+INFO:root:Path processing /
+INFO:root:Path found /Users/irusland/Desktop/UrFU/python/httpserver/tmp/index.html
+INFO:root:/Users/irusland/Desktop/UrFU/python/httpserver/tmp/index.html type text/html
+INFO:root:Response prepared 
+status: 200
+reason: OK
+headers: [('Content-Type', 'text/html'), ('Content-Disposition', 'inline; filename=index.html'), ('Content-Length', 156)]
+body: b'<!DOCTYPE html>\n<html lang="en">\n<head>\n    <meta charset="UTF-8">\n    <title>index.html</title>\n</head>\n<body>\n    <h1>Python Rule it!</h1>\n</body>\n</html>'
+INFO:root:271B sent to ('127.0.0.1', 51489)
+INFO:root:Files sent to ('127.0.0.1', 51489)
+INFO:root:Response sent 
+status: 200
+reason: OK
+headers: [('Content-Type', 'text/html'), ('Content-Disposition', 'inline; filename=index.html'), ('Content-Length', 156)]
+body: b'<!DOCTYPE html>\n<html lang="en">\n<head>\n    <meta charset="UTF-8">\n    <title>index.html</title>\n</head>\n<body>\n    <h1>Python Rule it!</h1>\n</body>\n</html>'
+INFO:root:Request parsing by connection started
+INFO:root:Threaded client serving started ('127.0.0.1', 51489) in thread 4434185664
+INFO:root:Parsing request by file started
+INFO:root:Request parsed
+INFO:root:Request parsed from ('127.0.0.1', 51489) method: GET
+target: /
+version: HTTP/1.1
+headers: Host: localhost:8000
+Upgrade-Insecure-Requests: 1
+Accept: text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8
+User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_1) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/13.0.3 Safari/605.1.15
+Accept-Language: en-us
+Accept-Encoding: gzip, deflate
+Connection: keep-alive
+
+
+file: <_io.BytesIO object at 0x106ecd7d0>
+user: ('127.0.0.1', 51489)
+url: ParseResult(scheme='', netloc='', path='/', params='', query='', fragment='')
+path: /
+query: {}
+INFO:root:Path processing /
+INFO:root:Path found /Users/irusland/Desktop/UrFU/python/httpserver/tmp/index.html
+INFO:root:/Users/irusland/Desktop/UrFU/python/httpserver/tmp/index.html type text/html
+INFO:root:Response prepared 
+status: 200
+reason: OK
+headers: [('Content-Type', 'text/html'), ('Content-Disposition', 'inline; filename=index.html'), ('Content-Length', 156)]
+body: b'<!DOCTYPE html>\n<html lang="en">\n<head>\n    <meta charset="UTF-8">\n    <title>index.html</title>\n</head>\n<body>\n    <h1>Python Rule it!</h1>\n</body>\n</html>'
+INFO:root:271B sent to ('127.0.0.1', 51489)
+INFO:root:Files sent to ('127.0.0.1', 51489)
+INFO:root:Response sent 
+status: 200
+reason: OK
+headers: [('Content-Type', 'text/html'), ('Content-Disposition', 'inline; filename=index.html'), ('Content-Length', 156)]
+body: b'<!DOCTYPE html>\n<html lang="en">\n<head>\n    <meta charset="UTF-8">\n    <title>index.html</title>\n</head>\n<body>\n    <h1>Python Rule it!</h1>\n</body>\n</html>'
+INFO:root:Request parsing by connection started
+INFO:root:Threaded client serving started ('127.0.0.1', 51489) in thread 4434185664
+INFO:root:Parsing request by file started
+INFO:root:Request parsed
+INFO:root:Request parsed from ('127.0.0.1', 51489) method: GET
+target: /
+version: HTTP/1.1
+headers: Host: localhost:8000
+Upgrade-Insecure-Requests: 1
+Accept: text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8
+User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_1) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/13.0.3 Safari/605.1.15
+Accept-Language: en-us
+Accept-Encoding: gzip, deflate
+Connection: keep-alive
+
+
+file: <_io.BytesIO object at 0x106ecd7d0>
+user: ('127.0.0.1', 51489)
+url: ParseResult(scheme='', netloc='', path='/', params='', query='', fragment='')
+path: /
+query: {}
+INFO:root:Path processing /
+INFO:root:Path found /Users/irusland/Desktop/UrFU/python/httpserver/tmp/index.html
+INFO:root:/Users/irusland/Desktop/UrFU/python/httpserver/tmp/index.html type text/html
+INFO:root:Response prepared 
+status: 200
+reason: OK
+headers: [('Content-Type', 'text/html'), ('Content-Disposition', 'inline; filename=index.html'), ('Content-Length', 156)]
+body: b'<!DOCTYPE html>\n<html lang="en">\n<head>\n    <meta charset="UTF-8">\n    <title>index.html</title>\n</head>\n<body>\n    <h1>Python Rule it!</h1>\n</body>\n</html>'
+INFO:root:271B sent to ('127.0.0.1', 51489)
+INFO:root:Files sent to ('127.0.0.1', 51489)
+INFO:root:Response sent 
+status: 200
+reason: OK
+headers: [('Content-Type', 'text/html'), ('Content-Disposition', 'inline; filename=index.html'), ('Content-Length', 156)]
+body: b'<!DOCTYPE html>\n<html lang="en">\n<head>\n    <meta charset="UTF-8">\n    <title>index.html</title>\n</head>\n<body>\n    <h1>Python Rule it!</h1>\n</body>\n</html>'
+INFO:root:Request parsing by connection started
+INFO:root:Parsing request by file started
+INFO:root:Request parsed
+INFO:root:Request parsed from ('127.0.0.1', 51489) method: GET
+target: /
+version: HTTP/1.1
+headers: Host: localhost:8000
+Upgrade-Insecure-Requests: 1
+Accept: text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8
+User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_1) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/13.0.3 Safari/605.1.15
+Accept-Language: en-us
+Accept-Encoding: gzip, deflate
+Connection: keep-alive
+
+
+file: <_io.BytesIO object at 0x106ecd7d0>
+user: ('127.0.0.1', 51489)
+url: ParseResult(scheme='', netloc='', path='/', params='', query='', fragment='')
+path: /
+query: {}
+INFO:root:Threaded client serving started ('127.0.0.1', 51489) in thread 4434185664
+INFO:root:Path processing /
+INFO:root:Path found /Users/irusland/Desktop/UrFU/python/httpserver/tmp/index.html
+INFO:root:/Users/irusland/Desktop/UrFU/python/httpserver/tmp/index.html type text/html
+INFO:root:Response prepared 
+status: 200
+reason: OK
+headers: [('Content-Type', 'text/html'), ('Content-Disposition', 'inline; filename=index.html'), ('Content-Length', 156)]
+body: b'<!DOCTYPE html>\n<html lang="en">\n<head>\n    <meta charset="UTF-8">\n    <title>index.html</title>\n</head>\n<body>\n    <h1>Python Rule it!</h1>\n</body>\n</html>'
+INFO:root:271B sent to ('127.0.0.1', 51489)
+INFO:root:Files sent to ('127.0.0.1', 51489)
+INFO:root:Response sent 
+status: 200
+reason: OK
+headers: [('Content-Type', 'text/html'), ('Content-Disposition', 'inline; filename=index.html'), ('Content-Length', 156)]
+body: b'<!DOCTYPE html>\n<html lang="en">\n<head>\n    <meta charset="UTF-8">\n    <title>index.html</title>\n</head>\n<body>\n    <h1>Python Rule it!</h1>\n</body>\n</html>'
+INFO:root:Connected ('127.0.0.1', 51554)
+INFO:root:Request parsing by connection started
+INFO:root:Threaded client serving started ('127.0.0.1', 51554) in thread 4434185664
+INFO:root:Parsing request by file started
+INFO:root:Request parsed
+INFO:root:Request parsed from ('127.0.0.1', 51554) method: GET
+target: /
+version: HTTP/1.1
+headers: Host: 0.0.0.0:8000
+Upgrade-Insecure-Requests: 1
+Accept: text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8
+User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_1) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/13.0.3 Safari/605.1.15
+Accept-Language: en-us
+Accept-Encoding: gzip, deflate
+Connection: keep-alive
+
+
+file: <_io.BytesIO object at 0x106f4a8f0>
+user: ('127.0.0.1', 51554)
+url: ParseResult(scheme='', netloc='', path='/', params='', query='', fragment='')
+path: /
+query: {}
+INFO:root:Path processing /
+INFO:root:Path found /Users/irusland/Desktop/UrFU/python/httpserver/tmp/index.html
+INFO:root:/Users/irusland/Desktop/UrFU/python/httpserver/tmp/index.html type text/html
+INFO:root:Response prepared 
+status: 200
+reason: OK
+headers: [('Content-Type', 'text/html'), ('Content-Disposition', 'inline; filename=index.html'), ('Content-Length', 156)]
+body: b'<!DOCTYPE html>\n<html lang="en">\n<head>\n    <meta charset="UTF-8">\n    <title>index.html</title>\n</head>\n<body>\n    <h1>Python Rule it!</h1>\n</body>\n</html>'
+INFO:root:271B sent to ('127.0.0.1', 51554)
+INFO:root:Files sent to ('127.0.0.1', 51554)
+INFO:root:Response sent 
+status: 200
+reason: OK
+headers: [('Content-Type', 'text/html'), ('Content-Disposition', 'inline; filename=index.html'), ('Content-Length', 156)]
+body: b'<!DOCTYPE html>\n<html lang="en">\n<head>\n    <meta charset="UTF-8">\n    <title>index.html</title>\n</head>\n<body>\n    <h1>Python Rule it!</h1>\n</body>\n</html>'
+INFO:root:server is DOWN with no exceptions
