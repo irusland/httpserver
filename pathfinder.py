@@ -11,7 +11,7 @@ class PathFinder:
 
     def __init__(self):
         logging.basicConfig(filename=LOGGER_PATH, level=logging.INFO)
-        pass
+        self.reg_sub = re.compile(r'(?P<txt>.*?)\[(?P<group>.*?)\]')
 
     def get_rules(self):
         with open(CONFIG_PATH) as cfg:
@@ -60,19 +60,15 @@ class PathFinder:
 
     def to_template(self, key):
         key = re.sub(r'\.', r'\.', key)
-        reg_sub = re.compile(r'(?P<txt>.*?)\[(?P<group>.*?)\]')
-        replaced = re.sub(reg_sub, rf'\1(?P<\2>.*)', key)
+        replaced = re.sub(self.reg_sub, rf'\1(?P<\2>.*)', key)
         reg_rep = re.compile(replaced)
         return reg_rep
 
     def get_type(self, url, rules):
         if url in self.URL_TO_RULE:
             description = rules[self.URL_TO_RULE[url]]
-            if not isinstance(description, str):
-                try:
-                    return description['mime']
-                except KeyError:
-                    return None
+            if isinstance(description, dict):
+                return description.get('mime')
 
 
 if __name__ == '__main__':

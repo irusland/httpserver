@@ -15,7 +15,7 @@ from request import Request
 from stopper import AsyncStopper
 
 
-class MyTestCase(unittest.TestCase):
+class ServerTests(unittest.TestCase):
     def boot_server(self):
         server = self.make_server()
         with server as s:
@@ -69,12 +69,10 @@ class MyTestCase(unittest.TestCase):
 
     def test_server_context_manager(self):
         s = self.make_server()
-        self.assertTrue(hasattr(s, '__enter__'))
-        self.assertTrue(hasattr(s, '__exit__'))
         try:
-            with s as server:
+            with s:
                 pass
-        except Exception as e:
+        except AttributeError:
             self.fail()
 
     def send_req_and_shutdown(self, server):
@@ -97,9 +95,7 @@ class MyTestCase(unittest.TestCase):
         s.close()
 
         res = b''.join(data).decode()
-        print(res)
         self.assertTrue(res)
-        exit(0)
 
     def test_serving(self):
         server = self.make_server()

@@ -5,7 +5,7 @@ from defenitions import ROOT_DIR
 from pathfinder import PathFinder
 
 
-class MyTestCase(unittest.TestCase):
+class PathFinderTests(unittest.TestCase):
     def setUp(self):
         self.ruler = PathFinder()
         self.rules = self.ruler.get_rules()

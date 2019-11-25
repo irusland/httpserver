@@ -1,4 +1,7 @@
+from email.parser import Parser
 from urllib.parse import urlparse, parse_qs
+
+import chardet
 
 
 class Request:
@@ -18,6 +21,17 @@ class Request:
 
     @staticmethod
     def parsed_req_to_request(method, target,
-                              ver, headers, file, peername=None):
-        return Request(method, target, ver, headers, file, peername)
+                              ver, headers, file, peer=None):
+        return Request(method, target, ver, headers, file, peer)
 
+    @staticmethod
+    def decode(b):
+        encoding = chardet.detect(b)['encoding']
+        if encoding:
+            return str(b, encoding)
+        return str(b, 'utf-8')
+
+    @staticmethod
+    def parse_headers_str(s):
+        p = Parser()
+        return p.parsestr(s)

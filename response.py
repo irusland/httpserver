@@ -1,4 +1,9 @@
+import logging
 import os
+import socket
+import time
+
+from defenitions import LOGGER_PATH
 
 
 class Response:
@@ -7,6 +12,8 @@ class Response:
         self.reason = reason
         self.headers = headers
         self.body = body
+        logging.basicConfig(filename=LOGGER_PATH, level=logging.INFO,
+                            filemode='w+')
 
     def __str__(self):
         lim = 500
@@ -42,3 +49,45 @@ class Response:
     @staticmethod
     def status_to_str(res):
         return f'HTTP/1.1 {res.status} {res.reason}\r\n'
+
+    @staticmethod
+    def send_response(client, *res):
+        try:
+            ip = client.getpeername()
+        except socket.error as e:
+            if str(e) == '[Errno 9] Bad file descriptor':
+                logging.error(f'Connection with client broken')
+            return
+
+        for response in res:
+            contents = b''.join((
+                Response.status_to_str(response).encode('utf-8'),
+                Response.headers_to_str(response).encode('utf-8'),
+                b'\r\n',
+                response.body
+            ))
+            try:
+                while contents:
+                    try:
+                        bytes_sent = client.send(contents)
+                        contents = contents[bytes_sent:]
+                        logging.info(f'{bytes_sent}B sent to {ip}')
+                    except socket.error as e:
+                        if str(e) == "[Errno 35] Resource " \
+                                     "temporarily unavailable":
+                            logging.error('[Errno 35] Resource temporarily '
+                                          'unavailable Sleeping 0.1s')
+                            time.sleep(0.1)
+                        elif str(e) == "[Errno 32] Broken pipe":
+                            msg = f'client stopped receiving {e}'
+                            logging.exception(msg)
+                            raise e
+                        elif str(e) == '[Errno 9] Bad file descriptor':
+                            logging.error(
+                                f'Connection with client {ip} broken')
+                            raise e
+            except socket.error as e:
+                logging.error(e)
+                raise e
+            else:
+                logging.info(f'Files sent to {ip}')
