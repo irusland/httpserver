@@ -22,6 +22,7 @@ class Server:
     MAX_LINE = 64 * 1024
     MAX_SEND_SIZE = 1024
     MAX_HEADERS = 100
+    BREAKLINE = [b'\r\n', b'\n', b'']
 
     def __init__(self, host, port, server_name, debug=True, refresh_rate=0):
         self._host = host
@@ -39,7 +40,8 @@ class Server:
         socket.setdefaulttimeout(refresh_rate)
         self.conns = {}
 
-        logging.basicConfig(filename=LOGGER_PATH, level=logging.INFO)
+        logging.basicConfig(filename=LOGGER_PATH, level=logging.INFO,
+                            filemode='w')
 
     def __enter__(self):
         self.server.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, 1)
@@ -50,7 +52,7 @@ class Server:
         return self
 
     def __exit__(self, exc_type, exc_val, exc_tb):
-        if exc_val:
+        if exc_type != KeyboardInterrupt:
             logging.exception(f'server is DOWN because of exception '
                               f'{exc_type} {exc_val} {exc_tb}')
         else:
@@ -81,17 +83,25 @@ class Server:
         logging.info(f'Connected {addr}')
 
         client.setblocking(False)
-        client.setsockopt(socket.SOL_SOCKET, socket.SO_KEEPALIVE, 1)
+        # client.setsockopt(socket.SOL_SOCKET, socket.SO_KEEPALIVE, 1)
         self.poller.register(client, selectors.EVENT_READ, self._read)
 
-    def _read(self, sock, mask):
-        t = threading.Thread(target=self.serve_client,
-                             args=(sock,))
-        t.start()
-        logging.info(f'Threaded client serving started {sock.getpeername()}')
+    def _read(self, client, mask):
+        try:
+            t = threading.Thread(target=self.serve_client,
+                                 args=(client,))
+            t.start()
+            logging.info(f'Threaded client serving '
+                         f'started {client.getpeername()} in '
+                         f'thread {threading.current_thread().ident}')
+        except Exception as e:
+            logging.info(f'Socket in thread {threading.current_thread().ident}'
+                         f' was disconnected')
+            self._close(client)
 
     def _close(self, connection):
-        logging.info(f'Disconnected {connection.getpeername()}')
+        logging.info(f'Socket Disconnected in thread '
+                     f'{threading.current_thread().ident}')
         self.poller.unregister(connection)
         del self.conns[connection.fileno()]
         connection.close()
@@ -99,18 +109,15 @@ class Server:
     def serve_client(self, connection):
         try:
             req = self.parse_req_connection(connection)
-            logging.info(f'Got request from {req.user} {req}')
+            logging.info(f'Request parsed from {req.user} {req}')
+            res = self.handle_req(req)
+            logging.info(f'Response prepared \n{res}')
+            self.send_response(connection, res)
+            logging.info(f'Response sent \n{res}')
         except Exception as e:
-            logging.exception(f'Request parsing failed {e}')
+            logging.exception(f'Client handling failed '
+                              f'({threading.current_thread().ident}) {e}')
             self.send_error(connection, e)
-        else:
-            try:
-                res = self.handle_req(req)
-                logging.info(f'Response {res}')
-                self.send_response(connection, res)
-            except Exception as e:
-                logging.exception(f'Response sending failed {e}')
-                self.send_error(connection, e)
 
     def send_error(self, connection, err):
         try:
@@ -144,19 +151,32 @@ class Server:
             [('Content-Type', f'text/{"css" if css else "html"}'),
              ('Content-Length', len(body))], body)
 
-    def parse_req_connection(self, connection):
-        with connection.makefile('rb') as file:
+    def parse_req_connection(self, client):
+        req_bytes = self.receive_from_client(client)
+        file = io.BytesIO(req_bytes)
+        logging.info(f'Request parsing by connection started')
+        req = self.parse_req_file(file)
+        request = self.parsed_req_to_request(
+            *req, file, client.getpeername())
+
+        logging.info(f'Request parsed')
+        return request
+
+    def receive_from_client(self, client):
+        data = []
+        while True:
             try:
-                logging.info(f'parsing request by connection started')
-                req = self.parse_req_file(file)
-                request = self.parsed_req_to_request(
-                    *req, file, connection.getpeername())
-            except Exception as e:
-                logging.exception(f'Parsing failed {e}')
-                raise e
-            else:
-                logging.info(f'Request parsed')
-                return request
+                line = client.recv(self.MAX_LINE)
+                if line in self.BREAKLINE:
+                    break
+                data.append(line)
+            except socket.error as e:
+                break
+        data = b''.join(data)
+        if not data:
+            logging.error('No data received')
+            raise Exception('No data received')
+        return data
 
     def parsed_req_to_request(self, method, target,
                               ver, headers, file, peername=None):
@@ -185,7 +205,7 @@ class Server:
         try:
             method, target, ver = req_line.split()
         except ValueError as e:
-            logging.error(f'Could not parse request {e}')
+            logging.error(f'Could not parse request {req_line} {e}')
             raise Errors.MALFORMED_REQ
 
         if ver != 'HTTP/1.1':
@@ -194,13 +214,12 @@ class Server:
 
     def parse_headers_from_file(self, rfile):
         headers = []
-        breakline = [b'\r\n', b'\n', b'']
 
         while True:
             line = rfile.readline(self.MAX_LINE + 1)
             if len(line) > self.MAX_LINE:
                 raise Errors.HEADER_TOO_LARGE
-            if line in breakline:
+            if line in self.BREAKLINE:
                 break
             headers.append(line)
             if len(headers) > self.MAX_HEADERS:
@@ -234,7 +253,7 @@ class Server:
                     content_type = mime.from_file(destination)
                 logging.info(f'{destination} type {content_type}')
                 return self.send_file(req, destination, content_type)
-        raise Errors.NOT_FOUND
+            raise Errors.NOT_FOUND
 
     def send_file(self, req, path, content_type):
         accept = req.headers.get('Accept')
@@ -250,6 +269,13 @@ class Server:
         return Response(200, 'OK', headers, body)
 
     def send_response(self, client, *res):
+        try:
+            ip = client.getpeername()
+        except socket.error as e:
+            if str(e) == '[Errno 9] Bad file descriptor':
+                logging.error(f'Connection with client broken')
+            return
+
         for response in res:
             contents = b''.join((
                 self.status_to_str(response).encode('utf-8'),
@@ -257,24 +283,30 @@ class Server:
                 b'\r\n',
                 response.body
             ))
-            while contents:
-                try:
-                    bytes_sent = client.send(contents)
-                    contents = contents[bytes_sent:]
-                    logging.info(f'{bytes_sent}B sent to '
-                                 f'{client.getpeername()}')
-                except socket.error as e:
-                    if str(e) == "[Errno 35] Resource temporarily unavailable":
-                        logging.error('[Errno 35] Resource temporarily '
-                                      'unavailable Sleeping 0.1s')
-                        time.sleep(0.1)
-                    elif str(e) == "[Errno 32] Broken pipe":
-                        msg = f'client stopped receiving {e}'
-                        logging.exception(msg)
-                        raise e
-                    else:
-                        raise e
-            logging.info(f'File sent to {client.getpeername()}')
+            try:
+                while contents:
+                    try:
+                        bytes_sent = client.send(contents)
+                        contents = contents[bytes_sent:]
+                        logging.info(f'{bytes_sent}B sent to {ip}')
+                    except socket.error as e:
+                        if str(e) == "[Errno 35] Resource " \
+                                     "temporarily unavailable":
+                            logging.error('[Errno 35] Resource temporarily '
+                                          'unavailable Sleeping 0.1s')
+                            time.sleep(0.1)
+                        elif str(e) == "[Errno 32] Broken pipe":
+                            msg = f'client stopped receiving {e}'
+                            logging.exception(msg)
+                            raise e
+                        elif str(e) == '[Errno 9] Bad file descriptor':
+                            logging.error(f'Connection with client {ip} broken')
+                            raise e
+            except socket.error as e:
+                logging.error(e)
+                raise e
+            else:
+                logging.info(f'Files sent to {ip}')
 
     @staticmethod
     def headers_to_str(res):

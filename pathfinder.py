@@ -26,7 +26,7 @@ class PathFinder:
             return rules
 
     def get_destination(self, url, rules, absolute=True):
-        logging.info(f'processing {url}')
+        logging.info(f'Path processing {url}')
         for key, description in rules.items():
             try:
                 path = description['path']
@@ -40,7 +40,6 @@ class PathFinder:
                     pattern = re.compile(rf'\[{k}\]')
                     path = re.sub(pattern, v, path)
 
-                logging.info(f'path found {path}')
                 if absolute:
                     path = self.to_abs_path(path)
                 # todo relative path
@@ -49,9 +48,8 @@ class PathFinder:
 
                 self.URL_TO_RULE[url] = key
                 if os.path.isfile(path):
-                    print(path)
+                    logging.info(f'Path found {path}')
                     return path
-                raise FileNotFoundError(path, url, rule, absolute)
         raise FileNotFoundError(url, rules)
 
     def to_abs_path(self, path):

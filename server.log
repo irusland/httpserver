@@ -1,10 +1,13 @@
 INFO:root:server is UP on 0.0.0.0:8000
-INFO:root:Connected ('127.0.0.1', 53566)
-INFO:root:Threaded client serving started ('127.0.0.1', 53566)
-INFO:root:Got request from ('127.0.0.1', 53566) method: GET
-target: /1.png
+INFO:root:Connected ('127.0.0.1', 51370)
+INFO:root:Request parsing by connection started
+INFO:root:Parsing request by file started
+INFO:root:Threaded client serving started ('127.0.0.1', 51370) in thread 4668227008
+INFO:root:Request parsed
+INFO:root:Request parsed from ('127.0.0.1', 51370) method: GET
+target: /chroma.jpg
 version: HTTP/1.1
-headers: Host: 0.0.0.0:8000
+headers: Host: localhost:8000
 Upgrade-Insecure-Requests: 1
 Accept: text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8
 User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_1) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/13.0.3 Safari/605.1.15
@@ -13,26 +16,48 @@ Accept-Encoding: gzip, deflate
 Connection: keep-alive
 
 
-file: <_io.BufferedReader name=-1>
-user: ('127.0.0.1', 53566)
-url: ParseResult(scheme='', netloc='', path='/1.png', params='', query='', fragment='')
-path: /1.png
+file: <_io.BytesIO object at 0x10c729290>
+user: ('127.0.0.1', 51370)
+url: ParseResult(scheme='', netloc='', path='/chroma.jpg', params='', query='', fragment='')
+path: /chroma.jpg
 query: {}
-INFO:root:processing /1.png
-INFO:root:path found tmp/pictures/1.png
-INFO:root:/Users/irusland/Desktop/UrFU/python/httpserver/tmp/pictures/1.png type image/png
-INFO:root:Response status: 200
+INFO:root:Path processing /chroma.jpg
+INFO:root:Path found /Users/irusland/Desktop/UrFU/python/httpserver/tmp/pictures/chroma.jpg
+INFO:root:/Users/irusland/Desktop/UrFU/python/httpserver/tmp/pictures/chroma.jpg type image/jpeg
+INFO:root:Response prepared 
+status: 200
 reason: OK
-headers: [('Content-Type', 'image/png'), ('Content-Disposition', 'inline; filename=1.png'), ('Content-Length', 383589)]
-body: b'\x89PNG\r\n\x1a\n\x00\x00\x00\rIHDR\x00\x00\x03 \x00\x00\x02X\x08\x06\x00\x00\x00\x9av\x82p\x00\x05\xda,IDATx^\xec\xbd\x07tSW\xbe\xef\xaf;\x93\xc0\xa4S\xd2HH2\x10B\x12\x08\xd5\xc6\xbd\xf7*\x17\xb9H\xb6d\x15\xcb\x92e\xd9r\xb7\xc1\x06L\xef\xa1\x97\x982@B1\xee\x15SC/\xee\xb6z\xb3\x8a\x8bd\xf5f\xd9\xa6\x85\xb7\x8f\x81\xdc\xcc\xdc\xf9\xaf\xbc\xfb\xbf\xef\xbd;wf\x7fX\xdf\xb5\x8f$\x97s$`\x9d\xcf\xfa\xed\xdf\xde(\x14\x04\x02\x81@ \x10\x08\x04\x02\x81@ \x10\x08\x04\x02\x81@ \x10\x08\x04\x02\x81@ \x10\x
-INFO:root:383702B sent to ('127.0.0.1', 53566)
-INFO:root:File sent to ('127.0.0.1', 53566)
-INFO:root:Connected ('127.0.0.1', 53567)
-INFO:root:Threaded client serving started ('127.0.0.1', 53567)
-INFO:root:Got request from ('127.0.0.1', 53567) method: GET
-target: /1.png
+headers: [('Content-Type', 'image/jpeg'), ('Content-Disposition', 'inline; filename=chroma.jpg'), ('Content-Length', 22853829)]
+body: b'\xff\xd8\xff\xe0\x00\x10JFIF\x00\x01\x01\x00\x00H\x00H\x00\x00\xff\xe1\x00@Exif\x00\x00MM\x00*\x00\x00\x00\x08\x00\x01\x87i\x00\x04\x00\x00\x00\x01\x00\x00\x00\x1a\x00\x00\x00\x00\x00\x02\xa0\x02\x00\x04\x00\x00\x00\x01\x00\x00\x14\x00\xa0\x03\x00\x04\x00\x00\x00\x01\x00\x00\x0b@\x00\x00\x00\x00\xff\xed\x008Photoshop 3.0\x008BIM\x04\x04\x00\x00\x00\x00\x00\x008BIM\x04%\x00\x00\x00\x00\x00\x10\xd4\x1d\x8c\xd9\x8f\x00\xb2\x04\xe9\x80\t\x98\xec\xf8B~\xff\xe2\x024ICC_PROFILE\x00\x01\x01\x00\x00\x0
+INFO:root:890796B sent to ('127.0.0.1', 51370)
+INFO:root:948764B sent to ('127.0.0.1', 51370)
+INFO:root:1480464B sent to ('127.0.0.1', 51370)
+INFO:root:1668984B sent to ('127.0.0.1', 51370)
+INFO:root:1685628B sent to ('127.0.0.1', 51370)
+INFO:root:1587636B sent to ('127.0.0.1', 51370)
+INFO:root:1522308B sent to ('127.0.0.1', 51370)
+INFO:root:1522308B sent to ('127.0.0.1', 51370)
+INFO:root:1456564B sent to ('127.0.0.1', 51370)
+INFO:root:1766768B sent to ('127.0.0.1', 51370)
+INFO:root:2438564B sent to ('127.0.0.1', 51370)
+INFO:root:1636112B sent to ('127.0.0.1', 51370)
+INFO:root:2158736B sent to ('127.0.0.1', 51370)
+INFO:root:1897424B sent to ('127.0.0.1', 51370)
+INFO:root:192894B sent to ('127.0.0.1', 51370)
+INFO:root:Files sent to ('127.0.0.1', 51370)
+INFO:root:Response sent 
+status: 200
+reason: OK
+headers: [('Content-Type', 'image/jpeg'), ('Content-Disposition', 'inline; filename=chroma.jpg'), ('Content-Length', 22853829)]
+body: b'\xff\xd8\xff\xe0\x00\x10JFIF\x00\x01\x01\x00\x00H\x00H\x00\x00\xff\xe1\x00@Exif\x00\x00MM\x00*\x00\x00\x00\x08\x00\x01\x87i\x00\x04\x00\x00\x00\x01\x00\x00\x00\x1a\x00\x00\x00\x00\x00\x02\xa0\x02\x00\x04\x00\x00\x00\x01\x00\x00\x14\x00\xa0\x03\x00\x04\x00\x00\x00\x01\x00\x00\x0b@\x00\x00\x00\x00\xff\xed\x008Photoshop 3.0\x008BIM\x04\x04\x00\x00\x00\x00\x00\x008BIM\x04%\x00\x00\x00\x00\x00\x10\xd4\x1d\x8c\xd9\x8f\x00\xb2\x04\xe9\x80\t\x98\xec\xf8B~\xff\xe2\x024ICC_PROFILE\x00\x01\x01\x00\x00\x0
+INFO:root:Request parsing by connection started
+INFO:root:Threaded client serving started ('127.0.0.1', 51370) in thread 4668227008
+INFO:root:Parsing request by file started
+INFO:root:Request parsed
+INFO:root:Request parsed from ('127.0.0.1', 51370) method: GET
+target: /chroma.jpg
 version: HTTP/1.1
-headers: Host: 0.0.0.0:8000
+headers: Host: localhost:8000
 Upgrade-Insecure-Requests: 1
 Accept: text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8
 User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_1) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/13.0.3 Safari/605.1.15
@@ -41,360 +66,738 @@ Accept-Encoding: gzip, deflate
 Connection: keep-alive
 
 
-file: <_io.BufferedReader name=-1>
-user: ('127.0.0.1', 53567)
-url: ParseResult(scheme='', netloc='', path='/1.png', params='', query='', fragment='')
-path: /1.png
+file: <_io.BytesIO object at 0x10c729290>
+user: ('127.0.0.1', 51370)
+url: ParseResult(scheme='', netloc='', path='/chroma.jpg', params='', query='', fragment='')
+path: /chroma.jpg
 query: {}
-INFO:root:processing /1.png
-INFO:root:path found tmp/pictures/1.png
-INFO:root:/Users/irusland/Desktop/UrFU/python/httpserver/tmp/pictures/1.png type image/png
-INFO:root:Response status: 200
+INFO:root:Path processing /chroma.jpg
+INFO:root:Path found /Users/irusland/Desktop/UrFU/python/httpserver/tmp/pictures/chroma.jpg
+INFO:root:/Users/irusland/Desktop/UrFU/python/httpserver/tmp/pictures/chroma.jpg type image/jpeg
+INFO:root:Response prepared 
+status: 200
 reason: OK
-headers: [('Content-Type', 'image/png'), ('Content-Disposition', 'inline; filename=1.png'), ('Content-Length', 383589)]
-body: b'\x89PNG\r\n\x1a\n\x00\x00\x00\rIHDR\x00\x00\x03 \x00\x00\x02X\x08\x06\x00\x00\x00\x9av\x82p\x00\x05\xda,IDATx^\xec\xbd\x07tSW\xbe\xef\xaf;\x93\xc0\xa4S\xd2HH2\x10B\x12\x08\xd5\xc6\xbd\xf7*\x17\xb9H\xb6d\x15\xcb\x92e\xd9r\xb7\xc1\x06L\xef\xa1\x97\x982@B1\xee\x15SC/\xee\xb6z\xb3\x8a\x8bd\xf5f\xd9\xa6\x85\xb7\x8f\x81\xdc\xcc\xdc\xf9\xaf\xbc\xfb\xbf\xef\xbd;wf\x7fX\xdf\xb5\x8f$\x97s$`\x9d\xcf\xfa\xed\xdf\xde(\x14\x04\x02\x81@ \x10\x08\x04\x02\x81@ \x10\x08\x04\x02\x81@ \x10\x08\x04\x02\x81@ \x10\x
-INFO:root:261676B sent to ('127.0.0.1', 53567)
-INFO:root:122026B sent to ('127.0.0.1', 53567)
-INFO:root:File sent to ('127.0.0.1', 53567)
-INFO:root:Threaded client serving started ('127.0.0.1', 53566)
-INFO:root:Got request from ('127.0.0.1', 53566) method: GET
-target: /page-load-errors.css
-version: HTTP/1.1
-headers: Host: 0.0.0.0:8000
-Connection: keep-alive
-Accept: text/css,*/*;q=0.1
-User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_1) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/13.0.3 Safari/605.1.15
-Accept-Language: en-us
-Referer: http://0.0.0.0:8000/1
-Accept-Encoding: gzip, deflate
-
-
-file: <_io.BufferedReader name=-1>
-user: ('127.0.0.1', 53566)
-url: ParseResult(scheme='', netloc='', path='/page-load-errors.css', params='', query='', fragment='')
-path: /page-load-errors.css
-query: {}
-INFO:root:Threaded client serving started ('127.0.0.1', 53567)
-INFO:root:Got request from ('127.0.0.1', 53567) method: GET
-target: /1
-version: HTTP/1.1
-headers: Host: 0.0.0.0:8000
-Upgrade-Insecure-Requests: 1
-Accept: text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8
-User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_1) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/13.0.3 Safari/605.1.15
-Accept-Language: en-us
-Accept-Encoding: gzip, deflate
-Connection: keep-alive
-
-
-file: <_io.BufferedReader name=-1>
-user: ('127.0.0.1', 53567)
-url: ParseResult(scheme='', netloc='', path='/1', params='', query='', fragment='')
-path: /1
-query: {}
-INFO:root:Connected ('127.0.0.1', 53568)
-INFO:root:processing /page-load-errors.css
-INFO:root:path found pages/page-load-errors.css
-INFO:root:processing /1
-ERROR:root:Response sending failed (404, 'Not found', '', 'PAGE_NOT_FOUND')
+headers: [('Content-Type', 'image/jpeg'), ('Content-Disposition', 'inline; filename=chroma.jpg'), ('Content-Length', 22853829)]
+body: b'\xff\xd8\xff\xe0\x00\x10JFIF\x00\x01\x01\x00\x00H\x00H\x00\x00\xff\xe1\x00@Exif\x00\x00MM\x00*\x00\x00\x00\x08\x00\x01\x87i\x00\x04\x00\x00\x00\x01\x00\x00\x00\x1a\x00\x00\x00\x00\x00\x02\xa0\x02\x00\x04\x00\x00\x00\x01\x00\x00\x14\x00\xa0\x03\x00\x04\x00\x00\x00\x01\x00\x00\x0b@\x00\x00\x00\x00\xff\xed\x008Photoshop 3.0\x008BIM\x04\x04\x00\x00\x00\x00\x00\x008BIM\x04%\x00\x00\x00\x00\x00\x10\xd4\x1d\x8c\xd9\x8f\x00\xb2\x04\xe9\x80\t\x98\xec\xf8B~\xff\xe2\x024ICC_PROFILE\x00\x01\x01\x00\x00\x0
+ERROR:root:No data received
+ERROR:root:Client handling failed (123145326006272) No data received
 Traceback (most recent call last):
-  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 224, in handle_req
-    destination = self.ruler.get_destination(req.path, rules, True)
-  File "/Users/irusland/Desktop/UrFU/python/httpserver/pathfinder.py", line 55, in get_destination
-    raise FileNotFoundError(url, rules)
-FileNotFoundError: [Errno /1] {'/': 'tmp/index.html', '/favicon.ico': 'tmp/pictures/favicon.ico', '/index.html': 'tmp/index.html', '/2.html': 'tmp/pages/2.html', '/1.2.3.txt': 'tmp/1.2.3.txt', '/page-load-errors[extras].css': 'pages/page-load-errors[extras].css', '/[name].html': 'tmp/pages/[name].html', '/[name].css': 'tmp/pages/css/[name].css', '/[name].[ext]': 'tmp/pictures/[name].[ext]', '/png/[name].png': 'tmp/pictures/[name].png', '/pictures/[ext]/1': 'tmp/pictures/1.[ext]', '/[DD]/[MM]/[YY]': 'tmp/dates/[DD].[MM].[YY].png', '/mime/': {'path': 'tmp/pictures/1.png', 'mime': 'text/txt'}, '/big': {'path': 'tmp/pictures/chroma.jpg', 'mime': 'image/jpg'}}
-
-During handling of the above exception, another exception occurred:
-
-Traceback (most recent call last):
-  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 108, in serve_client
-    res = self.handle_req(req)
-  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 226, in handle_req
-    raise Errors.NOT_FOUND
-Error: (404, 'Not found', '', 'PAGE_NOT_FOUND')
-INFO:root:Got request from ('127.0.0.1', 53568) method: GET
-target: /page-load-errors-extras.css
-version: HTTP/1.1
-headers: Host: 0.0.0.0:8000
-Connection: keep-alive
-Accept: text/css,*/*;q=0.1
-User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_1) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/13.0.3 Safari/605.1.15
-Accept-Language: en-us
-Referer: http://0.0.0.0:8000/1
-Accept-Encoding: gzip, deflate
-
-
-file: <_io.BufferedReader name=-1>
-user: ('127.0.0.1', 53568)
-url: ParseResult(scheme='', netloc='', path='/page-load-errors-extras.css', params='', query='', fragment='')
-path: /page-load-errors-extras.css
-query: {}
-INFO:root:Threaded client serving started ('127.0.0.1', 53568)
-INFO:root:processing /page-load-errors-extras.css
-INFO:root:path found pages/page-load-errors-extras.css
-INFO:root:1089B sent to ('127.0.0.1', 53567)
-INFO:root:File sent to ('127.0.0.1', 53567)
-INFO:root:1201B sent to ('127.0.0.1', 53567)
-INFO:root:File sent to ('127.0.0.1', 53567)
-INFO:root:478B sent to ('127.0.0.1', 53567)
-INFO:root:File sent to ('127.0.0.1', 53567)
-INFO:root:/Users/irusland/Desktop/UrFU/python/httpserver/pages/page-load-errors.css type text/x-asm
-INFO:root:/Users/irusland/Desktop/UrFU/python/httpserver/pages/page-load-errors-extras.css type text/plain
-INFO:root:Response status: 200
-reason: OK
-headers: [('Content-Type', 'text/x-asm'), ('Content-Disposition', 'inline; filename=page-load-errors.css'), ('Content-Length', 1129)]
-body: b'/*\n    This file has a UTF-8 BOM in it so it can be included from a UTF-16 page\n    without specifying an explicit character set. When editing it, please be\n    sure to preserve the BOM (first three bytes of the file, EF BB BF).\n */\n\nbody {\n    background: rgb(246, 246, 246);\n    cursor: default;\n    display: -webkit-box;\n    text-align: center;\n    -webkit-box-align: center;\n    -webkit-box-pack: center;\n    -webkit-user-select: none;\n}\n\na {\n    color: rgb(21, 126, 251);\n   
-INFO:root:Response status: 200
-reason: OK
-headers: [('Content-Type', 'text/plain'), ('Content-Disposition', 'inline; filename=page-load-errors-extras.css'), ('Content-Length', 407)]
-body: b'/*\n    This file has a UTF-8 BOM in it so it can be included from a UTF-16 page\n    without specifying an explicit character set. When editing it, please be\n    sure to preserve the BOM (first three bytes of the file, EF BB BF).\n*/\n\n@media (prefers-dark-interface) {\n    body {\n        background: rgb(30, 30, 30);\n    }\n\n    .error-message, .suggestion-prompt {\n        color: rgb(110, 110, 110);\n    }\n}\n\n'
-INFO:root:1256B sent to ('127.0.0.1', 53566)
-INFO:root:540B sent to ('127.0.0.1', 53568)
-INFO:root:File sent to ('127.0.0.1', 53566)
-INFO:root:File sent to ('127.0.0.1', 53568)
-INFO:root:Got request from ('127.0.0.1', 53567) method: GET
-target: /
-version: HTTP/1.1
-headers: Host: 0.0.0.0:8000
-Upgrade-Insecure-Requests: 1
-Accept: text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8
-User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_1) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/13.0.3 Safari/605.1.15
-Accept-Language: en-us
-Accept-Encoding: gzip, deflate
-Connection: keep-alive
-
-
-file: <_io.BufferedReader name=-1>
-user: ('127.0.0.1', 53567)
-url: ParseResult(scheme='', netloc='', path='/', params='', query='', fragment='')
-path: /
-query: {}
-INFO:root:Threaded client serving started ('127.0.0.1', 53567)
-ERROR:root:Could not parse request not enough values to unpack (expected 3, got 1)
-ERROR:root:Parsing failed (400, 'Bad request', 'Malformed request line')
-Traceback (most recent call last):
-  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 183, in parse_request_line
-    method, target, ver = req_line.split()
-ValueError: not enough values to unpack (expected 3, got 1)
-
-During handling of the above exception, another exception occurred:
-
-Traceback (most recent call last):
-  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 150, in parse_req_connection
-    req = self.parse_req_file(file)
-  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 164, in parse_req_file
-    method, target, ver = self.parse_request_line(file)
-  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 186, in parse_request_line
-    raise Errors.MALFORMED_REQ
-Error: (400, 'Bad request', 'Malformed request line')
-INFO:root:Threaded client serving started ('127.0.0.1', 53567)
-ERROR:root:Request parsing failed (400, 'Bad request', 'Malformed request line')
-Traceback (most recent call last):
-  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 183, in parse_request_line
-    method, target, ver = req_line.split()
-ValueError: not enough values to unpack (expected 3, got 1)
-
-During handling of the above exception, another exception occurred:
-
-Traceback (most recent call last):
-  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 101, in serve_client
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 110, in serve_client
     req = self.parse_req_connection(connection)
-  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 155, in parse_req_connection
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 154, in parse_req_connection
+    req_bytes = self.receive_from_client(client)
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 177, in receive_from_client
+    raise Exception('No data received')
+Exception: No data received
+INFO:root:107B sent to ('127.0.0.1', 51370)
+INFO:root:Files sent to ('127.0.0.1', 51370)
+INFO:root:Threaded client serving started ('127.0.0.1', 51370) in thread 4668227008
+ERROR:root:client stopped receiving [Errno 32] Broken pipe
+Traceback (most recent call last):
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 288, in send_response
+    bytes_sent = client.send(contents)
+BrokenPipeError: [Errno 32] Broken pipe
+ERROR:root:[Errno 32] Broken pipe
+ERROR:root:Client handling failed (123145320751104) [Errno 32] Broken pipe
+Traceback (most recent call last):
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 114, in serve_client
+    self.send_response(connection, res)
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 306, in send_response
     raise e
-  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 150, in parse_req_connection
-    req = self.parse_req_file(file)
-  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 164, in parse_req_file
-    method, target, ver = self.parse_request_line(file)
-  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 186, in parse_request_line
-    raise Errors.MALFORMED_REQ
-Error: (400, 'Bad request', 'Malformed request line')
-INFO:root:processing /
-INFO:root:Threaded client serving started ('127.0.0.1', 53567)
-ERROR:root:Could not parse request not enough values to unpack (expected 3, got 1)
-INFO:root:107B sent to ('127.0.0.1', 53567)
-INFO:root:path found tmp/index.html
-ERROR:root:Parsing failed (400, 'Bad request', 'Malformed request line')
-Traceback (most recent call last):
-  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 183, in parse_request_line
-    method, target, ver = req_line.split()
-ValueError: not enough values to unpack (expected 3, got 1)
-
-During handling of the above exception, another exception occurred:
-
-Traceback (most recent call last):
-  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 150, in parse_req_connection
-    req = self.parse_req_file(file)
-  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 164, in parse_req_file
-    method, target, ver = self.parse_request_line(file)
-  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 186, in parse_request_line
-    raise Errors.MALFORMED_REQ
-  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 101, in serve_client
-    req = self.parse_req_connection(connection)
-  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 155, in parse_req_connection
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 300, in send_response
     raise e
-  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 150, in parse_req_connection
-    req = self.parse_req_file(file)
-  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 164, in parse_req_file
-    method, target, ver = self.parse_request_line(file)
-  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 186, in parse_request_line
-    raise Errors.MALFORMED_REQ
-Error: (400, 'Bad request', 'Malformed request line')
-ERROR:root:Parsing failed [Errno 54] Connection reset by peer
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 288, in send_response
+    bytes_sent = client.send(contents)
+BrokenPipeError: [Errno 32] Broken pipe
+INFO:root:Connected ('127.0.0.1', 51372)
+INFO:root:Socket in thread 4668227008 was disconnected
+ERROR:root:No data received
+ERROR:root:server is DOWN because of exception <class 'OSError'> [Errno 22] Invalid argument <traceback object at 0x10c741550>
 Traceback (most recent call last):
-  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 150, in parse_req_connection
-    req = self.parse_req_file(file)
-  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 164, in parse_req_file
-    method, target, ver = self.parse_request_line(file)
-  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 177, in parse_request_line
-    raw = file.readline(self.MAX_LINE + 1)
-  File "/usr/local/Cellar/python/3.7.4_1/Frameworks/Python.framework/Versions/3.7/lib/python3.7/socket.py", line 589, in readinto
-    return self._sock.recv_into(b)
-ConnectionResetError: [Errno 54] Connection reset by peer
-ERROR:root:server is DOWN because of exception <class 'OSError'> [Errno 22] Invalid argument <traceback object at 0x103a3baa0>
-Traceback (most recent call last):
-  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 345, in <module>
-    s.serve()
-  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 76, in serve
-    callback(key.fileobj, mask)
-  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 91, in _read
-    logging.info(f'Threaded client serving started {sock.getpeername()}')
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 94, in _read
+    logging.info(f'Threaded client serving '
 OSError: [Errno 22] Invalid argument
-ERROR:root:Request parsing failed (400, 'Bad request', 'Malformed request line')
-Traceback (most recent call last):
-  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 183, in parse_request_line
-    method, target, ver = req_line.split()
-ValueError: not enough values to unpack (expected 3, got 1)
 
 During handling of the above exception, another exception occurred:
 
 Traceback (most recent call last):
-  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 101, in serve_client
-    req = self.parse_req_connection(connection)
-  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 155, in parse_req_connection
-    raise e
-  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 150, in parse_req_connection
-    req = self.parse_req_file(file)
-  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 164, in parse_req_file
-    method, target, ver = self.parse_request_line(file)
-  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 186, in parse_request_line
-    raise Errors.MALFORMED_REQ
-  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 101, in serve_client
-    req = self.parse_req_connection(connection)
-  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 155, in parse_req_connection
-    raise e
-  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 150, in parse_req_connection
-    req = self.parse_req_file(file)
-  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 164, in parse_req_file
-    method, target, ver = self.parse_request_line(file)
-  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 186, in parse_request_line
-    raise Errors.MALFORMED_REQ
-Error: (400, 'Bad request', 'Malformed request line')
-ERROR:root:Request parsing failed [Errno 54] Connection reset by peer
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 379, in <module>
+    s.serve()
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 78, in serve
+    callback(key.fileobj, mask)
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 100, in _read
+    self._close(client)
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 103, in _close
+    logging.info(f'Disconnected {connection.getpeername()}')
+OSError: [Errno 22] Invalid argument
+ERROR:root:Client handling failed (123145320751104) No data received
 Traceback (most recent call last):
-  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 101, in serve_client
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 110, in serve_client
     req = self.parse_req_connection(connection)
-  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 155, in parse_req_connection
-    raise e
-  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 150, in parse_req_connection
-    req = self.parse_req_file(file)
-  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 164, in parse_req_file
-    method, target, ver = self.parse_request_line(file)
-  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 177, in parse_request_line
-    raw = file.readline(self.MAX_LINE + 1)
-  File "/usr/local/Cellar/python/3.7.4_1/Frameworks/Python.framework/Versions/3.7/lib/python3.7/socket.py", line 589, in readinto
-    return self._sock.recv_into(b)
-ConnectionResetError: [Errno 54] Connection reset by peer
-ERROR:root:client stopped receiving [Errno 32] Broken pipe
-Traceback (most recent call last):
-  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 183, in parse_request_line
-    method, target, ver = req_line.split()
-ValueError: not enough values to unpack (expected 3, got 1)
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 154, in parse_req_connection
+    req_bytes = self.receive_from_client(client)
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 177, in receive_from_client
+    raise Exception('No data received')
+Exception: No data received
+INFO:root:server is UP on 0.0.0.0:8000
+INFO:root:server is DOWN with no exceptions
+INFO:root:server is UP on 0.0.0.0:8000
+INFO:root:Connected ('127.0.0.1', 51389)
+INFO:root:Threaded client serving started ('127.0.0.1', 51389) in thread 4460780992
+INFO:root:Request parsing by connection started
+INFO:root:Parsing request by file started
+INFO:root:Request parsed
+INFO:root:Request parsed from ('127.0.0.1', 51389) method: GET
+target: /chroma.jpg
+version: HTTP/1.1
+headers: Host: localhost:8000
+Upgrade-Insecure-Requests: 1
+Accept: text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8
+User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_1) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/13.0.3 Safari/605.1.15
+Accept-Language: en-us
+Accept-Encoding: gzip, deflate
+Connection: keep-alive
 
-During handling of the above exception, another exception occurred:
 
-Traceback (most recent call last):
-  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 101, in serve_client
-    req = self.parse_req_connection(connection)
-  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 155, in parse_req_connection
-    raise e
-  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 150, in parse_req_connection
-    req = self.parse_req_file(file)
-  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 164, in parse_req_file
-    method, target, ver = self.parse_request_line(file)
-  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 186, in parse_request_line
-    raise Errors.MALFORMED_REQ
-  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 101, in serve_client
-    req = self.parse_req_connection(connection)
-  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 155, in parse_req_connection
-    raise e
-  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 150, in parse_req_connection
-    req = self.parse_req_file(file)
-  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 164, in parse_req_file
-    method, target, ver = self.parse_request_line(file)
-  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 186, in parse_request_line
-    raise Errors.MALFORMED_REQ
-Error: (400, 'Bad request', 'Malformed request line')
-
-During handling of the above exception, another exception occurred:
-
-Traceback (most recent call last):
-  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 259, in send_response
-    bytes_sent = client.send(contents)
-BrokenPipeError: [Errno 32] Broken pipe
-ERROR:root:client stopped receiving [Errno 32] Broken pipe
-Traceback (most recent call last):
-  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 101, in serve_client
-    req = self.parse_req_connection(connection)
-  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 155, in parse_req_connection
-    raise e
-  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 150, in parse_req_connection
-    req = self.parse_req_file(file)
-  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 164, in parse_req_file
-    method, target, ver = self.parse_request_line(file)
-  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 177, in parse_request_line
-    raw = file.readline(self.MAX_LINE + 1)
-  File "/usr/local/Cellar/python/3.7.4_1/Frameworks/Python.framework/Versions/3.7/lib/python3.7/socket.py", line 589, in readinto
-    return self._sock.recv_into(b)
-ConnectionResetError: [Errno 54] Connection reset by peer
-
-During handling of the above exception, another exception occurred:
-
-Traceback (most recent call last):
-  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 259, in send_response
-    bytes_sent = client.send(contents)
-BrokenPipeError: [Errno 32] Broken pipe
-INFO:root:/Users/irusland/Desktop/UrFU/python/httpserver/tmp/index.html type text/html
-INFO:root:Response status: 200
+file: <_io.BytesIO object at 0x102029290>
+user: ('127.0.0.1', 51389)
+url: ParseResult(scheme='', netloc='', path='/chroma.jpg', params='', query='', fragment='')
+path: /chroma.jpg
+query: {}
+INFO:root:Path processing /chroma.jpg
+INFO:root:Path found /Users/irusland/Desktop/UrFU/python/httpserver/tmp/pictures/chroma.jpg
+INFO:root:/Users/irusland/Desktop/UrFU/python/httpserver/tmp/pictures/chroma.jpg type image/jpeg
+INFO:root:Response prepared 
+status: 200
 reason: OK
-headers: [('Content-Type', 'text/html'), ('Content-Disposition', 'inline; filename=index.html'), ('Content-Length', 156)]
-body: b'<!DOCTYPE html>\n<html lang="en">\n<head>\n    <meta charset="UTF-8">\n    <title>index.html</title>\n</head>\n<body>\n    <h1>Python Rule it!</h1>\n</body>\n</html>'
+headers: [('Content-Type', 'image/jpeg'), ('Content-Disposition', 'inline; filename=chroma.jpg'), ('Content-Length', 22853829)]
+body: b'\xff\xd8\xff\xe0\x00\x10JFIF\x00\x01\x01\x00\x00H\x00H\x00\x00\xff\xe1\x00@Exif\x00\x00MM\x00*\x00\x00\x00\x08\x00\x01\x87i\x00\x04\x00\x00\x00\x01\x00\x00\x00\x1a\x00\x00\x00\x00\x00\x02\xa0\x02\x00\x04\x00\x00\x00\x01\x00\x00\x14\x00\xa0\x03\x00\x04\x00\x00\x00\x01\x00\x00\x0b@\x00\x00\x00\x00\xff\xed\x008Photoshop 3.0\x008BIM\x04\x04\x00\x00\x00\x00\x00\x008BIM\x04%\x00\x00\x00\x00\x00\x10\xd4\x1d\x8c\xd9\x8f\x00\xb2\x04\xe9\x80\t\x98\xec\xf8B~\xff\xe2\x024ICC_PROFILE\x00\x01\x01\x00\x00\x0
+INFO:root:858132B sent to ('127.0.0.1', 51389)
+INFO:root:940364B sent to ('127.0.0.1', 51389)
+INFO:root:940468B sent to ('127.0.0.1', 51389)
+INFO:root:964576B sent to ('127.0.0.1', 51389)
+INFO:root:1104516B sent to ('127.0.0.1', 51389)
+INFO:root:1734520B sent to ('127.0.0.1', 51389)
+INFO:root:1864968B sent to ('127.0.0.1', 51389)
+INFO:root:1702064B sent to ('127.0.0.1', 51389)
+INFO:root:1652132B sent to ('127.0.0.1', 51389)
+INFO:root:1079992B sent to ('127.0.0.1', 51389)
+INFO:root:1963792B sent to ('127.0.0.1', 51389)
+INFO:root:2144484B sent to ('127.0.0.1', 51389)
+INFO:root:2087556B sent to ('127.0.0.1', 51389)
+INFO:root:1955652B sent to ('127.0.0.1', 51389)
+INFO:root:1860734B sent to ('127.0.0.1', 51389)
+INFO:root:Files sent to ('127.0.0.1', 51389)
+INFO:root:Response sent 
+status: 200
+reason: OK
+headers: [('Content-Type', 'image/jpeg'), ('Content-Disposition', 'inline; filename=chroma.jpg'), ('Content-Length', 22853829)]
+body: b'\xff\xd8\xff\xe0\x00\x10JFIF\x00\x01\x01\x00\x00H\x00H\x00\x00\xff\xe1\x00@Exif\x00\x00MM\x00*\x00\x00\x00\x08\x00\x01\x87i\x00\x04\x00\x00\x00\x01\x00\x00\x00\x1a\x00\x00\x00\x00\x00\x02\xa0\x02\x00\x04\x00\x00\x00\x01\x00\x00\x14\x00\xa0\x03\x00\x04\x00\x00\x00\x01\x00\x00\x0b@\x00\x00\x00\x00\xff\xed\x008Photoshop 3.0\x008BIM\x04\x04\x00\x00\x00\x00\x00\x008BIM\x04%\x00\x00\x00\x00\x00\x10\xd4\x1d\x8c\xd9\x8f\x00\xb2\x04\xe9\x80\t\x98\xec\xf8B~\xff\xe2\x024ICC_PROFILE\x00\x01\x01\x00\x00\x0
+INFO:root:Threaded client serving started ('127.0.0.1', 51389) in thread 4460780992
+INFO:root:Request parsing by connection started
+INFO:root:Parsing request by file started
+INFO:root:Request parsed
+INFO:root:Request parsed from ('127.0.0.1', 51389) method: GET
+target: /chroma.jpg
+version: HTTP/1.1
+headers: Host: localhost:8000
+Upgrade-Insecure-Requests: 1
+Accept: text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8
+User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_1) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/13.0.3 Safari/605.1.15
+Accept-Language: en-us
+Accept-Encoding: gzip, deflate
+Connection: keep-alive
+
+
+file: <_io.BytesIO object at 0x102029290>
+user: ('127.0.0.1', 51389)
+url: ParseResult(scheme='', netloc='', path='/chroma.jpg', params='', query='', fragment='')
+path: /chroma.jpg
+query: {}
+INFO:root:Path processing /chroma.jpg
+INFO:root:Path found /Users/irusland/Desktop/UrFU/python/httpserver/tmp/pictures/chroma.jpg
+INFO:root:/Users/irusland/Desktop/UrFU/python/httpserver/tmp/pictures/chroma.jpg type image/jpeg
+INFO:root:Response prepared 
+status: 200
+reason: OK
+headers: [('Content-Type', 'image/jpeg'), ('Content-Disposition', 'inline; filename=chroma.jpg'), ('Content-Length', 22853829)]
+body: b'\xff\xd8\xff\xe0\x00\x10JFIF\x00\x01\x01\x00\x00H\x00H\x00\x00\xff\xe1\x00@Exif\x00\x00MM\x00*\x00\x00\x00\x08\x00\x01\x87i\x00\x04\x00\x00\x00\x01\x00\x00\x00\x1a\x00\x00\x00\x00\x00\x02\xa0\x02\x00\x04\x00\x00\x00\x01\x00\x00\x14\x00\xa0\x03\x00\x04\x00\x00\x00\x01\x00\x00\x0b@\x00\x00\x00\x00\xff\xed\x008Photoshop 3.0\x008BIM\x04\x04\x00\x00\x00\x00\x00\x008BIM\x04%\x00\x00\x00\x00\x00\x10\xd4\x1d\x8c\xd9\x8f\x00\xb2\x04\xe9\x80\t\x98\xec\xf8B~\xff\xe2\x024ICC_PROFILE\x00\x01\x01\x00\x00\x0
+INFO:root:Threaded client serving started ('127.0.0.1', 51389) in thread 4460780992
+ERROR:root:No data received
+ERROR:root:Client handling failed (123145451294720) No data received
+Traceback (most recent call last):
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 111, in serve_client
+    req = self.parse_req_connection(connection)
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 155, in parse_req_connection
+    req_bytes = self.receive_from_client(client)
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 178, in receive_from_client
+    raise Exception('No data received')
+Exception: No data received
 ERROR:root:client stopped receiving [Errno 32] Broken pipe
 Traceback (most recent call last):
-  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 259, in send_response
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 289, in send_response
     bytes_sent = client.send(contents)
 BrokenPipeError: [Errno 32] Broken pipe
-ERROR:root:Response sending failed [Errno 32] Broken pipe
+ERROR:root:[Errno 32] Broken pipe
+ERROR:root:Client handling failed (123145446039552) [Errno 32] Broken pipe
 Traceback (most recent call last):
-  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 110, in serve_client
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 115, in serve_client
     self.send_response(connection, res)
-  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 271, in send_response
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 307, in send_response
     raise e
-  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 259, in send_response
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 301, in send_response
+    raise e
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 289, in send_response
     bytes_sent = client.send(contents)
 BrokenPipeError: [Errno 32] Broken pipe
+INFO:root:Connected ('127.0.0.1', 51390)
+INFO:root:Socket in thread 4460780992 was disconnected
+INFO:root:Socket Disconnected in thread 4460780992
+ERROR:root:No data received
+ERROR:root:Client handling failed (123145446039552) No data received
+Traceback (most recent call last):
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 111, in serve_client
+    req = self.parse_req_connection(connection)
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 155, in parse_req_connection
+    req_bytes = self.receive_from_client(client)
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 178, in receive_from_client
+    raise Exception('No data received')
+Exception: No data received
+ERROR:root:Connection with client broken
+INFO:root:Threaded client serving started ('127.0.0.1', 51390) in thread 4460780992
+INFO:root:Request parsing by connection started
+INFO:root:Parsing request by file started
+INFO:root:Request parsed
+INFO:root:Request parsed from ('127.0.0.1', 51390) method: GET
+target: /chroma.jpg
+version: HTTP/1.1
+headers: Host: localhost:8000
+Upgrade-Insecure-Requests: 1
+Accept: text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8
+User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_1) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/13.0.3 Safari/605.1.15
+Accept-Language: en-us
+Accept-Encoding: gzip, deflate
+Connection: keep-alive
+
+
+file: <_io.BytesIO object at 0x102047fb0>
+user: ('127.0.0.1', 51390)
+url: ParseResult(scheme='', netloc='', path='/chroma.jpg', params='', query='', fragment='')
+path: /chroma.jpg
+query: {}
+INFO:root:Path processing /chroma.jpg
+INFO:root:Path found /Users/irusland/Desktop/UrFU/python/httpserver/tmp/pictures/chroma.jpg
+INFO:root:/Users/irusland/Desktop/UrFU/python/httpserver/tmp/pictures/chroma.jpg type image/jpeg
+INFO:root:Response prepared 
+status: 200
+reason: OK
+headers: [('Content-Type', 'image/jpeg'), ('Content-Disposition', 'inline; filename=chroma.jpg'), ('Content-Length', 22853829)]
+body: b'\xff\xd8\xff\xe0\x00\x10JFIF\x00\x01\x01\x00\x00H\x00H\x00\x00\xff\xe1\x00@Exif\x00\x00MM\x00*\x00\x00\x00\x08\x00\x01\x87i\x00\x04\x00\x00\x00\x01\x00\x00\x00\x1a\x00\x00\x00\x00\x00\x02\xa0\x02\x00\x04\x00\x00\x00\x01\x00\x00\x14\x00\xa0\x03\x00\x04\x00\x00\x00\x01\x00\x00\x0b@\x00\x00\x00\x00\xff\xed\x008Photoshop 3.0\x008BIM\x04\x04\x00\x00\x00\x00\x00\x008BIM\x04%\x00\x00\x00\x00\x00\x10\xd4\x1d\x8c\xd9\x8f\x00\xb2\x04\xe9\x80\t\x98\xec\xf8B~\xff\xe2\x024ICC_PROFILE\x00\x01\x01\x00\x00\x0
+INFO:root:956644B sent to ('127.0.0.1', 51390)
+INFO:root:948920B sent to ('127.0.0.1', 51390)
+INFO:root:915840B sent to ('127.0.0.1', 51390)
+INFO:root:1358156B sent to ('127.0.0.1', 51390)
+INFO:root:1734728B sent to ('127.0.0.1', 51390)
+INFO:root:1767496B sent to ('127.0.0.1', 51390)
+INFO:root:1603812B sent to ('127.0.0.1', 51390)
+INFO:root:1668516B sent to ('127.0.0.1', 51390)
+INFO:root:1865540B sent to ('127.0.0.1', 51390)
+INFO:root:1964208B sent to ('127.0.0.1', 51390)
+INFO:root:2028912B sent to ('127.0.0.1', 51390)
+INFO:root:1865124B sent to ('127.0.0.1', 51390)
+INFO:root:2094448B sent to ('127.0.0.1', 51390)
+INFO:root:687660B sent to ('127.0.0.1', 51390)
+INFO:root:1393946B sent to ('127.0.0.1', 51390)
+INFO:root:Files sent to ('127.0.0.1', 51390)
+INFO:root:Response sent 
+status: 200
+reason: OK
+headers: [('Content-Type', 'image/jpeg'), ('Content-Disposition', 'inline; filename=chroma.jpg'), ('Content-Length', 22853829)]
+body: b'\xff\xd8\xff\xe0\x00\x10JFIF\x00\x01\x01\x00\x00H\x00H\x00\x00\xff\xe1\x00@Exif\x00\x00MM\x00*\x00\x00\x00\x08\x00\x01\x87i\x00\x04\x00\x00\x00\x01\x00\x00\x00\x1a\x00\x00\x00\x00\x00\x02\xa0\x02\x00\x04\x00\x00\x00\x01\x00\x00\x14\x00\xa0\x03\x00\x04\x00\x00\x00\x01\x00\x00\x0b@\x00\x00\x00\x00\xff\xed\x008Photoshop 3.0\x008BIM\x04\x04\x00\x00\x00\x00\x00\x008BIM\x04%\x00\x00\x00\x00\x00\x10\xd4\x1d\x8c\xd9\x8f\x00\xb2\x04\xe9\x80\t\x98\xec\xf8B~\xff\xe2\x024ICC_PROFILE\x00\x01\x01\x00\x00\x0
+INFO:root:Threaded client serving started ('127.0.0.1', 51390) in thread 4460780992
+INFO:root:Request parsing by connection started
+INFO:root:Parsing request by file started
+INFO:root:Request parsed
+INFO:root:Request parsed from ('127.0.0.1', 51390) method: GET
+target: /chroma.jpg
+version: HTTP/1.1
+headers: Host: localhost:8000
+Upgrade-Insecure-Requests: 1
+Accept: text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8
+User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_1) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/13.0.3 Safari/605.1.15
+Accept-Language: en-us
+Accept-Encoding: gzip, deflate
+Connection: keep-alive
+
+
+file: <_io.BytesIO object at 0x102029110>
+user: ('127.0.0.1', 51390)
+url: ParseResult(scheme='', netloc='', path='/chroma.jpg', params='', query='', fragment='')
+path: /chroma.jpg
+query: {}
+INFO:root:Path processing /chroma.jpg
+INFO:root:Path found /Users/irusland/Desktop/UrFU/python/httpserver/tmp/pictures/chroma.jpg
+INFO:root:/Users/irusland/Desktop/UrFU/python/httpserver/tmp/pictures/chroma.jpg type image/jpeg
+INFO:root:Response prepared 
+status: 200
+reason: OK
+headers: [('Content-Type', 'image/jpeg'), ('Content-Disposition', 'inline; filename=chroma.jpg'), ('Content-Length', 22853829)]
+body: b'\xff\xd8\xff\xe0\x00\x10JFIF\x00\x01\x01\x00\x00H\x00H\x00\x00\xff\xe1\x00@Exif\x00\x00MM\x00*\x00\x00\x00\x08\x00\x01\x87i\x00\x04\x00\x00\x00\x01\x00\x00\x00\x1a\x00\x00\x00\x00\x00\x02\xa0\x02\x00\x04\x00\x00\x00\x01\x00\x00\x14\x00\xa0\x03\x00\x04\x00\x00\x00\x01\x00\x00\x0b@\x00\x00\x00\x00\xff\xed\x008Photoshop 3.0\x008BIM\x04\x04\x00\x00\x00\x00\x00\x008BIM\x04%\x00\x00\x00\x00\x00\x10\xd4\x1d\x8c\xd9\x8f\x00\xb2\x04\xe9\x80\t\x98\xec\xf8B~\xff\xe2\x024ICC_PROFILE\x00\x01\x01\x00\x00\x0
+INFO:root:1473156B sent to ('127.0.0.1', 51390)
+INFO:root:1604228B sent to ('127.0.0.1', 51390)
+INFO:root:1668932B sent to ('127.0.0.1', 51390)
+INFO:root:1538692B sent to ('127.0.0.1', 51390)
+INFO:root:1472740B sent to ('127.0.0.1', 51390)
+INFO:root:1734468B sent to ('127.0.0.1', 51390)
+INFO:root:1898672B sent to ('127.0.0.1', 51390)
+INFO:root:1865124B sent to ('127.0.0.1', 51390)
+INFO:root:1244248B sent to ('127.0.0.1', 51390)
+INFO:root:1734884B sent to ('127.0.0.1', 51390)
+INFO:root:1898256B sent to ('127.0.0.1', 51390)
+INFO:root:1963376B sent to ('127.0.0.1', 51390)
+INFO:root:2094448B sent to ('127.0.0.1', 51390)
+INFO:root:342972B sent to ('127.0.0.1', 51390)
+ERROR:root:[Errno 35] Resource temporarily unavailable Sleeping 0.1s
+INFO:root:Threaded client serving started ('127.0.0.1', 51390) in thread 4460780992
+ERROR:root:No data received
+ERROR:root:Client handling failed (123145451294720) No data received
+Traceback (most recent call last):
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 111, in serve_client
+    req = self.parse_req_connection(connection)
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 155, in parse_req_connection
+    req_bytes = self.receive_from_client(client)
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 178, in receive_from_client
+    raise Exception('No data received')
+Exception: No data received
+INFO:root:Threaded client serving started ('127.0.0.1', 51390) in thread 4460780992
+ERROR:root:No data received
+INFO:root:107B sent to ('127.0.0.1', 51390)
+ERROR:root:No data received
+INFO:root:Socket in thread 4460780992 was disconnected
+INFO:root:Socket Disconnected in thread 4460780992
+INFO:root:Files sent to ('127.0.0.1', 51390)
+ERROR:root:Client handling failed (123145461805056) No data received
+Traceback (most recent call last):
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 111, in serve_client
+    req = self.parse_req_connection(connection)
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 155, in parse_req_connection
+    req_bytes = self.receive_from_client(client)
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 178, in receive_from_client
+    raise Exception('No data received')
+Exception: No data received
+ERROR:root:Client handling failed (123145456549888) No data received
+Traceback (most recent call last):
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 111, in serve_client
+    req = self.parse_req_connection(connection)
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 155, in parse_req_connection
+    req_bytes = self.receive_from_client(client)
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 178, in receive_from_client
+    raise Exception('No data received')
+Exception: No data received
+ERROR:root:Connection with client broken
+ERROR:root:Connection with client broken
+INFO:root:Connected ('127.0.0.1', 51391)
+INFO:root:Request parsing by connection started
+INFO:root:Parsing request by file started
+INFO:root:Request parsed
+INFO:root:Request parsed from ('127.0.0.1', 51391) method: GET
+target: /chroma.jpg
+version: HTTP/1.1
+headers: Host: localhost:8000
+Upgrade-Insecure-Requests: 1
+Accept: text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8
+User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_1) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/13.0.3 Safari/605.1.15
+Accept-Language: en-us
+Accept-Encoding: gzip, deflate
+Connection: keep-alive
+
+
+file: <_io.BytesIO object at 0x10207b290>
+user: ('127.0.0.1', 51391)
+url: ParseResult(scheme='', netloc='', path='/chroma.jpg', params='', query='', fragment='')
+path: /chroma.jpg
+query: {}
+INFO:root:Threaded client serving started ('127.0.0.1', 51391) in thread 4460780992
+INFO:root:Path processing /chroma.jpg
+INFO:root:Path found /Users/irusland/Desktop/UrFU/python/httpserver/tmp/pictures/chroma.jpg
+INFO:root:/Users/irusland/Desktop/UrFU/python/httpserver/tmp/pictures/chroma.jpg type image/jpeg
+ERROR:root:Connection with client ('127.0.0.1', 51390) broken
+ERROR:root:[Errno 9] Bad file descriptor
+ERROR:root:Client handling failed (123145446039552) [Errno 9] Bad file descriptor
+Traceback (most recent call last):
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 115, in serve_client
+    self.send_response(connection, res)
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 307, in send_response
+    raise e
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 304, in send_response
+    raise e
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 289, in send_response
+    bytes_sent = client.send(contents)
+OSError: [Errno 9] Bad file descriptor
+ERROR:root:Connection with client broken
+INFO:root:Response prepared 
+status: 200
+reason: OK
+headers: [('Content-Type', 'image/jpeg'), ('Content-Disposition', 'inline; filename=chroma.jpg'), ('Content-Length', 22853829)]
+body: b'\xff\xd8\xff\xe0\x00\x10JFIF\x00\x01\x01\x00\x00H\x00H\x00\x00\xff\xe1\x00@Exif\x00\x00MM\x00*\x00\x00\x00\x08\x00\x01\x87i\x00\x04\x00\x00\x00\x01\x00\x00\x00\x1a\x00\x00\x00\x00\x00\x02\xa0\x02\x00\x04\x00\x00\x00\x01\x00\x00\x14\x00\xa0\x03\x00\x04\x00\x00\x00\x01\x00\x00\x0b@\x00\x00\x00\x00\xff\xed\x008Photoshop 3.0\x008BIM\x04\x04\x00\x00\x00\x00\x00\x008BIM\x04%\x00\x00\x00\x00\x00\x10\xd4\x1d\x8c\xd9\x8f\x00\xb2\x04\xe9\x80\t\x98\xec\xf8B~\xff\xe2\x024ICC_PROFILE\x00\x01\x01\x00\x00\x0
+ERROR:root:No data received
+ERROR:root:Client handling failed (123145446039552) No data received
+Traceback (most recent call last):
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 111, in serve_client
+    req = self.parse_req_connection(connection)
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 155, in parse_req_connection
+    req_bytes = self.receive_from_client(client)
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 178, in receive_from_client
+    raise Exception('No data received')
+Exception: No data received
+INFO:root:Socket in thread 4460780992 was disconnected
+INFO:root:Socket Disconnected in thread 4460780992
+INFO:root:Connected ('127.0.0.1', 51392)
+INFO:root:Connected ('127.0.0.1', 51393)
+INFO:root:261676B sent to ('127.0.0.1', 51391)
+ERROR:root:Connection with client ('127.0.0.1', 51391) broken
+ERROR:root:[Errno 9] Bad file descriptor
+INFO:root:Threaded client serving started ('127.0.0.1', 51392) in thread 4460780992
+INFO:root:Request parsing by connection started
+ERROR:root:Client handling failed (123145451294720) [Errno 9] Bad file descriptor
+Traceback (most recent call last):
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 115, in serve_client
+    self.send_response(connection, res)
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 307, in send_response
+    raise e
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 304, in send_response
+    raise e
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 289, in send_response
+    bytes_sent = client.send(contents)
+OSError: [Errno 9] Bad file descriptor
+INFO:root:Parsing request by file started
+INFO:root:Connected ('127.0.0.1', 51394)
+ERROR:root:Connection with client broken
+INFO:root:Request parsed
+ERROR:root:No data received
+ERROR:root:Client handling failed (123145456549888) No data received
+Traceback (most recent call last):
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 111, in serve_client
+    req = self.parse_req_connection(connection)
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 155, in parse_req_connection
+    req_bytes = self.receive_from_client(client)
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 178, in receive_from_client
+    raise Exception('No data received')
+Exception: No data received
+INFO:root:Request parsed from ('127.0.0.1', 51392) method: GET
+target: /chroma.jpg
+version: HTTP/1.1
+headers: Host: localhost:8000
+Upgrade-Insecure-Requests: 1
+Accept: text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8
+User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_1) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/13.0.3 Safari/605.1.15
+Accept-Language: en-us
+Accept-Encoding: gzip, deflate
+Connection: keep-alive
+
+
+file: <_io.BytesIO object at 0x1020291d0>
+user: ('127.0.0.1', 51392)
+url: ParseResult(scheme='', netloc='', path='/chroma.jpg', params='', query='', fragment='')
+path: /chroma.jpg
+query: {}
+INFO:root:Threaded client serving started ('127.0.0.1', 51392) in thread 4460780992
+INFO:root:107B sent to ('127.0.0.1', 51392)
+INFO:root:Files sent to ('127.0.0.1', 51392)
+INFO:root:Request parsing by connection started
+INFO:root:Parsing request by file started
+INFO:root:Request parsed
+INFO:root:Request parsed from ('127.0.0.1', 51393) method: GET
+target: /chroma.jpg
+version: HTTP/1.1
+headers: Host: localhost:8000
+Upgrade-Insecure-Requests: 1
+Accept: text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8
+User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_1) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/13.0.3 Safari/605.1.15
+Accept-Language: en-us
+Accept-Encoding: gzip, deflate
+Connection: keep-alive
+
+
+file: <_io.BytesIO object at 0x10207b1d0>
+user: ('127.0.0.1', 51393)
+url: ParseResult(scheme='', netloc='', path='/chroma.jpg', params='', query='', fragment='')
+path: /chroma.jpg
+query: {}
+INFO:root:Threaded client serving started ('127.0.0.1', 51393) in thread 4460780992
+ERROR:root:No data received
+ERROR:root:Client handling failed (123145456549888) No data received
+Traceback (most recent call last):
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 111, in serve_client
+    req = self.parse_req_connection(connection)
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 155, in parse_req_connection
+    req_bytes = self.receive_from_client(client)
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 178, in receive_from_client
+    raise Exception('No data received')
+Exception: No data received
+INFO:root:Path processing /chroma.jpg
+INFO:root:Socket in thread 4460780992 was disconnected
+INFO:root:Path processing /chroma.jpg
+INFO:root:Socket Disconnected in thread 4460780992
+INFO:root:Path found /Users/irusland/Desktop/UrFU/python/httpserver/tmp/pictures/chroma.jpg
+INFO:root:Path found /Users/irusland/Desktop/UrFU/python/httpserver/tmp/pictures/chroma.jpg
+ERROR:root:No data received
+ERROR:root:Client handling failed (123145456549888) No data received
+Traceback (most recent call last):
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 111, in serve_client
+    req = self.parse_req_connection(connection)
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 155, in parse_req_connection
+    req_bytes = self.receive_from_client(client)
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 178, in receive_from_client
+    raise Exception('No data received')
+Exception: No data received
+INFO:root:Threaded client serving started ('127.0.0.1', 51393) in thread 4460780992
+INFO:root:107B sent to ('127.0.0.1', 51393)
+INFO:root:Files sent to ('127.0.0.1', 51393)
+INFO:root:Threaded client serving started ('127.0.0.1', 51394) in thread 4460780992
+INFO:root:Request parsing by connection started
+INFO:root:Parsing request by file started
+INFO:root:Socket in thread 4460780992 was disconnected
+INFO:root:Request parsed
+ERROR:root:No data received
+INFO:root:Socket Disconnected in thread 4460780992
+INFO:root:Request parsed from ('127.0.0.1', 51394) method: GET
+target: /chroma.jpg
+version: HTTP/1.1
+headers: Host: localhost:8000
+Upgrade-Insecure-Requests: 1
+Accept: text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8
+User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_1) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/13.0.3 Safari/605.1.15
+Accept-Language: en-us
+Accept-Encoding: gzip, deflate
+Connection: keep-alive
+
+
+file: <_io.BytesIO object at 0x102085cb0>
+user: ('127.0.0.1', 51394)
+url: ParseResult(scheme='', netloc='', path='/chroma.jpg', params='', query='', fragment='')
+path: /chroma.jpg
+query: {}
+ERROR:root:Client handling failed (123145456549888) No data received
+Traceback (most recent call last):
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 111, in serve_client
+    req = self.parse_req_connection(connection)
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 155, in parse_req_connection
+    req_bytes = self.receive_from_client(client)
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 178, in receive_from_client
+    raise Exception('No data received')
+Exception: No data received
+ERROR:root:Connection with client broken
+INFO:root:Path processing /chroma.jpg
+INFO:root:Path found /Users/irusland/Desktop/UrFU/python/httpserver/tmp/pictures/chroma.jpg
+INFO:root:/Users/irusland/Desktop/UrFU/python/httpserver/tmp/pictures/chroma.jpg type image/jpeg
+INFO:root:/Users/irusland/Desktop/UrFU/python/httpserver/tmp/pictures/chroma.jpg type image/jpeg
+INFO:root:/Users/irusland/Desktop/UrFU/python/httpserver/tmp/pictures/chroma.jpg type image/jpeg
+INFO:root:Response prepared 
+status: 200
+reason: OK
+headers: [('Content-Type', 'image/jpeg'), ('Content-Disposition', 'inline; filename=chroma.jpg'), ('Content-Length', 22853829)]
+body: b'\xff\xd8\xff\xe0\x00\x10JFIF\x00\x01\x01\x00\x00H\x00H\x00\x00\xff\xe1\x00@Exif\x00\x00MM\x00*\x00\x00\x00\x08\x00\x01\x87i\x00\x04\x00\x00\x00\x01\x00\x00\x00\x1a\x00\x00\x00\x00\x00\x02\xa0\x02\x00\x04\x00\x00\x00\x01\x00\x00\x14\x00\xa0\x03\x00\x04\x00\x00\x00\x01\x00\x00\x0b@\x00\x00\x00\x00\xff\xed\x008Photoshop 3.0\x008BIM\x04\x04\x00\x00\x00\x00\x00\x008BIM\x04%\x00\x00\x00\x00\x00\x10\xd4\x1d\x8c\xd9\x8f\x00\xb2\x04\xe9\x80\t\x98\xec\xf8B~\xff\xe2\x024ICC_PROFILE\x00\x01\x01\x00\x00\x0
+ERROR:root:Connection with client broken
+ERROR:root:No data received
+INFO:root:Threaded client serving started ('127.0.0.1', 51394) in thread 4460780992
+INFO:root:Response prepared 
+status: 200
+reason: OK
+headers: [('Content-Type', 'image/jpeg'), ('Content-Disposition', 'inline; filename=chroma.jpg'), ('Content-Length', 22853829)]
+body: b'\xff\xd8\xff\xe0\x00\x10JFIF\x00\x01\x01\x00\x00H\x00H\x00\x00\xff\xe1\x00@Exif\x00\x00MM\x00*\x00\x00\x00\x08\x00\x01\x87i\x00\x04\x00\x00\x00\x01\x00\x00\x00\x1a\x00\x00\x00\x00\x00\x02\xa0\x02\x00\x04\x00\x00\x00\x01\x00\x00\x14\x00\xa0\x03\x00\x04\x00\x00\x00\x01\x00\x00\x0b@\x00\x00\x00\x00\xff\xed\x008Photoshop 3.0\x008BIM\x04\x04\x00\x00\x00\x00\x00\x008BIM\x04%\x00\x00\x00\x00\x00\x10\xd4\x1d\x8c\xd9\x8f\x00\xb2\x04\xe9\x80\t\x98\xec\xf8B~\xff\xe2\x024ICC_PROFILE\x00\x01\x01\x00\x00\x0
+ERROR:root:Connection with client broken
+INFO:root:Response sent 
+status: 200
+reason: OK
+headers: [('Content-Type', 'image/jpeg'), ('Content-Disposition', 'inline; filename=chroma.jpg'), ('Content-Length', 22853829)]
+body: b'\xff\xd8\xff\xe0\x00\x10JFIF\x00\x01\x01\x00\x00H\x00H\x00\x00\xff\xe1\x00@Exif\x00\x00MM\x00*\x00\x00\x00\x08\x00\x01\x87i\x00\x04\x00\x00\x00\x01\x00\x00\x00\x1a\x00\x00\x00\x00\x00\x02\xa0\x02\x00\x04\x00\x00\x00\x01\x00\x00\x14\x00\xa0\x03\x00\x04\x00\x00\x00\x01\x00\x00\x0b@\x00\x00\x00\x00\xff\xed\x008Photoshop 3.0\x008BIM\x04\x04\x00\x00\x00\x00\x00\x008BIM\x04%\x00\x00\x00\x00\x00\x10\xd4\x1d\x8c\xd9\x8f\x00\xb2\x04\xe9\x80\t\x98\xec\xf8B~\xff\xe2\x024ICC_PROFILE\x00\x01\x01\x00\x00\x0
+INFO:root:Response prepared 
+status: 200
+reason: OK
+headers: [('Content-Type', 'image/jpeg'), ('Content-Disposition', 'inline; filename=chroma.jpg'), ('Content-Length', 22853829)]
+body: b'\xff\xd8\xff\xe0\x00\x10JFIF\x00\x01\x01\x00\x00H\x00H\x00\x00\xff\xe1\x00@Exif\x00\x00MM\x00*\x00\x00\x00\x08\x00\x01\x87i\x00\x04\x00\x00\x00\x01\x00\x00\x00\x1a\x00\x00\x00\x00\x00\x02\xa0\x02\x00\x04\x00\x00\x00\x01\x00\x00\x14\x00\xa0\x03\x00\x04\x00\x00\x00\x01\x00\x00\x0b@\x00\x00\x00\x00\xff\xed\x008Photoshop 3.0\x008BIM\x04\x04\x00\x00\x00\x00\x00\x008BIM\x04%\x00\x00\x00\x00\x00\x10\xd4\x1d\x8c\xd9\x8f\x00\xb2\x04\xe9\x80\t\x98\xec\xf8B~\xff\xe2\x024ICC_PROFILE\x00\x01\x01\x00\x00\x0
+INFO:root:Connected ('127.0.0.1', 51395)
+ERROR:root:Client handling failed (123145456549888) No data received
+Traceback (most recent call last):
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 111, in serve_client
+    req = self.parse_req_connection(connection)
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 155, in parse_req_connection
+    req_bytes = self.receive_from_client(client)
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 178, in receive_from_client
+    raise Exception('No data received')
+Exception: No data received
+INFO:root:Response sent 
+status: 200
+reason: OK
+headers: [('Content-Type', 'image/jpeg'), ('Content-Disposition', 'inline; filename=chroma.jpg'), ('Content-Length', 22853829)]
+body: b'\xff\xd8\xff\xe0\x00\x10JFIF\x00\x01\x01\x00\x00H\x00H\x00\x00\xff\xe1\x00@Exif\x00\x00MM\x00*\x00\x00\x00\x08\x00\x01\x87i\x00\x04\x00\x00\x00\x01\x00\x00\x00\x1a\x00\x00\x00\x00\x00\x02\xa0\x02\x00\x04\x00\x00\x00\x01\x00\x00\x14\x00\xa0\x03\x00\x04\x00\x00\x00\x01\x00\x00\x0b@\x00\x00\x00\x00\xff\xed\x008Photoshop 3.0\x008BIM\x04\x04\x00\x00\x00\x00\x00\x008BIM\x04%\x00\x00\x00\x00\x00\x10\xd4\x1d\x8c\xd9\x8f\x00\xb2\x04\xe9\x80\t\x98\xec\xf8B~\xff\xe2\x024ICC_PROFILE\x00\x01\x01\x00\x00\x0
 ERROR:root:client stopped receiving [Errno 32] Broken pipe
 Traceback (most recent call last):
-  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 110, in serve_client
-    self.send_response(connection, res)
-  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 271, in send_response
-    raise e
-  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 259, in send_response
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 289, in send_response
     bytes_sent = client.send(contents)
 BrokenPipeError: [Errno 32] Broken pipe
-
-During handling of the above exception, another exception occurred:
-
+ERROR:root:[Errno 32] Broken pipe
+INFO:root:Socket in thread 4460780992 was disconnected
+ERROR:root:Client handling failed (123145461805056) [Errno 32] Broken pipe
 Traceback (most recent call last):
-  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 259, in send_response
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 115, in serve_client
+    self.send_response(connection, res)
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 307, in send_response
+    raise e
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 301, in send_response
+    raise e
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 289, in send_response
     bytes_sent = client.send(contents)
 BrokenPipeError: [Errno 32] Broken pipe
+ERROR:root:No data received
+INFO:root:Socket Disconnected in thread 4460780992
+ERROR:root:Client handling failed (123145451294720) No data received
+Traceback (most recent call last):
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 111, in serve_client
+    req = self.parse_req_connection(connection)
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 155, in parse_req_connection
+    req_bytes = self.receive_from_client(client)
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 178, in receive_from_client
+    raise Exception('No data received')
+Exception: No data received
+ERROR:root:Connection with client broken
+INFO:root:Connected ('127.0.0.1', 51396)
+INFO:root:Threaded client serving started ('127.0.0.1', 51395) in thread 4460780992
+ERROR:root:No data received
+ERROR:root:Client handling failed (123145451294720) No data received
+Traceback (most recent call last):
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 111, in serve_client
+    req = self.parse_req_connection(connection)
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 155, in parse_req_connection
+    req_bytes = self.receive_from_client(client)
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 178, in receive_from_client
+    raise Exception('No data received')
+Exception: No data received
+INFO:root:Request parsing by connection started
+INFO:root:Parsing request by file started
+INFO:root:107B sent to ('127.0.0.1', 51395)
+ERROR:root:Client handling failed (123145446039552) [Errno 22] Invalid argument
+Traceback (most recent call last):
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 111, in serve_client
+    req = self.parse_req_connection(connection)
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 160, in parse_req_connection
+    *req, file, client.getpeername())
+OSError: [Errno 22] Invalid argument
+INFO:root:Threaded client serving started ('127.0.0.1', 51395) in thread 4460780992
+INFO:root:Files sent to ('127.0.0.1', 51395)
+INFO:root:Request parsing by connection started
+INFO:root:Threaded client serving started ('127.0.0.1', 51396) in thread 4460780992
+INFO:root:Parsing request by file started
+INFO:root:Socket in thread 4460780992 was disconnected
+ERROR:root:No data received
+INFO:root:Request parsed
+INFO:root:Socket Disconnected in thread 4460780992
+ERROR:root:Client handling failed (123145451294720) No data received
+Traceback (most recent call last):
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 111, in serve_client
+    req = self.parse_req_connection(connection)
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 155, in parse_req_connection
+    req_bytes = self.receive_from_client(client)
+  File "/Users/irusland/Desktop/UrFU/python/httpserver/httpserver.py", line 178, in receive_from_client
+    raise Exception('No data received')
+Exception: No data received
+INFO:root:Request parsed from ('127.0.0.1', 51396) method: GET
+target: /chroma.jpg
+version: HTTP/1.1
+headers: Host: localhost:8000
+Upgrade-Insecure-Requests: 1
+Accept: text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8
+User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_1) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/13.0.3 Safari/605.1.15
+Accept-Language: en-us
+Accept-Encoding: gzip, deflate
+Connection: keep-alive
+
+
+file: <_io.BytesIO object at 0x102047230>
+user: ('127.0.0.1', 51396)
+url: ParseResult(scheme='', netloc='', path='/chroma.jpg', params='', query='', fragment='')
+path: /chroma.jpg
+query: {}
+ERROR:root:Connection with client broken
+INFO:root:Path processing /chroma.jpg
+INFO:root:Path found /Users/irusland/Desktop/UrFU/python/httpserver/tmp/pictures/chroma.jpg
+INFO:root:/Users/irusland/Desktop/UrFU/python/httpserver/tmp/pictures/chroma.jpg type image/jpeg
+INFO:root:Response prepared 
+status: 200
+reason: OK
+headers: [('Content-Type', 'image/jpeg'), ('Content-Disposition', 'inline; filename=chroma.jpg'), ('Content-Length', 22853829)]
+body: b'\xff\xd8\xff\xe0\x00\x10JFIF\x00\x01\x01\x00\x00H\x00H\x00\x00\xff\xe1\x00@Exif\x00\x00MM\x00*\x00\x00\x00\x08\x00\x01\x87i\x00\x04\x00\x00\x00\x01\x00\x00\x00\x1a\x00\x00\x00\x00\x00\x02\xa0\x02\x00\x04\x00\x00\x00\x01\x00\x00\x14\x00\xa0\x03\x00\x04\x00\x00\x00\x01\x00\x00\x0b@\x00\x00\x00\x00\xff\xed\x008Photoshop 3.0\x008BIM\x04\x04\x00\x00\x00\x00\x00\x008BIM\x04%\x00\x00\x00\x00\x00\x10\xd4\x1d\x8c\xd9\x8f\x00\xb2\x04\xe9\x80\t\x98\xec\xf8B~\xff\xe2\x024ICC_PROFILE\x00\x01\x01\x00\x00\x0
+INFO:root:261676B sent to ('127.0.0.1', 51396)
+INFO:root:1365880B sent to ('127.0.0.1', 51396)
+INFO:root:1374124B sent to ('127.0.0.1', 51396)
+INFO:root:1496900B sent to ('127.0.0.1', 51396)
+INFO:root:1496900B sent to ('127.0.0.1', 51396)
+INFO:root:1497316B sent to ('127.0.0.1', 51396)
+INFO:root:1628388B sent to ('127.0.0.1', 51396)
+INFO:root:1562436B sent to ('127.0.0.1', 51396)
+INFO:root:1946576B sent to ('127.0.0.1', 51396)
+INFO:root:1685732B sent to ('127.0.0.1', 51396)
+INFO:root:1882132B sent to ('127.0.0.1', 51396)
+INFO:root:1897840B sent to ('127.0.0.1', 51396)
+INFO:root:2159984B sent to ('127.0.0.1', 51396)
+INFO:root:310308B sent to ('127.0.0.1', 51396)
+INFO:root:1815972B sent to ('127.0.0.1', 51396)
+INFO:root:471786B sent to ('127.0.0.1', 51396)
+INFO:root:Files sent to ('127.0.0.1', 51396)
+INFO:root:Response sent 
+status: 200
+reason: OK
+headers: [('Content-Type', 'image/jpeg'), ('Content-Disposition', 'inline; filename=chroma.jpg'), ('Content-Length', 22853829)]
+body: b'\xff\xd8\xff\xe0\x00\x10JFIF\x00\x01\x01\x00\x00H\x00H\x00\x00\xff\xe1\x00@Exif\x00\x00MM\x00*\x00\x00\x00\x08\x00\x01\x87i\x00\x04\x00\x00\x00\x01\x00\x00\x00\x1a\x00\x00\x00\x00\x00\x02\xa0\x02\x00\x04\x00\x00\x00\x01\x00\x00\x14\x00\xa0\x03\x00\x04\x00\x00\x00\x01\x00\x00\x0b@\x00\x00\x00\x00\xff\xed\x008Photoshop 3.0\x008BIM\x04\x04\x00\x00\x00\x00\x00\x008BIM\x04%\x00\x00\x00\x00\x00\x10\xd4\x1d\x8c\xd9\x8f\x00\xb2\x04\xe9\x80\t\x98\xec\xf8B~\xff\xe2\x024ICC_PROFILE\x00\x01\x01\x00\x00\x0
+INFO:root:Request parsing by connection started
+INFO:root:Parsing request by file started
+INFO:root:Request parsed
+INFO:root:Request parsed from ('127.0.0.1', 51396) method: GET
+target: /chroma.jpg
+version: HTTP/1.1
+headers: Host: localhost:8000
+Upgrade-Insecure-Requests: 1
+Accept: text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8
+User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_1) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/13.0.3 Safari/605.1.15
+Accept-Language: en-us
+Accept-Encoding: gzip, deflate
+Connection: keep-alive
+
+
+file: <_io.BytesIO object at 0x10207b110>
+user: ('127.0.0.1', 51396)
+url: ParseResult(scheme='', netloc='', path='/chroma.jpg', params='', query='', fragment='')
+path: /chroma.jpg
+query: {}
+INFO:root:Threaded client serving started ('127.0.0.1', 51396) in thread 4460780992
+INFO:root:Path processing /chroma.jpg
+INFO:root:Path found /Users/irusland/Desktop/UrFU/python/httpserver/tmp/pictures/chroma.jpg
+INFO:root:/Users/irusland/Desktop/UrFU/python/httpserver/tmp/pictures/chroma.jpg type image/jpeg
+INFO:root:Response prepared 
+status: 200
+reason: OK
+headers: [('Content-Type', 'image/jpeg'), ('Content-Disposition', 'inline; filename=chroma.jpg'), ('Content-Length', 22853829)]
+body: b'\xff\xd8\xff\xe0\x00\x10JFIF\x00\x01\x01\x00\x00H\x00H\x00\x00\xff\xe1\x00@Exif\x00\x00MM\x00*\x00\x00\x00\x08\x00\x01\x87i\x00\x04\x00\x00\x00\x01\x00\x00\x00\x1a\x00\x00\x00\x00\x00\x02\xa0\x02\x00\x04\x00\x00\x00\x01\x00\x00\x14\x00\xa0\x03\x00\x04\x00\x00\x00\x01\x00\x00\x0b@\x00\x00\x00\x00\xff\xed\x008Photoshop 3.0\x008BIM\x04\x04\x00\x00\x00\x00\x00\x008BIM\x04%\x00\x00\x00\x00\x00\x10\xd4\x1d\x8c\xd9\x8f\x00\xb2\x04\xe9\x80\t\x98\xec\xf8B~\xff\xe2\x024ICC_PROFILE\x00\x01\x01\x00\x00\x0
+INFO:root:1424004B sent to ('127.0.0.1', 51396)
+INFO:root:1686148B sent to ('127.0.0.1', 51396)
+INFO:root:1685732B sent to ('127.0.0.1', 51396)
+INFO:root:1554244B sent to ('127.0.0.1', 51396)
+INFO:root:1488708B sent to ('127.0.0.1', 51396)
+INFO:root:1554660B sent to ('127.0.0.1', 51396)
+INFO:root:1555076B sent to ('127.0.0.1', 51396)
+INFO:root:1686148B sent to ('127.0.0.1', 51396)
+INFO:root:1767184B sent to ('127.0.0.1', 51396)
+INFO:root:1897840B sent to ('127.0.0.1', 51396)
+INFO:root:1882756B sent to ('127.0.0.1', 51396)
+INFO:root:1816388B sent to ('127.0.0.1', 51396)
+INFO:root:883800B sent to ('127.0.0.1', 51396)
+INFO:root:1963792B sent to ('127.0.0.1', 51396)
+INFO:root:7470B sent to ('127.0.0.1', 51396)
+INFO:root:Files sent to ('127.0.0.1', 51396)
+INFO:root:Response sent 
+status: 200
+reason: OK
+headers: [('Content-Type', 'image/jpeg'), ('Content-Disposition', 'inline; filename=chroma.jpg'), ('Content-Length', 22853829)]
+body: b'\xff\xd8\xff\xe0\x00\x10JFIF\x00\x01\x01\x00\x00H\x00H\x00\x00\xff\xe1\x00@Exif\x00\x00MM\x00*\x00\x00\x00\x08\x00\x01\x87i\x00\x04\x00\x00\x00\x01\x00\x00\x00\x1a\x00\x00\x00\x00\x00\x02\xa0\x02\x00\x04\x00\x00\x00\x01\x00\x00\x14\x00\xa0\x03\x00\x04\x00\x00\x00\x01\x00\x00\x0b@\x00\x00\x00\x00\xff\xed\x008Photoshop 3.0\x008BIM\x04\x04\x00\x00\x00\x00\x00\x008BIM\x04%\x00\x00\x00\x00\x00\x10\xd4\x1d\x8c\xd9\x8f\x00\xb2\x04\xe9\x80\t\x98\xec\xf8B~\xff\xe2\x024ICC_PROFILE\x00\x01\x01\x00\x00\x0
+INFO:root:server is DOWN with no exceptions

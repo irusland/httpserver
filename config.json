@@ -19,7 +19,8 @@
       "path" : "tmp/pictures/1.png",
       "mime" : "text/txt"
     },
-    "/big" : { "path" : "tmp/pictures/chroma.jpg", "mime" : "image/jpg" }
+    "/big" : { "path" : "tmp/pictures/chroma.jpg", "mime" : "image/jpg" },
+    "/[file].[ext]" : "tmp/[file].[ext]"
   },
   "error-pages": {
     "styles" : [
