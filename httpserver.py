@@ -24,10 +24,9 @@ class Server:
     MAX_HEADERS = 100
     BREAKLINE = [b'\r\n', b'\n', b'']
 
-    def __init__(self, host, port, server_name, debug=True, refresh_rate=0):
+    def __init__(self, host, port, debug=True, refresh_rate=0):
         self._host = host
         self._port = port
-        self._server_name = server_name
         self._list = {}
         self._debug = debug
         self.ruler = PathFinder()
@@ -124,17 +123,8 @@ class Server:
             if err.page:
                 with open(err.page, 'rb') as p:
                     p = p.read()
-                styles = []
-                for style in err.page_styles:
-                    with open(style, 'rb') as s:
-                        styles.append(s.read())
 
-                res = self.build_err_res(err.status, err.reason, p)
-                res_css = [self.build_err_res(err.status,
-                                              err.reason,
-                                              s,
-                                              css=True) for s in styles]
-                res = [res, *res_css]
+                res = [self.build_err_res(err.status, err.reason, p)]
             else:
                 res = [self.build_err_res(
                     err.status, err.reason,
@@ -189,11 +179,6 @@ class Server:
         host = headers.get('Host')
         if not host:
             raise Errors.HEADER_MISSING
-        if host not in (self._server_name,
-                        f'{self._server_name}:{self._port}'):
-            #todo work with subhosts if needed
-            # raise Errors.NOT_FOUND
-            pass
         return method, target, ver, headers
 
     def parse_request_line(self, file):
@@ -251,11 +236,10 @@ class Server:
                 if not content_type:
                     mime = magic.Magic(mime=True)
                     content_type = mime.from_file(destination)
-                logging.info(f'{destination} type {content_type}')
-                return self.send_file(req, destination, content_type)
+                return self.build_res(req, destination, content_type)
             raise Errors.NOT_FOUND
 
-    def send_file(self, req, path, content_type):
+    def build_res(self, req, path, content_type):
         accept = req.headers.get('Accept')
         if content_type in accept or '*/*' in accept:
             with open(path, 'rb') as file:
@@ -356,7 +340,6 @@ class Error(Exception):
             with open(CONFIG_PATH) as cfg:
                 data = json.load(cfg)
                 self.page = data["error-pages"][page]
-                self.page_styles = data["error-pages"]['styles']
 
 
 class Errors(Error):
@@ -375,6 +358,6 @@ class Errors(Error):
 if __name__ == '__main__':
     with open(CONFIG_PATH) as cfg:
         data = json.load(cfg)
-    server = Server(data['host'], data['port'], data['server'])
+    server = Server(data['host'], data['port'])
     with server as s:
         s.serve()

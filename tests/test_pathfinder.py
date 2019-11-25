@@ -42,9 +42,6 @@ class MyTestCase(unittest.TestCase):
     def test_file_not_found_with_rule(self):
         self.assertFileNotFound('/no.css')
 
-    def test_file_exists_no_rule(self):
-        self.assertFileNotFound('/norulefile.py')
-
     def test_no_file_no_rule(self):
         self.assertFileNotFound('/foo.bar')
 

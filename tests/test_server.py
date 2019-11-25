@@ -23,7 +23,7 @@ class MyTestCase(unittest.TestCase):
     def make_server(self):
         with open(CONFIG_PATH) as cfg:
             data = json.load(cfg)
-        return Server(data['host'], data['port'], data['server'],
+        return Server(data['host'], data['port'],
                       debug=False, refresh_rate=0.1)
 
     def process_req(self, req):

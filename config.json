@@ -1,14 +1,16 @@
 {
   "host": "0.0.0.0",
   "port": 8000,
-  "server": "0.0.0.0",
   "rules": {
     "/" : "tmp/index.html",
     "/favicon.ico" : "tmp/pictures/favicon.ico",
     "/index.html" : "tmp/index.html",
     "/2.html" : "tmp/pages/2.html",
     "/1.2.3.txt" : "tmp/1.2.3.txt",
-    "/page-load-errors[extras].css": "pages/page-load-errors[extras].css",
+    "/page-load-errors[extras].css": {
+      "path": "pages/page-load-errors[extras].css",
+      "mime": "text/css"
+    },
     "/[name].html" : "tmp/pages/[name].html",
     "/[name].css" : "tmp/pages/css/[name].css",
     "/[name].[ext]" : "tmp/pictures/[name].[ext]",
@@ -23,10 +25,6 @@
     "/[file].[ext]" : "tmp/[file].[ext]"
   },
   "error-pages": {
-    "styles" : [
-      "pages/page-load-errors.css",
-      "pages/page-load-errors-extras.css"
-    ],
     "PAGE_NOT_FOUND": "pages/PAGE_NOT_FOUND.html"
   }
 }
