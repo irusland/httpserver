@@ -50,6 +50,9 @@ class PathFinder:
                 if os.path.isfile(path):
                     logging.info(f'Path found {path}')
                     return path
+                else:
+                    logging.error(f'Path matched by rule {rule} but file not '
+                                  f'found {path}')
         raise FileNotFoundError(url, rules)
 
     def to_abs_path(self, path):

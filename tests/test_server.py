@@ -11,6 +11,7 @@ import unittest
 
 from httpserver import Server
 from defenitions import CONFIG_PATH
+from request import Request
 from stopper import AsyncStopper
 
 
@@ -57,7 +58,7 @@ class MyTestCase(unittest.TestCase):
         server = self.make_server()
         file = io.BytesIO(str_req.encode('utf-8'))
         parsed_req = server.parse_req_file(file)
-        req = server.parsed_req_to_request(*parsed_req, file)
+        req = Request.parsed_req_to_request(*parsed_req, file)
         res = server.handle_req(req)
 
         self.assertEqual(res.status, 200)

@@ -1,7 +1,6 @@
 # python3
 import io
 import json
-import os
 import selectors
 import socket
 import threading
@@ -9,7 +8,6 @@ import time
 import urllib.parse
 
 from email.parser import Parser
-from urllib.parse import parse_qs, urlparse
 
 from defenitions import CONFIG_PATH, LOGGER_PATH
 from errors import Errors
@@ -18,6 +16,9 @@ from pathfinder import PathFinder
 import magic
 import logging
 import chardet
+
+from request import Request
+from response import Response
 
 
 class Server:
@@ -126,29 +127,22 @@ class Server:
                 with open(err.page, 'rb') as p:
                     p = p.read()
 
-                res = [self.build_err_res(err.status, err.reason, p)]
+                res = [Response.build_err_res(err.status, err.reason, p)]
             else:
-                res = [self.build_err_res(
+                res = [Response.build_err_res(
                     err.status, err.reason,
                     (err.body or err.reason).encode('utf-8'))]
         except AttributeError as e:
-            res = [self.build_err_res(500, b'Internal Server Error',
-                                      b'Internal Server Error')]
+            res = [Response.build_err_res(500, b'Internal Server Error',
+                                          b'Internal Server Error')]
         self.send_response(connection, *res)
-
-    @staticmethod
-    def build_err_res(status, reason, body, css=False):
-        return Response(
-            status, reason,
-            [('Content-Type', f'text/{"css" if css else "html"}'),
-             ('Content-Length', len(body))], body)
 
     def parse_req_connection(self, client):
         req_bytes = self.receive_from_client(client)
         file = io.BytesIO(req_bytes)
         logging.info(f'Request parsing by connection started')
         req = self.parse_req_file(file)
-        request = self.parsed_req_to_request(
+        request = Request.parsed_req_to_request(
             *req, file, client.getpeername())
 
         logging.info(f'Request parsed')
@@ -169,10 +163,6 @@ class Server:
             logging.error('No data received')
             raise Exception('No data received')
         return data
-
-    def parsed_req_to_request(self, method, target,
-                              ver, headers, file, peername=None):
-        return Request(method, target, ver, headers, file, peername)
 
     def parse_req_file(self, file):
         logging.info(f'Parsing request by file started')
@@ -215,7 +205,8 @@ class Server:
         headers = b''.join(headers)
         return self.parse_headers_str(self.decode(headers))
 
-    def decode(self, b):
+    @staticmethod
+    def decode(b):
         encoding = chardet.detect(b)['encoding']
         if encoding:
             return str(b, encoding)
@@ -240,21 +231,8 @@ class Server:
                 if not content_type:
                     mime = magic.Magic(mime=True)
                     content_type = mime.from_file(destination)
-                return self.build_res(req, destination, content_type)
+                return Response.build_res(req, destination, content_type)
             raise Errors.NOT_FOUND
-
-    def build_res(self, req, path, content_type):
-        accept = req.headers.get('Accept')
-        if content_type in accept or '*/*' in accept:
-            with open(path, 'rb') as file:
-                body = file.read()
-        else:
-            return Response(406, 'Not Acceptable')
-        filename = os.path.basename(path)
-        headers = [('Content-Type', f'{content_type}'),
-                   ('Content-Disposition', f'inline; filename={filename}'),
-                   ('Content-Length', len(body))]
-        return Response(200, 'OK', headers, body)
 
     def send_response(self, client, *res):
         try:
@@ -266,8 +244,8 @@ class Server:
 
         for response in res:
             contents = b''.join((
-                self.status_to_str(response).encode('utf-8'),
-                self.headers_to_str(response).encode('utf-8'),
+                Response.status_to_str(response).encode('utf-8'),
+                Response.headers_to_str(response).encode('utf-8'),
                 b'\r\n',
                 response.body
             ))
@@ -295,44 +273,6 @@ class Server:
                 raise e
             else:
                 logging.info(f'Files sent to {ip}')
-
-    @staticmethod
-    def headers_to_str(res):
-        return ''.join(f'{k}: {v}\r\n' for (k, v) in res.headers)
-
-    @staticmethod
-    def status_to_str(res):
-        return f'HTTP/1.1 {res.status} {res.reason}\r\n'
-
-
-class Request:
-    def __init__(self, method, target, version, headers, file, user):
-        self.method = method
-        self.target = target
-        self.version = version
-        self.headers = headers
-        self.file = file
-        self.user = user
-        self.url = urlparse(self.target)
-        self.path = self.url.path
-        self.query = parse_qs(self.url.query)
-
-    def __str__(self):
-        return '\n'.join(f'{k}: {v}' for k, v in self.__dict__.items())
-
-
-class Response:
-    def __init__(self, status, reason, headers=None, body=None):
-        self.status = status
-        self.reason = reason
-        self.headers = headers
-        self.body = body
-
-    def __str__(self):
-        lim = 500
-        return '\n'.join(
-            f'{k}: {str(v) if len(str(v)) < lim else str(v)[:lim]}'
-            for k, v in self.__dict__.items())
 
 
 if __name__ == '__main__':

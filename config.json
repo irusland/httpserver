@@ -1,6 +1,8 @@
 {
   "host": "0.0.0.0",
+
   "port": 8000,
+
   "rules": {
     "/" : "tmp/index.html",
     "/favicon.ico" : "tmp/pictures/favicon.ico",
@@ -16,6 +18,7 @@
     "/[name].[ext]" : "tmp/pictures/[name].[ext]",
     "/png/[name].png" : "tmp/pictures/[name].png",
     "/pictures/[ext]/1" : "tmp/pictures/1.[ext]",
+    "/[day]-[n]/[month]/[year]" : "tmp/dates/[year]/[month]/[day]/[n].png",
     "/[DD]/[MM]/[YY]" : "tmp/dates/[DD].[MM].[YY].png",
     "/mime/" : {
       "path" : "tmp/pictures/1.png",
@@ -24,6 +27,7 @@
     "/big" : { "path" : "tmp/pictures/chroma.jpg", "mime" : "image/jpg" },
     "/[file].[ext]" : "tmp/[file].[ext]"
   },
+
   "error-pages": {
     "PAGE_NOT_FOUND": "pages/PAGE_NOT_FOUND.html"
   }
