@@ -6,6 +6,7 @@ import selectors
 import socket
 import threading
 import time
+import urllib.parse
 
 from email.parser import Parser
 from urllib.parse import parse_qs, urlparse
@@ -228,7 +229,9 @@ class Server:
         if req.path.startswith('/') and req.method == 'GET':
             rules = self.ruler.get_rules()
             try:
-                destination = self.ruler.get_destination(req.path, rules, True)
+                # Or use unquote_plus (translates + as space)
+                path = urllib.parse.unquote(req.path)
+                destination = self.ruler.get_destination(path, rules, True)
             except FileNotFoundError:
                 raise Errors.NOT_FOUND
             if destination:
