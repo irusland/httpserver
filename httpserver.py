@@ -23,7 +23,7 @@ class Server:
     MAX_HEADERS = 100
     BREAKLINE = [b'\r\n', b'\n', b'']
 
-    def __init__(self, host, port, debug=True, refresh_rate=0):
+    def __init__(self, host, port, debug=True, refresh_rate=0.1):
         self._host = host
         self._port = port
         self._debug = debug
@@ -80,10 +80,10 @@ class Server:
         logging.info(f'Connected {addr}')
 
         client.setblocking(False)
-        # client.setsockopt(socket.SOL_SOCKET, socket.SO_KEEPALIVE, 1)
         self.poller.register(client, selectors.EVENT_READ, self._handle)
 
     def _handle(self, client):
+        print(self.conns)
         try:
             t = threading.Thread(target=self.serve_client,
                                  args=(client,))
@@ -97,11 +97,15 @@ class Server:
             self._close(client)
 
     def _close(self, connection):
+        try:
+            self.poller.unregister(connection)
+            del self.conns[connection.fileno()]
+        except Exception:
+            logging.info('Socket disconnected by timeout')
+        connection.close()
         logging.info(f'Socket Disconnected in thread '
                      f'{threading.current_thread().ident}')
-        self.poller.unregister(connection)
-        del self.conns[connection.fileno()]
-        connection.close()
+        print(self.conns)
 
     def serve_client(self, connection):
         try:
@@ -111,7 +115,17 @@ class Server:
             logging.info(f'Response prepared \n{res}')
             Response.send_response(connection, res)
             logging.info(f'Response sent \n{res}')
+
+            if req.headers.get('Connection') == 'keep-alive':
+                connection.setsockopt(socket.SOL_SOCKET, socket.SO_KEEPALIVE, 1)
+            else:
+                self._close(connection)
         except Exception as e:
+            if str(e) == 'No data received':
+                logging.info(f'Keep-alive connection is not alive, '
+                             f'disconnecting')
+                self._close(connection)
+                return
             logging.exception(f'Client handling failed '
                               f'({threading.current_thread().ident}) {e}')
             Errors.send_error(connection, e)
