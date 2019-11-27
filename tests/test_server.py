@@ -11,6 +11,7 @@ import unittest
 
 from httpserver import Server
 from defenitions import CONFIG_PATH
+from logger import LogLevel
 from request import Request
 from stopper import AsyncStopper
 
@@ -22,10 +23,7 @@ class ServerTests(unittest.TestCase):
             s.serve()
 
     def make_server(self):
-        with open(CONFIG_PATH) as cfg:
-            data = json.load(cfg)
-        return Server(data['host'], data['port'],
-                      debug=False, refresh_rate=0.1)
+        return Server(config=CONFIG_PATH, loglevel=LogLevel.console)
 
     def process_req(self, req):
         with self.make_server() as server:

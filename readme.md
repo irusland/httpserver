@@ -2,31 +2,13 @@
 
 Server which runs Hyper Text Transport Protocol
 
-With implemented notes app logic 
-
 ## Starting the server
 
 ```
-python3 httpserver.py
+python3 httpserver.py -c config.json --loglevel console
 ```
 
-### Allowed requests using "nc" utility
-
-Run this in shell after server start
-
-`nc 0.0.0.0 8000`
-
-GET request
-```
-GET / HTTP/1.1
-Host: 0.0.0.0:8000
-Accept: text/html
-```
-POST request
-```
-POST /add?text=asdasdasd HTTP/1.1
-Host: 0.0.0.0:8000
-```
+type `-h` option to specify parameters
 
 ## Running the tests
 

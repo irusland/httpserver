@@ -1,14 +1,16 @@
 import os
 import unittest
 
-from defenitions import ROOT_DIR
+from configurator import Configurator
+from defenitions import ROOT_DIR, CONFIG_PATH
 from pathfinder import PathFinder
 
 
 class PathFinderTests(unittest.TestCase):
     def setUp(self):
+        self.configurator = Configurator(CONFIG_PATH)
         self.ruler = PathFinder()
-        self.rules = self.ruler.get_rules()
+        self.rules = self.configurator.get('rules')
 
     def assertDestinationsEqual(self, url, path, rules=None):
         if rules is None:

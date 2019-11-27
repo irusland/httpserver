@@ -26,9 +26,9 @@ class Server:
     BREAKLINE = [b'\r\n', b'\n', b'']
 
     def __init__(self, config=CONFIG_PATH,
-                 logging_level=LogLevel.logging, refresh_rate=0.1):
+                 loglevel=LogLevel.logging, refresh_rate=0.1):
 
-        Logger.configure(level=logging_level)
+        Logger.configure(level=loglevel)
         self.configurator = Configurator(config)
         self.finder = PathFinder()
         
@@ -203,7 +203,7 @@ class Server:
 
     def handle_req(self, req):
         if req.path.startswith('/') and req.method == 'GET':
-            rules = self.configurator.get('rules')
+            rules = self.configurator.get_rules()
             try:
                 # Or use unquote_plus (translates + as space)
                 path = urllib.parse.unquote(req.path)
@@ -226,11 +226,10 @@ if __name__ == '__main__':
     parser.add_argument('-l', '--loglevel',
                         help='Use module to write logs',
                         type=LogLevel.from_string,
+                        default=LogLevel.from_string('console'),
                         choices=list(LogLevel))
     args = parser.parse_args()
-    print(args)
 
-    server = Server(config=args.config,
-                    logging_level=args.loglevel)
+    server = Server(config=args.config, loglevel=args.loglevel)
     with server as s:
         s.serve()
