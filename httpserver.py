@@ -1,20 +1,22 @@
 # python3
+import argparse
 import io
-import json
 import selectors
 import socket
 import threading
 import urllib.parse
 
-from defenitions import CONFIG_PATH, LOGGER_PATH
+from configurator import Configurator
+from defenitions import CONFIG_PATH
 from errors import Errors
 from pathfinder import PathFinder
 
 import magic
-import logging
 
 from request import Request
 from response import Response
+
+from logger import Logger, LogLevel
 
 
 class Server:
@@ -23,37 +25,38 @@ class Server:
     MAX_HEADERS = 100
     BREAKLINE = [b'\r\n', b'\n', b'']
 
-    def __init__(self, host, port, debug=True, refresh_rate=0.1):
-        self._host = host
-        self._port = port
-        self._debug = debug
+    def __init__(self, config=CONFIG_PATH,
+                 logging_level=LogLevel.logging, refresh_rate=0.1):
+
+        Logger.configure(level=logging_level)
+        self.configurator = Configurator(config)
         self.finder = PathFinder()
+        
+        self._host = self.configurator.get('host')
+        self._port = self.configurator.get('port')
+        self.address = (self._host, self._port)
         self._running = True
         self.refresh_rate = refresh_rate
 
-        self.addr = (host, port)
         self.server = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
         self.poller = selectors.DefaultSelector()
         socket.setdefaulttimeout(refresh_rate)
         self.conns = {}
 
-        logging.basicConfig(filename=LOGGER_PATH, level=logging.INFO,
-                            filemode='w+')
-
     def __enter__(self):
         self.server.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, 1)
-        self.server.bind(self.addr)
+        self.server.bind(self.address)
         self.server.listen()
         self.server.setblocking(False)
-        logging.info(f'server is UP on {self._host}:{self._port}')
+        Logger.info(f'server is UP on {self._host}:{self._port}')
         return self
 
     def __exit__(self, exc_type, exc_val, exc_tb):
         if exc_type != KeyboardInterrupt:
-            logging.exception(f'server is DOWN because of exception '
+            Logger.exception(f'server is DOWN because of exception '
                               f'{exc_type} {exc_val} {exc_tb}')
         else:
-            logging.info('server is DOWN with no exceptions')
+            Logger.info('server is DOWN with no exceptions')
         self._running = False
         self.poller.close()
         self.server.close()
@@ -77,7 +80,7 @@ class Server:
     def _accept(self, sock):
         (client, addr) = sock.accept()
         self.conns[client.fileno()] = client
-        logging.info(f'Connected {addr}')
+        Logger.info(f'Connected {addr}')
 
         client.setblocking(False)
         self.poller.register(client, selectors.EVENT_READ, self._handle)
@@ -88,11 +91,11 @@ class Server:
             t = threading.Thread(target=self.serve_client,
                                  args=(client,))
             t.start()
-            logging.info(f'Threaded client serving '
+            Logger.info(f'Threaded client serving '
                          f'started {client.getpeername()} in '
                          f'thread {threading.current_thread().ident}')
         except socket.error as e:
-            logging.info(f'Socket in thread {threading.current_thread().ident}'
+            Logger.info(f'Socket in thread {threading.current_thread().ident}'
                          f' was disconnected {e}')
             self._close(client)
 
@@ -101,20 +104,20 @@ class Server:
             self.poller.unregister(connection)
             del self.conns[connection.fileno()]
         except Exception:
-            logging.info('Socket disconnected by timeout')
+            Logger.info('Socket disconnected by timeout')
         connection.close()
-        logging.info(f'Socket Disconnected in thread '
+        Logger.info(f'Socket Disconnected in thread '
                      f'{threading.current_thread().ident}')
         print(self.conns)
 
     def serve_client(self, connection):
         try:
             req = self.parse_req_connection(connection)
-            logging.info(f'Request parsed from {req.user} {req}')
+            Logger.info(f'Request parsed from {req.user} {req}')
             res = self.handle_req(req)
-            logging.info(f'Response prepared \n{res}')
+            Logger.info(f'Response prepared \n{res}')
             Response.send_response(connection, res)
-            logging.info(f'Response sent \n{res}')
+            Logger.info(f'Response sent \n{res}')
 
             if req.headers.get('Connection') == 'keep-alive':
                 connection.setsockopt(socket.SOL_SOCKET, socket.SO_KEEPALIVE, 1)
@@ -122,23 +125,23 @@ class Server:
                 self._close(connection)
         except Exception as e:
             if str(e) == 'No data received':
-                logging.info(f'Keep-alive connection is not alive, '
+                Logger.info(f'Keep-alive connection is not alive, '
                              f'disconnecting')
                 self._close(connection)
                 return
-            logging.exception(f'Client handling failed '
+            Logger.exception(f'Client handling failed '
                               f'({threading.current_thread().ident}) {e}')
             Errors.send_error(connection, e)
 
     def parse_req_connection(self, client):
         req_bytes = self.receive_from_client(client)
         file = io.BytesIO(req_bytes)
-        logging.info(f'Request parsing by connection started')
+        Logger.info(f'Request parsing by connection started')
         req = self.parse_req_file(file)
         request = Request.parsed_req_to_request(
             *req, file, client.getpeername())
 
-        logging.info(f'Request parsed')
+        Logger.info(f'Request parsed')
         return request
 
     def receive_from_client(self, client):
@@ -153,12 +156,12 @@ class Server:
                 break
         buffer = b''.join(buffer)
         if not buffer:
-            logging.error('No data received')
+            Logger.error('No data received')
             raise Exception('No data received')
         return buffer
 
     def parse_req_file(self, file):
-        logging.info(f'Parsing request by file started')
+        Logger.info(f'Parsing request by file started')
         method, target, ver = self.parse_request_line(file)
         headers = self.parse_headers_from_file(file)
         host = headers.get('Host')
@@ -175,7 +178,7 @@ class Server:
         try:
             method, target, ver = req_line.split()
         except ValueError as e:
-            logging.error(f'Could not parse request {req_line} {e}')
+            Logger.error(f'Could not parse request {req_line} {e}')
             raise Errors.MALFORMED_REQ
 
         if ver != 'HTTP/1.1':
@@ -200,7 +203,7 @@ class Server:
 
     def handle_req(self, req):
         if req.path.startswith('/') and req.method == 'GET':
-            rules = self.finder.get_rules()
+            rules = self.configurator.get('rules')
             try:
                 # Or use unquote_plus (translates + as space)
                 path = urllib.parse.unquote(req.path)
@@ -217,8 +220,17 @@ class Server:
 
 
 if __name__ == '__main__':
-    with open(CONFIG_PATH) as cfg:
-        data = json.load(cfg)
-    server = Server(data['host'], data['port'])
+    parser = argparse.ArgumentParser()
+    parser.add_argument('-c', '--config',
+                        help='Specify server config path', default=CONFIG_PATH)
+    parser.add_argument('-l', '--loglevel',
+                        help='Use module to write logs',
+                        type=LogLevel.from_string,
+                        choices=list(LogLevel))
+    args = parser.parse_args()
+    print(args)
+
+    server = Server(config=args.config,
+                    logging_level=args.loglevel)
     with server as s:
         s.serve()

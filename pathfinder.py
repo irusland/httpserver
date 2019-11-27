@@ -1,32 +1,19 @@
-import json
 import os
 import re
 
-from defenitions import CONFIG_PATH, ROOT_DIR, LOGGER_PATH
-import logging
+from defenitions import ROOT_DIR
+
+from logger import Logger
 
 
 class PathFinder:
     URL_TO_RULE = {}
 
     def __init__(self):
-        logging.basicConfig(filename=LOGGER_PATH, level=logging.INFO)
         self.reg_sub = re.compile(r'(?P<txt>.*?)\[(?P<group>.*?)\]')
 
-    def get_rules(self):
-        with open(CONFIG_PATH) as cfg:
-            try:
-                data = json.load(cfg)
-                rules = data['rules']
-            except KeyError as e:
-                logging.error(e)
-                return {}
-            except Exception as e:
-                logging.exception(e)
-            return rules
-
     def get_destination(self, url, rules, absolute=True):
-        logging.info(f'Path processing {url}')
+        Logger.info(f'Path processing {url}')
         for key, description in rules.items():
             try:
                 path = description['path']
@@ -48,10 +35,10 @@ class PathFinder:
 
                 self.URL_TO_RULE[url] = key
                 if os.path.isfile(path):
-                    logging.info(f'Path found {path}')
+                    Logger.info(f'Path found {path}')
                     return path
                 else:
-                    logging.error(f'Path matched by rule {rule} but file not '
+                    Logger.error(f'Path matched by rule {rule} but file not '
                                   f'found {path}')
         raise FileNotFoundError(url, rules)
 
