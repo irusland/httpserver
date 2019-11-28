@@ -2,6 +2,13 @@
 
 Server which runs Hyper Text Transport Protocol
 
+## Server parameters
+1) `config=CONFIG_PATH` Specify config file. Will be used in Configurator
+ module
+1) `loglevel=LogLevel.logging` Choose logging or console form reporting 
+1) `refresh_rate=0.1` Socket connection refresh rate 
+1) `cache_max_size=4e9` Max cache size
+
 ## Starting the server
 
 ```

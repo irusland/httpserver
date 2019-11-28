@@ -2,20 +2,14 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="d9b829f2-82a6-4d22-9393-7353395c203d" name="Default Changelist" comment="">
-<<<<<<< Updated upstream
       <change beforePath="$PROJECT_DIR$/.coverage" beforeDir="false" afterPath="$PROJECT_DIR$/.coverage" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/httpserver.zip" beforeDir="false" afterPath="$PROJECT_DIR$/httpserver.zip" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server.log" beforeDir="false" afterPath="$PROJECT_DIR$/server.log" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/test_server.py" beforeDir="false" afterPath="$PROJECT_DIR$/tests/test_server.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tmp/dates/11.11.19.png" beforeDir="false" />
-=======
+      <change beforePath="$PROJECT_DIR$/.idea/httpserver.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/httpserver.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/httpserver.py" beforeDir="false" afterPath="$PROJECT_DIR$/httpserver.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ruler.py" beforeDir="false" afterPath="$PROJECT_DIR$/pathfinder.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server.log" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/test_ruler.py" beforeDir="false" afterPath="$PROJECT_DIR$/tests/test_pathfinder.py" afterDir="false" />
->>>>>>> Stashed changes
+      <change beforePath="$PROJECT_DIR$/httpserver.zip" beforeDir="false" afterPath="$PROJECT_DIR$/httpserver.zip" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/readme.md" beforeDir="false" afterPath="$PROJECT_DIR$/readme.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/requirements.txt" beforeDir="false" afterPath="$PROJECT_DIR$/requirements.txt" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -42,13 +36,8 @@
   <component name="PropertiesComponent">
     <property name="DefaultHtmlFileTemplate" value="HTML File" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
-<<<<<<< Updated upstream
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../httpclient" />
-    <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
-=======
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
-    <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
->>>>>>> Stashed changes
+    <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
@@ -105,13 +94,13 @@
       <envs>
         <env name="PYTHONUNBUFFERED" value="1" />
       </envs>
-      <option name="SDK_HOME" value="$PROJECT_DIR$/venv/bin/python" />
+      <option name="SDK_HOME" value="/usr/local/bin/python3.7" />
       <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
       <option name="IS_MODULE_SDK" value="false" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <option name="SCRIPT_NAME" value="$PROJECT_DIR$/httpserver.py" />
-      <option name="PARAMETERS" value="" />
+      <option name="PARAMETERS" value="-c config.json -l logging" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
       <option name="MODULE_MODE" value="false" />
@@ -156,17 +145,8 @@
       <method v="2" />
     </configuration>
     <list>
-<<<<<<< Updated upstream
-      <item itemvalue="Python.SELEX" />
-      <item itemvalue="Python._CHAT" />
       <item itemvalue="Python.httpserver" />
       <item itemvalue="Python.ruler" />
-      <item itemvalue="Python tests.Unittests for test_ruler.MyTestCase.test_file_with_mime" />
-      <item itemvalue="Python tests.Unittests for test_server.MyTestCase.test_serving" />
-=======
-      <item itemvalue="Python.httpserver" />
-      <item itemvalue="Python.ruler" />
->>>>>>> Stashed changes
       <item itemvalue="Python tests.Unittests in tests" />
     </list>
     <recent_temporary>

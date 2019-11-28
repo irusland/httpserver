@@ -4,8 +4,10 @@ import io
 import selectors
 import socket
 import threading
+import time
 import urllib.parse
 
+from diskcache import Cache
 from configurator import Configurator
 from defenitions import CONFIG_PATH
 from errors import Errors
@@ -26,11 +28,16 @@ class Server:
     BREAKLINE = [b'\r\n', b'\n', b'']
 
     def __init__(self, config=CONFIG_PATH,
-                 loglevel=LogLevel.logging, refresh_rate=0.1):
+                 loglevel=LogLevel.logging,
+                 refresh_rate=0.1,
+                 cache_max_size=4e9):
 
         Logger.configure(level=loglevel)
         self.configurator = Configurator(config)
+
         self.finder = PathFinder()
+
+        self.cache = Cache(size_limit=int(cache_max_size))
         
         self._host = self.configurator.get('host')
         self._port = self.configurator.get('port')
@@ -86,7 +93,7 @@ class Server:
         self.poller.register(client, selectors.EVENT_READ, self._handle)
 
     def _handle(self, client):
-        print(self.conns)
+        # print(self.conns)
         try:
             t = threading.Thread(target=self.serve_client,
                                  args=(client,))
@@ -108,13 +115,15 @@ class Server:
         connection.close()
         Logger.info(f'Socket Disconnected in thread '
                      f'{threading.current_thread().ident}')
-        print(self.conns)
+        # print(self.conns)
 
     def serve_client(self, connection):
         try:
             req = self.parse_req_connection(connection)
             Logger.info(f'Request parsed from {req.user} {req}')
+            a = time.perf_counter()
             res = self.handle_req(req)
+            Logger.info(f'Request handling time {time.perf_counter() - a}')
             Logger.info(f'Response prepared \n{res}')
             Response.send_response(connection, res)
             Logger.info(f'Response sent \n{res}')
@@ -207,6 +216,10 @@ class Server:
             try:
                 # Or use unquote_plus (translates + as space)
                 path = urllib.parse.unquote(req.path)
+                res = self.cache.get(path)
+                if res:
+                    Logger.info(f'Cache found for {path}')
+                    return res
                 destination = self.finder.get_destination(path, rules, True)
             except FileNotFoundError:
                 raise Errors.NOT_FOUND
@@ -215,7 +228,14 @@ class Server:
                 if not content_type:
                     mime = magic.Magic(mime=True)
                     content_type = mime.from_file(destination)
-                return Response.build_res(req, destination, content_type)
+                    self.cache.close()
+                res = Response.build_res(req, destination, content_type)
+                Logger.info(f'Updating cache for {path}')
+                self.cache.set(path, res, expire=None, tag='data')
+                v = self.cache.volume()
+                self.cache.cull()
+                print(v, list(self.cache.iterkeys()))
+                return res
             raise Errors.NOT_FOUND
 
 
