@@ -39,7 +39,7 @@ class PathFinder:
                     return path
                 else:
                     Logger.error(f'Path matched by rule {rule} but file not '
-                                  f'found {path}')
+                                 f'found {path}')
         raise FileNotFoundError(url, rules)
 
     def to_abs_path(self, path):

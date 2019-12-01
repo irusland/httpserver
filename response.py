@@ -11,7 +11,7 @@ class Response:
         self.reason = reason
         self.headers = headers
         self.body = body
-        
+
     def __str__(self):
         lim = 500
         return '\n'.join(
@@ -73,7 +73,7 @@ class Response:
                         if str(e) == "[Errno 35] Resource " \
                                      "temporarily unavailable":
                             Logger.error('[Errno 35] Resource temporarily '
-                                          'unavailable Sleeping 0.1s')
+                                         'unavailable Sleeping 0.1s')
                             time.sleep(0.1)
                         elif str(e) == "[Errno 32] Broken pipe":
                             msg = f'client stopped receiving {e}'

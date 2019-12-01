@@ -38,7 +38,7 @@ class Server:
         self.finder = PathFinder()
 
         self.cache = Cache(size_limit=int(cache_max_size))
-        
+
         self._host = self.configurator.get('host')
         self._port = self.configurator.get('port')
         self.address = (self._host, self._port)
@@ -61,7 +61,7 @@ class Server:
     def __exit__(self, exc_type, exc_val, exc_tb):
         if exc_type != KeyboardInterrupt:
             Logger.exception(f'server is DOWN because of exception '
-                              f'{exc_type} {exc_val} {exc_tb}')
+                             f'{exc_type} {exc_val} {exc_tb}')
         else:
             Logger.info('server is DOWN with no exceptions')
         self._running = False
@@ -99,11 +99,11 @@ class Server:
                                  args=(client,))
             t.start()
             Logger.info(f'Threaded client serving '
-                         f'started {client.getpeername()} in '
-                         f'thread {threading.current_thread().ident}')
+                        f'started {client.getpeername()} in '
+                        f'thread {threading.current_thread().ident}')
         except socket.error as e:
             Logger.info(f'Socket in thread {threading.current_thread().ident}'
-                         f' was disconnected {e}')
+                        f' was disconnected {e}')
             self._close(client)
 
     def _close(self, connection):
@@ -114,7 +114,7 @@ class Server:
             Logger.info('Socket disconnected by timeout')
         connection.close()
         Logger.info(f'Socket Disconnected in thread '
-                     f'{threading.current_thread().ident}')
+                    f'{threading.current_thread().ident}')
         # print(self.conns)
 
     def serve_client(self, connection):
@@ -129,17 +129,18 @@ class Server:
             Logger.info(f'Response sent \n{res}')
 
             if req.headers.get('Connection') == 'keep-alive':
-                connection.setsockopt(socket.SOL_SOCKET, socket.SO_KEEPALIVE, 1)
+                connection.setsockopt(socket.SOL_SOCKET,
+                                      socket.SO_KEEPALIVE, 1)
             else:
                 self._close(connection)
         except Exception as e:
             if str(e) == 'No data received':
                 Logger.info(f'Keep-alive connection is not alive, '
-                             f'disconnecting')
+                            f'disconnecting')
                 self._close(connection)
                 return
             Logger.exception(f'Client handling failed '
-                              f'({threading.current_thread().ident}) {e}')
+                             f'({threading.current_thread().ident}) {e}')
             Errors.send_error(connection, e)
 
     def parse_req_connection(self, client):
