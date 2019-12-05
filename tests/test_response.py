@@ -12,6 +12,9 @@ class SockMock:
     def getpeername(self):
         return self.ip
 
+    def sendall(self, args):
+        self.send(args)
+
     def send(self, args):
         self.received.append(args)
         return len(args)
@@ -23,7 +26,7 @@ class SockMockRaiser:
         self.received = []
 
     def getpeername(self):
-        raise socket.error('[Errno 9] Bad file descriptor')
+        raise socket.error(9,'Bad file descriptor')
 
 
 class SockMockSendRaiser:
@@ -34,8 +37,11 @@ class SockMockSendRaiser:
     def getpeername(self):
         return self.ip
 
+    def sendall(self, args):
+        self.send(args)
+
     def send(self, args):
-        raise socket.error("[Errno 32] Broken pipe")
+        raise socket.error(32, "Broken pipe")
 
 
 class TestResponse(unittest.TestCase):

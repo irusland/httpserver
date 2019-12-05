@@ -1,5 +1,6 @@
 import json
 
+from configurator import Configurator
 from defenitions import CONFIG_PATH
 from response import Response
 
@@ -9,10 +10,11 @@ class Error(Exception):
         self.status = status
         self.reason = reason
         self.body = body
+
+        self.configurator = Configurator
+        print('Import from error', Configurator.config)
         if page:
-            with open(CONFIG_PATH) as cfg:
-                data = json.load(cfg)
-                self.page = data["error-pages"][page]
+            self.page = self.configurator.get("error-pages")[page]
 
     @staticmethod
     def send_error(connection, err):

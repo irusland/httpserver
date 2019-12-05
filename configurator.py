@@ -3,31 +3,45 @@ import json
 
 class Configurator:
     DEFAULT_FIELDS = ['host', 'port', 'rules', 'error-pages']
+    cfg_path = None
+    config = None
 
-    def __init__(self, cfg_path):
-        self.cfg_path = cfg_path
-        self.config = self.refresh(self.cfg_path)
+    @staticmethod
+    def init(cfg_path):
+        Configurator.cfg_path = cfg_path
+        Configurator.config = Configurator.refresh(Configurator.cfg_path)
+        return Configurator
 
-    def refresh(self, cfg_path):
+    @staticmethod
+    def refresh(cfg_path):
         with open(cfg_path) as cfg:
-            raw = cfg
-            config = json.load(raw)
-            self.check(config)
+            config = json.load(cfg)
+            Configurator.check(config)
             return config
 
-    def get_rules(self):
-        self.config = self.refresh(self.cfg_path)
-        return self.get('rules')
+    @staticmethod
+    def get_rules():
+        Configurator.config = Configurator.refresh(Configurator.cfg_path)
+        return Configurator.get('rules')
 
-    def check(self, config):
-        for f in self.DEFAULT_FIELDS:
-            try:
-                config[f]
-            except Exception:
-                raise Exception(f'Config parsing failed. Field {f} not found')
+    @staticmethod
+    def check(config):
+        for f in Configurator.DEFAULT_FIELDS:
+            if f not in config:
+                raise KeyError(f'Config parsing failed. Field {f} not found')
 
-    def get(self, field):
-        try:
-            return self.config[field]
-        except Exception:
-            return None
+    @staticmethod
+    def get(field):
+        return Configurator.config.get(field)
+
+
+class Getter:
+    def __init__(self, path):
+        self.path = path
+
+    def getpath(self):
+        return self.path
+
+
+if __name__ == '__main__':
+    pass

@@ -1,29 +1,41 @@
-import concurrent.futures
-import ctypes
 import io
 import json
 import multiprocessing
-import signal
+import os
 import socket
-import threading
-import time
 import unittest
+import random
 
-from httpserver import Server
-from defenitions import CONFIG_PATH
+from configurator import Configurator
+from defenitions import CONFIG_PATH, ROOT_DIR
 from logger import LogLevel
 from request import Request
 from stopper import AsyncStopper
+from tests.test_pathfinder import PathFinderTests
 
 
 class ServerTests(unittest.TestCase):
+    def setUp(self):
+        self.cfg_path = os.path.join(ROOT_DIR, 'tests',
+                                     f'cfg{random.random()}.tmp')
+        with open(self.cfg_path, "w") as f:
+            f.write(PathFinderTests.CONFIG)
+
+        self.configurator = Configurator.init(self.cfg_path)
+        print('Import + Init from test', Configurator.config)
+        self.rules = self.configurator.get('rules')
+
+    def tearDown(self):
+        os.remove(self.cfg_path)
+
     def boot_server(self):
         server = self.make_server()
         with server as s:
             s.serve()
 
     def make_server(self):
-        return Server(config=CONFIG_PATH, loglevel=LogLevel.console)
+        from httpserver import Server
+        return Server(config=self.cfg_path, loglevel=LogLevel.console)
 
     def process_req(self, req):
         with self.make_server() as server:

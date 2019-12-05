@@ -1,16 +1,24 @@
 import os
 import unittest
+import random
 
 from configurator import Configurator
-from defenitions import ROOT_DIR, CONFIG_PATH
+from defenitions import ROOT_DIR
 from pathfinder import PathFinder
 
 
 class PathFinderTests(unittest.TestCase):
     def setUp(self):
-        self.configurator = Configurator(CONFIG_PATH)
+        self.cfg_path = os.path.join(ROOT_DIR, 'tests',
+                                     f'cfg{random.random()}.tmp')
+        with open(self.cfg_path, "w") as f:
+            f.write(self.CONFIG)
+        self.configurator = Configurator.init(self.cfg_path)
         self.ruler = PathFinder()
         self.rules = self.configurator.get('rules')
+
+    def tearDown(self):
+        os.remove(self.cfg_path)
 
     def assertDestinationsEqual(self, url, path, rules=None):
         if rules is None:
@@ -70,6 +78,24 @@ class PathFinderTests(unittest.TestCase):
     def test_space_character(self):
         self.assertDestinationsEqual(
             '/new page.html', os.path.join(ROOT_DIR, 'tmp/new page.html'))
+
+    CONFIG = r'{"host": "0.0.0.0","port": 8000,"rules": {"/" : ' \
+             r'"tmp/index.html","/favicon.ico" : "tmp/pictures/favicon.ico",' \
+             r'"/index.html" : "tmp/index.html","/page-load-errors[' \
+             r'extras].css": {"path": "pages/page-load-errors[extras].css",' \
+             r'"mime": "text/css"},"/[name].html" : "tmp/pages/[name].html",' \
+             r'"/[name].css" : "tmp/pages/css/[name].css","/[name].[ext]" : ' \
+             r'"tmp/pictures/[name].[ext]","/png/[name].png" : ' \
+             r'"tmp/pictures/[name].png","/pictures/[ext]/1" : ' \
+             r'"tmp/pictures/1.[ext]","/[day]-[n]/[month]/[year]" : ' \
+             r'"tmp/dates/[year]/[month]/[day]/[n].png","/[DD]/[MM]/[YY]" : ' \
+             r'"tmp/dates/[DD].[MM].[YY].png","/mime/" : {"path" : ' \
+             r'"tmp/pictures/1.png","mime" : ' \
+             r'"text/txt"},"/big" : { "path" : ' \
+             r'"tmp/pictures/chroma.jpg", "mime" : "image/jpg" },"/[file].[' \
+             r'ext]" : "tmp/[file].[ext]"},"error-pages":' \
+             r' {"PAGE_NOT_FOUND": ' \
+             r'"pages/PAGE_NOT_FOUND.html"}} '
 
 
 if __name__ == '__main__':

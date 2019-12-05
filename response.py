@@ -15,7 +15,7 @@ class Response:
     def __str__(self):
         lim = 500
         return '\n'.join(
-            f'{k}: {str(v) if len(str(v)) < lim else str(v)[:lim]}'
+            f'{k}: {str(v)[:lim]}'
             for k, v in self.__dict__.items())
 
     @staticmethod
@@ -52,7 +52,7 @@ class Response:
         try:
             ip = client.getpeername()
         except socket.error as e:
-            if str(e) == '[Errno 9] Bad file descriptor':
+            if e.errno == 9:
                 Logger.error(f'Connection with client broken')
             return
 
@@ -64,27 +64,17 @@ class Response:
                 response.body
             ))
             try:
-                while contents:
-                    try:
-                        bytes_sent = client.send(contents)
-                        contents = contents[bytes_sent:]
-                        Logger.info(f'{bytes_sent}B sent to {ip}')
-                    except socket.error as e:
-                        if str(e) == "[Errno 35] Resource " \
-                                     "temporarily unavailable":
-                            Logger.error('[Errno 35] Resource temporarily '
-                                         'unavailable Sleeping 0.1s')
-                            time.sleep(0.1)
-                        elif str(e) == "[Errno 32] Broken pipe":
-                            msg = f'client stopped receiving {e}'
-                            Logger.exception(msg)
-                            raise e
-                        elif str(e) == '[Errno 9] Bad file descriptor':
-                            Logger.error(
-                                f'Connection with client {ip} broken')
-                            raise e
+                client.sendall(contents)
             except socket.error as e:
-                Logger.error(e)
-                raise e
+                if e.errno == 35:
+                    Logger.error('Resource temporarily unavailable Sleeping')
+                    time.sleep(0.1)
+                elif e.errno == 32:
+                    msg = f'client stopped receiving {e}'
+                    Logger.exception(msg)
+                    raise e
+                elif e.errno == 9:
+                    Logger.error(f'Connection with client {ip} broken')
+                    raise e
             else:
                 Logger.info(f'Files sent to {ip}')

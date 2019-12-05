@@ -15,9 +15,9 @@ class PathFinder:
     def get_destination(self, url, rules, absolute=True):
         Logger.info(f'Path processing {url}')
         for key, description in rules.items():
-            try:
+            if 'path' in description:
                 path = description['path']
-            except Exception:
+            else:
                 path = description
 
             rule = self.to_template(key)
@@ -60,9 +60,3 @@ class PathFinder:
 
 if __name__ == '__main__':
     pass
-    # ruler = PathFinder()
-    # r = ruler.get_rules()
-    # url = '/new page.html'
-    # d = ruler.get_destination(url, r)
-    # t = ruler.get_type(url, r)
-    # print(d, t)

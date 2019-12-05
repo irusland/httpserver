@@ -27,9 +27,7 @@ class Request:
     @staticmethod
     def decode(b):
         encoding = chardet.detect(b)['encoding']
-        if encoding:
-            return str(b, encoding)
-        return str(b, 'utf-8')
+        return str(b, encoding or 'utf-8')
 
     @staticmethod
     def parse_headers_str(s):

@@ -10,7 +10,6 @@ import urllib.parse
 from diskcache import Cache
 from configurator import Configurator
 from defenitions import CONFIG_PATH
-from errors import Errors
 from pathfinder import PathFinder
 
 import magic
@@ -33,7 +32,7 @@ class Server:
                  cache_max_size=4e9):
 
         Logger.configure(level=loglevel)
-        self.configurator = Configurator(config)
+        self.configurator = Configurator.init(config)
 
         self.finder = PathFinder()
 
@@ -141,6 +140,7 @@ class Server:
                 return
             Logger.exception(f'Client handling failed '
                              f'({threading.current_thread().ident}) {e}')
+            from errors import Errors
             Errors.send_error(connection, e)
 
     def parse_req_connection(self, client):
@@ -155,20 +155,20 @@ class Server:
         return request
 
     def receive_from_client(self, client):
-        buffer = []
+        buffer_ = []
         while True:
             try:
                 line = client.recv(self.MAX_LINE)
                 if line in self.BREAKLINE:
                     break
-                buffer.append(line)
+                buffer_.append(line)
             except socket.error:
                 break
-        buffer = b''.join(buffer)
-        if not buffer:
+        buffer_ = b''.join(buffer_)
+        if not buffer_:
             Logger.error('No data received')
             raise Exception('No data received')
-        return buffer
+        return buffer_
 
     def parse_req_file(self, file):
         Logger.info(f'Parsing request by file started')
@@ -176,10 +176,12 @@ class Server:
         headers = self.parse_headers_from_file(file)
         host = headers.get('Host')
         if not host:
+            from errors import Errors
             raise Errors.HEADER_MISSING
         return method, target, ver, headers
 
     def parse_request_line(self, file):
+        from errors import Errors
         raw = file.readline(self.MAX_LINE + 1)
         if len(raw) > self.MAX_LINE:
             raise Errors.REQ_TOO_LONG
@@ -197,6 +199,7 @@ class Server:
 
     def parse_headers_from_file(self, rfile):
         headers = []
+        from errors import Errors
 
         while True:
             line = rfile.readline(self.MAX_LINE + 1)
@@ -212,6 +215,7 @@ class Server:
         return Request.parse_headers_str(Request.decode(headers))
 
     def handle_req(self, req):
+        from errors import Errors
         if req.path.startswith('/') and req.method == 'GET':
             rules = self.configurator.get_rules()
             try:
