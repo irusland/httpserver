@@ -4,7 +4,7 @@ import random
 
 from backend.configurator import Configurator
 from defenitions import ROOT_DIR
-from tests.test_pathfinder import PathFinderTests
+from tests.test_router import PathFinderTests
 from backend.errors import Error
 
 

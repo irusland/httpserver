@@ -4,7 +4,7 @@ import random
 
 from backend.configurator import Configurator
 from defenitions import ROOT_DIR
-from backend.router import Router
+from backend.router.router import Router
 
 
 class PathFinderTests(unittest.TestCase):

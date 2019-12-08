@@ -11,7 +11,8 @@ from defenitions import CONFIG_PATH, ROOT_DIR
 from backend.logger import LogLevel
 from backend.request import Request
 from backend.stopper import AsyncStopper
-from tests.test_pathfinder import PathFinderTests
+from httpserver import Server
+from tests.test_router import PathFinderTests
 
 
 class ServerTests(unittest.TestCase):
@@ -22,7 +23,6 @@ class ServerTests(unittest.TestCase):
             f.write(PathFinderTests.CONFIG)
 
         self.configurator = Configurator.init(self.cfg_path)
-        print('Import + Init from test', Configurator.config)
         self.rules = self.configurator.get('rules')
 
     def tearDown(self):

@@ -10,7 +10,7 @@ import urllib.parse
 from diskcache import Cache
 from backend.configurator import Configurator
 from defenitions import CONFIG_PATH
-from backend.router import Router
+from backend.router.router import Router
 
 import magic
 
@@ -59,7 +59,7 @@ class Server:
         return self
 
     def __exit__(self, exc_type, exc_val, exc_tb):
-        if exc_type != KeyboardInterrupt:
+        if exc_type:
             Logger.exception(f'server is DOWN because of exception '
                              f'{exc_type} {exc_val} {exc_tb}')
         else:
