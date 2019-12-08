@@ -26,7 +26,7 @@ class SockMockRaiser:
         self.received = []
 
     def getpeername(self):
-        raise socket.error(9,'Bad file descriptor')
+        raise socket.error(9, 'Bad file descriptor')
 
 
 class SockMockSendRaiser:

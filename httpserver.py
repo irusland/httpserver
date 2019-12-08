@@ -9,9 +9,8 @@ import urllib.parse
 
 from diskcache import Cache
 
-from backend.argparser import ArgParser
 from backend.configurator import Configurator
-from defenitions import CONFIG_PATH, REQUEST_HANDLERS_DIR
+from defenitions import CONFIG_PATH, REQUEST_HANDLERS_DIR, LOGGER_PATH
 from backend.router.router import Router
 
 import magic
@@ -228,7 +227,19 @@ class Server:
 
 
 if __name__ == '__main__':
-    parser = ArgParser()
+    parser = argparse.ArgumentParser()
+    parser.add_argument('-c', '--config',
+                        help='Specify server config path',
+                        default=CONFIG_PATH)
+    parser.add_argument('-l', '--loglevel',
+                        help='Use module to write logs',
+                        type=LogLevel.from_string,
+                        default=LogLevel.from_string('console'),
+                        choices=list(LogLevel))
+    parser.add_argument('--log-path',
+                        help='Specify logger file path',
+                        default=LOGGER_PATH)
+
     args = parser.parse_args()
 
     server = Server(config=args.config, loglevel=args.loglevel,
