@@ -1,6 +1,6 @@
 import unittest
 
-from logger import LogLevel
+from backend.logger import LogLevel
 
 
 class TestLogLevel(unittest.TestCase):

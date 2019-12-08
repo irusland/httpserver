@@ -6,11 +6,11 @@ import socket
 import unittest
 import random
 
-from configurator import Configurator
+from backend.configurator import Configurator
 from defenitions import CONFIG_PATH, ROOT_DIR
-from logger import LogLevel
-from request import Request
-from stopper import AsyncStopper
+from backend.logger import LogLevel
+from backend.request import Request
+from backend.stopper import AsyncStopper
 from tests.test_pathfinder import PathFinderTests
 
 

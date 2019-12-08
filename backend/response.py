@@ -2,7 +2,7 @@ import os
 import socket
 import time
 
-from logger import Logger
+from backend.logger import Logger
 
 
 class Response:

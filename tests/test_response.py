@@ -1,7 +1,7 @@
 import socket
 import unittest
 
-from response import Response
+from backend.response import Response
 
 
 class SockMock:

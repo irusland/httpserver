@@ -3,7 +3,7 @@ import re
 
 from defenitions import ROOT_DIR
 
-from logger import Logger
+from backend.logger import Logger
 
 
 class PathFinder:

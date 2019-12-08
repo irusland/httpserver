@@ -8,17 +8,17 @@ import time
 import urllib.parse
 
 from diskcache import Cache
-from configurator import Configurator
+from backend.configurator import Configurator
 from defenitions import CONFIG_PATH
-from pathfinder import PathFinder
+from backend.pathfinder import PathFinder
 
 import magic
 
-from request import Request
-from response import Response
-from errors import Errors
+from backend.request import Request
+from backend.response import Response
+from backend.errors import Errors
 
-from logger import Logger, LogLevel
+from backend.logger import Logger, LogLevel
 
 
 class Server:

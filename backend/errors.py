@@ -1,8 +1,5 @@
-import json
-
-from configurator import Configurator
-from defenitions import CONFIG_PATH
-from response import Response
+from backend.configurator import Configurator
+from backend.response import Response
 
 
 class Error(Exception):

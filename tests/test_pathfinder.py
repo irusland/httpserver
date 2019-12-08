@@ -2,9 +2,9 @@ import os
 import unittest
 import random
 
-from configurator import Configurator
+from backend.configurator import Configurator
 from defenitions import ROOT_DIR
-from pathfinder import PathFinder
+from backend.pathfinder import PathFinder
 
 
 class PathFinderTests(unittest.TestCase):

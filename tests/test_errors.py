@@ -2,10 +2,10 @@ import os
 import unittest
 import random
 
-from configurator import Configurator
+from backend.configurator import Configurator
 from defenitions import ROOT_DIR
 from tests.test_pathfinder import PathFinderTests
-from errors import Error
+from backend.errors import Error
 
 
 class SockMock:
