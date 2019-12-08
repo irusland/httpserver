@@ -28,6 +28,7 @@ class Response:
     @staticmethod
     def build_res(req, path, content_type):
         accept = req.headers.get('Accept')
+        connection = req.headers.get('Connection')
         if content_type in accept or '*/*' in accept:
             with open(path, 'rb') as file:
                 body = file.read()
@@ -36,7 +37,7 @@ class Response:
         filename = os.path.basename(path)
         headers = [('Content-Type', f'{content_type}'),
                    ('Content-Disposition', f'inline; filename={filename}'),
-                   ('Content-Length', len(body))]
+                   ('Content-Length', len(body)), ('Connection', connection)]
         return Response(200, 'OK', headers, body)
 
     @staticmethod
