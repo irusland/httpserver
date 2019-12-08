@@ -5,6 +5,7 @@ import random
 from configurator import Configurator
 from defenitions import ROOT_DIR
 from tests.test_pathfinder import PathFinderTests
+from errors import Error
 
 
 class SockMock:
@@ -38,7 +39,6 @@ class TestErrorsWithMock(unittest.TestCase):
         os.remove(self.cfg_path)
 
     def test_empty_send(self):
-        from errors import Error
         sock = SockMock()
         Error.send_error(sock, None)
         self.assertIsNotNone(sock.received)

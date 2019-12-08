@@ -16,6 +16,7 @@ import magic
 
 from request import Request
 from response import Response
+from errors import Errors
 
 from logger import Logger, LogLevel
 
@@ -140,7 +141,6 @@ class Server:
                 return
             Logger.exception(f'Client handling failed '
                              f'({threading.current_thread().ident}) {e}')
-            from errors import Errors
             Errors.send_error(connection, e)
 
     def parse_req_connection(self, client):
@@ -176,12 +176,10 @@ class Server:
         headers = self.parse_headers_from_file(file)
         host = headers.get('Host')
         if not host:
-            from errors import Errors
             raise Errors.HEADER_MISSING
         return method, target, ver, headers
 
     def parse_request_line(self, file):
-        from errors import Errors
         raw = file.readline(self.MAX_LINE + 1)
         if len(raw) > self.MAX_LINE:
             raise Errors.REQ_TOO_LONG
@@ -199,7 +197,6 @@ class Server:
 
     def parse_headers_from_file(self, rfile):
         headers = []
-        from errors import Errors
 
         while True:
             line = rfile.readline(self.MAX_LINE + 1)
@@ -215,7 +212,6 @@ class Server:
         return Request.parse_headers_str(Request.decode(headers))
 
     def handle_req(self, req):
-        from errors import Errors
         if req.path.startswith('/') and req.method == 'GET':
             rules = self.configurator.get_rules()
             try:

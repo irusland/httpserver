@@ -10,17 +10,16 @@ class Error(Exception):
         self.status = status
         self.reason = reason
         self.body = body
+        self.page = page
 
         self.configurator = Configurator
-        print('Import from error', Configurator.config)
-        if page:
-            self.page = self.configurator.get("error-pages")[page]
 
     @staticmethod
     def send_error(connection, err):
         try:
             if err.page:
-                with open(err.page, 'rb') as p:
+                with open(err.configurator.get("error-pages").get(err.page),
+                          'rb') as p:
                     p = p.read()
 
                 res = [Response.build_err_res(err.status, err.reason, p)]
