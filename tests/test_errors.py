@@ -32,7 +32,6 @@ class TestErrorsWithMock(unittest.TestCase):
             f.write(PathFinderTests.CONFIG)
 
         self.configurator = Configurator.init(self.cfg_path)
-        print('Import + Init from test', Configurator.config)
         self.rules = self.configurator.get('rules')
 
     def tearDown(self):

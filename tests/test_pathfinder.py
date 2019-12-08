@@ -4,7 +4,7 @@ import random
 
 from backend.configurator import Configurator
 from defenitions import ROOT_DIR
-from backend.pathfinder import PathFinder
+from backend.router import Router
 
 
 class PathFinderTests(unittest.TestCase):
@@ -14,7 +14,7 @@ class PathFinderTests(unittest.TestCase):
         with open(self.cfg_path, "w") as f:
             f.write(self.CONFIG)
         self.configurator = Configurator.init(self.cfg_path)
-        self.ruler = PathFinder()
+        self.ruler = Router()
         self.rules = self.configurator.get('rules')
 
     def tearDown(self):

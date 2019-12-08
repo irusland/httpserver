@@ -6,14 +6,14 @@ from defenitions import ROOT_DIR
 from backend.logger import Logger
 
 
-class PathFinder:
+class Router:
     URL_TO_RULE = {}
 
     def __init__(self):
         self.reg_sub = re.compile(r'(?P<txt>.*?)\[(?P<group>.*?)\]')
 
     def get_destination(self, url, rules, absolute=True):
-        Logger.info(f'Path processing {url}')
+        Logger.info(f'Path processing', extra={'url': url})
         for key, description in rules.items():
             if 'path' in description:
                 path = description['path']
@@ -35,11 +35,11 @@ class PathFinder:
 
                 self.URL_TO_RULE[url] = key
                 if os.path.isfile(path):
-                    Logger.info(f'Path found {path}')
+                    Logger.info(f'Path found {path}', extra={'url': url})
                     return path
                 else:
                     Logger.error(f'Path matched by rule {rule} but file not '
-                                 f'found {path}')
+                                 f'found {path}', extra={'url': url})
         raise FileNotFoundError(url, rules)
 
     def to_abs_path(self, path):

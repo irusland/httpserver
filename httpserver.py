@@ -10,7 +10,7 @@ import urllib.parse
 from diskcache import Cache
 from backend.configurator import Configurator
 from defenitions import CONFIG_PATH
-from backend.pathfinder import PathFinder
+from backend.router import Router
 
 import magic
 
@@ -35,7 +35,7 @@ class Server:
         Logger.configure(level=loglevel)
         self.configurator = Configurator.init(config)
 
-        self.finder = PathFinder()
+        self.finder = Router()
 
         self.cache = Cache(size_limit=int(cache_max_size))
 
@@ -93,7 +93,6 @@ class Server:
         self.poller.register(client, selectors.EVENT_READ, self._handle)
 
     def _handle(self, client):
-        # print(self.conns)
         try:
             t = threading.Thread(target=self.serve_client,
                                  args=(client,))
@@ -102,8 +101,8 @@ class Server:
                         f'started {client.getpeername()} in '
                         f'thread {threading.current_thread().ident}')
         except socket.error as e:
-            Logger.info(f'Socket in thread {threading.current_thread().ident}'
-                        f' was disconnected {e}')
+            Logger.info(f'Socket in thread {threading.current_thread().ident} '
+                        f'was disconnected {e}')
             self._close(client)
 
     def _close(self, connection):
@@ -115,18 +114,21 @@ class Server:
         connection.close()
         Logger.info(f'Socket Disconnected in thread '
                     f'{threading.current_thread().ident}')
-        # print(self.conns)
 
     def serve_client(self, connection):
         try:
             req = self.parse_req_connection(connection)
-            Logger.info(f'Request parsed from {req.user} {req}')
+            Logger.info(f'Request parsed from {req.user} {req}',
+                        extra={'url': req.path})
             a = time.perf_counter()
             res = self.handle_req(req)
-            Logger.info(f'Request handling time {time.perf_counter() - a}')
-            Logger.info(f'Response prepared \n{res}')
+            Logger.info(f'Request handling time {time.perf_counter() - a}',
+                        extra={'url': req.path})
+            Logger.info(f'Response prepared \n{res}',
+                        extra={'url': req.path, 'code': res.status})
             Response.send_response(connection, res)
-            Logger.info(f'Response sent \n{res}')
+            Logger.info(f'Response sent \n{res}',
+                        extra={'url': req.path, 'code': res.status})
 
             if req.headers.get('Connection') == 'keep-alive':
                 connection.setsockopt(socket.SOL_SOCKET,
@@ -235,7 +237,7 @@ class Server:
                 self.cache.set(path, res, expire=None, tag='data')
                 v = self.cache.volume()
                 self.cache.cull()
-                print(v, list(self.cache.iterkeys()))
+                # print(v, list(self.cache.iterkeys()))
                 return res
             raise Errors.NOT_FOUND
 
