@@ -8,6 +8,8 @@ import time
 import urllib.parse
 
 from diskcache import Cache
+
+from backend.argparser import ArgParser
 from backend.configurator import Configurator
 from defenitions import CONFIG_PATH
 from backend.router.router import Router
@@ -30,9 +32,10 @@ class Server:
     def __init__(self, config=CONFIG_PATH,
                  loglevel=LogLevel.logging,
                  refresh_rate=0.1,
-                 cache_max_size=4e9):
+                 cache_max_size=4e9,
+                 log_path=None):
 
-        Logger.configure(level=loglevel)
+        Logger.configure(level=loglevel, path=log_path)
         self.configurator = Configurator.init(config)
 
         self.finder = Router()
@@ -214,6 +217,8 @@ class Server:
         return Request.parse_headers_str(Request.decode(headers))
 
     def handle_req(self, req):
+        # todo add handlers
+
         if req.path.startswith('/') and req.method == 'GET':
             rules = self.configurator.get_rules()
             try:
@@ -243,16 +248,10 @@ class Server:
 
 
 if __name__ == '__main__':
-    parser = argparse.ArgumentParser()
-    parser.add_argument('-c', '--config',
-                        help='Specify server config path', default=CONFIG_PATH)
-    parser.add_argument('-l', '--loglevel',
-                        help='Use module to write logs',
-                        type=LogLevel.from_string,
-                        default=LogLevel.from_string('console'),
-                        choices=list(LogLevel))
+    parser = ArgParser()
     args = parser.parse_args()
 
-    server = Server(config=args.config, loglevel=args.loglevel)
+    server = Server(config=args.config, loglevel=args.loglevel,
+                    log_path=args.log_path)
     with server as s:
         s.serve()

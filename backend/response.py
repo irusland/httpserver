@@ -26,7 +26,7 @@ class Response:
              ('Content-Length', len(body))], body)
 
     @staticmethod
-    def build_res(req, path, content_type):
+    def build_res(req, path, content_type, add_headers=None):
         accept = req.headers.get('Accept')
         connection = req.headers.get('Connection')
         if content_type in accept or '*/*' in accept:
@@ -38,6 +38,9 @@ class Response:
         headers = [('Content-Type', f'{content_type}'),
                    ('Content-Disposition', f'inline; filename={filename}'),
                    ('Content-Length', len(body)), ('Connection', connection)]
+        for (name, value) in add_headers or {}:
+            headers.append((name, value))
+
         return Response(200, 'OK', headers, body)
 
     @staticmethod
