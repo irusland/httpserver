@@ -11,7 +11,7 @@ from diskcache import Cache
 
 from backend.argparser import ArgParser
 from backend.configurator import Configurator
-from defenitions import CONFIG_PATH
+from defenitions import CONFIG_PATH, REQUEST_HANDLERS_DIR
 from backend.router.router import Router
 
 import magic
@@ -38,7 +38,7 @@ class Server:
         Logger.configure(level=loglevel, path=log_path)
         self.configurator = Configurator.init(config)
 
-        self.finder = Router()
+        self.router = Router()
 
         self.cache = Cache(size_limit=int(cache_max_size))
 
@@ -218,32 +218,12 @@ class Server:
 
     def handle_req(self, req):
         # todo add handlers
-
-        if req.path.startswith('/') and req.method == 'GET':
-            rules = self.configurator.get_rules()
-            try:
-                # Or use unquote_plus (translates + as space)
-                path = urllib.parse.unquote(req.path)
-                res = self.cache.get(path)
-                if res:
-                    Logger.info(f'Cache found for {path}')
-                    return res
-                destination = self.finder.get_destination(path, rules, True)
-            except FileNotFoundError:
-                raise Errors.NOT_FOUND
-            if destination:
-                content_type = self.finder.get_type(req.path, rules)
-                if not content_type:
-                    mime = magic.Magic(mime=True)
-                    content_type = mime.from_file(destination)
-                    self.cache.close()
-                res = Response.build_res(req, destination, content_type)
-                Logger.info(f'Updating cache for {path}')
-                self.cache.set(path, res, expire=None, tag='data')
-                v = self.cache.volume()
-                self.cache.cull()
-                # print(v, list(self.cache.iterkeys()))
-                return res
+        handle = self.router.find_handler(req)
+        if handle:
+            Logger.info('Handler found', extra={'url': req.path})
+            return handle(req, self)
+        else:
+            Logger.error('Handler not found', extra={'url': req.path})
             raise Errors.NOT_FOUND
 
 

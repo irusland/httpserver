@@ -1,7 +1,8 @@
 import os
 import re
+import importlib
 
-from defenitions import ROOT_DIR
+from defenitions import ROOT_DIR, REQUEST_HANDLERS_DIR
 
 from backend.logger import Logger
 
@@ -56,6 +57,28 @@ class Router:
             description = rules[self.URL_TO_RULE[url]]
             if isinstance(description, dict):
                 return description.get('mime')
+
+    def find_handler(self, req):
+        path = req.url.path[1:]
+        import imp
+        try:
+            with open(os.path.join(REQUEST_HANDLERS_DIR, f'{path}.py'),
+                      'rb') as fp:
+                handle = imp.load_module(
+                    f'{path}', fp, f'{path}.py',
+                    ('.py', 'rb', imp.PY_SOURCE)
+                ).handle
+        except Exception:
+            handle = None
+        if not handle:
+            name = 'default'
+            with open(os.path.join(REQUEST_HANDLERS_DIR, f'{name}.py'),
+                      'rb') as fp:
+                handle = imp.load_module(
+                    f'{name}', fp, f'{name}.py',
+                    ('.py', 'rb', imp.PY_SOURCE)
+                ).handle
+        return handle
 
 
 if __name__ == '__main__':

@@ -26,7 +26,7 @@ class Response:
              ('Content-Length', len(body))], body)
 
     @staticmethod
-    def build_res(req, path, content_type, add_headers=None):
+    def build_file_res(req, path, content_type, add_headers=None):
         accept = req.headers.get('Accept')
         connection = req.headers.get('Connection')
         if content_type in accept or '*/*' in accept:
