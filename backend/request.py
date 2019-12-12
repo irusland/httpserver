@@ -5,7 +5,7 @@ import chardet
 
 
 class Request:
-    def __init__(self, method, target, version, headers, file, user):
+    def __init__(self, method, target, version, headers, file, user, body):
         self.method = method
         self.target = target
         self.version = version
@@ -15,14 +15,15 @@ class Request:
         self.url = urlparse(self.target)
         self.path = self.url.path
         self.query = parse_qs(self.url.query)
+        self.body = body
 
     def __str__(self):
         return '\n'.join(f'{k}: {v}' for k, v in self.__dict__.items())
 
     @staticmethod
     def parsed_req_to_request(method, target,
-                              ver, headers, file, peer=None):
-        return Request(method, target, ver, headers, file, peer)
+                              ver, headers, body, file, peer=None):
+        return Request(method, target, ver, headers, file, peer, body)
 
     @staticmethod
     def decode(b):

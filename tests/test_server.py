@@ -42,23 +42,25 @@ class ServerTests(unittest.TestCase):
             file = io.BytesIO(req.encode('utf-8'))
             return server.parse_req_file(file)
 
-    def req_to_str(self, method, target, ver, headers):
+    def req_to_str(self, method, target, ver, headers, body):
         return '\n'.join((
             ' '.join((method, target, ver)),
-            '\n'.join(f'{k}: {v}' for k, v in headers.items())))
+            '\n'.join(f'{k}: {v}' for k, v in headers.items()),
+            f'\n{body}'))
 
-    def assert_req_parsed(self, m, t, v, h):
-        req = self.req_to_str(m, t, v, h)
+    def assert_req_parsed(self, m, t, v, h, b):
+        req = self.req_to_str(m, t, v, h, b)
         p = self.process_req(req)
-        method, target, ver, headers = p
+        method, target, ver, headers, body = p
         self.assertTupleEqual((m, t, v), (method, target, ver))
         for k in h.keys():
             self.assertEqual(headers.get(k), h.get(k))
+        self.assertEqual(b.encode(), body)
 
     def test_req_parsing(self):
         self.assert_req_parsed('GET', '/2.html', 'HTTP/1.1',
                                {'Host': '0.0.0.0:8000',
-                                'Accept': 'text/html'})
+                                'Accept': 'text/html'}, 'body')
 
     def test_get_res(self):
         str_req = 'GET / HTTP/1.1\n' \

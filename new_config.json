@@ -5,7 +5,6 @@
 
   "rules": {
     "/" : "tmp/index.html",
-    "/my_guest_book": "tmp/my_guest_book.html",
     "/posts": {
       "handler": {
         "source": "backend/router/handlers/my_guest_book.py",
@@ -17,13 +16,6 @@
         "source": "backend/router/handlers/my_guest_book.py",
         "post": "handle_post"
       }
-    },
-    "/c.png": {
-      "path": "tmp/c.png",
-      "headers": [
-        ["Content-Type", "text/html"],
-        ["Content-Disposition", "inline; filename=custom.png"]
-      ]
     },
     "/favicon.ico" : "tmp/pictures/favicon.ico",
     "/index.html" : "tmp/index.html",

@@ -1,8 +1,11 @@
 import os
 import re
-import importlib
 
+from backend.errors import Errors
+from backend.request import Request
+from backend.router.page import Page
 from defenitions import ROOT_DIR, REQUEST_HANDLERS_DIR
+from importlib.machinery import SourceFileLoader
 
 from backend.logger import Logger
 
@@ -12,14 +15,13 @@ class Router:
 
     def __init__(self):
         self.reg_sub = re.compile(r'(?P<txt>.*?)\[(?P<group>.*?)\]')
+        self.handlers = {}
 
     def get_destination(self, url, rules, absolute=True):
         Logger.info(f'Path processing', extra={'url': url})
         for key, description in rules.items():
-            if 'path' in description:
-                path = description['path']
-            else:
-                path = description
+            page = Page(description)
+            path = page.get_path()
 
             rule = self.to_template(key)
             match = re.fullmatch(rule, url)
@@ -58,27 +60,49 @@ class Router:
             if isinstance(description, dict):
                 return description.get('mime')
 
-    def find_handler(self, req):
-        path = req.url.path[1:]
-        import imp
+    def load_handlers(self, rules):
+        for key, description in rules.items():
+            page = Page(description)
+            path = page.get_handler_path()
+            if path and path not in self.handlers:
+                try:
+                    module = SourceFileLoader(
+                        f'{key}.handler', path).load_module()
+                    self.handlers[path] = module
+                    Logger.info(f'Handler {path} imported',
+                                extra={'url': page.get_path()})
+                except ImportError as e:
+                    Logger.error('Handler module import failed', e)
+
+    def find_page_description(self, url, rules):
+        for key, description in rules.items():
+            if re.fullmatch(self.to_template(key), url):
+                return Page(description)
+        raise FileNotFoundError(url, rules)
+
+    def find_handler(self, req: Request, rules):
+        url = req.url.path
+
         try:
-            with open(os.path.join(REQUEST_HANDLERS_DIR, f'{path}.py'),
-                      'rb') as fp:
-                handle = imp.load_module(
-                    f'{path}', fp, f'{path}.py',
-                    ('.py', 'rb', imp.PY_SOURCE)
-                ).handle
-        except Exception:
-            handle = None
-        if not handle:
-            name = 'default'
-            with open(os.path.join(REQUEST_HANDLERS_DIR, f'{name}.py'),
-                      'rb') as fp:
-                handle = imp.load_module(
-                    f'{name}', fp, f'{name}.py',
-                    ('.py', 'rb', imp.PY_SOURCE)
-                ).handle
-        return handle
+            page = self.find_page_description(url, rules)
+            path = page.get_handler_path()
+            handler_module = self.handlers.get(path)
+            if req.method == 'GET':
+                f_name = page.get_get_func_name()
+            elif req.method == 'POST':
+                f_name = page.get_post_func_name()
+            else:
+                raise Errors.METHOD_NOT_SUPPORTED
+            return handler_module.__dict__[f_name]
+        except Exception as e:
+            print(e)
+            # No handler for page using default
+            module = SourceFileLoader(
+                f'default.handler',
+                os.path.join(
+                    REQUEST_HANDLERS_DIR,
+                    f'default.py')).load_module()
+            return module.handle
 
 
 if __name__ == '__main__':

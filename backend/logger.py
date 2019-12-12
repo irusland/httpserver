@@ -8,17 +8,15 @@ from defenitions import LOGGER_PATH
 class LogLevel(Enum):
     console = 0
     logging = 1
-    # other_module = 2
 
     def __str__(self):
         return self.name
 
     @staticmethod
     def from_string(s):
-        try:
+        if s in LogLevel._member_map_:
             return LogLevel[s]
-        except KeyError:
-            raise ValueError()
+        raise ValueError()
 
 
 class Logger:
@@ -41,12 +39,8 @@ class Logger:
     def prepare_extra(extra=None):
         if extra is None:
             extra = {}
-        res = {}
-        for k in Logger.EXTRA.keys():
-            if k not in extra.keys():
-                res[k] = ''
-            else:
-                res[k] = extra[k]
+        res = {k: extra.get(k) if extra.get(k) is not None else ''
+               for k in Logger.EXTRA.keys()}
         return res
 
     @staticmethod

@@ -22,8 +22,8 @@ class Response:
     def build_err_res(status, reason, body, css=False):
         return Response(
             status, reason,
-            [('Content-Type', f'text/{"css" if css else "html"}'),
-             ('Content-Length', len(body))], body)
+            {('Content-Type', f'text/{"css" if css else "html"}'),
+             ('Content-Length', len(body))}, body)
 
     @staticmethod
     def build_file_res(req, path, content_type, add_headers=None):
@@ -35,13 +35,17 @@ class Response:
         else:
             return Response(406, 'Not Acceptable')
         filename = os.path.basename(path)
-        headers = [('Content-Type', f'{content_type}'),
+        headers = {('Content-Type', f'{content_type}'),
                    ('Content-Disposition', f'inline; filename={filename}'),
-                   ('Content-Length', len(body)), ('Connection', connection)]
-        for (name, value) in add_headers or {}:
-            headers.append((name, value))
+                   ('Content-Length', len(body)), ('Connection', connection)}
 
-        return Response(200, 'OK', headers, body)
+        visited = {name for (name, value) in add_headers or []}
+        joined_headers = add_headers or []
+        for a, b in headers:
+            if a not in visited:
+                visited.add(a)
+                joined_headers.append((a, b))
+        return Response(200, 'OK', joined_headers, body)
 
     @staticmethod
     def headers_to_str(res):
@@ -76,9 +80,9 @@ class Response:
                 elif e.errno == 32:
                     msg = f'client stopped receiving {e}'
                     Logger.exception(msg)
-                    raise e
+                    raise
                 elif e.errno == 9:
                     Logger.error(f'Connection with client {ip} broken')
-                    raise e
+                    raise
             else:
                 Logger.info(f'Files sent to {ip}')

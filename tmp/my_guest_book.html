@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Book</title>
+</head>
+<body>
+    <h1>Guest Book</h1>
+    <div id='posts'></div>
+
+    <form action='/post' method='post'>
+        <input type="text" name="username" placeholder="Name" /><br>
+        <textarea name="post" placeholder="Post text"></textarea><br>
+        <input type="submit"/>
+    </form>
+
+    <script>
+        document.body.onload = () =>
+            void fetch("/posts")
+            .then(x => x.json())
+            .then(posts => posts.map(
+                ({username, post}) =>
+                    `<div><b>${username}</b><br>${post}</div>`
+                ))
+            .then(x => x.join('<br>'))
+            .then(x => void (document.getElementById('posts').innerHTML = x))
+    </script>
+</body>
+</html>

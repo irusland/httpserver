@@ -37,7 +37,14 @@ class Errors(Error):
                           'Malformed request line')
     HEADER_MISSING = Error(400, 'Bad request',
                            'Host header is missing')
-    NOT_FOUND = Error(404, 'Not found', "", "PAGE_NOT_FOUND")
+    NOT_FOUND = Error(404, 'Not found', page="PAGE_NOT_FOUND")
     HEADER_TOO_LARGE = Error(494, 'Request header too large')
     TOO_MANY_HEADERS = Error(494, 'Too many headers')
     VERSION_NOT_SUPPORTED = Error(505, 'HTTP Version Not Supported')
+    NO_HANDLER = Error(500, 'No handler for this page found')
+    METHOD_NOT_SUPPORTED = Error(500, 'HTTP method not supported')
+
+
+class KeepAliveExpire(Exception):
+    pass
+

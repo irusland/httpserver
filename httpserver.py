@@ -17,7 +17,7 @@ import magic
 
 from backend.request import Request
 from backend.response import Response
-from backend.errors import Errors
+from backend.errors import Errors, KeepAliveExpire
 
 from backend.logger import Logger, LogLevel
 
@@ -35,9 +35,11 @@ class Server:
                  log_path=None):
 
         Logger.configure(level=loglevel, path=log_path)
+
         self.configurator = Configurator.init(config)
 
         self.router = Router()
+        self.router.load_handlers(self.configurator.get_rules())
 
         self.cache = Cache(size_limit=int(cache_max_size))
 
@@ -46,7 +48,6 @@ class Server:
         self.address = (self._host, self._port)
         self._running = True
         self.refresh_rate = refresh_rate
-
         self.server = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
         self.poller = selectors.DefaultSelector()
         socket.setdefaulttimeout(refresh_rate)
@@ -61,7 +62,7 @@ class Server:
         return self
 
     def __exit__(self, exc_type, exc_val, exc_tb):
-        if exc_type:
+        if exc_type and exc_type is not KeyboardInterrupt:
             Logger.exception(f'server is DOWN because of exception '
                              f'{exc_type} {exc_val} {exc_tb}')
         else:
@@ -137,12 +138,11 @@ class Server:
                                       socket.SO_KEEPALIVE, 1)
             else:
                 self._close(connection)
+        except KeepAliveExpire:
+            Logger.info(f'Keep-alive connection is not alive, '
+                        f'disconnecting')
+            self._close(connection)
         except Exception as e:
-            if str(e) == 'No data received':
-                Logger.info(f'Keep-alive connection is not alive, '
-                            f'disconnecting')
-                self._close(connection)
-                return
             Logger.exception(f'Client handling failed '
                              f'({threading.current_thread().ident}) {e}')
             Errors.send_error(connection, e)
@@ -171,17 +171,21 @@ class Server:
         buffer_ = b''.join(buffer_)
         if not buffer_:
             Logger.error('No data received')
-            raise Exception('No data received')
+            raise KeepAliveExpire()
         return buffer_
 
     def parse_req_file(self, file):
         Logger.info(f'Parsing request by file started')
         method, target, ver = self.parse_request_line(file)
         headers = self.parse_headers_from_file(file)
+        body = self.parse_body(file)
         host = headers.get('Host')
         if not host:
             raise Errors.HEADER_MISSING
-        return method, target, ver, headers
+        return method, target, ver, headers, body
+
+    def parse_body(self, file):
+        return file.read()
 
     def parse_request_line(self, file):
         raw = file.readline(self.MAX_LINE + 1)
@@ -216,14 +220,14 @@ class Server:
         return Request.parse_headers_str(Request.decode(headers))
 
     def handle_req(self, req):
-        # todo add handlers
-        handle = self.router.find_handler(req)
+        rules = self.configurator.get_rules()
+        handle = self.router.find_handler(req, rules)
         if handle:
             Logger.info('Handler found', extra={'url': req.path})
             return handle(req, self)
         else:
             Logger.error('Handler not found', extra={'url': req.path})
-            raise Errors.NOT_FOUND
+            raise Errors.NO_HANDLER
 
 
 if __name__ == '__main__':
