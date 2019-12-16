@@ -42,6 +42,14 @@ python3 -m pytest tests_server.py
         a photo `/pictures/2000/09/27/me.png
         ` if exists 
         
+    * if you want more handling control:
+        * specify `path` field for static file response
+        * use `handler` object description as
+            * `source` to choose handler path
+            * `post` name of function to handle POST request
+            * `get` name of function to handle GET request  
+        * specify `headers` for additional headers to be added
+        
 4) `error-pages` used by Errors class
 
 ## Author

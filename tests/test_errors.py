@@ -2,6 +2,7 @@ import os
 import unittest
 import random
 
+from backend import errors
 from backend.configurator import Configurator
 from defenitions import ROOT_DIR
 from tests.test_router import PathFinderTests
@@ -39,7 +40,7 @@ class TestErrorsWithMock(unittest.TestCase):
 
     def test_empty_send(self):
         sock = SockMock()
-        Error.send_error(sock, None)
+        errors.send_error(sock, None)
         self.assertIsNotNone(sock.received)
         # print(sock.received)
 

@@ -9,6 +9,7 @@ import urllib.parse
 
 from diskcache import Cache
 
+from backend import errors
 from backend.configurator import Configurator
 from defenitions import CONFIG_PATH, REQUEST_HANDLERS_DIR, LOGGER_PATH
 from backend.router.router import Router
@@ -29,7 +30,7 @@ class Server:
     BREAKLINE = [b'\r\n', b'\n', b'']
 
     def __init__(self, config=CONFIG_PATH,
-                 loglevel=LogLevel.logging,
+                 loglevel=LogLevel.LOGGING,
                  refresh_rate=0.1,
                  cache_max_size=4e9,
                  log_path=None):
@@ -145,7 +146,7 @@ class Server:
         except Exception as e:
             Logger.exception(f'Client handling failed '
                              f'({threading.current_thread().ident}) {e}')
-            Errors.send_error(connection, e)
+            errors.send_error(connection, e)
 
     def parse_req_connection(self, client):
         req_bytes = self.receive_from_client(client)

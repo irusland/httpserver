@@ -1,6 +1,7 @@
 import os
 import unittest
 import random
+from tempfile import NamedTemporaryFile
 
 from backend.configurator import Configurator
 from defenitions import ROOT_DIR
@@ -9,16 +10,15 @@ from backend.router.router import Router
 
 class PathFinderTests(unittest.TestCase):
     def setUp(self):
-        self.cfg_path = os.path.join(ROOT_DIR, 'tests',
-                                     f'cfg{random.random()}.tmp')
-        with open(self.cfg_path, "w") as f:
-            f.write(self.CONFIG)
-        self.configurator = Configurator.init(self.cfg_path)
+        self.cfg_file = NamedTemporaryFile(delete=False)
+        self.cfg_file.write(self.CONFIG.encode())
+        self.cfg_file.close()
+        self.configurator = Configurator.init(self.cfg_file.name)
         self.ruler = Router()
         self.rules = self.configurator.get('rules')
 
     def tearDown(self):
-        os.remove(self.cfg_path)
+        os.unlink(self.cfg_file.name)
 
     def assertDestinationsEqual(self, url, path, rules=None):
         if rules is None:

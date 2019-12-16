@@ -20,19 +20,17 @@ class SockMock:
         return len(args)
 
 
-class SockMockRaiser:
+class SockMockRaiser(SockMock):
     def __init__(self):
-        self.ip = ('0.0.0.0', 8000)
-        self.received = []
+        SockMock.__init__(self)
 
     def getpeername(self):
         raise socket.error(9, 'Bad file descriptor')
 
 
-class SockMockSendRaiser:
+class SockMockSendRaiser(SockMock):
     def __init__(self):
-        self.ip = ('0.0.0.0', 8000)
-        self.received = []
+        SockMock.__init__(self)
 
     def getpeername(self):
         return self.ip

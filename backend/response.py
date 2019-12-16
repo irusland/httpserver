@@ -1,6 +1,7 @@
 import os
 import socket
 import time
+from collections import OrderedDict
 
 from backend.logger import Logger
 
@@ -9,7 +10,7 @@ class Response:
     def __init__(self, status, reason, headers=None, body=None):
         self.status = status
         self.reason = reason
-        self.headers = headers
+        self.headers = OrderedDict(headers)
         self.body = body
 
     def __str__(self):
@@ -22,8 +23,8 @@ class Response:
     def build_err_res(status, reason, body, css=False):
         return Response(
             status, reason,
-            {('Content-Type', f'text/{"css" if css else "html"}'),
-             ('Content-Length', len(body))}, body)
+            OrderedDict([('Content-Type', f'text/{"css" if css else "html"}'),
+             ('Content-Length', len(body))]), body)
 
     @staticmethod
     def build_file_res(req, path, content_type, add_headers=None):
@@ -39,17 +40,23 @@ class Response:
                    ('Content-Disposition', f'inline; filename={filename}'),
                    ('Content-Length', len(body)), ('Connection', connection)}
 
-        visited = {name for (name, value) in add_headers or []}
-        joined_headers = add_headers or []
-        for a, b in headers:
-            if a not in visited:
-                visited.add(a)
-                joined_headers.append((a, b))
-        return Response(200, 'OK', joined_headers, body)
+        headers = OrderedDict(headers)
+
+        for (name, value) in add_headers or []:
+            headers[name] = value
+        #
+        # visited = {name for (name, value) in add_headers or []}
+        # joined_headers = add_headers or []
+        # for a, b in headers:
+        #     if a not in visited:
+        #         visited.add(a)
+        #         joined_headers.append((a, b))
+        return Response(200, 'OK', headers, body)
 
     @staticmethod
     def headers_to_str(res):
-        return ''.join(f'{k}: {v}\r\n' for (k, v) in res.headers)
+        headers: OrderedDict = res.headers
+        return ''.join(f'{k}: {v}\r\n' for (k, v) in headers.items())
 
     @staticmethod
     def status_to_str(res):
@@ -72,17 +79,24 @@ class Response:
                 response.body
             ))
             try:
-                client.sendall(contents)
-            except socket.error as e:
-                if e.errno == 35:
-                    Logger.error('Resource temporarily unavailable Sleeping')
-                    time.sleep(0.1)
-                elif e.errno == 32:
-                    msg = f'client stopped receiving {e}'
-                    Logger.exception(msg)
-                    raise
-                elif e.errno == 9:
-                    Logger.error(f'Connection with client {ip} broken')
-                    raise
+                while contents:
+                    try:
+                        bytes_sent = client.send(contents)
+                        contents = contents[bytes_sent:]
+                        Logger.info(f'{bytes_sent}B sent to {ip}')
+                    except socket.error as e:
+                        if e.errno == 35:
+                            Logger.error(
+                                'Resource temporarily unavailable Sleeping')
+                            time.sleep(0.1)
+                        elif e.errno == 32:
+                            msg = f'client stopped receiving {e}'
+                            Logger.exception(msg)
+                            raise
+                        elif e.errno == 9:
+                            Logger.error(f'Connection with client {ip} broken')
+                            raise
+            except Exception:
+                raise
             else:
                 Logger.info(f'Files sent to {ip}')

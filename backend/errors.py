@@ -11,23 +11,27 @@ class Error(Exception):
 
         self.configurator = Configurator
 
-    @staticmethod
-    def send_error(connection, err):
-        try:
-            if err.page:
-                with open(err.configurator.get("error-pages").get(err.page),
-                          'rb') as p:
-                    p = p.read()
+    def __str__(self):
+        return Exception(
+            self.status, self.reason, self.body).__str__()
 
-                res = [Response.build_err_res(err.status, err.reason, p)]
-            else:
-                res = [Response.build_err_res(
-                    err.status, err.reason,
-                    (err.body or err.reason).encode('utf-8'))]
-        except AttributeError:
-            res = [Response.build_err_res(500, b'Internal Server Error',
-                                          b'Internal Server Error')]
-        Response.send_response(connection, *res)
+
+def send_error(connection, err):
+    try:
+        if err.page:
+            with open(err.configurator.get("error-pages").get(err.page),
+                      'rb') as p:
+                p = p.read()
+
+            res = [Response.build_err_res(err.status, err.reason, p)]
+        else:
+            res = [Response.build_err_res(
+                err.status, err.reason,
+                (err.body or err.reason).encode('utf-8'))]
+    except AttributeError:
+        res = [Response.build_err_res(500, b'Internal Server Error',
+                                      b'Internal Server Error')]
+    Response.send_response(connection, *res)
 
 
 class Errors(Error):
@@ -47,4 +51,3 @@ class Errors(Error):
 
 class KeepAliveExpire(Exception):
     pass
-

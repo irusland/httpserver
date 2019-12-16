@@ -95,7 +95,6 @@ class Router:
                 raise Errors.METHOD_NOT_SUPPORTED
             return handler_module.__dict__[f_name]
         except Exception as e:
-            print(e)
             # No handler for page using default
             module = SourceFileLoader(
                 f'default.handler',

@@ -2,22 +2,19 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="d9b829f2-82a6-4d22-9393-7353395c203d" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/backend/router/handlers/my_guest_book.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/router/page.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/test_page.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/new_config.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tmp/c.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tmp/my_guest_book.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.coverage" beforeDir="false" afterPath="$PROJECT_DIR$/.coverage" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/backend/errors.py" beforeDir="false" afterPath="$PROJECT_DIR$/backend/errors.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/backend/logger.py" beforeDir="false" afterPath="$PROJECT_DIR$/backend/logger.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/request.py" beforeDir="false" afterPath="$PROJECT_DIR$/backend/request.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/backend/response.py" beforeDir="false" afterPath="$PROJECT_DIR$/backend/response.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/router/handlers/default.py" beforeDir="false" afterPath="$PROJECT_DIR$/backend/router/handlers/default.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/router/page.py" beforeDir="false" afterPath="$PROJECT_DIR$/backend/router/page.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/backend/router/router.py" beforeDir="false" afterPath="$PROJECT_DIR$/backend/router/router.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config.json" beforeDir="false" afterPath="$PROJECT_DIR$/config.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/httpserver.py" beforeDir="false" afterPath="$PROJECT_DIR$/httpserver.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/httpserver.zip" beforeDir="false" afterPath="$PROJECT_DIR$/httpserver.zip" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/new_config.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/readme.md" beforeDir="false" afterPath="$PROJECT_DIR$/readme.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/test_errors.py" beforeDir="false" afterPath="$PROJECT_DIR$/tests/test_errors.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/test_response.py" beforeDir="false" afterPath="$PROJECT_DIR$/tests/test_response.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/test_router.py" beforeDir="false" afterPath="$PROJECT_DIR$/tests/test_router.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/tests/test_server.py" beforeDir="false" afterPath="$PROJECT_DIR$/tests/test_server.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />

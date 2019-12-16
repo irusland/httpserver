@@ -6,32 +6,33 @@ from defenitions import LOGGER_PATH
 
 
 class LogLevel(Enum):
-    console = 0
-    logging = 1
+    CONSOLE = 0
+    LOGGING = 1
 
     def __str__(self):
-        return self.name
+        return self.name.lower()
 
     @staticmethod
-    def from_string(s):
+    def from_string(s: str):
+        s = s.upper()
         if s in LogLevel._member_map_:
             return LogLevel[s]
-        raise ValueError()
+        raise ValueError(s)
 
 
 class Logger:
-    LEVEL = LogLevel.logging
+    LEVEL = LogLevel.LOGGING
     EXTRA = {'url': '', 'code': ''}
 
     @staticmethod
-    def configure(level=LogLevel.logging, path=LOGGER_PATH):
+    def configure(level=LogLevel.LOGGING, path=LOGGER_PATH):
         Logger.LEVEL = level
         fmt = '%(levelname)-4s: %(asctime)-15s %(url)s %(code)s %(message)s'
-        if Logger.LEVEL == LogLevel.logging:
+        if Logger.LEVEL == LogLevel.LOGGING:
             logging.basicConfig(filename=path, level=logging.DEBUG,
                                 filemode='w+', format=fmt,
                                 datefmt='%m/%d/%Y %I:%M:%S')
-        elif Logger.LEVEL == LogLevel.console:
+        elif Logger.LEVEL == LogLevel.CONSOLE:
             logging.basicConfig(stream=sys.stdout, level=logging.DEBUG,
                                 format=fmt, datefmt='%m/%d/%Y %I:%M:%S')
 
