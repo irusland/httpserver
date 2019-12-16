@@ -64,8 +64,7 @@ class Server:
 
     def __exit__(self, exc_type, exc_val, exc_tb):
         if exc_type and exc_type is not KeyboardInterrupt:
-            Logger.exception(f'server is DOWN because of exception '
-                             f'{exc_type} {exc_val} {exc_tb}')
+            Logger.exception(f'server is DOWN because of exception ')
         else:
             Logger.info('server is DOWN with no exceptions')
         self._running = False
@@ -122,16 +121,16 @@ class Server:
     def serve_client(self, connection):
         try:
             req = self.parse_req_connection(connection)
-            Logger.info(f'Request parsed from {req.user} {req}',
+            Logger.info(f'Request parsed from {req.user}',
                         extra={'url': req.path})
             a = time.perf_counter()
             res = self.handle_req(req)
             Logger.info(f'Request handling time {time.perf_counter() - a}',
                         extra={'url': req.path})
-            Logger.info(f'Response prepared \n{res}',
+            Logger.info(f'Response prepared ',
                         extra={'url': req.path, 'code': res.status})
             Response.send_response(connection, res)
-            Logger.info(f'Response sent \n{res}',
+            Logger.info(f'Response sent',
                         extra={'url': req.path, 'code': res.status})
 
             if req.headers.get('Connection') == 'keep-alive':
@@ -144,8 +143,8 @@ class Server:
                         f'disconnecting')
             self._close(connection)
         except Exception as e:
-            Logger.exception(f'Client handling failed '
-                             f'({threading.current_thread().ident}) {e}')
+            Logger.error(f'Client handling failed '
+                             f'({threading.current_thread().ident})')
             errors.send_error(connection, e)
 
     def parse_req_connection(self, client):
@@ -197,7 +196,7 @@ class Server:
         try:
             method, target, ver = req_line.split()
         except ValueError as e:
-            Logger.error(f'Could not parse request {req_line} {e}')
+            Logger.error(f'Could not parse request')
             raise Errors.MALFORMED_REQ
 
         if ver != 'HTTP/1.1':

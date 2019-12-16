@@ -72,7 +72,7 @@ class Router:
                     Logger.info(f'Handler {path} imported',
                                 extra={'url': page.get_path()})
                 except ImportError as e:
-                    Logger.error('Handler module import failed', e)
+                    Logger.error('Handler module import failed')
 
     def find_page_description(self, url, rules):
         for key, description in rules.items():

@@ -3,19 +3,9 @@
   <component name="ChangeListManager">
     <list default="true" id="d9b829f2-82a6-4d22-9393-7353395c203d" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/errors.py" beforeDir="false" afterPath="$PROJECT_DIR$/backend/errors.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/logger.py" beforeDir="false" afterPath="$PROJECT_DIR$/backend/logger.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/backend/response.py" beforeDir="false" afterPath="$PROJECT_DIR$/backend/response.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/router/page.py" beforeDir="false" afterPath="$PROJECT_DIR$/backend/router/page.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/backend/router/router.py" beforeDir="false" afterPath="$PROJECT_DIR$/backend/router/router.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/httpserver.py" beforeDir="false" afterPath="$PROJECT_DIR$/httpserver.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/httpserver.zip" beforeDir="false" afterPath="$PROJECT_DIR$/httpserver.zip" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/new_config.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/readme.md" beforeDir="false" afterPath="$PROJECT_DIR$/readme.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/test_errors.py" beforeDir="false" afterPath="$PROJECT_DIR$/tests/test_errors.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/test_response.py" beforeDir="false" afterPath="$PROJECT_DIR$/tests/test_response.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/test_router.py" beforeDir="false" afterPath="$PROJECT_DIR$/tests/test_router.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/test_server.py" beforeDir="false" afterPath="$PROJECT_DIR$/tests/test_server.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -71,7 +61,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Python.httpserver">
+  <component name="RunManager" selected="Python.httpserver logging">
     <configuration default="true" type="PythonConfigurationType" factoryName="Python">
       <module name="httpserver" />
       <option name="INTERPRETER_OPTIONS" value="" />

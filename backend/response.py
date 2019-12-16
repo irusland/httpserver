@@ -90,8 +90,8 @@ class Response:
                                 'Resource temporarily unavailable Sleeping')
                             time.sleep(0.1)
                         elif e.errno == 32:
-                            msg = f'client stopped receiving {e}'
-                            Logger.exception(msg)
+                            msg = f'client stopped receiving'
+                            Logger.error(msg)
                             raise
                         elif e.errno == 9:
                             Logger.error(f'Connection with client {ip} broken')
