@@ -1,3 +1,4 @@
+from email.message import Message
 from email.parser import Parser
 from urllib.parse import urlparse, parse_qs
 
@@ -5,17 +6,61 @@ import chardet
 
 
 class Request:
-    def __init__(self, method, target, version, headers, file, user, body):
-        self.method = method
-        self.target = target
-        self.version = version
-        self.headers = headers
-        self.file = file
-        self.user = user
-        self.url = urlparse(self.target)
-        self.path = self.url.path
-        self.query = parse_qs(self.url.query)
-        self.body = body
+    def __init__(self):
+        self.method = None
+        self.target = None
+        self.version = None
+        self.headers = {}
+        self.file = None
+        self.user = None
+        self.url = None
+        self.path = None
+        self.query = None
+        self.body = b''
+
+        self._body_to_read = None
+
+    def dynamic_fill(self, line: bytes):
+        print(line)
+        if not line:
+            # header: str = self.headers.get("Content-Type")
+            # if header and not self._boundary:
+            #     split = header.split(';')
+            #     if len(split) == 2:
+            #         if split[0] == 'multipart/form-data':
+            #             self._boundary = split[1].split('=')[1]
+
+            if self._body_to_read == 0:
+                return True
+            if not self._body_to_read:
+                length = self.headers.get("Content-Length")
+                if length:
+                    self._body_to_read = int(length)
+                else:
+                    self._body_to_read = 0
+                    return True
+            return False
+
+        if not self.method:
+            line = Request.decode(line)
+            self.method, self.target, self.version = line.split()
+            self.url = urlparse(self.target)
+            self.path = self.url.path
+            self.query = parse_qs(self.url.query)
+            return False
+
+        if self._body_to_read != 0 and self._body_to_read is not None:
+            self.body += line
+            self._body_to_read -= len(line)
+            print(self._body_to_read)
+            if self._body_to_read == 0:
+                return True
+        else:
+            p = Parser()
+            headers: Message = p.parsestr(Request.decode(line))
+            if headers.items():
+                for k, v in headers.items():
+                    self.headers[k] = v
 
     def __str__(self):
         return '\n'.join(f'{k}: {v}' for k, v in self.__dict__.items())

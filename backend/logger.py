@@ -29,11 +29,11 @@ class Logger:
         Logger.LEVEL = level
         fmt = '%(levelname)-4s: %(asctime)-15s %(url)s %(code)s %(message)s'
         if Logger.LEVEL == LogLevel.LOGGING:
-            logging.basicConfig(filename=path, level=logging.DEBUG,
+            logging.basicConfig(filename=path, level=logging.INFO,
                                 filemode='w+', format=fmt,
                                 datefmt='%m/%d/%Y %I:%M:%S')
         elif Logger.LEVEL == LogLevel.CONSOLE:
-            logging.basicConfig(stream=sys.stdout, level=logging.DEBUG,
+            logging.basicConfig(stream=sys.stdout, level=logging.INFO,
                                 format=fmt, datefmt='%m/%d/%Y %I:%M:%S')
 
     @staticmethod
@@ -50,7 +50,7 @@ class Logger:
 
     @staticmethod
     def error(*args, extra=None):
-        logging.error(*args, extra=Logger.prepare_extra(extra))
+        logging.exception(*args, extra=Logger.prepare_extra(extra))
 
     @staticmethod
     def exception(*args, extra=None):

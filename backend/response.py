@@ -44,13 +44,6 @@ class Response:
 
         for (name, value) in add_headers or []:
             headers[name] = value
-        #
-        # visited = {name for (name, value) in add_headers or []}
-        # joined_headers = add_headers or []
-        # for a, b in headers:
-        #     if a not in visited:
-        #         visited.add(a)
-        #         joined_headers.append((a, b))
         return Response(200, 'OK', headers, body)
 
     @staticmethod
@@ -99,4 +92,4 @@ class Response:
             except Exception:
                 raise
             else:
-                Logger.info(f'Files sent to {ip}')
+                Logger.info(f'All Files sent to {ip}')

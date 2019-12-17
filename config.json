@@ -5,6 +5,19 @@
 
   "rules": {
     "/" : "tmp/index.html",
+    "/upload": "tmp/upload.html",
+    "/files": {
+      "handler": {
+        "source": "backend/router/handlers/upload.py",
+        "post": "save"
+      }
+    },
+    "/show_files": {
+      "handler": {
+        "source": "backend/router/handlers/upload.py",
+        "get": "show"
+      }
+    },
     "/my_guest_book": "tmp/my_guest_book.html",
     "/posts": {
       "handler": {

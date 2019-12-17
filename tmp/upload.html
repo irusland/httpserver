@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Upload</title>
+</head>
+<body>
+    <form method="post" enctype="multipart/form-data">
+ <div>
+   <label for="file">Choose file to upload</label>
+   <input type="file" id="file" name="file" multiple>
+ </div>
+ <div>
+   <button>Submit</button>
+
+    <script>
+        document.body.onload = () =>
+            void fetch("/show_files")
+            .then(x => x.json())
+            .then(posts => posts.map(
+                ({filename}) =>
+                    `<div><b>${filename}</b></div>`
+                ))
+            .then(x => x.join('<br>'))
+            .then(x => void (document.getElementById('posts').innerHTML = x))
+    </script>
+ </div>
+</form>
+</body>
+</html>

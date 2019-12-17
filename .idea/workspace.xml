@@ -2,9 +2,13 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="d9b829f2-82a6-4d22-9393-7353395c203d" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/tmp/upload.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/logger.py" beforeDir="false" afterPath="$PROJECT_DIR$/backend/logger.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/request.py" beforeDir="false" afterPath="$PROJECT_DIR$/backend/request.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/backend/response.py" beforeDir="false" afterPath="$PROJECT_DIR$/backend/response.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/router/router.py" beforeDir="false" afterPath="$PROJECT_DIR$/backend/router/router.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/router/handlers/query.py" beforeDir="false" afterPath="$PROJECT_DIR$/backend/router/handlers/upload.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config.json" beforeDir="false" afterPath="$PROJECT_DIR$/config.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/httpserver.py" beforeDir="false" afterPath="$PROJECT_DIR$/httpserver.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -20,8 +24,8 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Python Script" />
-        <option value="HTML File" />
         <option value="Python Unit Test" />
+        <option value="HTML File" />
       </list>
     </option>
   </component>
