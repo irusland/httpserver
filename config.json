@@ -6,7 +6,7 @@
   "rules": {
     "/" : "tmp/index.html",
     "/upload": "tmp/upload.html",
-    "/files": {
+    "/save": {
       "handler": {
         "source": "backend/router/handlers/upload.py",
         "post": "save"

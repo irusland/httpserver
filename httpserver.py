@@ -260,7 +260,6 @@ class Server:
         rules = self.configurator.get_rules()
         handle = self.router.find_handler(req, rules)
         if handle:
-            Logger.info('Handler found', extra={'url': req.path})
             return handle(req, self)
         else:
             Logger.error('Handler not found', extra={'url': req.path})

@@ -5,26 +5,27 @@
     <title>Upload</title>
 </head>
 <body>
-    <form method="post" enctype="multipart/form-data">
+    <form action='/save' method="post" enctype="multipart/form-data">
  <div>
    <label for="file">Choose file to upload</label>
    <input type="file" id="file" name="file" multiple>
  </div>
  <div>
-   <button>Submit</button>
-
+     <button>Submit</button>
+ </div>
+        <p>Saved files: </p>
+     <div id='dir'></div>
     <script>
         document.body.onload = () =>
             void fetch("/show_files")
             .then(x => x.json())
             .then(posts => posts.map(
-                ({filename}) =>
+                (filename) =>
                     `<div><b>${filename}</b></div>`
                 ))
             .then(x => x.join('<br>'))
-            .then(x => void (document.getElementById('posts').innerHTML = x))
+            .then(x => void (document.getElementById('dir').innerHTML = x))
     </script>
- </div>
 </form>
 </body>
 </html>

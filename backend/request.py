@@ -20,15 +20,17 @@ class Request:
 
         self._body_to_read = None
 
+        self._multipart = False
+
     def dynamic_fill(self, line: bytes):
         print(line)
+        if self._multipart:
+            line += b'\r\n'
         if not line:
-            # header: str = self.headers.get("Content-Type")
-            # if header and not self._boundary:
-            #     split = header.split(';')
-            #     if len(split) == 2:
-            #         if split[0] == 'multipart/form-data':
-            #             self._boundary = split[1].split('=')[1]
+            if not self._multipart:
+                header: str = self.headers.get("Content-Type") or ''
+                if header.startswith('multipart'):
+                    self._multipart = True
 
             if self._body_to_read == 0:
                 return True

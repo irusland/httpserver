@@ -93,9 +93,13 @@ class Router:
                 f_name = page.get_post_func_name()
             else:
                 raise Errors.METHOD_NOT_SUPPORTED
+            Logger.info(f'Custom handler found '
+                        f'{handler_module.__dict__["__file__"]}',
+                        extra={'url': req.path})
             return handler_module.__dict__[f_name]
         except Exception as e:
-            # No handler for page using default
+            Logger.info(f'Default handler available only',
+                        extra={'url': req.path})
             module = SourceFileLoader(
                 f'default.handler',
                 os.path.join(
