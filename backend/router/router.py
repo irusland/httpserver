@@ -18,7 +18,7 @@ class Router:
         self.handlers = {}
 
     def get_destination(self, url, rules, absolute=True):
-        Logger.info(f'Path processing', extra={'url': url})
+        Logger.debug_info(f'Path processing', extra={'url': url})
         for key, description in rules.items():
             page = Page(description)
             path = page.get_path()
@@ -38,7 +38,7 @@ class Router:
 
                 self.URL_TO_RULE[url] = key
                 if os.path.isfile(path):
-                    Logger.info(f'Path found {path}', extra={'url': url})
+                    Logger.debug_info(f'Path found {path}', extra={'url': url})
                     return path
                 else:
                     Logger.error(f'Path matched by rule {rule} but file not '
@@ -46,6 +46,8 @@ class Router:
         raise FileNotFoundError(url, rules)
 
     def to_abs_path(self, path):
+        if not path:
+            return path
         return os.path.join(ROOT_DIR, path)
 
     def to_template(self, key):
@@ -69,8 +71,8 @@ class Router:
                     module = SourceFileLoader(
                         f'{key}.handler', path).load_module()
                     self.handlers[path] = module
-                    Logger.info(f'Handler {path} imported',
-                                extra={'url': page.get_path()})
+                    Logger.debug_info(f'Handler {path} imported',
+                                      extra={'url': page.get_path()})
                 except ImportError as e:
                     Logger.error('Handler module import failed')
 
@@ -93,13 +95,13 @@ class Router:
                 f_name = page.get_post_func_name()
             else:
                 raise Errors.METHOD_NOT_SUPPORTED
-            Logger.info(f'Custom handler found '
-                        f'{handler_module.__dict__["__file__"]}',
-                        extra={'url': req.path})
+            Logger.debug_info(f'Custom handler found '
+                              f'{handler_module.__dict__["__file__"]}',
+                              extra={'url': req.path})
             return handler_module.__dict__[f_name]
         except Exception as e:
-            Logger.info(f'Default handler available only',
-                        extra={'url': req.path})
+            Logger.debug_info(f'Default handler available only',
+                              extra={'url': req.path})
             module = SourceFileLoader(
                 f'default.handler',
                 os.path.join(

@@ -1,11 +1,8 @@
 import email
-import urllib
 from email.message import Message
 
-import magic
 import os
 
-from backend.errors import Errors
 from backend.logger import Logger
 from backend.request import Request
 from backend.response import Response
@@ -41,11 +38,11 @@ def save(req: Request, server):
         fname = part.get_param('filename', header='content-disposition')
         file = part.get_payload(decode=True)
         if not fname:
-            Logger.info(f'{ftype} is empty')
+            Logger.debug_info(f'{ftype} is empty')
             continue
         with open(os.path.join(ROOT_DIR, 'tmp', 'saved', fname), 'wb') as f:
             f.write(file)
-        Logger.info(f'{ftype} saved as {fname} ')
+        Logger.debug_info(f'{ftype} saved as {fname} ')
 
     body = f'{os.path.join(ROOT_DIR, "tmp", "saved")}' \
            f' - >' \

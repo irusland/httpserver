@@ -1,0 +1,67 @@
+{
+  "host": "0.0.0.0",
+
+  "port": 8000,
+
+  "rules": {
+    "/" : "tmp/index.html",
+    "/upload": "tmp/upload.html",
+    "/save": {
+      "handler": {
+        "source": "backend/router/handlers/upload.py",
+        "post": "save"
+      }
+    },
+    "/show_files": {
+      "handler": {
+        "source": "backend/router/handlers/upload.py",
+        "get": "show"
+      }
+    },
+    "/my_guest_book": "tmp/my_guest_book.html",
+    "/posts": {
+      "handler": {
+        "source": "backend/router/handlers/my_guest_book.py",
+        "get": "get_posts"
+      }
+    },
+    "/post": {
+      "handler": {
+        "source": "backend/router/handlers/my_guest_book.py",
+        "post": "handle_post"
+      }
+    },
+    "/c.png": {
+      "path": "tmp/c.png",
+      "headers": [
+        ["Content-Type", "text/html"],
+        ["Content-Disposition", "inline; filename=custom.png"]
+      ]
+    },
+    "/favicon.ico" : "tmp/pictures/favicon.ico",
+    "/index.html" : "tmp/index.html",
+    "/2.html" : "tmp/pages/2.html",
+    "/1.2.3.txt" : "tmp/1.2.3.txt",
+    "/page-load-errors[extras].css": {
+      "path": "pages/page-load-errors[extras].css",
+      "mime": "text/css"
+    },
+    "/[name].html" : "tmp/pages/[name].html",
+    "/[name].css" : "tmp/pages/css/[name].css",
+    "/[name].[ext]" : "tmp/pictures/[name].[ext]",
+    "/png/[name].png" : "tmp/pictures/[name].png",
+    "/pictures/[ext]/1" : "tmp/pictures/1.[ext]",
+    "/[day]-[n]/[month]/[year]" : "tmp/dates/[year]/[month]/[day]/[n].png",
+    "/[DD]/[MM]/[YY]" : "tmp/dates/[DD].[MM].[YY].png",
+    "/mime/" : {
+      "path" : "tmp/pictures/1.png",
+      "mime" : "text/txt"
+    },
+    "/big" : { "path" : "tmp/pictures/chroma.jpg", "mime" : "image/jpg" },
+    "/[file].[ext]" : "tmp/[file].[ext]"
+  },
+
+  "error-pages": {
+    "PAGE_NOT_FOUND": "pages/PAGE_NOT_FOUND.html"
+  }
+}

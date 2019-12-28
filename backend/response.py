@@ -24,22 +24,34 @@ class Response:
         return Response(
             status, reason,
             OrderedDict([('Content-Type', f'text/{"css" if css else "html"}'),
-             ('Content-Length', len(body))]), body)
+                         ('Content-Length', len(body))]), body)
 
     @staticmethod
     def build_file_res(req, path, content_type, add_headers=None):
         accept = req.headers.get('Accept')
         connection = req.headers.get('Connection')
+        start, end, size = None, None, None
+
         if content_type in accept or '*/*' in accept:
+            range_header = req.headers.get('Range')
             with open(path, 'rb') as file:
-                body = file.read()
+                if range_header:
+                    _, v = range_header.split('=')
+                    start, end = v.split('-')
+                    start, end = int(start), int(end)
+                    file.seek(start, 0)
+                    body = file.read(end - start)
+                else:
+                    body = file.read()
         else:
             return Response(406, 'Not Acceptable')
         filename = os.path.basename(path)
         headers = {('Content-Type', f'{content_type}'),
                    ('Content-Disposition', f'inline; filename={filename}'),
                    ('Content-Length', len(body)), ('Connection', connection)}
-
+        if range_header:
+            headers.add(('Content-Range',
+                         f'{start}-{end}/{os.stat(path).st_size}'))
         headers = OrderedDict(headers)
 
         for (name, value) in add_headers or []:
@@ -76,7 +88,7 @@ class Response:
                     try:
                         bytes_sent = client.send(contents)
                         contents = contents[bytes_sent:]
-                        Logger.info(f'{bytes_sent}B sent to {ip}')
+                        Logger.debug_info(f'{bytes_sent}B sent to {ip}')
                     except socket.error as e:
                         if e.errno == 35:
                             Logger.error(
@@ -92,4 +104,4 @@ class Response:
             except Exception:
                 raise
             else:
-                Logger.info(f'All Files sent to {ip}')
+                Logger.debug_info(f'All Files sent to {ip}')

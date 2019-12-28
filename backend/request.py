@@ -23,9 +23,9 @@ class Request:
         self._multipart = False
 
     def dynamic_fill(self, line: bytes):
-        print(line)
-        if self._multipart:
-            line += b'\r\n'
+        if not self._body_to_read:
+            line = line[:-2]
+
         if not line:
             if not self._multipart:
                 header: str = self.headers.get("Content-Type") or ''

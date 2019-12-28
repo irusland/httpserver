@@ -63,21 +63,23 @@ class ServerTests(unittest.TestCase):
                                 'Accept': 'text/html'}, 'body')
 
     def test_get_res(self):
-        str_req = 'GET / HTTP/1.1\n' \
-                  'Host: 0.0.0.0:8000\n' \
-                  'Accept: */*\n\n'
+        line = (b'GET / HTTP/1.1\r\n'
+                b'Host: 0.0.0.0:8000\r\n'
+                b'Accept: */*\r\n\r\n')
 
         server = self.make_server()
-        file = io.BytesIO(str_req.encode('utf-8'))
-        parsed_req = server.parse_req_file(file)
-        req = Request.parsed_req_to_request(*parsed_req, file)
-        res = server.handle_req(req)
+        req = Request()
+        split = Server.splitkeepsep(line, b'\r\n')
 
-        self.assertEqual(res.status, 200)
-        self.assertEqual(res.reason, 'OK')
-        headers_dict = dict(res.headers)
-        self.assertTrue(headers_dict.get('Content-Type'))
-        self.assertTrue(headers_dict.get('Content-Length'))
+        for s in split:
+            if req.dynamic_fill(s):
+                res = server.handle_req(req)
+
+                self.assertEqual(res.status, 200)
+                self.assertEqual(res.reason, 'OK')
+                headers_dict = dict(res.headers)
+                self.assertTrue(headers_dict.get('Content-Type'))
+                self.assertTrue(headers_dict.get('Content-Length'))
 
     def test_server_context_manager(self):
         s = self.make_server()
@@ -88,7 +90,7 @@ class ServerTests(unittest.TestCase):
             self.fail()
 
     def send_req_and_shutdown(self, server):
-        req = b'GET / HTTP/1.1\nHost: 0.0.0.0\nAccept: */*\n\n'
+        req = b'GET / HTTP/1.1\r\nHost: 0.0.0.0\r\nAccept: */*\r\n\r\n'
         with open(CONFIG_PATH) as cfg:
             data = json.load(cfg)
         s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
@@ -100,6 +102,7 @@ class ServerTests(unittest.TestCase):
         data = []
         while True:
             line = s.recv(Server.MAX_LINE)
+            print(line)
             if line in [b'', b'\n']:
                 break
             data.append(line)
@@ -123,6 +126,23 @@ class ServerTests(unittest.TestCase):
             except StopIteration:
                 pass
         request_task.terminate()
+
+    class MockWrite:
+        def __init__(self):
+            self.out_buff = {0: [b'buff']}
+
+    class MockClient:
+        def __init__(self):
+            self.fileno = lambda: 0
+            self.recvd = b''
+
+        def sendall(self, data):
+            self.recvd += data
+
+    def test_write(self):
+        w, c = ServerTests.MockWrite(), ServerTests.MockClient()
+        Server._write(w, c)
+        self.assertEqual(c.recvd, b'buff')
 
 
 if __name__ == '__main__':

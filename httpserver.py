@@ -1,11 +1,13 @@
 # python3
 import argparse
 import io
+import re
 import select
 import selectors
 import socket
 import threading
 import time
+from functools import reduce
 from queue import Queue
 
 from diskcache import Cache
@@ -34,7 +36,7 @@ class Server:
                  cache_max_size=4e9,
                  log_path=None):
 
-        Logger.configure(level=loglevel, path=log_path)
+        Logger.configure(level=loglevel, info_path=log_path)
 
         self.configurator = Configurator.init(config)
 
@@ -60,14 +62,14 @@ class Server:
         self.server.bind(self.address)
         self.server.listen()
         self.server.setblocking(False)
-        Logger.info(f'server is UP on {self._host}:{self._port}')
+        Logger.debug_info(f'server is UP on {self._host}:{self._port}')
         return self
 
     def __exit__(self, exc_type, exc_val, exc_tb):
         if exc_type and exc_type is not KeyboardInterrupt:
             Logger.exception(f'server is DOWN because of exception ')
         else:
-            Logger.info('server is DOWN with no exceptions')
+            Logger.debug_info('server is DOWN with no exceptions')
         self._running = False
         self.poller.close()
         self.server.close()
@@ -85,47 +87,46 @@ class Server:
         while self._running:
             poll = self.poller.select(self.refresh_rate)
             for key, m in poll:
-                callback = key.data
-                # print(key.data, 'event', key.events, 'mask', m,
-                #       'write is', selectors.EVENT_WRITE,
-                #       'read is', selectors.EVENT_READ)
-                callback(key.fileobj)
+                try:
+                    callback = key.data
+                    callback(key.fileobj)
+                except socket.error as e:
+                    if e.errno == 54:
+                        Logger.debug_info(f'Disconnected {key.fileobj}')
 
     def _accept(self, sock):
         (client, addr) = sock.accept()
         self.conns[client.fileno()] = client
         self.requests[client.fileno()] = Request()
         self.out_buff[client.fileno()] = []
-        Logger.info(f'Connected {addr}')
+        Logger.debug_info(f'Connected {addr}')
 
         client.setblocking(False)
         self.poller.register(client,
                              selectors.EVENT_READ,
                              self._read)
-        Logger.info(f'EVENT_READ Registered {addr}')
+        Logger.debug_info(f'EVENT_READ Registered {addr}')
+
+    @staticmethod
+    def splitkeepsep(s, sep):
+        return reduce(lambda acc, elem: acc[:-1] + [
+            acc[-1] + elem] if elem == sep else acc + [elem],
+                      re.split(b'(%s)' % re.escape(sep), s), [])
 
     def _read(self, client):
         line: bytes = client.recv(self.MAX_LINE)
+        if not line:
+            return
         req_builder: Request = self.requests[client.fileno()]
+        split = self.splitkeepsep(line, b'\r\n')
 
-        split = line.splitlines()
         for s in split:
             if req_builder.dynamic_fill(s):
                 self.requests[client.fileno()] = Request()
                 return self.serve_client(client, req_builder)
 
-    def parse_req(self, req_bytes):
-        file = io.BytesIO(req_bytes)
-        Logger.info(f'Request parsing by connection started')
-        req = self.parse_req_file(file)
-        request = Request.parsed_req_to_request(
-            *req, file)
-
-        Logger.info(f'Request parsed')
-        return request
-
     def parse_req_file(self, file):
-        Logger.info(f'Parsing request by file started')
+        Logger.debug_info(f'Parsing request by file started')
         method, target, ver = self.parse_request_line(file)
         headers = self.parse_headers_from_file(file)
         body = self.parse_body(file)
@@ -140,46 +141,40 @@ class Server:
             return
         bytes_sent = client.sendall(buffer_[0])
         del buffer_[0]
-        Logger.info(f'{bytes_sent}B sent to {client.fileno()} {buffer_} left')
-
-    def _handle(self, client):
-        try:
-            t = threading.Thread(target=self.serve_client,
-                                 args=(client,))
-            t.start()
-            Logger.info(f'Threaded client serving '
-                        f'started {client.getpeername()} in '
-                        f'thread {threading.current_thread().ident}')
-        except socket.error as e:
-            Logger.info(f'Socket in thread {threading.current_thread().ident} '
-                        f'was disconnected {e}')
-            self._close(client)
+        Logger.debug_info(
+            f'{bytes_sent}B sent to {client.fileno()} {buffer_} left')
 
     def _close(self, connection):
         try:
             self.poller.unregister(connection)
             del self.conns[connection.fileno()]
         except Exception:
-            Logger.info('Socket disconnected by timeout')
+            Logger.debug_info('Socket disconnected by timeout')
         connection.close()
-        Logger.info(f'Socket Disconnected in thread '
-                    f'{threading.current_thread().ident}')
+        Logger.debug_info(f'Socket Disconnected in thread '
+                          f'{threading.current_thread().ident}')
 
-    def serve_client(self, client, req):
+    def serve_client(self, client, req: Request):
         try:
-            # print(req)
-            Logger.info(f'Request parsed from {req.user}',
-                        extra={'url': req.path})
+            Logger.debug_info(f'Request got {req}',
+                              extra={'url': req.path})
             a = time.perf_counter()
             res = self.handle_req(req)
-            Logger.info(f'Request handling time {time.perf_counter() - a}',
-                        extra={'url': req.path})
-            Logger.info(f'Response prepared ',
-                        extra={'url': req.path, 'code': res.status})
+            Logger.debug_info(
+                f'Request handling time {time.perf_counter() - a}',
+                extra={'url': req.path})
+            Logger.debug_info(f'Response prepared {res}',
+                              extra={'url': req.path, 'code': res.status})
 
             Response.send_response(client, res)
-            Logger.info(f'Response sent',
-                        extra={'url': req.path, 'code': res.status})
+            Logger.debug_info(f'Response sent',
+                              extra={'url': req.path, 'code': res.status})
+
+            Logger.info(f'Source Requested',
+                        extra={'method': req.method,
+                               'url': req.path,
+                               'code': res.status,
+                               'ip': client.getpeername()})
 
             if req.headers.get('Connection') == 'keep-alive':
                 client.setsockopt(socket.SOL_SOCKET,
@@ -187,39 +182,13 @@ class Server:
             else:
                 self._close(client)
         except KeepAliveExpire:
-            Logger.info(f'Keep-alive connection is not alive, '
-                        f'disconnecting')
+            Logger.debug_info(f'Keep-alive connection is not alive, '
+                              f'disconnecting')
             self._close(client)
         except Exception as e:
-            Logger.error(f'Client handling failed '
-                         f'({threading.current_thread().ident})')
+            Logger.error(f'Client handling failed {e}')
             errors.send_error(client, e)
-            Logger.error(f'Error sent to '
-                         f'({threading.current_thread().ident})')
-
-    def receive_from_client(self, client, client_timeout=0):
-        buffer_ = []
-        client.settimeout(client_timeout)
-        while True:
-            try:
-                line = client.recv(self.MAX_LINE)
-                if line in self.BREAKLINE:
-                    print(f'"{line}"')
-                    break
-                buffer_.append(line)
-                # if line.endswith(b'\r\n\r\n'):
-                #     break
-                print(f'GOT LINE {line}', buffer_)
-            except socket.error as e:
-                if e.errno == 35:
-                    # time.sleep(0.5)
-                    break
-                break
-        buffer_ = b''.join(buffer_)
-        if not buffer_:
-            Logger.error('No data received')
-            raise KeepAliveExpire()
-        return buffer_
+            Logger.error(f'Error sent')
 
     def parse_body(self, file):
         return file.read()
