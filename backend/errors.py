@@ -11,10 +11,6 @@ class Error(Exception):
 
         self.configurator = Configurator
 
-    def __str__(self):
-        return Exception(
-            self.status, self.reason, self.body).__str__()
-
 
 def send_error(connection, err):
     try:

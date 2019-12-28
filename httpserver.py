@@ -96,9 +96,10 @@ class Server:
 
     def _accept(self, sock):
         (client, addr) = sock.accept()
-        self.conns[client.fileno()] = client
-        self.requests[client.fileno()] = Request()
-        self.out_buff[client.fileno()] = []
+        num = client.fileno()
+        self.conns[num] = client
+        self.requests[num] = Request()
+        self.out_buff[num] = []
         Logger.debug_info(f'Connected {addr}')
 
         client.setblocking(False)
@@ -108,21 +109,22 @@ class Server:
         Logger.debug_info(f'EVENT_READ Registered {addr}')
 
     @staticmethod
-    def splitkeepsep(s, sep):
-        return reduce(lambda acc, elem: acc[:-1] + [
-            acc[-1] + elem] if elem == sep else acc + [elem],
-                      re.split(b'(%s)' % re.escape(sep), s), [])
+    def split_keep_sep(s: bytes, sep):
+        xs = re.split(rb'(%s)' % re.escape(sep), s)
+        return [xs[i] + xs[i + 1] if i + 1 < len(xs) else b''
+                for i in range(0, len(xs), 2)]
 
     def _read(self, client):
         line: bytes = client.recv(self.MAX_LINE)
         if not line:
             return
-        req_builder: Request = self.requests[client.fileno()]
-        split = self.splitkeepsep(line, b'\r\n')
+        num = client.fileno()
+        req_builder: Request = self.requests[num]
+        split = self.split_keep_sep(line, b'\r\n')
 
         for s in split:
             if req_builder.dynamic_fill(s):
-                self.requests[client.fileno()] = Request()
+                self.requests[num] = Request()
                 return self.serve_client(client, req_builder)
 
     def parse_req_file(self, file):
@@ -136,15 +138,16 @@ class Server:
         return method, target, ver, headers, body
 
     def _write(self, client):
-        buffer_: list = self.out_buff[client.fileno()]
-        if len(buffer_) == 0:
+        num = client.fileno()
+        buffer_: list = self.out_buff[num]
+        if not buffer_:
             return
         bytes_sent = client.sendall(buffer_[0])
         del buffer_[0]
         Logger.debug_info(
-            f'{bytes_sent}B sent to {client.fileno()} {buffer_} left')
+            f'{bytes_sent}B sent to {num} {buffer_} left')
 
-    def _close(self, connection):
+    def close(self, connection):
         try:
             self.poller.unregister(connection)
             del self.conns[connection.fileno()]
@@ -156,6 +159,8 @@ class Server:
 
     def serve_client(self, client, req: Request):
         try:
+            if self.insufficient(req):
+                raise Errors.MALFORMED_REQ
             Logger.debug_info(f'Request got {req}',
                               extra={'url': req.path})
             a = time.perf_counter()
@@ -179,14 +184,14 @@ class Server:
             if req.headers.get('Connection') == 'keep-alive':
                 client.setsockopt(socket.SOL_SOCKET,
                                   socket.SO_KEEPALIVE, 1)
-            else:
-                self._close(client)
+            if req.headers.get('Connection') == 'close':
+                self.close(client)
         except KeepAliveExpire:
             Logger.debug_info(f'Keep-alive connection is not alive, '
                               f'disconnecting')
-            self._close(client)
+            self.close(client)
         except Exception as e:
-            Logger.error(f'Client handling failed {e}')
+            Logger.error(f'Client handling failed', e)
             errors.send_error(client, e)
             Logger.error(f'Error sent')
 
@@ -233,6 +238,11 @@ class Server:
         else:
             Logger.error('Handler not found', extra={'url': req.path})
             raise Errors.NO_HANDLER
+
+    @staticmethod
+    def insufficient(req: Request):
+        if not req.method or not req.path or not req.version:
+            return True
 
 
 if __name__ == '__main__':

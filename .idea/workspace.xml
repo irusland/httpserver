@@ -4,18 +4,15 @@
     <list default="true" id="d9b829f2-82a6-4d22-9393-7353395c203d" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.coverage" beforeDir="false" afterPath="$PROJECT_DIR$/.coverage" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/logger.py" beforeDir="false" afterPath="$PROJECT_DIR$/backend/logger.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/errors.py" beforeDir="false" afterPath="$PROJECT_DIR$/backend/errors.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/backend/request.py" beforeDir="false" afterPath="$PROJECT_DIR$/backend/request.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/backend/response.py" beforeDir="false" afterPath="$PROJECT_DIR$/backend/response.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/router/handlers/default.py" beforeDir="false" afterPath="$PROJECT_DIR$/backend/router/handlers/default.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/router/handlers/upload.py" beforeDir="false" afterPath="$PROJECT_DIR$/backend/router/handlers/upload.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/router/router.py" beforeDir="false" afterPath="$PROJECT_DIR$/backend/router/router.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/boundary.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/defenitions.py" beforeDir="false" afterPath="$PROJECT_DIR$/defenitions.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/test_page.py" beforeDir="false" afterPath="$PROJECT_DIR$/tests/test_page.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/httpserver.py" beforeDir="false" afterPath="$PROJECT_DIR$/httpserver.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/httpserver.zip" beforeDir="false" afterPath="$PROJECT_DIR$/httpserver.zip" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/readme.md" beforeDir="false" afterPath="$PROJECT_DIR$/readme.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server.debug.log" beforeDir="false" afterPath="$PROJECT_DIR$/server.debug.log" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/tests/test_server.py" beforeDir="false" afterPath="$PROJECT_DIR$/tests/test_server.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tmp/saved/oneline.txt" beforeDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -46,18 +43,18 @@
     <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
   </component>
   <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/tests" />
+      <recent name="$PROJECT_DIR$/tmp" />
+      <recent name="$PROJECT_DIR$/backend/router" />
+      <recent name="$PROJECT_DIR$" />
+      <recent name="$PROJECT_DIR$/backend" />
+    </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/tmp/" />
       <recent name="$PROJECT_DIR$" />
       <recent name="$PROJECT_DIR$/tmp" />
       <recent name="$PROJECT_DIR$/tmp/pages" />
-    </key>
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/tmp" />
-      <recent name="$PROJECT_DIR$/backend/router" />
-      <recent name="$PROJECT_DIR$" />
-      <recent name="$PROJECT_DIR$/backend" />
-      <recent name="$PROJECT_DIR$/tmp/pictures" />
     </key>
   </component>
   <component name="RunDashboard">

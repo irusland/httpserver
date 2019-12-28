@@ -10,7 +10,7 @@ class Response:
     def __init__(self, status, reason, headers=None, body=None):
         self.status = status
         self.reason = reason
-        self.headers = OrderedDict(headers)
+        self.headers = OrderedDict(headers or {})
         self.body = body
 
     def __str__(self):
@@ -28,7 +28,7 @@ class Response:
 
     @staticmethod
     def build_file_res(req, path, content_type, add_headers=None):
-        accept = req.headers.get('Accept')
+        accept = req.headers.get('Accept') or ''
         connection = req.headers.get('Connection')
         start, end, size = None, None, None
 
@@ -44,7 +44,7 @@ class Response:
                 else:
                     body = file.read()
         else:
-            return Response(406, 'Not Acceptable')
+            return Response(406, 'No Accept header')
         filename = os.path.basename(path)
         headers = {('Content-Type', f'{content_type}'),
                    ('Content-Disposition', f'inline; filename={filename}'),
@@ -81,27 +81,23 @@ class Response:
                 Response.status_to_str(response).encode('utf-8'),
                 Response.headers_to_str(response).encode('utf-8'),
                 b'\r\n',
-                response.body
+                response.body or b''
             ))
-            try:
-                while contents:
-                    try:
-                        bytes_sent = client.send(contents)
-                        contents = contents[bytes_sent:]
-                        Logger.debug_info(f'{bytes_sent}B sent to {ip}')
-                    except socket.error as e:
-                        if e.errno == 35:
-                            Logger.error(
-                                'Resource temporarily unavailable Sleeping')
-                            time.sleep(0.1)
-                        elif e.errno == 32:
-                            msg = f'client stopped receiving'
-                            Logger.error(msg)
-                            raise
-                        elif e.errno == 9:
-                            Logger.error(f'Connection with client {ip} broken')
-                            raise
-            except Exception:
-                raise
-            else:
-                Logger.debug_info(f'All Files sent to {ip}')
+            while contents:
+                try:
+                    bytes_sent = client.send(contents)
+                    contents = contents[bytes_sent:]
+                    Logger.debug_info(f'{bytes_sent}B sent to {ip}')
+                except socket.error as e:
+                    if e.errno == 35:
+                        Logger.error(
+                            'Resource temporarily unavailable Sleeping')
+                        time.sleep(0.1)
+                    elif e.errno == 32:
+                        msg = f'client stopped receiving'
+                        Logger.error(msg)
+                        raise
+                    elif e.errno == 9:
+                        Logger.error(f'Connection with client {ip} broken')
+                        raise
+            Logger.debug_info(f'All Files sent to {ip}')

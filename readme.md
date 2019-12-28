@@ -52,6 +52,15 @@ python3 -m pytest tests_server.py
         
 4) `error-pages` used by Errors class
 
+## Logging and debug
+
+If you want std.out as primary output use `-l console`
+
+If you want file as output use `-l logging`
+
+There is a `logger.py` for server info logging and debug, configure
+ LOGGER_PATH and LOG_DEBUG_PATH in `defenitions.py`   
+
 ## Author
 
 * **[Ruslan Sirazhetdinov](https://github.com/ruslansir)** - *Project creator, UrFU Student*

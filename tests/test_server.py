@@ -69,7 +69,7 @@ class ServerTests(unittest.TestCase):
 
         server = self.make_server()
         req = Request()
-        split = Server.splitkeepsep(line, b'\r\n')
+        split = Server.split_keep_sep(line, b'\r\n')
 
         for s in split:
             if req.dynamic_fill(s):
@@ -126,6 +126,18 @@ class ServerTests(unittest.TestCase):
             except StopIteration:
                 pass
         request_task.terminate()
+
+    def test_close(self):
+        server = self.make_server()
+        with server as s:
+            conn = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+            with open(CONFIG_PATH) as cfg:
+                data = json.load(cfg)
+            try:
+                conn.connect((data['host'], data['port']))
+            except Exception:
+                pass
+            s.close(conn)
 
     class MockWrite:
         def __init__(self):

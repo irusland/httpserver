@@ -4,6 +4,8 @@ from urllib.parse import urlparse, parse_qs
 
 import chardet
 
+from backend.logger import Logger
+
 
 class Request:
     def __init__(self):
@@ -22,9 +24,15 @@ class Request:
 
         self._multipart = False
 
+        self.filled = False
+
     def dynamic_fill(self, line: bytes):
+        Logger.debug_info(f'Got line {line}')
         if not self._body_to_read:
-            line = line[:-2]
+            if line.endswith(b'\r\n'):
+                line = line[:-2]
+            elif line.endswith(b'\n'):
+                line = line[:-1]
 
         if not line:
             if not self._multipart:
@@ -33,6 +41,7 @@ class Request:
                     self._multipart = True
 
             if self._body_to_read == 0:
+                self.filled = True
                 return True
             if not self._body_to_read:
                 length = self.headers.get("Content-Length")
@@ -40,6 +49,7 @@ class Request:
                     self._body_to_read = int(length)
                 else:
                     self._body_to_read = 0
+                    self.filled = True
                     return True
             return False
 
@@ -54,8 +64,8 @@ class Request:
         if self._body_to_read != 0 and self._body_to_read is not None:
             self.body += line
             self._body_to_read -= len(line)
-            print(self._body_to_read)
             if self._body_to_read == 0:
+                self.filled = True
                 return True
         else:
             p = Parser()
