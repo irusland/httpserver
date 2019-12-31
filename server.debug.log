@@ -1,121 +1,121 @@
-INFO: 12/28/2019 11:49:47 107B sent to ('0.0.0.0', 8000)
-INFO: 12/28/2019 11:49:47 All Files sent to ('0.0.0.0', 8000)
-INFO: 12/28/2019 11:49:47 Path processing
-INFO: 12/28/2019 11:49:47 Path found /Users/irusland/Desktop/UrFU/python/httpserver/tmp/pictures/1.png
-INFO: 12/28/2019 11:49:47 Path processing
-ERROR: 12/28/2019 11:49:47 Path matched by rule re.compile('/(?P<name>.*)\\.css') but file not found /Users/irusland/Desktop/UrFU/python/httpserver/tmp/pages/css/no.css
-ERROR: 12/28/2019 11:49:47 Path matched by rule re.compile('/(?P<name>.*)\\.(?P<ext>.*)') but file not found /Users/irusland/Desktop/UrFU/python/httpserver/tmp/pictures/no.css
-ERROR: 12/28/2019 11:49:47 Path matched by rule re.compile('/(?P<file>.*)\\.(?P<ext>.*)') but file not found /Users/irusland/Desktop/UrFU/python/httpserver/tmp/no.css
-INFO: 12/28/2019 11:49:47 Path processing
-INFO: 12/28/2019 11:49:47 Path found /Users/irusland/Desktop/UrFU/python/httpserver/tmp/pictures/1.png
-INFO: 12/28/2019 11:49:47 Path processing
-INFO: 12/28/2019 11:49:47 Path found /Users/irusland/Desktop/UrFU/python/httpserver/tmp/index.html
-INFO: 12/28/2019 11:49:47 Path processing
-ERROR: 12/28/2019 11:49:47 Path matched by rule re.compile('/(?P<name>.*)\\.(?P<ext>.*)') but file not found /Users/irusland/Desktop/UrFU/python/httpserver/tmp/pictures/1.2.3.txt
-INFO: 12/28/2019 11:49:47 Path found /Users/irusland/Desktop/UrFU/python/httpserver/tmp/1.2.3.txt
-INFO: 12/28/2019 11:49:47 Path processing
-ERROR: 12/28/2019 11:49:47 Path matched by rule re.compile('/(?P<name>.*)\\.(?P<ext>.*)') but file not found /Users/irusland/Desktop/UrFU/python/httpserver/tmp/pictures/foo.bar
-ERROR: 12/28/2019 11:49:47 Path matched by rule re.compile('/(?P<file>.*)\\.(?P<ext>.*)') but file not found /Users/irusland/Desktop/UrFU/python/httpserver/tmp/foo.bar
-INFO: 12/28/2019 11:49:47 Path processing
-INFO: 12/28/2019 11:49:47 Path found /Users/irusland/Desktop/UrFU/python/httpserver/tmp/pages/any.html
-INFO: 12/28/2019 11:49:47 Path processing
-INFO: 12/28/2019 11:49:47 Path found /Users/irusland/Desktop/UrFU/python/httpserver/tmp/pages/2.html
-INFO: 12/28/2019 11:49:47 Path processing
-INFO: 12/28/2019 11:49:47 Path found /Users/irusland/Desktop/UrFU/python/httpserver/tmp/pages/css/123.css
-INFO: 12/28/2019 11:49:47 Path processing
-INFO: 12/28/2019 11:49:47 Path found /Users/irusland/Desktop/UrFU/python/httpserver/tmp/index.html
-INFO: 12/28/2019 11:49:47 Path processing
-ERROR: 12/28/2019 11:49:47 Path matched by rule re.compile('/(?P<name>.*)\\.html') but file not found /Users/irusland/Desktop/UrFU/python/httpserver/tmp/pages/new page.html
-ERROR: 12/28/2019 11:49:47 Path matched by rule re.compile('/(?P<name>.*)\\.(?P<ext>.*)') but file not found /Users/irusland/Desktop/UrFU/python/httpserver/tmp/pictures/new page.html
-INFO: 12/28/2019 11:49:47 Path found /Users/irusland/Desktop/UrFU/python/httpserver/tmp/new page.html
-ERROR: 12/28/2019 11:49:47 Connection with client broken
-INFO: 12/28/2019 11:49:47 70B sent to ('0.0.0.0', 8000)
-INFO: 12/28/2019 11:49:47 All Files sent to ('0.0.0.0', 8000)
-ERROR: 12/28/2019 11:49:47 client stopped receiving
-INFO: 12/28/2019 11:49:47 Path processing
-INFO: 12/28/2019 11:49:47 Path found /Users/irusland/Desktop/UrFU/python/httpserver/tmp/pictures/1.png
-INFO: 12/28/2019 11:49:47 Path processing
-ERROR: 12/28/2019 11:49:47 Path matched by rule re.compile('/(?P<name>.*)\\.css') but file not found /Users/irusland/Desktop/UrFU/python/httpserver/tmp/pages/css/no.css
-ERROR: 12/28/2019 11:49:47 Path matched by rule re.compile('/(?P<name>.*)\\.(?P<ext>.*)') but file not found /Users/irusland/Desktop/UrFU/python/httpserver/tmp/pictures/no.css
-ERROR: 12/28/2019 11:49:47 Path matched by rule re.compile('/(?P<file>.*)\\.(?P<ext>.*)') but file not found /Users/irusland/Desktop/UrFU/python/httpserver/tmp/no.css
-INFO: 12/28/2019 11:49:47 Path processing
-INFO: 12/28/2019 11:49:47 Path found /Users/irusland/Desktop/UrFU/python/httpserver/tmp/pictures/1.png
-INFO: 12/28/2019 11:49:47 Path processing
-INFO: 12/28/2019 11:49:47 Path found /Users/irusland/Desktop/UrFU/python/httpserver/tmp/index.html
-INFO: 12/28/2019 11:49:47 Path processing
-ERROR: 12/28/2019 11:49:47 Path matched by rule re.compile('/(?P<name>.*)\\.(?P<ext>.*)') but file not found /Users/irusland/Desktop/UrFU/python/httpserver/tmp/pictures/1.2.3.txt
-INFO: 12/28/2019 11:49:47 Path found /Users/irusland/Desktop/UrFU/python/httpserver/tmp/1.2.3.txt
-INFO: 12/28/2019 11:49:47 Path processing
-ERROR: 12/28/2019 11:49:47 Path matched by rule re.compile('/(?P<name>.*)\\.(?P<ext>.*)') but file not found /Users/irusland/Desktop/UrFU/python/httpserver/tmp/pictures/foo.bar
-ERROR: 12/28/2019 11:49:47 Path matched by rule re.compile('/(?P<file>.*)\\.(?P<ext>.*)') but file not found /Users/irusland/Desktop/UrFU/python/httpserver/tmp/foo.bar
-INFO: 12/28/2019 11:49:47 Path processing
-INFO: 12/28/2019 11:49:47 Path found /Users/irusland/Desktop/UrFU/python/httpserver/tmp/pages/any.html
-INFO: 12/28/2019 11:49:47 Path processing
-INFO: 12/28/2019 11:49:47 Path found /Users/irusland/Desktop/UrFU/python/httpserver/tmp/pages/2.html
-INFO: 12/28/2019 11:49:47 Path processing
-INFO: 12/28/2019 11:49:47 Path found /Users/irusland/Desktop/UrFU/python/httpserver/tmp/pages/css/123.css
-INFO: 12/28/2019 11:49:48 Path processing
-INFO: 12/28/2019 11:49:48 Path found /Users/irusland/Desktop/UrFU/python/httpserver/tmp/index.html
-INFO: 12/28/2019 11:49:48 Path processing
-ERROR: 12/28/2019 11:49:48 Path matched by rule re.compile('/(?P<name>.*)\\.html') but file not found /Users/irusland/Desktop/UrFU/python/httpserver/tmp/pages/new page.html
-ERROR: 12/28/2019 11:49:48 Path matched by rule re.compile('/(?P<name>.*)\\.(?P<ext>.*)') but file not found /Users/irusland/Desktop/UrFU/python/httpserver/tmp/pictures/new page.html
-INFO: 12/28/2019 11:49:48 Path found /Users/irusland/Desktop/UrFU/python/httpserver/tmp/new page.html
-INFO: 12/28/2019 11:49:48 Path processing
-INFO: 12/28/2019 11:49:48 Path found /Users/irusland/Desktop/UrFU/python/httpserver/tmp/pictures/1.png
-INFO: 12/28/2019 11:49:48 Path processing
-ERROR: 12/28/2019 11:49:48 Path matched by rule re.compile('/(?P<name>.*)\\.css') but file not found /Users/irusland/Desktop/UrFU/python/httpserver/tmp/pages/css/no.css
-ERROR: 12/28/2019 11:49:48 Path matched by rule re.compile('/(?P<name>.*)\\.(?P<ext>.*)') but file not found /Users/irusland/Desktop/UrFU/python/httpserver/tmp/pictures/no.css
-ERROR: 12/28/2019 11:49:48 Path matched by rule re.compile('/(?P<file>.*)\\.(?P<ext>.*)') but file not found /Users/irusland/Desktop/UrFU/python/httpserver/tmp/no.css
-INFO: 12/28/2019 11:49:48 Path processing
-INFO: 12/28/2019 11:49:48 Path found /Users/irusland/Desktop/UrFU/python/httpserver/tmp/pictures/1.png
-INFO: 12/28/2019 11:49:48 Path processing
-INFO: 12/28/2019 11:49:48 Path found /Users/irusland/Desktop/UrFU/python/httpserver/tmp/index.html
-INFO: 12/28/2019 11:49:48 Path processing
-ERROR: 12/28/2019 11:49:48 Path matched by rule re.compile('/(?P<name>.*)\\.(?P<ext>.*)') but file not found /Users/irusland/Desktop/UrFU/python/httpserver/tmp/pictures/1.2.3.txt
-INFO: 12/28/2019 11:49:48 Path found /Users/irusland/Desktop/UrFU/python/httpserver/tmp/1.2.3.txt
-INFO: 12/28/2019 11:49:48 Path processing
-ERROR: 12/28/2019 11:49:48 Path matched by rule re.compile('/(?P<name>.*)\\.(?P<ext>.*)') but file not found /Users/irusland/Desktop/UrFU/python/httpserver/tmp/pictures/foo.bar
-ERROR: 12/28/2019 11:49:48 Path matched by rule re.compile('/(?P<file>.*)\\.(?P<ext>.*)') but file not found /Users/irusland/Desktop/UrFU/python/httpserver/tmp/foo.bar
-INFO: 12/28/2019 11:49:48 Path processing
-INFO: 12/28/2019 11:49:48 Path found /Users/irusland/Desktop/UrFU/python/httpserver/tmp/pages/any.html
-INFO: 12/28/2019 11:49:48 Path processing
-INFO: 12/28/2019 11:49:48 Path found /Users/irusland/Desktop/UrFU/python/httpserver/tmp/pages/2.html
-INFO: 12/28/2019 11:49:48 Path processing
-INFO: 12/28/2019 11:49:48 Path found /Users/irusland/Desktop/UrFU/python/httpserver/tmp/pages/css/123.css
-INFO: 12/28/2019 11:49:48 Path processing
-INFO: 12/28/2019 11:49:48 Path found /Users/irusland/Desktop/UrFU/python/httpserver/tmp/index.html
-INFO: 12/28/2019 11:49:48 Path processing
-ERROR: 12/28/2019 11:49:48 Path matched by rule re.compile('/(?P<name>.*)\\.html') but file not found /Users/irusland/Desktop/UrFU/python/httpserver/tmp/pages/new page.html
-ERROR: 12/28/2019 11:49:48 Path matched by rule re.compile('/(?P<name>.*)\\.(?P<ext>.*)') but file not found /Users/irusland/Desktop/UrFU/python/httpserver/tmp/pictures/new page.html
-INFO: 12/28/2019 11:49:48 Path found /Users/irusland/Desktop/UrFU/python/httpserver/tmp/new page.html
-INFO: 12/28/2019 11:49:48 server is UP on 0.0.0.0:8000
-INFO: 12/28/2019 11:49:48 Socket disconnected by timeout
-INFO: 12/28/2019 11:49:48 Socket Disconnected in thread 4619763136
-INFO: 12/28/2019 11:49:48 server is DOWN with no exceptions
-INFO: 12/28/2019 11:49:48 Got line b'GET / HTTP/1.1\r\n'
-INFO: 12/28/2019 11:49:48 Got line b'Host: 0.0.0.0:8000\r\n'
-INFO: 12/28/2019 11:49:48 Got line b'Accept: */*\r\n'
-INFO: 12/28/2019 11:49:48 Got line b'\r\n'
-INFO: 12/28/2019 11:49:48 Default handler available only
-INFO: 12/28/2019 11:49:48 Path processing
-INFO: 12/28/2019 11:49:48 Path found /Users/irusland/Desktop/UrFU/python/httpserver/tmp/index.html
-INFO: 12/28/2019 11:49:48 Updating cache for /
-INFO: 12/28/2019 11:49:48 Got line b''
-INFO: 12/28/2019 11:49:48 Default handler available only
-INFO: 12/28/2019 11:49:48 Cache found for /
-INFO: 12/28/2019 11:49:48 server is UP on 0.0.0.0:8000
-INFO: 12/28/2019 11:49:48 Parsing request by file started
-INFO: 12/28/2019 11:49:48 server is DOWN with no exceptions
-INFO: 12/28/2019 11:49:48 server is UP on 0.0.0.0:8000
-INFO: 12/28/2019 11:49:48 server is DOWN with no exceptions
-INFO: 12/28/2019 11:49:48 server is UP on 0.0.0.0:8000
-INFO: 12/28/2019 11:49:48 Connected ('127.0.0.1', 53741)
-INFO: 12/28/2019 11:49:48 EVENT_READ Registered ('127.0.0.1', 53741)
-INFO: 12/28/2019 11:49:48 Got line b'GET / HTTP/1.1\r\n'
-INFO: 12/28/2019 11:49:48 Got line b'Host: 0.0.0.0\r\n'
-INFO: 12/28/2019 11:49:48 Got line b'Accept: */*\r\n'
-INFO: 12/28/2019 11:49:48 Got line b'\r\n'
-INFO: 12/28/2019 11:49:48 Request got method: GET
+INFO: 12/31/2019 09:45:52 Path processing
+INFO: 12/31/2019 09:45:52 Path found /Users/irusland/Desktop/UrFU/python/httpserver/tmp/pictures/1.png
+INFO: 12/31/2019 09:45:52 Path processing
+ERROR: 12/31/2019 09:45:52 Path matched by rule re.compile('/(?P<name>.*)\\.css') but file not found /Users/irusland/Desktop/UrFU/python/httpserver/tmp/pages/css/no.css
+ERROR: 12/31/2019 09:45:52 Path matched by rule re.compile('/(?P<name>.*)\\.(?P<ext>.*)') but file not found /Users/irusland/Desktop/UrFU/python/httpserver/tmp/pictures/no.css
+ERROR: 12/31/2019 09:45:52 Path matched by rule re.compile('/(?P<file>.*)\\.(?P<ext>.*)') but file not found /Users/irusland/Desktop/UrFU/python/httpserver/tmp/no.css
+INFO: 12/31/2019 09:45:52 Path processing
+INFO: 12/31/2019 09:45:52 Path found /Users/irusland/Desktop/UrFU/python/httpserver/tmp/pictures/1.png
+INFO: 12/31/2019 09:45:52 Path processing
+INFO: 12/31/2019 09:45:52 Path found /Users/irusland/Desktop/UrFU/python/httpserver/tmp/index.html
+INFO: 12/31/2019 09:45:52 Path processing
+ERROR: 12/31/2019 09:45:52 Path matched by rule re.compile('/(?P<name>.*)\\.(?P<ext>.*)') but file not found /Users/irusland/Desktop/UrFU/python/httpserver/tmp/pictures/1.2.3.txt
+INFO: 12/31/2019 09:45:52 Path found /Users/irusland/Desktop/UrFU/python/httpserver/tmp/1.2.3.txt
+INFO: 12/31/2019 09:45:52 Path processing
+ERROR: 12/31/2019 09:45:52 Path matched by rule re.compile('/(?P<name>.*)\\.(?P<ext>.*)') but file not found /Users/irusland/Desktop/UrFU/python/httpserver/tmp/pictures/foo.bar
+ERROR: 12/31/2019 09:45:52 Path matched by rule re.compile('/(?P<file>.*)\\.(?P<ext>.*)') but file not found /Users/irusland/Desktop/UrFU/python/httpserver/tmp/foo.bar
+INFO: 12/31/2019 09:45:52 Path processing
+INFO: 12/31/2019 09:45:52 Path found /Users/irusland/Desktop/UrFU/python/httpserver/tmp/pages/any.html
+INFO: 12/31/2019 09:45:52 Path processing
+INFO: 12/31/2019 09:45:52 Path found /Users/irusland/Desktop/UrFU/python/httpserver/tmp/pages/2.html
+INFO: 12/31/2019 09:45:52 Path processing
+INFO: 12/31/2019 09:45:52 Path found /Users/irusland/Desktop/UrFU/python/httpserver/tmp/pages/css/123.css
+INFO: 12/31/2019 09:45:52 Path processing
+INFO: 12/31/2019 09:45:52 Path found /Users/irusland/Desktop/UrFU/python/httpserver/tmp/index.html
+INFO: 12/31/2019 09:45:52 Path processing
+ERROR: 12/31/2019 09:45:52 Path matched by rule re.compile('/(?P<name>.*)\\.html') but file not found /Users/irusland/Desktop/UrFU/python/httpserver/tmp/pages/new page.html
+ERROR: 12/31/2019 09:45:52 Path matched by rule re.compile('/(?P<name>.*)\\.(?P<ext>.*)') but file not found /Users/irusland/Desktop/UrFU/python/httpserver/tmp/pictures/new page.html
+INFO: 12/31/2019 09:45:52 Path found /Users/irusland/Desktop/UrFU/python/httpserver/tmp/new page.html
+INFO: 12/31/2019 09:45:52 107B sent to ('0.0.0.0', 8000)
+INFO: 12/31/2019 09:45:52 All Files sent to ('0.0.0.0', 8000)
+ERROR: 12/31/2019 09:45:52 Connection with client broken
+INFO: 12/31/2019 09:45:52 70B sent to ('0.0.0.0', 8000)
+INFO: 12/31/2019 09:45:52 All Files sent to ('0.0.0.0', 8000)
+ERROR: 12/31/2019 09:45:52 client stopped receiving
+INFO: 12/31/2019 09:45:52 Path processing
+INFO: 12/31/2019 09:45:52 Path found /Users/irusland/Desktop/UrFU/python/httpserver/tmp/pictures/1.png
+INFO: 12/31/2019 09:45:52 Path processing
+ERROR: 12/31/2019 09:45:52 Path matched by rule re.compile('/(?P<name>.*)\\.css') but file not found /Users/irusland/Desktop/UrFU/python/httpserver/tmp/pages/css/no.css
+ERROR: 12/31/2019 09:45:52 Path matched by rule re.compile('/(?P<name>.*)\\.(?P<ext>.*)') but file not found /Users/irusland/Desktop/UrFU/python/httpserver/tmp/pictures/no.css
+ERROR: 12/31/2019 09:45:52 Path matched by rule re.compile('/(?P<file>.*)\\.(?P<ext>.*)') but file not found /Users/irusland/Desktop/UrFU/python/httpserver/tmp/no.css
+INFO: 12/31/2019 09:45:52 Path processing
+INFO: 12/31/2019 09:45:52 Path found /Users/irusland/Desktop/UrFU/python/httpserver/tmp/pictures/1.png
+INFO: 12/31/2019 09:45:52 Path processing
+INFO: 12/31/2019 09:45:52 Path found /Users/irusland/Desktop/UrFU/python/httpserver/tmp/index.html
+INFO: 12/31/2019 09:45:52 Path processing
+ERROR: 12/31/2019 09:45:52 Path matched by rule re.compile('/(?P<name>.*)\\.(?P<ext>.*)') but file not found /Users/irusland/Desktop/UrFU/python/httpserver/tmp/pictures/1.2.3.txt
+INFO: 12/31/2019 09:45:52 Path found /Users/irusland/Desktop/UrFU/python/httpserver/tmp/1.2.3.txt
+INFO: 12/31/2019 09:45:52 Path processing
+ERROR: 12/31/2019 09:45:52 Path matched by rule re.compile('/(?P<name>.*)\\.(?P<ext>.*)') but file not found /Users/irusland/Desktop/UrFU/python/httpserver/tmp/pictures/foo.bar
+ERROR: 12/31/2019 09:45:52 Path matched by rule re.compile('/(?P<file>.*)\\.(?P<ext>.*)') but file not found /Users/irusland/Desktop/UrFU/python/httpserver/tmp/foo.bar
+INFO: 12/31/2019 09:45:52 Path processing
+INFO: 12/31/2019 09:45:52 Path found /Users/irusland/Desktop/UrFU/python/httpserver/tmp/pages/any.html
+INFO: 12/31/2019 09:45:52 Path processing
+INFO: 12/31/2019 09:45:52 Path found /Users/irusland/Desktop/UrFU/python/httpserver/tmp/pages/2.html
+INFO: 12/31/2019 09:45:52 Path processing
+INFO: 12/31/2019 09:45:52 Path found /Users/irusland/Desktop/UrFU/python/httpserver/tmp/pages/css/123.css
+INFO: 12/31/2019 09:45:52 Path processing
+INFO: 12/31/2019 09:45:52 Path found /Users/irusland/Desktop/UrFU/python/httpserver/tmp/index.html
+INFO: 12/31/2019 09:45:52 Path processing
+ERROR: 12/31/2019 09:45:52 Path matched by rule re.compile('/(?P<name>.*)\\.html') but file not found /Users/irusland/Desktop/UrFU/python/httpserver/tmp/pages/new page.html
+ERROR: 12/31/2019 09:45:52 Path matched by rule re.compile('/(?P<name>.*)\\.(?P<ext>.*)') but file not found /Users/irusland/Desktop/UrFU/python/httpserver/tmp/pictures/new page.html
+INFO: 12/31/2019 09:45:52 Path found /Users/irusland/Desktop/UrFU/python/httpserver/tmp/new page.html
+INFO: 12/31/2019 09:45:52 Path processing
+INFO: 12/31/2019 09:45:52 Path found /Users/irusland/Desktop/UrFU/python/httpserver/tmp/pictures/1.png
+INFO: 12/31/2019 09:45:52 Path processing
+ERROR: 12/31/2019 09:45:52 Path matched by rule re.compile('/(?P<name>.*)\\.css') but file not found /Users/irusland/Desktop/UrFU/python/httpserver/tmp/pages/css/no.css
+ERROR: 12/31/2019 09:45:52 Path matched by rule re.compile('/(?P<name>.*)\\.(?P<ext>.*)') but file not found /Users/irusland/Desktop/UrFU/python/httpserver/tmp/pictures/no.css
+ERROR: 12/31/2019 09:45:52 Path matched by rule re.compile('/(?P<file>.*)\\.(?P<ext>.*)') but file not found /Users/irusland/Desktop/UrFU/python/httpserver/tmp/no.css
+INFO: 12/31/2019 09:45:52 Path processing
+INFO: 12/31/2019 09:45:52 Path found /Users/irusland/Desktop/UrFU/python/httpserver/tmp/pictures/1.png
+INFO: 12/31/2019 09:45:52 Path processing
+INFO: 12/31/2019 09:45:52 Path found /Users/irusland/Desktop/UrFU/python/httpserver/tmp/index.html
+INFO: 12/31/2019 09:45:52 Path processing
+ERROR: 12/31/2019 09:45:52 Path matched by rule re.compile('/(?P<name>.*)\\.(?P<ext>.*)') but file not found /Users/irusland/Desktop/UrFU/python/httpserver/tmp/pictures/1.2.3.txt
+INFO: 12/31/2019 09:45:52 Path found /Users/irusland/Desktop/UrFU/python/httpserver/tmp/1.2.3.txt
+INFO: 12/31/2019 09:45:52 Path processing
+ERROR: 12/31/2019 09:45:52 Path matched by rule re.compile('/(?P<name>.*)\\.(?P<ext>.*)') but file not found /Users/irusland/Desktop/UrFU/python/httpserver/tmp/pictures/foo.bar
+ERROR: 12/31/2019 09:45:52 Path matched by rule re.compile('/(?P<file>.*)\\.(?P<ext>.*)') but file not found /Users/irusland/Desktop/UrFU/python/httpserver/tmp/foo.bar
+INFO: 12/31/2019 09:45:52 Path processing
+INFO: 12/31/2019 09:45:52 Path found /Users/irusland/Desktop/UrFU/python/httpserver/tmp/pages/any.html
+INFO: 12/31/2019 09:45:52 Path processing
+INFO: 12/31/2019 09:45:52 Path found /Users/irusland/Desktop/UrFU/python/httpserver/tmp/pages/2.html
+INFO: 12/31/2019 09:45:52 Path processing
+INFO: 12/31/2019 09:45:52 Path found /Users/irusland/Desktop/UrFU/python/httpserver/tmp/pages/css/123.css
+INFO: 12/31/2019 09:45:52 Path processing
+INFO: 12/31/2019 09:45:52 Path found /Users/irusland/Desktop/UrFU/python/httpserver/tmp/index.html
+INFO: 12/31/2019 09:45:52 Path processing
+ERROR: 12/31/2019 09:45:52 Path matched by rule re.compile('/(?P<name>.*)\\.html') but file not found /Users/irusland/Desktop/UrFU/python/httpserver/tmp/pages/new page.html
+ERROR: 12/31/2019 09:45:52 Path matched by rule re.compile('/(?P<name>.*)\\.(?P<ext>.*)') but file not found /Users/irusland/Desktop/UrFU/python/httpserver/tmp/pictures/new page.html
+INFO: 12/31/2019 09:45:52 Path found /Users/irusland/Desktop/UrFU/python/httpserver/tmp/new page.html
+INFO: 12/31/2019 09:45:52 server is UP on 0.0.0.0:8000
+INFO: 12/31/2019 09:45:52 Socket disconnected by timeout
+INFO: 12/31/2019 09:45:52 Socket Disconnected in thread 4517506496
+INFO: 12/31/2019 09:45:52 server is DOWN with no exceptions
+INFO: 12/31/2019 09:45:52 Got line b'GET / HTTP/1.1\r\n'
+INFO: 12/31/2019 09:45:52 Got line b'Host: 0.0.0.0:8000\r\n'
+INFO: 12/31/2019 09:45:52 Got line b'Accept: */*\r\n'
+INFO: 12/31/2019 09:45:52 Got line b'\r\n'
+INFO: 12/31/2019 09:45:52 Default handler available only
+INFO: 12/31/2019 09:45:52 Path processing
+INFO: 12/31/2019 09:45:52 Path found /Users/irusland/Desktop/UrFU/python/httpserver/tmp/index.html
+INFO: 12/31/2019 09:45:52 Updating cache for /
+INFO: 12/31/2019 09:45:52 Got line b''
+INFO: 12/31/2019 09:45:52 Default handler available only
+INFO: 12/31/2019 09:45:52 Cache found for /
+INFO: 12/31/2019 09:45:52 server is UP on 0.0.0.0:8000
+INFO: 12/31/2019 09:45:52 Parsing request by file started
+INFO: 12/31/2019 09:45:52 server is DOWN with no exceptions
+INFO: 12/31/2019 09:45:52 server is UP on 0.0.0.0:8000
+INFO: 12/31/2019 09:45:52 server is DOWN with no exceptions
+INFO: 12/31/2019 09:45:52 server is UP on 0.0.0.0:8000
+INFO: 12/31/2019 09:45:52 Connected ('127.0.0.1', 52156)
+INFO: 12/31/2019 09:45:52 EVENT_READ Registered ('127.0.0.1', 52156)
+INFO: 12/31/2019 09:45:52 Got line b'GET / HTTP/1.1\r\n'
+INFO: 12/31/2019 09:45:52 Got line b'Host: 0.0.0.0\r\n'
+INFO: 12/31/2019 09:45:52 Got line b'Accept: */*\r\n'
+INFO: 12/31/2019 09:45:52 Got line b'\r\n'
+INFO: 12/31/2019 09:45:52 Request got method: GET
 target: /
 version: HTTP/1.1
 headers: {'Host': '0.0.0.0', 'Accept': '*/*'}
@@ -128,17 +128,17 @@ body: b''
 _body_to_read: 0
 _multipart: False
 filled: True
-INFO: 12/28/2019 11:49:48 Default handler available only
-INFO: 12/28/2019 11:49:48 Path processing
-INFO: 12/28/2019 11:49:48 Path found /Users/irusland/Desktop/UrFU/python/httpserver/tmp/index.html
-INFO: 12/28/2019 11:49:48 Updating cache for /
-INFO: 12/28/2019 11:49:48 Request handling time 0.008942465000000066
-INFO: 12/28/2019 11:49:48 Response prepared status: 200
+INFO: 12/31/2019 09:45:52 Default handler available only
+INFO: 12/31/2019 09:45:52 Path processing
+INFO: 12/31/2019 09:45:52 Path found /Users/irusland/Desktop/UrFU/python/httpserver/tmp/index.html
+INFO: 12/31/2019 09:45:52 Updating cache for /
+INFO: 12/31/2019 09:45:52 Request handling time 0.008772100000000005
+INFO: 12/31/2019 09:45:52 Response prepared status: 200
 reason: OK
-headers: OrderedDict([('Content-Disposition', 'inline; filename=index.html'), ('Connection', None), ('Content-Length', 152), ('Content-Type', 'text/html')])
+headers: OrderedDict([('Connection', None), ('Content-Type', 'text/html'), ('Content-Length', 152), ('Content-Disposition', 'inline; filename=index.html')])
 body: b'<!DOCTYPE html>\n<html lang="en">\n<head>\n    <meta charset="UTF-8">\n    <title>index.html</title>\n</head>\n<body>\n<h1>Python Rule it!</h1>\n</body>\n</html>'
-INFO: 12/28/2019 11:49:48 285B sent to ('127.0.0.1', 53741)
-INFO: 12/28/2019 11:49:48 All Files sent to ('127.0.0.1', 53741)
-INFO: 12/28/2019 11:49:48 Response sent
-INFO: 12/28/2019 11:49:49 server is DOWN with no exceptions
-INFO: 12/28/2019 11:49:49 NoneB sent to 0 [] left
+INFO: 12/31/2019 09:45:52 285B sent to ('127.0.0.1', 52156)
+INFO: 12/31/2019 09:45:52 All Files sent to ('127.0.0.1', 52156)
+INFO: 12/31/2019 09:45:52 Response sent
+INFO: 12/31/2019 09:45:53 server is DOWN with no exceptions
+INFO: 12/31/2019 09:45:53 NoneB sent to 0 [] left

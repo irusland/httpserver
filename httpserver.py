@@ -111,21 +111,24 @@ class Server:
     @staticmethod
     def split_keep_sep(s: bytes, sep):
         xs = re.split(rb'(%s)' % re.escape(sep), s)
-        return [xs[i] + xs[i + 1] if i + 1 < len(xs) else b''
+        return [xs[i] + (xs[i + 1] if i + 1 < len(xs) else b'')
                 for i in range(0, len(xs), 2)]
 
     def _read(self, client):
-        line: bytes = client.recv(self.MAX_LINE)
-        if not line:
-            return
-        num = client.fileno()
-        req_builder: Request = self.requests[num]
-        split = self.split_keep_sep(line, b'\r\n')
+        try:
+            line: bytes = client.recv(self.MAX_LINE)
+            if not line:
+                return
+            num = client.fileno()
+            req_builder: Request = self.requests[num]
+            split = self.split_keep_sep(line, b'\r\n')
 
-        for s in split:
-            if req_builder.dynamic_fill(s):
-                self.requests[num] = Request()
-                return self.serve_client(client, req_builder)
+            for s in split:
+                if req_builder.dynamic_fill(s):
+                    self.requests[num] = Request()
+                    return self.serve_client(client, req_builder)
+        except Exception as e:
+            errors.send_error(client, e)
 
     def parse_req_file(self, file):
         Logger.debug_info(f'Parsing request by file started')

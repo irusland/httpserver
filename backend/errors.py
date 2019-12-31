@@ -43,6 +43,8 @@ class Errors(Error):
     VERSION_NOT_SUPPORTED = Error(505, 'HTTP Version Not Supported')
     NO_HANDLER = Error(500, 'No handler for this page found')
     METHOD_NOT_SUPPORTED = Error(500, 'HTTP method not supported')
+    CONTENT_LENGTH_REQUIRED = Error(411, 'Proper Content-Length header '
+                                         'required')
 
 
 class KeepAliveExpire(Exception):

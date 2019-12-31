@@ -4,6 +4,7 @@ from urllib.parse import urlparse, parse_qs
 
 import chardet
 
+from backend.errors import Errors
 from backend.logger import Logger
 
 
@@ -64,6 +65,8 @@ class Request:
         if self._body_to_read != 0 and self._body_to_read is not None:
             self.body += line
             self._body_to_read -= len(line)
+            if self._body_to_read < 0:
+                raise Errors.CONTENT_LENGTH_REQUIRED
             if self._body_to_read == 0:
                 self.filled = True
                 return True
