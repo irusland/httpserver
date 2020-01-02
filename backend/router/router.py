@@ -4,7 +4,7 @@ import re
 from backend.errors import Errors
 from backend.request import Request
 from backend.router.page import Page
-from defenitions import ROOT_DIR, REQUEST_HANDLERS_DIR
+from defenitions import ROOT_DIR, FILE_SENDER_PATH
 from importlib.machinery import SourceFileLoader
 
 from backend.logger import Logger
@@ -65,7 +65,7 @@ class Router:
     def load_handlers(self, rules):
         for key, description in rules.items():
             page = Page(description)
-            path = page.get_handler_path()
+            path = page.get_abs_handler_path()
             if path and path not in self.handlers:
                 try:
                     module = SourceFileLoader(
@@ -87,7 +87,7 @@ class Router:
 
         try:
             page = self.find_page_description(url, rules)
-            path = page.get_handler_path()
+            path = page.get_abs_handler_path()
             handler_module = self.handlers.get(path)
             if req.method == 'GET':
                 f_name = page.get_get_func_name()
@@ -100,15 +100,9 @@ class Router:
                               extra={'url': req.path})
             return handler_module.__dict__[f_name]
         except Exception as e:
-            Logger.debug_info(f'Default handler available only',
+            Logger.debug_info(f'Default handler available only {e}',
                               extra={'url': req.path})
             module = SourceFileLoader(
                 f'default.handler',
-                os.path.join(
-                    REQUEST_HANDLERS_DIR,
-                    f'default.py')).load_module()
+                os.path.join(FILE_SENDER_PATH)).load_module()
             return module.handle
-
-
-if __name__ == '__main__':
-    pass

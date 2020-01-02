@@ -1,6 +1,7 @@
 # python3
 import argparse
 import io
+import os
 import re
 import select
 import selectors
@@ -108,12 +109,6 @@ class Server:
                              self._read)
         Logger.debug_info(f'EVENT_READ Registered {addr}')
 
-    @staticmethod
-    def split_keep_sep(s: bytes, sep):
-        xs = re.split(rb'(%s)' % re.escape(sep), s)
-        return [xs[i] + (xs[i + 1] if i + 1 < len(xs) else b'')
-                for i in range(0, len(xs), 2)]
-
     def _read(self, client):
         try:
             line: bytes = client.recv(self.MAX_LINE)
@@ -121,13 +116,14 @@ class Server:
                 return
             num = client.fileno()
             req_builder: Request = self.requests[num]
-            split = self.split_keep_sep(line, b'\r\n')
+            split = Request.split_keep_sep(line, bytes(os.linesep, 'utf-8'))
 
             for s in split:
                 if req_builder.dynamic_fill(s):
                     self.requests[num] = Request()
                     return self.serve_client(client, req_builder)
         except Exception as e:
+            Logger.error(e)
             errors.send_error(client, e)
 
     def parse_req_file(self, file):
@@ -162,7 +158,7 @@ class Server:
 
     def serve_client(self, client, req: Request):
         try:
-            if self.insufficient(req):
+            if req.insufficient():
                 raise Errors.MALFORMED_REQ
             Logger.debug_info(f'Request got {req}',
                               extra={'url': req.path})
@@ -241,11 +237,6 @@ class Server:
         else:
             Logger.error('Handler not found', extra={'url': req.path})
             raise Errors.NO_HANDLER
-
-    @staticmethod
-    def insufficient(req: Request):
-        if not req.method or not req.path or not req.version:
-            return True
 
 
 if __name__ == '__main__':

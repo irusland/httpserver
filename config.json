@@ -8,26 +8,26 @@
     "/upload": "tmp/upload.html",
     "/save": {
       "handler": {
-        "source": "backend/router/handlers/upload.py",
+        "source": "handlers/upload.py",
         "post": "save"
       }
     },
     "/show_files": {
       "handler": {
-        "source": "backend/router/handlers/upload.py",
+        "source": "handlers/upload.py",
         "get": "show"
       }
     },
     "/my_guest_book": "tmp/my_guest_book.html",
     "/posts": {
       "handler": {
-        "source": "backend/router/handlers/my_guest_book.py",
+        "source": "handlers/my_guest_book.py",
         "get": "get_posts"
       }
     },
     "/post": {
       "handler": {
-        "source": "backend/router/handlers/my_guest_book.py",
+        "source": "handlers/my_guest_book.py",
         "post": "handle_post"
       }
     },

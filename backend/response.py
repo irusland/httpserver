@@ -58,14 +58,11 @@ class Response:
             headers[name] = value
         return Response(200, 'OK', headers, body)
 
-    @staticmethod
-    def headers_to_str(res):
-        headers: OrderedDict = res.headers
-        return ''.join(f'{k}: {v}\r\n' for (k, v) in headers.items())
+    def headers_to_str(self):
+        return ''.join(f'{k}: {v}\r\n' for (k, v) in self.headers.items())
 
-    @staticmethod
-    def status_to_str(res):
-        return f'HTTP/1.1 {res.status} {res.reason}\r\n'
+    def status_to_str(self):
+        return f'HTTP/1.1 {self.status} {self.reason}\r\n'
 
     @staticmethod
     def send_response(client, *res):
@@ -78,8 +75,8 @@ class Response:
 
         for response in res:
             contents = b''.join((
-                Response.status_to_str(response).encode('utf-8'),
-                Response.headers_to_str(response).encode('utf-8'),
+                response.status_to_str().encode('utf-8'),
+                response.headers_to_str().encode('utf-8'),
                 b'\r\n',
                 response.body or b''
             ))

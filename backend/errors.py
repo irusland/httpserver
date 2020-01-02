@@ -1,4 +1,5 @@
 from backend.configurator import Configurator
+from backend.logger import Logger
 from backend.response import Response
 
 
@@ -9,13 +10,11 @@ class Error(Exception):
         self.body = body
         self.page = page
 
-        self.configurator = Configurator
-
 
 def send_error(connection, err):
     try:
         if err.page:
-            with open(err.configurator.get("error-pages").get(err.page),
+            with open(Configurator.get("error-pages").get(err.page),
                       'rb') as p:
                 p = p.read()
 
@@ -27,6 +26,8 @@ def send_error(connection, err):
     except AttributeError:
         res = [Response.build_err_res(500, b'Internal Server Error',
                                       b'Internal Server Error')]
+    except Exception as e:
+        Logger.error(f'Error during err creation', e)
     Response.send_response(connection, *res)
 
 

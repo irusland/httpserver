@@ -33,15 +33,3 @@ class Configurator:
     @staticmethod
     def get(field):
         return Configurator.config.get(field)
-
-
-class Getter:
-    def __init__(self, path):
-        self.path = path
-
-    def getpath(self):
-        return self.path
-
-
-if __name__ == '__main__':
-    pass

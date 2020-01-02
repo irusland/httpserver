@@ -1,3 +1,5 @@
+import os
+import re
 from email.message import Message
 from email.parser import Parser
 from urllib.parse import urlparse, parse_qs
@@ -81,11 +83,6 @@ class Request:
         return '\n'.join(f'{k}: {v}' for k, v in self.__dict__.items())
 
     @staticmethod
-    def parsed_req_to_request(method, target,
-                              ver, headers, body, file, peer=None):
-        return Request(method, target, ver, headers, file, peer, body)
-
-    @staticmethod
     def decode(b):
         encoding = chardet.detect(b)['encoding']
         return str(b, encoding or 'utf-8')
@@ -94,3 +91,22 @@ class Request:
     def parse_headers_str(s):
         p = Parser()
         return p.parsestr(s)
+
+    def insufficient(self):
+        return not self.method or not self.path or not self.version
+
+    @staticmethod
+    def split_keep_sep(s: bytes, sep):
+        xs = re.split(rb'(%s)' % re.escape(sep), s)
+        if xs[-1] == b'':
+            del xs[-1]
+        return [xs[i] + (xs[i + 1] if i + 1 < len(xs) else b'')
+                for i in range(0, len(xs), 2)]
+
+    @staticmethod
+    def fill_from_line(line):
+        r = Request()
+        split = Request.split_keep_sep(line, b'\r\n')
+        for s in split:
+            if r.dynamic_fill(s):
+                return r

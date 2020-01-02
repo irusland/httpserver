@@ -1,3 +1,8 @@
+import os
+
+from defenitions import ROOT_DIR
+
+
 class Page:
     def __init__(self, config_description):
         self.path = None
@@ -25,8 +30,9 @@ class Page:
     def get_mime(self) -> str:
         return self.mime
 
-    def get_handler_path(self) -> str:
-        return self.handler_path
+    def get_abs_handler_path(self) -> str:
+        return os.path.join(ROOT_DIR, self.handler_path) if \
+            self.handler_path else ''
 
     def get_get_func_name(self) -> str:
         return self.get_func_name
