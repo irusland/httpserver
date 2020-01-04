@@ -28,23 +28,19 @@ class Response:
 
     @staticmethod
     def build_file_res(req, path, content_type, add_headers=None):
-        accept = req.headers.get('Accept') or ''
         connection = req.headers.get('Connection')
         start, end, size = None, None, None
 
-        if content_type in accept or '*/*' in accept:
-            range_header = req.headers.get('Range')
-            with open(path, 'rb') as file:
-                if range_header:
-                    _, v = range_header.split('=')
-                    start, end = v.split('-')
-                    start, end = int(start), int(end)
-                    file.seek(start, 0)
-                    body = file.read(end - start)
-                else:
-                    body = file.read()
-        else:
-            return Response(406, f'No Accept header in {accept}')
+        range_header = req.headers.get('Range')
+        with open(path, 'rb') as file:
+            if range_header:
+                _, v = range_header.split('=')
+                start, end = v.split('-')
+                start, end = int(start), int(end)
+                file.seek(start, 0)
+                body = file.read(end - start)
+            else:
+                body = file.read()
         filename = os.path.basename(path)
         headers = {('Content-Type', f'{content_type}'),
                    ('Content-Disposition', f'inline; filename={filename}'),

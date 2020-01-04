@@ -6,17 +6,14 @@ import socket
 import tempfile
 import time
 import unittest
-import random
 
 from backend.configurator import Configurator
 from backend.response import Response
-from backend.router.router import Router
+from backend.stopper import AsyncStopper
 from defenitions import CONFIG_PATH, ROOT_DIR
 from backend.logger import LogLevel
 from backend.request import Request
-from backend.stopper import AsyncStopper
 from httpserver import Server
-from tests.test_router import PathFinderTests
 
 
 class ServerTests(unittest.TestCase):
@@ -91,7 +88,7 @@ class ServerTests(unittest.TestCase):
         except AttributeError:
             self.fail()
 
-    def test_send_req_and_shutdown(self):
+    def atest_send_req_and_shutdown(self):
         request_task = multiprocessing.Process(target=self.boot_server)
         request_task.start()
         time.sleep(1)
@@ -126,6 +123,52 @@ class ServerTests(unittest.TestCase):
         res = b''.join(data).decode()
         self.assertTrue(res)
 
+    def send_req_and_shutdown(self, server):
+        time.sleep(1)
+        req = b'GET / HTTP/1.1\r\nHost: 0.0.0.0\r\nAccept: */*\r\n' \
+              b'Connection: keep-alive\r\n\r\n'
+        with open(self.cfg_path) as cfg:
+            data = json.load(cfg)
+        s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+        s.connect((data['host'], data['port']))
+        data = []
+
+        # Check page caching
+        for _ in range(2):
+            try:
+                s.sendall(req)
+            except Exception as e:
+                print(e)
+                pass
+            try:
+                while True:
+                    line = s.recv(Server.MAX_LINE)
+                    if line in [b'', b'\n']:
+                        break
+                    data.append(line)
+            except socket.error:
+                pass
+
+        s.close()
+
+        res = b''.join(data).decode()
+        self.assertTrue(res)
+
+    def test_serving(self):
+        server = self.make_server()
+        request_task = multiprocessing.Process(
+            target=self.send_req_and_shutdown,
+            args=(server,))
+
+        with server as s:
+            request_task.start()
+            try:
+                with AsyncStopper(2):
+                    s.serve()
+            except StopIteration:
+                pass
+        request_task.terminate()
+
     def test_close(self):
         server = self.make_server()
         with server as s:
@@ -136,6 +179,7 @@ class ServerTests(unittest.TestCase):
                 conn.connect((data['host'], data['port']))
             except Exception:
                 pass
+            s.shutdown()
             s.close(conn)
 
     class MockWrite:

@@ -186,13 +186,10 @@ class Server:
             if req.headers.get('Connection') == 'close':
                 self.close(client)
         except KeepAliveExpire:
-            Logger.debug_info(f'Keep-alive connection is not alive, '
-                              f'disconnecting')
             self.close(client)
         except Exception as e:
             Logger.error(f'Client handling failed', e)
             errors.send_error(client, e)
-            Logger.error(f'Error sent')
 
     def parse_body(self, file):
         return file.read()
