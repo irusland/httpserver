@@ -29,8 +29,8 @@ def handle(req: Request, server: Server):
                 res = Response.build_file_res(
                     req, destination, content_type,
                     add_headers=page.get_headers())
-                Logger.debug_info(f'Updating cache for {path}')
-                if res.status == '200':
+                if int(res.status) == 200:
+                    Logger.debug_info(f'Updating cache for {path}')
                     server.cache.set(path, res, expire=None, tag='data')
                     server.cache.cull()
                 return res

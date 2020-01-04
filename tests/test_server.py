@@ -4,6 +4,7 @@ import multiprocessing
 import os
 import socket
 import tempfile
+import time
 import unittest
 import random
 
@@ -28,12 +29,10 @@ class ServerTests(unittest.TestCase):
         self.configurator = Configurator.init(self.cfg_path)
         self.rules = self.configurator.get('rules')
 
-    def tearDown(self):
-        self.tf.close()
-
     def boot_server(self):
         server = self.make_server()
         with server as s:
+            print('booted')
             s.serve()
 
     def make_server(self):
@@ -92,44 +91,40 @@ class ServerTests(unittest.TestCase):
         except AttributeError:
             self.fail()
 
-    def send_req_and_shutdown(self, server):
-        req = b'GET / HTTP/1.1\r\nHost: 0.0.0.0\r\nAccept: */*\r\n\r\n'
-        with open(CONFIG_PATH) as cfg:
+    def test_send_req_and_shutdown(self):
+        request_task = multiprocessing.Process(target=self.boot_server)
+        request_task.start()
+        time.sleep(1)
+
+        req = b'GET / HTTP/1.1\r\nHost: 0.0.0.0\r\nAccept: */*\r\n' \
+              b'Connection: keepalive\r\n\r\n'
+        with open(self.cfg_path) as cfg:
             data = json.load(cfg)
         s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-        try:
-            s.connect((data['host'], data['port']))
-            s.sendall(req)
-        except Exception as e:
-            pass
+        s.connect((data['host'], data['port']))
         data = []
-        try:
-            while True:
-                line = s.recv(Server.MAX_LINE)
-                if line in [b'', b'\n']:
-                    break
-                data.append(line)
-        finally:
-            server.shutdown()
-            s.close()
+
+        # Check page caching
+        for _ in range(2):
+            try:
+                s.sendall(req)
+            except Exception as e:
+                print(e)
+                pass
+            try:
+                while True:
+                    line = s.recv(Server.MAX_LINE)
+                    if line in [b'', b'\n']:
+                        break
+                    data.append(line)
+            except socket.error:
+                pass
+
+        request_task.terminate()
+        s.close()
 
         res = b''.join(data).decode()
         self.assertTrue(res)
-
-    def test_serving(self):
-        server = self.make_server()
-        request_task = multiprocessing.Process(
-            target=self.send_req_and_shutdown,
-            args=(server,))
-
-        with server as s:
-            request_task.start()
-            try:
-                with AsyncStopper(1):
-                    s.serve()
-            except StopIteration:
-                pass
-        request_task.terminate()
 
     def test_close(self):
         server = self.make_server()
@@ -255,7 +250,6 @@ class ServerTests(unittest.TestCase):
         req = Request.fill_from_line(req_line)
         res: Response = server.handle_req(req)
 
-        print(req, res)
         self.assertEqual(res.body,
                          b"POST ADDED {'username': ['a'], 'post': ['b']}")
 
