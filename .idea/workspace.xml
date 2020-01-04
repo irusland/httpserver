@@ -2,30 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="d9b829f2-82a6-4d22-9393-7353395c203d" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.coverage" beforeDir="false" afterPath="$PROJECT_DIR$/.coverage" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/configurator.py" beforeDir="false" afterPath="$PROJECT_DIR$/backend/configurator.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/errors.py" beforeDir="false" afterPath="$PROJECT_DIR$/backend/errors.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/backend/request.py" beforeDir="false" afterPath="$PROJECT_DIR$/backend/request.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/backend/response.py" beforeDir="false" afterPath="$PROJECT_DIR$/backend/response.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/router/handlers/default.py" beforeDir="false" afterPath="$PROJECT_DIR$/backend/router/sender.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/router/handlers/my_guest_book.py" beforeDir="false" afterPath="$PROJECT_DIR$/handlers/my_guest_book.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/router/handlers/upload.py" beforeDir="false" afterPath="$PROJECT_DIR$/handlers/upload.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/router/page.py" beforeDir="false" afterPath="$PROJECT_DIR$/backend/router/page.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/router/router.py" beforeDir="false" afterPath="$PROJECT_DIR$/backend/router/router.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config.json" beforeDir="false" afterPath="$PROJECT_DIR$/config.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/defenitions.py" beforeDir="false" afterPath="$PROJECT_DIR$/defenitions.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/httpserver.py" beforeDir="false" afterPath="$PROJECT_DIR$/httpserver.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/router/sender.py" beforeDir="false" afterPath="$PROJECT_DIR$/backend/router/sender.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/httpserver.zip" beforeDir="false" afterPath="$PROJECT_DIR$/httpserver.zip" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/server.debug.log" beforeDir="false" afterPath="$PROJECT_DIR$/server.debug.log" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/test_page.py" beforeDir="false" afterPath="$PROJECT_DIR$/tests/test_page.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/test_server.py" beforeDir="false" afterPath="$PROJECT_DIR$/tests/test_server.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tmp/saved/IMG_1147.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/tmp/saved/chroma.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/tmp/saved/config.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/tmp/saved/index.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/tmp/saved/pyvenv.cfg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/tmp/saved/requirements.txt" beforeDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -82,7 +64,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Python tests.Unittests in tests">
+  <component name="RunManager" selected="Python.httpserver logging">
     <configuration default="true" type="PythonConfigurationType" factoryName="Python">
       <module name="httpserver" />
       <option name="INTERPRETER_OPTIONS" value="" />

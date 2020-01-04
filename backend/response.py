@@ -44,7 +44,7 @@ class Response:
                 else:
                     body = file.read()
         else:
-            return Response(406, 'No Accept header')
+            return Response(406, f'No Accept header in {accept}')
         filename = os.path.basename(path)
         headers = {('Content-Type', f'{content_type}'),
                    ('Content-Disposition', f'inline; filename={filename}'),

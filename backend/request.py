@@ -36,7 +36,7 @@ class Request:
                 line = line[:-2]
             elif line.endswith(b'\n'):
                 line = line[:-1]
-
+        Logger.debug_info(f'to parse {line}')
         if not line:
             if not self._multipart:
                 header: str = self.headers.get("Content-Type") or ''

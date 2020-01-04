@@ -30,8 +30,9 @@ def handle(req: Request, server: Server):
                     req, destination, content_type,
                     add_headers=page.get_headers())
                 Logger.debug_info(f'Updating cache for {path}')
-                server.cache.set(path, res, expire=None, tag='data')
-                server.cache.cull()
+                if res.status == '200':
+                    server.cache.set(path, res, expire=None, tag='data')
+                    server.cache.cull()
                 return res
         except FileNotFoundError:
             raise Errors.NOT_FOUND
