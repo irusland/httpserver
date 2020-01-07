@@ -9,7 +9,7 @@ from diskcache import Cache
 
 from backend import errors
 from backend.configurator import Configurator
-from defenitions import CONFIG_PATH, LOGGER_PATH
+from defenitions import CONFIG_PATH, LOGGER_PATH, LOG_DEBUG_PATH
 from backend.router.router import Router
 
 from backend.request import Request
@@ -29,9 +29,11 @@ class Server:
                  loglevel=LogLevel.LOGGING,
                  refresh_rate=0.1,
                  cache_max_size=4e9,
-                 log_path=None):
+                 server_log=None,
+                 debug_log=None):
 
-        Logger.configure(level=loglevel, info_path=log_path)
+        Logger.configure(level=loglevel, info_path=server_log,
+                         debug_path=debug_log)
 
         self.configurator = Configurator(config)
 
@@ -193,15 +195,19 @@ if __name__ == '__main__':
     parser.add_argument('-l', '--loglevel',
                         help='Use module to write logs',
                         type=LogLevel.from_string,
-                        default=LogLevel.from_string('console'),
+                        default=LogLevel.from_string('logging'),
                         choices=list(LogLevel))
-    parser.add_argument('--log-path',
-                        help='Specify logger file path',
-                        default=LOGGER_PATH)
+    parser.add_argument('--server-log',
+                        help='Specify server logger file path',
+                        default=None)
+    parser.add_argument('--debug-log',
+                        help='Specify debug logger file path',
+                        default=None)
 
     args = parser.parse_args()
 
     server = Server(config=args.config, loglevel=args.loglevel,
-                    log_path=args.log_path)
+                    server_log=args.server_log,
+                    debug_log=args.debug_log)
     with server as s:
         s.serve()

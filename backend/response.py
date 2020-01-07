@@ -35,7 +35,13 @@ class Response:
         with open(path, 'rb') as file:
             if range_header:
                 _, v = range_header.split('=')
-                start, end = v.split('-')
+                start, end = v.split('-', maxsplit=1)
+                if not end:
+                    end = os.path.getsize(path)
+                if not start:
+                    start = int(end)
+                    end = os.path.getsize(path)
+                    start = end - start
                 start, end = int(start), int(end)
                 file.seek(start, 0)
                 body = file.read(end - start)
@@ -52,6 +58,8 @@ class Response:
 
         for (name, value) in add_headers or []:
             headers[name] = value
+        if range_header:
+            return Response(206, 'Partial Content', headers, body)
         return Response(200, 'OK', headers, body)
 
     def headers_to_str(self):

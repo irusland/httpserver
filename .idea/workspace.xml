@@ -4,21 +4,25 @@
     <list default="true" id="d9b829f2-82a6-4d22-9393-7353395c203d" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.coverage" beforeDir="false" afterPath="$PROJECT_DIR$/.coverage" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/configurator.py" beforeDir="false" afterPath="$PROJECT_DIR$/backend/configurator.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/errors.py" beforeDir="false" afterPath="$PROJECT_DIR$/backend/errors.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/backend/logger.py" beforeDir="false" afterPath="$PROJECT_DIR$/backend/logger.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/backend/request.py" beforeDir="false" afterPath="$PROJECT_DIR$/backend/request.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/router/router.py" beforeDir="false" afterPath="$PROJECT_DIR$/backend/router/router.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config.json" beforeDir="false" afterPath="$PROJECT_DIR$/config.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/response.py" beforeDir="false" afterPath="$PROJECT_DIR$/backend/response.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/handlers/my_guest_book.py" beforeDir="false" afterPath="$PROJECT_DIR$/handlers/my_guest_book.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/handlers/upload.py" beforeDir="false" afterPath="$PROJECT_DIR$/handlers/upload.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/httpserver.py" beforeDir="false" afterPath="$PROJECT_DIR$/httpserver.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/httpserver.zip" beforeDir="false" afterPath="$PROJECT_DIR$/httpserver.zip" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/readme.md" beforeDir="false" afterPath="$PROJECT_DIR$/readme.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server.debug.log" beforeDir="false" afterPath="$PROJECT_DIR$/server.debug.log" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/test_errors.py" beforeDir="false" afterPath="$PROJECT_DIR$/tests/test_errors.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/test_router.py" beforeDir="false" afterPath="$PROJECT_DIR$/tests/test_router.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/test_server.py" beforeDir="false" afterPath="$PROJECT_DIR$/tests/test_server.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tmp/upload.html" beforeDir="false" afterPath="$PROJECT_DIR$/tmp/upload.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server.debug.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/test_response.py" beforeDir="false" afterPath="$PROJECT_DIR$/tests/test_response.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tmp/pictures/chroma.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/tmp/saved/1.2.3.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/tmp/saved/README.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/tmp/saved/client_backend.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/tmp/saved/defenitions.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/tmp/saved/favicon.ico" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/tmp/saved/httpclient.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/tmp/saved/рус.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/tmp/saved/  αş๔Ş  ♪.txt" beforePathEscaped="$PROJECT_DIR$/tmp/saved/😡🍭  αş๔𝓪Ş𝐃  🐣♪.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/tmp/server.log" beforeDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -75,7 +79,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Python tests.Unittests in tests">
+  <component name="RunManager" selected="Python.httpserver">
     <configuration default="true" type="PythonConfigurationType" factoryName="Python">
       <module name="httpserver" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -111,6 +115,27 @@
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <option name="SCRIPT_NAME" value="$PROJECT_DIR$/boundary.py" />
       <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="httpserver logging file" type="PythonConfigurationType" factoryName="Python">
+      <module name="httpserver" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="/usr/local/bin/python3.7" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/httpserver.py" />
+      <option name="PARAMETERS" value="-c config.json" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
       <option name="MODULE_MODE" value="false" />
@@ -213,6 +238,7 @@
     <list>
       <item itemvalue="Python.httpserver" />
       <item itemvalue="Python.httpserver logging" />
+      <item itemvalue="Python.httpserver logging file" />
       <item itemvalue="Python.ruler" />
       <item itemvalue="Python.boundary" />
       <item itemvalue="Python tests.Unittests in tests" />

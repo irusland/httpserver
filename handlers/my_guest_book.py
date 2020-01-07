@@ -23,7 +23,9 @@ def get_posts(req: Request, server):
 
 
 def handle_post(req: Request, server):
-    body = Request.decode(req.body)
+    req.body_file.seek(0)
+    body = req.body_file.read()
+    body = Request.decode(body)
     query = parse_qs(f'{body}')
     POSTS.append(query)
     body = f'POST ADDED {query}'.encode()

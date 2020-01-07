@@ -35,10 +35,13 @@ class Logger:
         logger.setLevel(level)
         handler = None
 
-        if Logger.LEVEL == LogLevel.LOGGING:
-            handler = logging.FileHandler(log_file, mode='w+')
-            formater = logging.Formatter(fmt=fmt, datefmt=datefmt)
-            handler.setFormatter(formater)
+        if Logger.LEVEL == LogLevel.LOGGING or log_file:
+            if log_file:
+                handler = logging.FileHandler(log_file, mode='w+')
+                formater = logging.Formatter(fmt=fmt, datefmt=datefmt)
+                handler.setFormatter(formater)
+            else:
+                return
         elif Logger.LEVEL == LogLevel.CONSOLE:
             handler = logging.StreamHandler(stream=sys.stdout)
             formater = logging.Formatter(fmt=fmt, datefmt=datefmt)
@@ -48,15 +51,17 @@ class Logger:
         return logger
 
     @staticmethod
-    def configure(level=LogLevel.LOGGING, info_path=LOGGER_PATH,
-                  debug_path=LOG_DEBUG_PATH):
+    def configure(level=LogLevel.LOGGING, info_path=None,
+                  debug_path=None):
         Logger.LEVEL = level
         # Set up logging format for easy parsing
         info_fmt = ('[%(asctime)-15s] '
                     '<%(method)s> "%(url)s" (%(code)s) '
                     '"%(ip)s" "%(message)s"')
+
         Logger.INFO_LOGGER = Logger.setup_logger(
             'info_logger', info_path, logging.INFO, info_fmt)
+
         Logger.DEBUG_LOGGER = Logger.setup_logger(
             'debug_logger', debug_path, logging.DEBUG)
 
@@ -70,24 +75,20 @@ class Logger:
 
     @staticmethod
     def info(*args, extra=None):
-        if not Logger.INFO_LOGGER:
-            Logger.configure()
-        Logger.INFO_LOGGER.info(*args, extra=Logger.prepare_extra(extra))
+        if Logger.INFO_LOGGER:
+            Logger.INFO_LOGGER.info(*args, extra=Logger.prepare_extra(extra))
 
     @staticmethod
     def debug_info(*args, extra=None):
-        if not Logger.INFO_LOGGER:
-            Logger.configure()
-        Logger.DEBUG_LOGGER.info(*args, extra=Logger.prepare_extra(extra))
+        if Logger.DEBUG_LOGGER:
+            Logger.DEBUG_LOGGER.info(*args, extra=Logger.prepare_extra(extra))
 
     @staticmethod
     def error(*args, extra=None):
-        if not Logger.INFO_LOGGER:
-            Logger.configure()
-        Logger.DEBUG_LOGGER.error(*args, extra=Logger.prepare_extra(extra))
+        if Logger.DEBUG_LOGGER:
+            Logger.DEBUG_LOGGER.error(*args, extra=Logger.prepare_extra(extra))
 
     @staticmethod
     def exception(*args, extra=None):
-        if not Logger.INFO_LOGGER:
-            Logger.configure()
-        Logger.DEBUG_LOGGER.exception(*args, extra=Logger.prepare_extra(extra))
+        if Logger.DEBUG_LOGGER:
+            Logger.DEBUG_LOGGER.exception(*args, extra=Logger.prepare_extra(extra))

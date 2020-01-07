@@ -1,4 +1,5 @@
 import re
+import tempfile
 from email.message import Message
 from email.parser import Parser
 from urllib.parse import urlparse, parse_qs
@@ -19,7 +20,8 @@ class Request:
         self.url = None
         self.path = None
         self.query = None
-        self.body = b''
+
+        self.body_file = tempfile.TemporaryFile(mode='w+b')
 
         self._body_to_read = None
 
@@ -62,9 +64,8 @@ class Request:
             return False
 
         if self._body_to_read != 0 and self._body_to_read is not None:
-            self.body += line
+            self.body_file.write(line)
             self._body_to_read -= len(line)
-            Logger.debug_info(f'body to read {self._body_to_read}')
             if self._body_to_read == 0:
                 self.filled = True
                 return True

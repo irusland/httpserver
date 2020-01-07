@@ -30,24 +30,45 @@ def show(req: Request, server):
 
 
 def save(req: Request, server):
-    r = re.compile(b'-+?.+?\r\n'
+    h = re.compile(b'-+?.+?\r\n'
                    b'Content-Disposition: form-data; '
                    b'name=\"(?P<name>.*?)\"; '
                    b'filename=\"(?P<filename>.*?)\"\r\n'
                    b'.+?: (?P<ct>.+?)\r\n'
-                   b'\r\n'
-                   b'(?P<data>.*?)\r\n'
-                   b'.+?\r\n', re.S)
-    match = r.search(req.body)
+                   b'\r\n', re.S)
+
+    tail_pos = 3
+    while True:
+        req.body_file.seek(-tail_pos, 2)
+        tail = req.body_file.tell()
+        t = req.body_file.read(tail_pos)
+        if t.startswith(b'\r\n'):
+            break
+        tail_pos += 1
+
+    head_crlf_count = 4
+    head = b''
+
+    req.body_file.seek(0)
+    i = 0
+    while True:
+        if i == head_crlf_count:
+            break
+        head += req.body_file.read(1)
+        if head.endswith(b'\r\n'):
+            i += 1
+
+    data_start = req.body_file.tell()
+
+    match = h.search(head)
     if not match:
         raise Errors.MALFORMED_REQ
     groups = match.groupdict()
     ftype = groups.get('name')
     fname = Request.decode(groups.get('filename'))
-    data = groups.get('data')
     if fname:
         with open(os.path.join(ROOT_DIR, 'tmp', 'saved', fname), 'wb') as f:
-            f.write(data)
+            f.write(req.body_file.read(tail - data_start))
         Logger.debug_info(f'{ftype} saved as {fname} ')
 
         body = f'{os.path.join(ROOT_DIR, "tmp", "saved")}' \
