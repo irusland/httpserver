@@ -5,6 +5,12 @@
 
   "rules": {
     "/" : "tmp/index.html",
+    "/load/[file]": {
+      "handler": {
+        "source": "handlers/upload.py",
+        "get": "load"
+      }
+    },
     "/upload": "tmp/upload.html",
     "/save": {
       "handler": {
@@ -42,7 +48,7 @@
     "/index.html" : "tmp/index.html",
     "/2.html" : "tmp/pages/2.html",
     "/1.2.3.txt" : "tmp/1.2.3.txt",
-    "/page-load-errors[extras].css": {
+    "[any_path]/page-load-errors[extras].css": {
       "path": "pages/page-load-errors[extras].css",
       "mime": "text/css"
     },

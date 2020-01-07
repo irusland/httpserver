@@ -28,7 +28,7 @@ class Logger:
 
     @staticmethod
     def setup_logger(name, log_file, level=logging.INFO,
-                     fmt='%(levelname)-4s: %(asctime)s %(message)s',
+                     fmt='%(levelname)-4s: %(message)s',
                      datefmt='%m/%d/%Y %I:%M:%S'):
 
         logger = logging.getLogger(name)
@@ -51,8 +51,10 @@ class Logger:
     def configure(level=LogLevel.LOGGING, info_path=LOGGER_PATH,
                   debug_path=LOG_DEBUG_PATH):
         Logger.LEVEL = level
-        info_fmt = '%(levelname)-4s: %(asctime)-15s' \
-                   ' %(method)s %(url)s %(code)s %(ip)s %(message)s'
+        # Set up logging format for easy parsing
+        info_fmt = ('[%(asctime)-15s] '
+                    '<%(method)s> "%(url)s" (%(code)s) '
+                    '"%(ip)s" "%(message)s"')
         Logger.INFO_LOGGER = Logger.setup_logger(
             'info_logger', info_path, logging.INFO, info_fmt)
         Logger.DEBUG_LOGGER = Logger.setup_logger(

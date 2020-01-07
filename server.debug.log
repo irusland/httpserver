@@ -1,175 +1,101 @@
-INFO: 01/04/2020 01:24:52 Path processing
-INFO: 01/04/2020 01:24:52 Path found /Users/irusland/Desktop/UrFU/python/httpserver/tmp/pictures/1.png
-INFO: 01/04/2020 01:24:52 Path processing
-ERROR: 01/04/2020 01:24:52 Path matched by rule re.compile('/(?P<name>.*)\\.css') but file not found /Users/irusland/Desktop/UrFU/python/httpserver/tmp/pages/css/no.css
-ERROR: 01/04/2020 01:24:52 Path matched by rule re.compile('/(?P<name>.*)\\.(?P<ext>.*)') but file not found /Users/irusland/Desktop/UrFU/python/httpserver/tmp/pictures/no.css
-ERROR: 01/04/2020 01:24:52 Path matched by rule re.compile('/(?P<file>.*)\\.(?P<ext>.*)') but file not found /Users/irusland/Desktop/UrFU/python/httpserver/tmp/no.css
-INFO: 01/04/2020 01:24:52 Path processing
-INFO: 01/04/2020 01:24:52 Path found /Users/irusland/Desktop/UrFU/python/httpserver/tmp/pictures/1.png
-INFO: 01/04/2020 01:24:52 Path processing
-INFO: 01/04/2020 01:24:52 Path found /Users/irusland/Desktop/UrFU/python/httpserver/tmp/index.html
-INFO: 01/04/2020 01:24:52 Path processing
-ERROR: 01/04/2020 01:24:52 Path matched by rule re.compile('/(?P<name>.*)\\.(?P<ext>.*)') but file not found /Users/irusland/Desktop/UrFU/python/httpserver/tmp/pictures/1.2.3.txt
-INFO: 01/04/2020 01:24:52 Path found /Users/irusland/Desktop/UrFU/python/httpserver/tmp/1.2.3.txt
-INFO: 01/04/2020 01:24:52 Path processing
-ERROR: 01/04/2020 01:24:52 Path matched by rule re.compile('/(?P<name>.*)\\.(?P<ext>.*)') but file not found /Users/irusland/Desktop/UrFU/python/httpserver/tmp/pictures/foo.bar
-ERROR: 01/04/2020 01:24:52 Path matched by rule re.compile('/(?P<file>.*)\\.(?P<ext>.*)') but file not found /Users/irusland/Desktop/UrFU/python/httpserver/tmp/foo.bar
-INFO: 01/04/2020 01:24:52 Path processing
-INFO: 01/04/2020 01:24:52 Path found /Users/irusland/Desktop/UrFU/python/httpserver/tmp/pages/any.html
-INFO: 01/04/2020 01:24:52 Path processing
-INFO: 01/04/2020 01:24:52 Path found /Users/irusland/Desktop/UrFU/python/httpserver/tmp/pages/2.html
-INFO: 01/04/2020 01:24:52 Path processing
-INFO: 01/04/2020 01:24:52 Path found /Users/irusland/Desktop/UrFU/python/httpserver/tmp/pages/css/123.css
-INFO: 01/04/2020 01:24:52 Path processing
-INFO: 01/04/2020 01:24:52 Path found /Users/irusland/Desktop/UrFU/python/httpserver/tmp/index.html
-INFO: 01/04/2020 01:24:52 Path processing
-ERROR: 01/04/2020 01:24:52 Path matched by rule re.compile('/(?P<name>.*)\\.html') but file not found /Users/irusland/Desktop/UrFU/python/httpserver/tmp/pages/new page.html
-ERROR: 01/04/2020 01:24:52 Path matched by rule re.compile('/(?P<name>.*)\\.(?P<ext>.*)') but file not found /Users/irusland/Desktop/UrFU/python/httpserver/tmp/pictures/new page.html
-INFO: 01/04/2020 01:24:52 Path found /Users/irusland/Desktop/UrFU/python/httpserver/tmp/new page.html
-INFO: 01/04/2020 01:24:52 107B sent to ('0.0.0.0', 8000)
-INFO: 01/04/2020 01:24:52 All Files sent to ('0.0.0.0', 8000)
-ERROR: 01/04/2020 01:24:52 Connection with client broken
-INFO: 01/04/2020 01:24:52 70B sent to ('0.0.0.0', 8000)
-INFO: 01/04/2020 01:24:52 All Files sent to ('0.0.0.0', 8000)
-ERROR: 01/04/2020 01:24:52 client stopped receiving
-INFO: 01/04/2020 01:24:52 Path processing
-INFO: 01/04/2020 01:24:52 Path found /Users/irusland/Desktop/UrFU/python/httpserver/tmp/pictures/1.png
-INFO: 01/04/2020 01:24:52 Path processing
-ERROR: 01/04/2020 01:24:52 Path matched by rule re.compile('/(?P<name>.*)\\.css') but file not found /Users/irusland/Desktop/UrFU/python/httpserver/tmp/pages/css/no.css
-ERROR: 01/04/2020 01:24:52 Path matched by rule re.compile('/(?P<name>.*)\\.(?P<ext>.*)') but file not found /Users/irusland/Desktop/UrFU/python/httpserver/tmp/pictures/no.css
-ERROR: 01/04/2020 01:24:52 Path matched by rule re.compile('/(?P<file>.*)\\.(?P<ext>.*)') but file not found /Users/irusland/Desktop/UrFU/python/httpserver/tmp/no.css
-INFO: 01/04/2020 01:24:52 Path processing
-INFO: 01/04/2020 01:24:52 Path found /Users/irusland/Desktop/UrFU/python/httpserver/tmp/pictures/1.png
-INFO: 01/04/2020 01:24:52 Path processing
-INFO: 01/04/2020 01:24:52 Path found /Users/irusland/Desktop/UrFU/python/httpserver/tmp/index.html
-INFO: 01/04/2020 01:24:52 Path processing
-ERROR: 01/04/2020 01:24:52 Path matched by rule re.compile('/(?P<name>.*)\\.(?P<ext>.*)') but file not found /Users/irusland/Desktop/UrFU/python/httpserver/tmp/pictures/1.2.3.txt
-INFO: 01/04/2020 01:24:52 Path found /Users/irusland/Desktop/UrFU/python/httpserver/tmp/1.2.3.txt
-INFO: 01/04/2020 01:24:52 Path processing
-ERROR: 01/04/2020 01:24:52 Path matched by rule re.compile('/(?P<name>.*)\\.(?P<ext>.*)') but file not found /Users/irusland/Desktop/UrFU/python/httpserver/tmp/pictures/foo.bar
-ERROR: 01/04/2020 01:24:52 Path matched by rule re.compile('/(?P<file>.*)\\.(?P<ext>.*)') but file not found /Users/irusland/Desktop/UrFU/python/httpserver/tmp/foo.bar
-INFO: 01/04/2020 01:24:52 Path processing
-INFO: 01/04/2020 01:24:52 Path found /Users/irusland/Desktop/UrFU/python/httpserver/tmp/pages/any.html
-INFO: 01/04/2020 01:24:52 Path processing
-INFO: 01/04/2020 01:24:52 Path found /Users/irusland/Desktop/UrFU/python/httpserver/tmp/pages/2.html
-INFO: 01/04/2020 01:24:52 Path processing
-INFO: 01/04/2020 01:24:52 Path found /Users/irusland/Desktop/UrFU/python/httpserver/tmp/pages/css/123.css
-INFO: 01/04/2020 01:24:52 Path processing
-INFO: 01/04/2020 01:24:52 Path found /Users/irusland/Desktop/UrFU/python/httpserver/tmp/index.html
-INFO: 01/04/2020 01:24:52 Path processing
-ERROR: 01/04/2020 01:24:52 Path matched by rule re.compile('/(?P<name>.*)\\.html') but file not found /Users/irusland/Desktop/UrFU/python/httpserver/tmp/pages/new page.html
-ERROR: 01/04/2020 01:24:52 Path matched by rule re.compile('/(?P<name>.*)\\.(?P<ext>.*)') but file not found /Users/irusland/Desktop/UrFU/python/httpserver/tmp/pictures/new page.html
-INFO: 01/04/2020 01:24:52 Path found /Users/irusland/Desktop/UrFU/python/httpserver/tmp/new page.html
-INFO: 01/04/2020 01:24:52 Handler /Users/irusland/Desktop/UrFU/python/httpserver/handlers/upload.py imported
-INFO: 01/04/2020 01:24:52 Handler /Users/irusland/Desktop/UrFU/python/httpserver/handlers/my_guest_book.py imported
-INFO: 01/04/2020 01:24:52 server is UP on 0.0.0.0:8000
-INFO: 01/04/2020 01:24:52 Socket disconnected by timeout
-INFO: 01/04/2020 01:24:52 Socket Disconnected in thread 4396109248
-INFO: 01/04/2020 01:24:52 server is DOWN with no exceptions
-INFO: 01/04/2020 01:24:52 Handler /Users/irusland/Desktop/UrFU/python/httpserver/handlers/upload.py imported
-INFO: 01/04/2020 01:24:52 Handler /Users/irusland/Desktop/UrFU/python/httpserver/handlers/my_guest_book.py imported
-INFO: 01/04/2020 01:24:52 Got line b'GET /c.png HTTP/1.1\r\n'
-INFO: 01/04/2020 01:24:52 to parse b'GET /c.png HTTP/1.1'
-INFO: 01/04/2020 01:24:52 Got line b'Host: 0.0.0.0\r\n'
-INFO: 01/04/2020 01:24:52 to parse b'Host: 0.0.0.0'
-INFO: 01/04/2020 01:24:52 Got line b'Accept: */*\r\n'
-INFO: 01/04/2020 01:24:52 to parse b'Accept: */*'
-INFO: 01/04/2020 01:24:52 Got line b'\r\n'
-INFO: 01/04/2020 01:24:52 to parse b''
-INFO: 01/04/2020 01:24:52 Default handler available only 'NoneType' object has no attribute '__dict__'
-INFO: 01/04/2020 01:24:52 Path processing
-INFO: 01/04/2020 01:24:52 Path found /Users/irusland/Desktop/UrFU/python/httpserver/tmp/c.png
-INFO: 01/04/2020 01:24:52 Updating cache for /c.png
-INFO: 01/04/2020 01:24:52 Handler /Users/irusland/Desktop/UrFU/python/httpserver/handlers/upload.py imported
-INFO: 01/04/2020 01:24:52 Handler /Users/irusland/Desktop/UrFU/python/httpserver/handlers/my_guest_book.py imported
-INFO: 01/04/2020 01:24:52 Got line b'GET / HTTP/1.1\r\n'
-INFO: 01/04/2020 01:24:52 to parse b'GET / HTTP/1.1'
-INFO: 01/04/2020 01:24:52 Got line b'Host: 0.0.0.0:8000\r\n'
-INFO: 01/04/2020 01:24:52 to parse b'Host: 0.0.0.0:8000'
-INFO: 01/04/2020 01:24:52 Got line b'Accept: */*\r\n'
-INFO: 01/04/2020 01:24:52 to parse b'Accept: */*'
-INFO: 01/04/2020 01:24:52 Got line b'\r\n'
-INFO: 01/04/2020 01:24:52 to parse b''
-INFO: 01/04/2020 01:24:52 Default handler available only 'NoneType' object has no attribute '__dict__'
-INFO: 01/04/2020 01:24:52 Path processing
-INFO: 01/04/2020 01:24:52 Path found /Users/irusland/Desktop/UrFU/python/httpserver/tmp/index.html
-INFO: 01/04/2020 01:24:52 Updating cache for /
-INFO: 01/04/2020 01:24:52 Handler /Users/irusland/Desktop/UrFU/python/httpserver/handlers/upload.py imported
-INFO: 01/04/2020 01:24:52 Handler /Users/irusland/Desktop/UrFU/python/httpserver/handlers/my_guest_book.py imported
-INFO: 01/04/2020 01:24:52 Got line b'GET /posts HTTP/1.1\r\n'
-INFO: 01/04/2020 01:24:52 to parse b'GET /posts HTTP/1.1'
-INFO: 01/04/2020 01:24:52 Got line b'Host: 0.0.0.0:8000\r\n'
-INFO: 01/04/2020 01:24:52 to parse b'Host: 0.0.0.0:8000'
-INFO: 01/04/2020 01:24:52 Got line b'Accept: */*\r\n'
-INFO: 01/04/2020 01:24:52 to parse b'Accept: */*'
-INFO: 01/04/2020 01:24:52 Got line b'Accept-Language: en-us\r\n'
-INFO: 01/04/2020 01:24:52 to parse b'Accept-Language: en-us'
-INFO: 01/04/2020 01:24:52 Got line b'Accept-Encoding: gzip, deflate\r\n'
-INFO: 01/04/2020 01:24:52 to parse b'Accept-Encoding: gzip, deflate'
-INFO: 01/04/2020 01:24:52 Got line b'\r\n'
-INFO: 01/04/2020 01:24:52 to parse b''
-INFO: 01/04/2020 01:24:52 Custom handler found /Users/irusland/Desktop/UrFU/python/httpserver/handlers/my_guest_book.py
-INFO: 01/04/2020 01:24:52 Handler /Users/irusland/Desktop/UrFU/python/httpserver/handlers/upload.py imported
-INFO: 01/04/2020 01:24:52 Handler /Users/irusland/Desktop/UrFU/python/httpserver/handlers/my_guest_book.py imported
-INFO: 01/04/2020 01:24:52 Got line b'POST /post HTTP/1.1\r\n'
-INFO: 01/04/2020 01:24:52 to parse b'POST /post HTTP/1.1'
-INFO: 01/04/2020 01:24:52 Got line b'Host: 0.0.0.0:8000\r\n'
-INFO: 01/04/2020 01:24:52 to parse b'Host: 0.0.0.0:8000'
-INFO: 01/04/2020 01:24:52 Got line b'Content-Type: application/x-www-form-urlencoded\r\n'
-INFO: 01/04/2020 01:24:52 to parse b'Content-Type: application/x-www-form-urlencoded'
-INFO: 01/04/2020 01:24:52 Got line b'Accept-Encoding: gzip, deflate\r\n'
-INFO: 01/04/2020 01:24:52 to parse b'Accept-Encoding: gzip, deflate'
-INFO: 01/04/2020 01:24:52 Got line b'Upgrade-Insecure-Requests: 1\r\n'
-INFO: 01/04/2020 01:24:52 to parse b'Upgrade-Insecure-Requests: 1'
-INFO: 01/04/2020 01:24:52 Got line b'Accept: text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8\r\n'
-INFO: 01/04/2020 01:24:52 to parse b'Accept: text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8'
-INFO: 01/04/2020 01:24:52 Got line b'Content-Length: 17\r\n'
-INFO: 01/04/2020 01:24:52 to parse b'Content-Length: 17'
-INFO: 01/04/2020 01:24:52 Got line b'Accept-Language: en-us\r\n'
-INFO: 01/04/2020 01:24:52 to parse b'Accept-Language: en-us'
-INFO: 01/04/2020 01:24:52 Got line b'\r\n'
-INFO: 01/04/2020 01:24:52 to parse b''
-INFO: 01/04/2020 01:24:52 Got line b'username=a&post=b'
-INFO: 01/04/2020 01:24:52 to parse b'username=a&post=b'
-INFO: 01/04/2020 01:24:52 Custom handler found /Users/irusland/Desktop/UrFU/python/httpserver/handlers/my_guest_book.py
-INFO: 01/04/2020 01:24:52 Got line b'GET /posts HTTP/1.1\r\n'
-INFO: 01/04/2020 01:24:52 to parse b'GET /posts HTTP/1.1'
-INFO: 01/04/2020 01:24:52 Got line b'Host: 0.0.0.0:8000\r\n'
-INFO: 01/04/2020 01:24:52 to parse b'Host: 0.0.0.0:8000'
-INFO: 01/04/2020 01:24:52 Got line b'Accept: */*\r\n'
-INFO: 01/04/2020 01:24:52 to parse b'Accept: */*'
-INFO: 01/04/2020 01:24:52 Got line b'Accept-Language: en-us\r\n'
-INFO: 01/04/2020 01:24:52 to parse b'Accept-Language: en-us'
-INFO: 01/04/2020 01:24:52 Got line b'Accept-Encoding: gzip, deflate\r\n'
-INFO: 01/04/2020 01:24:52 to parse b'Accept-Encoding: gzip, deflate'
-INFO: 01/04/2020 01:24:52 Got line b'\r\n'
-INFO: 01/04/2020 01:24:52 to parse b''
-INFO: 01/04/2020 01:24:52 Custom handler found /Users/irusland/Desktop/UrFU/python/httpserver/handlers/my_guest_book.py
-INFO: 01/04/2020 01:24:52 Handler /Users/irusland/Desktop/UrFU/python/httpserver/handlers/upload.py imported
-INFO: 01/04/2020 01:24:52 Handler /Users/irusland/Desktop/UrFU/python/httpserver/handlers/my_guest_book.py imported
-INFO: 01/04/2020 01:24:52 server is UP on 0.0.0.0:8000
-INFO: 01/04/2020 01:24:52 Parsing request by file started
-INFO: 01/04/2020 01:24:52 server is DOWN with no exceptions
-INFO: 01/04/2020 01:24:52 Handler /Users/irusland/Desktop/UrFU/python/httpserver/handlers/upload.py imported
-INFO: 01/04/2020 01:24:52 Handler /Users/irusland/Desktop/UrFU/python/httpserver/handlers/my_guest_book.py imported
-INFO: 01/04/2020 01:24:52 server is UP on 0.0.0.0:8000
-INFO: 01/04/2020 01:24:52 server is DOWN with no exceptions
-INFO: 01/04/2020 01:24:52 Handler /Users/irusland/Desktop/UrFU/python/httpserver/handlers/upload.py imported
-INFO: 01/04/2020 01:24:52 Handler /Users/irusland/Desktop/UrFU/python/httpserver/handlers/my_guest_book.py imported
-INFO: 01/04/2020 01:24:52 server is UP on 0.0.0.0:8000
-INFO: 01/04/2020 01:24:53 Connected ('127.0.0.1', 52404)
-INFO: 01/04/2020 01:24:53 EVENT_READ Registered ('127.0.0.1', 52404)
-INFO: 01/04/2020 01:24:53 Got line b'GET / HTTP/1.1\r\n'
-INFO: 01/04/2020 01:24:53 to parse b'GET / HTTP/1.1'
-INFO: 01/04/2020 01:24:53 Got line b'Host: 0.0.0.0\r\n'
-INFO: 01/04/2020 01:24:53 to parse b'Host: 0.0.0.0'
-INFO: 01/04/2020 01:24:53 Got line b'Accept: */*\r\n'
-INFO: 01/04/2020 01:24:53 to parse b'Accept: */*'
-INFO: 01/04/2020 01:24:53 Got line b'Connection: keep-alive\r\n'
-INFO: 01/04/2020 01:24:53 to parse b'Connection: keep-alive'
-INFO: 01/04/2020 01:24:53 Got line b'\r\n'
-INFO: 01/04/2020 01:24:53 to parse b''
-INFO: 01/04/2020 01:24:53 Request got method: GET
+INFO: Path processing
+INFO: Path found /Users/irusland/Desktop/UrFU/python/httpserver/tmp/pictures/1.png
+INFO: Path processing
+ERROR: Path matched by rule re.compile('/(?P<name>.*)\\.css') but file not found /Users/irusland/Desktop/UrFU/python/httpserver/tmp/pages/css/no.css
+ERROR: Path matched by rule re.compile('/(?P<name>.*)\\.(?P<ext>.*)') but file not found /Users/irusland/Desktop/UrFU/python/httpserver/tmp/pictures/no.css
+ERROR: Path matched by rule re.compile('/(?P<file>.*)\\.(?P<ext>.*)') but file not found /Users/irusland/Desktop/UrFU/python/httpserver/tmp/no.css
+INFO: Path processing
+INFO: Path found /Users/irusland/Desktop/UrFU/python/httpserver/tmp/pictures/1.png
+INFO: Path processing
+INFO: Path found /Users/irusland/Desktop/UrFU/python/httpserver/tmp/index.html
+INFO: Path processing
+ERROR: Path matched by rule re.compile('/(?P<name>.*)\\.(?P<ext>.*)') but file not found /Users/irusland/Desktop/UrFU/python/httpserver/tmp/pictures/1.2.3.txt
+INFO: Path found /Users/irusland/Desktop/UrFU/python/httpserver/tmp/1.2.3.txt
+INFO: Path processing
+ERROR: Path matched by rule re.compile('/(?P<name>.*)\\.(?P<ext>.*)') but file not found /Users/irusland/Desktop/UrFU/python/httpserver/tmp/pictures/foo.bar
+ERROR: Path matched by rule re.compile('/(?P<file>.*)\\.(?P<ext>.*)') but file not found /Users/irusland/Desktop/UrFU/python/httpserver/tmp/foo.bar
+INFO: Path processing
+INFO: Path found /Users/irusland/Desktop/UrFU/python/httpserver/tmp/pages/any.html
+INFO: Path processing
+INFO: Path found /Users/irusland/Desktop/UrFU/python/httpserver/tmp/pages/2.html
+INFO: Path processing
+INFO: Path found /Users/irusland/Desktop/UrFU/python/httpserver/tmp/pages/css/123.css
+INFO: Path processing
+INFO: Path found /Users/irusland/Desktop/UrFU/python/httpserver/tmp/index.html
+INFO: Path processing
+ERROR: Path matched by rule re.compile('/(?P<name>.*)\\.html') but file not found /Users/irusland/Desktop/UrFU/python/httpserver/tmp/pages/new page.html
+ERROR: Path matched by rule re.compile('/(?P<name>.*)\\.(?P<ext>.*)') but file not found /Users/irusland/Desktop/UrFU/python/httpserver/tmp/pictures/new page.html
+INFO: Path found /Users/irusland/Desktop/UrFU/python/httpserver/tmp/new page.html
+INFO: 107B sent to ('0.0.0.0', 8000)
+INFO: All Files sent to ('0.0.0.0', 8000)
+ERROR: Connection with client broken
+INFO: 70B sent to ('0.0.0.0', 8000)
+INFO: All Files sent to ('0.0.0.0', 8000)
+ERROR: client stopped receiving
+INFO: Path processing
+INFO: Path found /Users/irusland/Desktop/UrFU/python/httpserver/tmp/pictures/1.png
+INFO: Path processing
+ERROR: Path matched by rule re.compile('/(?P<name>.*)\\.css') but file not found /Users/irusland/Desktop/UrFU/python/httpserver/tmp/pages/css/no.css
+ERROR: Path matched by rule re.compile('/(?P<name>.*)\\.(?P<ext>.*)') but file not found /Users/irusland/Desktop/UrFU/python/httpserver/tmp/pictures/no.css
+ERROR: Path matched by rule re.compile('/(?P<file>.*)\\.(?P<ext>.*)') but file not found /Users/irusland/Desktop/UrFU/python/httpserver/tmp/no.css
+INFO: Path processing
+INFO: Path found /Users/irusland/Desktop/UrFU/python/httpserver/tmp/pictures/1.png
+INFO: Path processing
+INFO: Path found /Users/irusland/Desktop/UrFU/python/httpserver/tmp/index.html
+INFO: Path processing
+ERROR: Path matched by rule re.compile('/(?P<name>.*)\\.(?P<ext>.*)') but file not found /Users/irusland/Desktop/UrFU/python/httpserver/tmp/pictures/1.2.3.txt
+INFO: Path found /Users/irusland/Desktop/UrFU/python/httpserver/tmp/1.2.3.txt
+INFO: Path processing
+ERROR: Path matched by rule re.compile('/(?P<name>.*)\\.(?P<ext>.*)') but file not found /Users/irusland/Desktop/UrFU/python/httpserver/tmp/pictures/foo.bar
+ERROR: Path matched by rule re.compile('/(?P<file>.*)\\.(?P<ext>.*)') but file not found /Users/irusland/Desktop/UrFU/python/httpserver/tmp/foo.bar
+INFO: Path processing
+INFO: Path found /Users/irusland/Desktop/UrFU/python/httpserver/tmp/pages/any.html
+INFO: Path processing
+INFO: Path found /Users/irusland/Desktop/UrFU/python/httpserver/tmp/pages/2.html
+INFO: Path processing
+INFO: Path found /Users/irusland/Desktop/UrFU/python/httpserver/tmp/pages/css/123.css
+INFO: Path processing
+INFO: Path found /Users/irusland/Desktop/UrFU/python/httpserver/tmp/index.html
+INFO: Path processing
+ERROR: Path matched by rule re.compile('/(?P<name>.*)\\.html') but file not found /Users/irusland/Desktop/UrFU/python/httpserver/tmp/pages/new page.html
+ERROR: Path matched by rule re.compile('/(?P<name>.*)\\.(?P<ext>.*)') but file not found /Users/irusland/Desktop/UrFU/python/httpserver/tmp/pictures/new page.html
+INFO: Path found /Users/irusland/Desktop/UrFU/python/httpserver/tmp/new page.html
+INFO: Handler /Users/irusland/Desktop/UrFU/python/httpserver/handlers/upload.py imported
+INFO: Handler /Users/irusland/Desktop/UrFU/python/httpserver/handlers/my_guest_book.py imported
+INFO: server is UP on 0.0.0.0:8000
+INFO: Socket disconnected by timeout
+INFO: Socket Disconnected in thread 4634885568
+INFO: server is DOWN with no exceptions
+INFO: Handler /Users/irusland/Desktop/UrFU/python/httpserver/handlers/upload.py imported
+INFO: Handler /Users/irusland/Desktop/UrFU/python/httpserver/handlers/my_guest_book.py imported
+INFO: Default handler available only 'NoneType' object has no attribute '__dict__'
+INFO: Path processing
+INFO: Path found /Users/irusland/Desktop/UrFU/python/httpserver/tmp/c.png
+INFO: Updating cache for /c.png
+INFO: Handler /Users/irusland/Desktop/UrFU/python/httpserver/handlers/upload.py imported
+INFO: Handler /Users/irusland/Desktop/UrFU/python/httpserver/handlers/my_guest_book.py imported
+INFO: Default handler available only 'NoneType' object has no attribute '__dict__'
+INFO: Path processing
+INFO: Path found /Users/irusland/Desktop/UrFU/python/httpserver/tmp/index.html
+INFO: Updating cache for /
+INFO: Handler /Users/irusland/Desktop/UrFU/python/httpserver/handlers/upload.py imported
+INFO: Handler /Users/irusland/Desktop/UrFU/python/httpserver/handlers/my_guest_book.py imported
+INFO: Custom handler found /Users/irusland/Desktop/UrFU/python/httpserver/handlers/my_guest_book.py
+INFO: Handler /Users/irusland/Desktop/UrFU/python/httpserver/handlers/upload.py imported
+INFO: Handler /Users/irusland/Desktop/UrFU/python/httpserver/handlers/my_guest_book.py imported
+INFO: body to read 0
+INFO: Custom handler found /Users/irusland/Desktop/UrFU/python/httpserver/handlers/my_guest_book.py
+INFO: Custom handler found /Users/irusland/Desktop/UrFU/python/httpserver/handlers/my_guest_book.py
+INFO: Handler /Users/irusland/Desktop/UrFU/python/httpserver/handlers/upload.py imported
+INFO: Handler /Users/irusland/Desktop/UrFU/python/httpserver/handlers/my_guest_book.py imported
+INFO: server is UP on 0.0.0.0:8000
+INFO: server is DOWN with no exceptions
+INFO: Handler /Users/irusland/Desktop/UrFU/python/httpserver/handlers/upload.py imported
+INFO: Handler /Users/irusland/Desktop/UrFU/python/httpserver/handlers/my_guest_book.py imported
+INFO: server is UP on 0.0.0.0:8000
+INFO: Connected ('127.0.0.1', 61316)
+INFO: EVENT_READ Registered ('127.0.0.1', 61316)
+INFO: Request got method: GET
 target: /
 version: HTTP/1.1
 headers: {'Host': '0.0.0.0', 'Accept': '*/*', 'Connection': 'keep-alive'}
@@ -182,29 +108,19 @@ body: b''
 _body_to_read: 0
 _multipart: False
 filled: True
-INFO: 01/04/2020 01:24:53 Default handler available only 'NoneType' object has no attribute '__dict__'
-INFO: 01/04/2020 01:24:53 Path processing
-INFO: 01/04/2020 01:24:53 Path found /Users/irusland/Desktop/UrFU/python/httpserver/tmp/index.html
-INFO: 01/04/2020 01:24:53 Updating cache for /
-INFO: 01/04/2020 01:24:53 Request handling time 0.01693071799999979
-INFO: 01/04/2020 01:24:53 Response prepared status: 200
+INFO: Default handler available only 'NoneType' object has no attribute '__dict__'
+INFO: Path processing
+INFO: Path found /Users/irusland/Desktop/UrFU/python/httpserver/tmp/index.html
+INFO: Updating cache for /
+INFO: Request handling time 0.013819103999999971
+INFO: Response prepared status: 200
 reason: OK
-headers: OrderedDict([('Connection', 'keep-alive'), ('Content-Type', 'text/html'), ('Content-Disposition', 'inline; filename=index.html'), ('Content-Length', 152)])
+headers: OrderedDict([('Connection', 'keep-alive'), ('Content-Disposition', 'inline; filename=index.html'), ('Content-Type', 'text/html'), ('Content-Length', 152)])
 body: b'<!DOCTYPE html>\n<html lang="en">\n<head>\n    <meta charset="UTF-8">\n    <title>index.html</title>\n</head>\n<body>\n<h1>Python Rule it!</h1>\n</body>\n</html>'
-INFO: 01/04/2020 01:24:53 291B sent to ('127.0.0.1', 52404)
-INFO: 01/04/2020 01:24:53 All Files sent to ('127.0.0.1', 52404)
-INFO: 01/04/2020 01:24:53 Response sent
-INFO: 01/04/2020 01:24:53 Got line b'GET / HTTP/1.1\r\n'
-INFO: 01/04/2020 01:24:53 to parse b'GET / HTTP/1.1'
-INFO: 01/04/2020 01:24:53 Got line b'Host: 0.0.0.0\r\n'
-INFO: 01/04/2020 01:24:53 to parse b'Host: 0.0.0.0'
-INFO: 01/04/2020 01:24:53 Got line b'Accept: */*\r\n'
-INFO: 01/04/2020 01:24:53 to parse b'Accept: */*'
-INFO: 01/04/2020 01:24:53 Got line b'Connection: keep-alive\r\n'
-INFO: 01/04/2020 01:24:53 to parse b'Connection: keep-alive'
-INFO: 01/04/2020 01:24:53 Got line b'\r\n'
-INFO: 01/04/2020 01:24:53 to parse b''
-INFO: 01/04/2020 01:24:53 Request got method: GET
+INFO: 291B sent to ('127.0.0.1', 61316)
+INFO: All Files sent to ('127.0.0.1', 61316)
+INFO: Response sent
+INFO: Request got method: GET
 target: /
 version: HTTP/1.1
 headers: {'Host': '0.0.0.0', 'Accept': '*/*', 'Connection': 'keep-alive'}
@@ -217,56 +133,27 @@ body: b''
 _body_to_read: 0
 _multipart: False
 filled: True
-INFO: 01/04/2020 01:24:53 Default handler available only 'NoneType' object has no attribute '__dict__'
-INFO: 01/04/2020 01:24:53 Cache found for /
-INFO: 01/04/2020 01:24:53 Request handling time 0.003496529999999831
-INFO: 01/04/2020 01:24:53 Response prepared status: 200
+INFO: Default handler available only 'NoneType' object has no attribute '__dict__'
+INFO: Cache found for /
+INFO: Request handling time 0.004327404999999951
+INFO: Response prepared status: 200
 reason: OK
-headers: OrderedDict([('Connection', 'keep-alive'), ('Content-Type', 'text/html'), ('Content-Disposition', 'inline; filename=index.html'), ('Content-Length', 152)])
+headers: OrderedDict([('Connection', 'keep-alive'), ('Content-Disposition', 'inline; filename=index.html'), ('Content-Type', 'text/html'), ('Content-Length', 152)])
 body: b'<!DOCTYPE html>\n<html lang="en">\n<head>\n    <meta charset="UTF-8">\n    <title>index.html</title>\n</head>\n<body>\n<h1>Python Rule it!</h1>\n</body>\n</html>'
-INFO: 01/04/2020 01:24:53 291B sent to ('127.0.0.1', 52404)
-INFO: 01/04/2020 01:24:53 All Files sent to ('127.0.0.1', 52404)
-INFO: 01/04/2020 01:24:53 Response sent
-INFO: 01/04/2020 01:24:54 server is DOWN with no exceptions
-INFO: 01/04/2020 01:24:54 Handler /Users/irusland/Desktop/UrFU/python/httpserver/handlers/upload.py imported
-INFO: 01/04/2020 01:24:54 Handler /Users/irusland/Desktop/UrFU/python/httpserver/handlers/my_guest_book.py imported
-INFO: 01/04/2020 01:24:54 Got line b'GET /show_files HTTP/1.1\r\n'
-INFO: 01/04/2020 01:24:54 to parse b'GET /show_files HTTP/1.1'
-INFO: 01/04/2020 01:24:54 Got line b'Host: 0.0.0.0\r\n'
-INFO: 01/04/2020 01:24:54 to parse b'Host: 0.0.0.0'
-INFO: 01/04/2020 01:24:54 Got line b'Accept: */*\r\n'
-INFO: 01/04/2020 01:24:54 to parse b'Accept: */*'
-INFO: 01/04/2020 01:24:54 Got line b'\r\n'
-INFO: 01/04/2020 01:24:54 to parse b''
-INFO: 01/04/2020 01:24:54 Custom handler found /Users/irusland/Desktop/UrFU/python/httpserver/handlers/upload.py
-INFO: 01/04/2020 01:24:54 Handler /Users/irusland/Desktop/UrFU/python/httpserver/handlers/upload.py imported
-INFO: 01/04/2020 01:24:54 Handler /Users/irusland/Desktop/UrFU/python/httpserver/handlers/my_guest_book.py imported
-INFO: 01/04/2020 01:24:54 Got line b'POST /save HTTP/1.1\r\n'
-INFO: 01/04/2020 01:24:54 to parse b'POST /save HTTP/1.1'
-INFO: 01/04/2020 01:24:54 Got line b'Host: 0.0.0.0:8000\r\n'
-INFO: 01/04/2020 01:24:54 to parse b'Host: 0.0.0.0:8000'
-INFO: 01/04/2020 01:24:54 Got line b'Content-Type: multipart/form-data; boundary=----WebKitFormBoundary5xldizqf1DVBvoUw\r\n'
-INFO: 01/04/2020 01:24:54 to parse b'Content-Type: multipart/form-data; boundary=----WebKitFormBoundary5xldizqf1DVBvoUw'
-INFO: 01/04/2020 01:24:54 Got line b'Accept-Encoding: gzip, deflate\r\n'
-INFO: 01/04/2020 01:24:54 to parse b'Accept-Encoding: gzip, deflate'
-INFO: 01/04/2020 01:24:54 Got line b'Accept: text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8\r\n'
-INFO: 01/04/2020 01:24:54 to parse b'Accept: text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8'
-INFO: 01/04/2020 01:24:54 Got line b'Content-Length: 193\r\n'
-INFO: 01/04/2020 01:24:54 to parse b'Content-Length: 193'
-INFO: 01/04/2020 01:24:54 Got line b'\r\n'
-INFO: 01/04/2020 01:24:54 to parse b''
-INFO: 01/04/2020 01:24:54 Got line b'------WebKitFormBoundary5xldizqf1DVBvoUw\r\n'
-INFO: 01/04/2020 01:24:54 to parse b'------WebKitFormBoundary5xldizqf1DVBvoUw\r\n'
-INFO: 01/04/2020 01:24:54 Got line b'Content-Disposition: form-data; name="file"; filename="testu.txt"\r\n'
-INFO: 01/04/2020 01:24:54 to parse b'Content-Disposition: form-data; name="file"; filename="testu.txt"\r\n'
-INFO: 01/04/2020 01:24:54 Got line b'Content-Type: text/plain\r\n'
-INFO: 01/04/2020 01:24:54 to parse b'Content-Type: text/plain\r\n'
-INFO: 01/04/2020 01:24:54 Got line b'\r\n'
-INFO: 01/04/2020 01:24:54 to parse b'\r\n'
-INFO: 01/04/2020 01:24:54 Got line b'test> text\r\n'
-INFO: 01/04/2020 01:24:54 to parse b'test> text\r\n'
-INFO: 01/04/2020 01:24:54 Got line b'------WebKitFormBoundary5xldizqf1DVBvoUw--\r\n'
-INFO: 01/04/2020 01:24:54 to parse b'------WebKitFormBoundary5xldizqf1DVBvoUw--\r\n'
-INFO: 01/04/2020 01:24:54 Custom handler found /Users/irusland/Desktop/UrFU/python/httpserver/handlers/upload.py
-INFO: 01/04/2020 01:24:54 file saved as testu.txt 
-INFO: 01/04/2020 01:24:54 NoneB sent to 0 [] left
+INFO: 291B sent to ('127.0.0.1', 61316)
+INFO: All Files sent to ('127.0.0.1', 61316)
+INFO: Response sent
+INFO: server is DOWN with no exceptions
+INFO: Handler /Users/irusland/Desktop/UrFU/python/httpserver/handlers/upload.py imported
+INFO: Handler /Users/irusland/Desktop/UrFU/python/httpserver/handlers/my_guest_book.py imported
+INFO: Custom handler found /Users/irusland/Desktop/UrFU/python/httpserver/handlers/upload.py
+INFO: Handler /Users/irusland/Desktop/UrFU/python/httpserver/handlers/upload.py imported
+INFO: Handler /Users/irusland/Desktop/UrFU/python/httpserver/handlers/my_guest_book.py imported
+INFO: body to read 151
+INFO: body to read 84
+INFO: body to read 58
+INFO: body to read 56
+INFO: body to read 44
+INFO: body to read 0
+INFO: Custom handler found /Users/irusland/Desktop/UrFU/python/httpserver/handlers/upload.py
+INFO: b'file' saved as testu.txt 

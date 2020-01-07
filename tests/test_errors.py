@@ -32,7 +32,7 @@ class TestErrorsWithMock(unittest.TestCase):
         with open(self.cfg_path, "w") as f:
             f.write(PathFinderTests.CONFIG)
 
-        self.configurator = Configurator.init(self.cfg_path)
+        self.configurator = Configurator(self.cfg_path)
         self.rules = self.configurator.get('rules')
 
     def tearDown(self):
@@ -40,9 +40,8 @@ class TestErrorsWithMock(unittest.TestCase):
 
     def test_empty_send(self):
         sock = SockMock()
-        errors.send_error(sock, None)
+        errors.send_error(sock, None, self.configurator)
         self.assertIsNotNone(sock.received)
-        # print(sock.received)
 
 
 if __name__ == '__main__':

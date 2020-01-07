@@ -21,7 +21,8 @@
             .then(x => x.json())
             .then(posts => posts.map(
                 (filename) =>
-                    `<div><b>${filename}</b></div>`
+                    `<div><b><a
+                    href="/load/${filename}">${filename}</a></b></div>`
                 ))
             .then(x => x.join('<br>'))
             .then(x => void (document.getElementById('dir').innerHTML = x))

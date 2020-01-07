@@ -32,9 +32,6 @@ class Router:
 
                 if absolute:
                     path = self.to_abs_path(path)
-                # todo relative path
-                # else:
-                #     path = os.path.join('.', path)
 
                 self.URL_TO_RULE[url] = key
                 if os.path.isfile(path):

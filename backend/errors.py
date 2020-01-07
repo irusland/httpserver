@@ -11,10 +11,10 @@ class Error(Exception):
         self.page = page
 
 
-def send_error(connection, err):
+def send_error(connection, err, config):
     try:
         if err.page:
-            with open(Configurator.get("error-pages").get(err.page),
+            with open(config.get("error-pages").get(err.page),
                       'rb') as p:
                 p = p.read()
 

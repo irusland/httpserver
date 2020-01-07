@@ -3,26 +3,21 @@ import json
 
 class Configurator:
     DEFAULT_FIELDS = ['host', 'port', 'rules', 'error-pages']
-    cfg_path = None
-    config = None
 
-    @staticmethod
-    def init(cfg_path):
-        Configurator.cfg_path = cfg_path
-        Configurator.config = Configurator.refresh(Configurator.cfg_path)
-        return Configurator
+    def __init__(self, cfg_path):
+        self.cfg_path = cfg_path
+        self.config = None
+        self.refresh()
 
-    @staticmethod
-    def refresh(cfg_path):
-        with open(cfg_path) as cfg:
+    def refresh(self):
+        with open(self.cfg_path) as cfg:
             config = json.load(cfg)
-            Configurator.check(config)
-            return config
+            self.check(config)
+            self.config = config
 
-    @staticmethod
-    def get_rules():
-        Configurator.config = Configurator.refresh(Configurator.cfg_path)
-        return Configurator.get('rules')
+    def get_rules(self):
+        self.refresh()
+        return self.get('rules')
 
     @staticmethod
     def check(config):
@@ -30,6 +25,5 @@ class Configurator:
             if f not in config:
                 raise KeyError(f'Config parsing failed. Field {f} not found')
 
-    @staticmethod
-    def get(field):
-        return Configurator.config.get(field)
+    def get(self, field):
+        return self.config.get(field)

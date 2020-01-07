@@ -1,4 +1,3 @@
-import os
 import re
 from email.message import Message
 from email.parser import Parser
@@ -6,7 +5,6 @@ from urllib.parse import urlparse, parse_qs
 
 import chardet
 
-from backend.errors import Errors
 from backend.logger import Logger
 
 
@@ -30,13 +28,12 @@ class Request:
         self.filled = False
 
     def dynamic_fill(self, line: bytes):
-        Logger.debug_info(f'Got line {line}')
         if not self._body_to_read:
             if line.endswith(b'\r\n'):
                 line = line[:-2]
             elif line.endswith(b'\n'):
                 line = line[:-1]
-        Logger.debug_info(f'to parse {line}')
+
         if not line:
             if not self._multipart:
                 header: str = self.headers.get("Content-Type") or ''
@@ -67,8 +64,7 @@ class Request:
         if self._body_to_read != 0 and self._body_to_read is not None:
             self.body += line
             self._body_to_read -= len(line)
-            if self._body_to_read < 0:
-                raise Errors.CONTENT_LENGTH_REQUIRED
+            Logger.debug_info(f'body to read {self._body_to_read}')
             if self._body_to_read == 0:
                 self.filled = True
                 return True

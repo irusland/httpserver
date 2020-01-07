@@ -23,7 +23,7 @@ class ServerTests(unittest.TestCase):
         with open(self.cfg_path, "w") as f:
             f.write(ServerTests.CONFIG)
 
-        self.configurator = Configurator.init(self.cfg_path)
+        self.configurator = Configurator(self.cfg_path)
         self.rules = self.configurator.get('rules')
 
     def boot_server(self):
@@ -56,11 +56,6 @@ class ServerTests(unittest.TestCase):
             self.assertEqual(headers.get(k), h.get(k))
         self.assertEqual(b.encode(), body)
 
-    def test_req_parsing(self):
-        self.assert_req_parsed('GET', '/2.html', 'HTTP/1.1',
-                               {'Host': '0.0.0.0:8000',
-                                'Accept': 'text/html'}, 'body')
-
     def test_get_res(self):
         line = (b'GET / HTTP/1.1\r\n'
                 b'Host: 0.0.0.0:8000\r\n'
@@ -88,71 +83,35 @@ class ServerTests(unittest.TestCase):
         except AttributeError:
             self.fail()
 
-    def atest_send_req_and_shutdown(self):
-        request_task = multiprocessing.Process(target=self.boot_server)
-        request_task.start()
-        time.sleep(1)
-
-        req = b'GET / HTTP/1.1\r\nHost: 0.0.0.0\r\nAccept: */*\r\n' \
-              b'Connection: keepalive\r\n\r\n'
-        with open(self.cfg_path) as cfg:
-            data = json.load(cfg)
-        s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-        s.connect((data['host'], data['port']))
-        data = []
-
-        # Check page caching
-        for _ in range(2):
-            try:
-                s.sendall(req)
-            except Exception as e:
-                print(e)
-                pass
-            try:
-                while True:
-                    line = s.recv(Server.MAX_LINE)
-                    if line in [b'', b'\n']:
-                        break
-                    data.append(line)
-            except socket.error:
-                pass
-
-        request_task.terminate()
-        s.close()
-
-        res = b''.join(data).decode()
-        self.assertTrue(res)
-
     def send_req_and_shutdown(self, server):
         time.sleep(1)
         req = b'GET / HTTP/1.1\r\nHost: 0.0.0.0\r\nAccept: */*\r\n' \
               b'Connection: keep-alive\r\n\r\n'
         with open(self.cfg_path) as cfg:
             data = json.load(cfg)
-        s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-        s.connect((data['host'], data['port']))
-        data = []
+        with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as s:
+            s.connect((data['host'], data['port']))
+            data = []
 
-        # Check page caching
-        for _ in range(2):
-            try:
-                s.sendall(req)
-            except Exception as e:
-                print(e)
-                pass
-            try:
-                while True:
-                    line = s.recv(Server.MAX_LINE)
-                    if line in [b'', b'\n']:
-                        break
-                    data.append(line)
-            except socket.error:
-                pass
+            # Check page caching
+            for _ in range(2):
+                try:
+                    s.sendall(req)
+                except Exception as e:
+                    print(e)
+                    pass
+                try:
+                    while True:
+                        line = s.recv(Server.MAX_LINE)
+                        if line in [b'', b'\n']:
+                            break
+                        data.append(line)
+                except socket.error:
+                    pass
 
-        s.close()
-
-        res = b''.join(data).decode()
-        self.assertTrue(res)
+            res = b''.join(data).decode()
+            self.assertTrue(res)
+            server.shutdown()
 
     def test_serving(self):
         server = self.make_server()

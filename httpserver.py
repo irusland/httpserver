@@ -1,15 +1,9 @@
-# python3
 import argparse
-import io
 import os
-import re
-import select
 import selectors
 import socket
 import threading
 import time
-from functools import reduce
-from queue import Queue
 
 from diskcache import Cache
 
@@ -39,7 +33,7 @@ class Server:
 
         Logger.configure(level=loglevel, info_path=log_path)
 
-        self.configurator = Configurator.init(config)
+        self.configurator = Configurator(config)
 
         self.router = Router()
         self.router.load_handlers(self.configurator.get_rules())
@@ -113,6 +107,8 @@ class Server:
         try:
             line: bytes = client.recv(self.MAX_LINE)
             if not line:
+                self.poller.unregister(client)
+                del self.conns[client.fileno()]
                 return
             num = client.fileno()
             req_builder: Request = self.requests[num]
@@ -124,27 +120,15 @@ class Server:
                     return self.serve_client(client, req_builder)
         except Exception as e:
             Logger.error(e)
-            errors.send_error(client, e)
-
-    def parse_req_file(self, file):
-        Logger.debug_info(f'Parsing request by file started')
-        method, target, ver = self.parse_request_line(file)
-        headers = self.parse_headers_from_file(file)
-        body = self.parse_body(file)
-        host = headers.get('Host')
-        if not host:
-            raise Errors.HEADER_MISSING
-        return method, target, ver, headers, body
+            errors.send_error(client, e, self.configurator)
 
     def _write(self, client):
         num = client.fileno()
         buffer_: list = self.out_buff[num]
         if not buffer_:
             return
-        bytes_sent = client.sendall(buffer_[0])
+        client.sendall(buffer_[0])
         del buffer_[0]
-        Logger.debug_info(
-            f'{bytes_sent}B sent to {num} {buffer_} left')
 
     def close(self, connection):
         try:
@@ -189,42 +173,7 @@ class Server:
             self.close(client)
         except Exception as e:
             Logger.error(f'Client handling failed', e)
-            errors.send_error(client, e)
-
-    def parse_body(self, file):
-        return file.read()
-
-    def parse_request_line(self, file):
-        raw = file.readline(self.MAX_LINE + 1)
-        if len(raw) > self.MAX_LINE:
-            raise Errors.REQ_TOO_LONG
-        req_line = (Request.decode(raw))
-
-        try:
-            method, target, ver = req_line.split()
-        except ValueError as e:
-            Logger.error(f'Could not parse request')
-            raise Errors.MALFORMED_REQ
-
-        if ver != 'HTTP/1.1':
-            raise Errors.VERSION_NOT_SUPPORTED
-        return method, target, ver
-
-    def parse_headers_from_file(self, rfile):
-        headers = []
-
-        while True:
-            line = rfile.readline(self.MAX_LINE + 1)
-            if len(line) > self.MAX_LINE:
-                raise Errors.HEADER_TOO_LARGE
-            if line in self.BREAKLINE:
-                break
-            headers.append(line)
-            if len(headers) > self.MAX_HEADERS:
-                raise Errors.TOO_MANY_HEADERS
-
-        headers = b''.join(headers)
-        return Request.parse_headers_str(Request.decode(headers))
+            errors.send_error(client, e, self.configurator)
 
     def handle_req(self, req):
         rules = self.configurator.get_rules()
