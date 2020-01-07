@@ -91,4 +91,5 @@ class Logger:
     @staticmethod
     def exception(*args, extra=None):
         if Logger.DEBUG_LOGGER:
-            Logger.DEBUG_LOGGER.exception(*args, extra=Logger.prepare_extra(extra))
+            Logger.DEBUG_LOGGER.exception(*args,
+                                          extra=Logger.prepare_extra(extra))
