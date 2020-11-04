@@ -10,5 +10,5 @@
 venv/
 server.log
 __pycache__/
-tmp/
+
 .idea/
