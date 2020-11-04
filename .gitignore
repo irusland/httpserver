@@ -8,5 +8,7 @@
 /ruler.py,cover
 /venv/
 venv/
-__pychache__
 server.log
+__pycache__/
+tmp/
+.idea/
