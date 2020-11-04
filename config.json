@@ -64,7 +64,9 @@
       "mime" : "text/txt"
     },
     "/big" : { "path" : "tmp/pictures/chroma.jpg", "mime" : "image/jpg" },
-    "/[file].[ext]" : "tmp/[file].[ext]"
+    "/[file].[ext]" : "tmp/[file].[ext]",
+    "/like" : "tmp/restaurant/index.html",
+    "/like_button.js": "tmp/restaurant/like_button.js"
   },
 
   "error-pages": {
