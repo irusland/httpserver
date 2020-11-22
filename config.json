@@ -1,16 +1,20 @@
 {
   "host": "0.0.0.0",
-
   "port": 8000,
-
   "rules": {
-    "/" : "pages/index.html",
+    "/": "pages/index.html",
     "[any_path]/page-load-errors[extras].css": {
       "path": "pages/page-load-errors[extras].css",
       "mime": "text/css"
+    },
+    "/request": "source/request/to_server.html",
+    "/api/[path]": {
+      "handler": {
+        "source": "handlers/api.py",
+        "get": "get"
+      }
     }
   },
-
   "error-pages": {
     "PAGE_NOT_FOUND": "pages/PAGE_NOT_FOUND.html"
   }

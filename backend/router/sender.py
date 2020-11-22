@@ -9,6 +9,9 @@ from backend.response import Response
 from httpserver import Server
 
 
+EXPIRE = 1
+
+
 def handle(req: Request, server: Server):
     if req.path.startswith('/') and req.method == 'GET':
         rules = server.configurator.get_rules()
@@ -31,7 +34,7 @@ def handle(req: Request, server: Server):
                     add_headers=page.get_headers())
                 if int(res.status) == 200:
                     Logger.debug_info(f'Updating cache for {path}')
-                    server.cache.set(path, res, expire=None, tag='data')
+                    server.cache.set(path, res, expire=EXPIRE, tag='data')
                     server.cache.cull()
                 return res
         except FileNotFoundError:

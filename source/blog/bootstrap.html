@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        div {
+            background-color: #333333;
+        }
+    </style>
+</head>
+<body>
+<div id="app">
+    <base-input
+        v-bind="$attrs"
+    ></base-input>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+<link rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+      integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+      crossorigin="anonymous">
+<script>
+    Vue.component('base-input', {
+        inheritAttrs: false,
+        props: ['label', 'value'],
+        template: `
+            <label>
+              {{ label }}
+              <input
+                v-bind="$attrs"
+                v-bind:value="value"
+                v-on:input="$emit('input', $event.target.value)"
+              >
+            </label>
+          `
+    }).$attrs = {
+            required: true,
+            placeholder: 'Введите имя пользователя'
+        }
+
+    new Vue({
+        el: '#app',
+    });
+</script>
+</body>
+</html>

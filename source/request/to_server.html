@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<div id="app">
+    <h1>{{title}}</h1>
+    <div
+            v-for="post_info in info"
+            class="post_info"
+    >
+        {{ post_info.username }}: {{ post_info.post }}
+        <span class="lighten">
+    </span>
+    </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+<script>
+    new Vue({
+        el: '#app',
+        data() {
+            return {
+                title: "asdasd",
+                info: null,
+            };
+        },
+        mounted() {
+            axios
+                .get('/api/get')
+                .then(response => {
+                    this.info = response.data;
+                })
+                .catch(error => {
+                    console.log(error);
+                    this.errored = true;
+                });
+        }
+    });
+</script>
+</body>
+</html>
