@@ -13,6 +13,23 @@
         "source": "handlers/api.py",
         "get": "get"
       }
+    },
+    "/ping": {
+      "handler": {
+        "source": "handlers/api.py",
+        "get": "get"
+      },
+      "headers": [
+        ["Access-Control-Allow-Origin", "http://localhost:3000"]
+      ]
+    },
+    "/books": {
+      "handler": {
+        "source": "handlers/api.py",
+        "get": "get",
+        "post": "post",
+        "options": "preflight"
+      }
     }
   },
   "error-pages": {

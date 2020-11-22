@@ -9,8 +9,7 @@ class Page:
         self.mime = None
         self.headers = None
         self.handler_path = None
-        self.get_func_name = None
-        self.post_func_name = None
+        self.func_names = {}
         if not isinstance(config_description, dict):
             self.path = config_description
             return
@@ -21,8 +20,10 @@ class Page:
 
         handler = config_description.get('handler') or {}
         self.handler_path = handler.get('source')
-        self.get_func_name = handler.get('get')
-        self.post_func_name = handler.get('post')
+        methods = ['GET', 'POST', 'OPTIONS']
+        for method in methods:
+            method = method.lower()
+            self.func_names[method] = handler.get(method)
 
     def get_path(self) -> str:
         return self.path
@@ -34,11 +35,8 @@ class Page:
         return os.path.join(ROOT_DIR, self.handler_path) if \
             self.handler_path else ''
 
-    def get_get_func_name(self) -> str:
-        return self.get_func_name
-
-    def get_post_func_name(self) -> str:
-        return self.post_func_name
-
     def get_headers(self) -> list:
         return self.headers
+
+    def get_function_name_for_method(self, method: str) -> str:
+        return self.func_names.get(method.lower())

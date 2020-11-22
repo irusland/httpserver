@@ -85,7 +85,7 @@ class Server:
             for key, mask in poll:
                 try:
                     callback = key.data
-                    callback(key.fileobj, mask)
+                    callback(key.fileobj)
                 except socket.error as e:
                     if e.errno == 54:
                         Logger.debug_info(f'Disconnected {key.fileobj}')
@@ -101,10 +101,10 @@ class Server:
         client.setblocking(False)
         self.poller.register(client,
                              selectors.EVENT_READ,
-                             self._on_read_write_event)
+                             self._read)
         Logger.debug_info(f'EVENT_READ Registered {addr}')
 
-    def _on_read_write_event(self, client):
+    def _read(self, client):
         try:
             line: bytes = client.recv(self.MAX_LINE)
             if not line:

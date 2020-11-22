@@ -52,6 +52,9 @@ class Request:
                     if self._body_to_read == 0:
                         self.filled = True
                         return True
+                else:
+                    self.filled = True
+                    return True
             return False
 
         if not self.method:
