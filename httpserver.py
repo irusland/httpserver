@@ -78,15 +78,14 @@ class Server:
 
     def serve(self):
         self.conns[self.server.fileno()] = self.server
-        self.poller.register(self.server, selectors.EVENT_READ,
-                             self._accept)
+        self.poller.register(self.server, selectors.EVENT_READ, self._accept)
 
         while self._running:
             poll = self.poller.select(self.refresh_rate)
-            for key, m in poll:
+            for key, mask in poll:
                 try:
                     callback = key.data
-                    callback(key.fileobj)
+                    callback(key.fileobj, mask)
                 except socket.error as e:
                     if e.errno == 54:
                         Logger.debug_info(f'Disconnected {key.fileobj}')
@@ -102,10 +101,10 @@ class Server:
         client.setblocking(False)
         self.poller.register(client,
                              selectors.EVENT_READ,
-                             self._read)
+                             self._on_read_write_event)
         Logger.debug_info(f'EVENT_READ Registered {addr}')
 
-    def _read(self, client):
+    def _on_read_write_event(self, client):
         try:
             line: bytes = client.recv(self.MAX_LINE)
             if not line:
@@ -118,19 +117,13 @@ class Server:
 
             for s in split:
                 if req_builder.dynamic_fill(s):
-                    self.requests[num] = Request()
+                    self.requests[num] = Request()  # todo possibly
+                                        # todo Request() change to req_builder
                     return self.serve_client(client, req_builder)
+            print(req_builder)
         except Exception as e:
             Logger.error(e)
             errors.send_error(client, e, self.configurator)
-
-    def _write(self, client):
-        num = client.fileno()
-        buffer_: list = self.out_buff[num]
-        if not buffer_:
-            return
-        client.sendall(buffer_[0])
-        del buffer_[0]
 
     def close(self, connection):
         try:

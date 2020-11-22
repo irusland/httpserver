@@ -1,3 +1,6 @@
+import Vue from 'https://cdn.jsdelivr.net/npm/vue@2.6.12/dist/vue.esm.browser.js'
+
+
 Vue.component('product', {
     props: {
         premium: {
@@ -51,13 +54,13 @@ Vue.component('product', {
                 {
                     variantId: 2234,
                     variantColor: 'green',
-                    variantImage: './assets/vmSocks-green.jpg',
+                    variantImage: './../../tests/tmp/c.png',
                     variantQuantity: 10
                 },
                 {
                     variantId: 2235,
                     variantColor: 'blue',
-                    variantImage: './assets/vmSocks-blue.jpg',
+                    variantImage: './../../tests/tmp/c.png',
                     variantQuantity: 0
                 }
             ]

@@ -49,10 +49,9 @@ class Request:
                 length = self.headers.get("Content-Length")
                 if length:
                     self._body_to_read = int(length)
-                else:
-                    self._body_to_read = 0
-                    self.filled = True
-                    return True
+                    if self._body_to_read == 0:
+                        self.filled = True
+                        return True
             return False
 
         if not self.method:
