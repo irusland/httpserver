@@ -35,7 +35,8 @@
       "handler": {
         "source": "handlers/api.py",
         "put": "put",
-        "options": "preflight"
+        "options": "preflight",
+        "delete": "delete"
       }
     }
   },

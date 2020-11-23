@@ -82,12 +82,6 @@ def preflight(req: Request, server):
 
 
 def put(req: Request, server):
-
-    req.body_file.seek(0)
-    body = req.body_file.read()
-    body = Request.decode(body)
-
-    Logger.debug_info(f'PUT -> {body}')
     post_data = req.get_json()
     book_id = req.path.split('/')[-1]
     remove_book(book_id)
@@ -115,3 +109,18 @@ def remove_book(book_id):
             BOOKS.remove(book)
             return True
     return False
+
+
+def delete(req: Request, server):
+    book_id = req.path.split('/')[-1]
+    remove_book(book_id)
+    response_object = {'status': 'success',
+                       'message': 'Book deleted!'}
+    body = f'{json.dumps(response_object)}'.encode()
+    headers = [
+        ('Content-Type', f'application/json'),
+        ('Content-Disposition', f'inline; filename=Get posts'),
+        ('Content-Length', len(body)),
+        ("Access-Control-Allow-Origin", '*')
+    ]
+    return Response(200, 'OK', headers, body)
