@@ -63,14 +63,14 @@ class Server:
         return self
 
     def __exit__(self, exc_type, exc_val, exc_tb):
+        self._running = False
+        self.poller.close()
+        self.server.close()
         if exc_type and exc_type is not KeyboardInterrupt:
             Logger.exception(f'server is DOWN because of exception ')
         else:
             Logger.debug_info('server is DOWN with no exceptions')
-        self._running = False
-        self.poller.close()
-        self.server.close()
-        return False
+        return True
 
     def shutdown(self):
         self.server.close()
