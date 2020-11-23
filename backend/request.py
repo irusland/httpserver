@@ -1,3 +1,4 @@
+import json
 import re
 import tempfile
 from email.message import Message
@@ -109,3 +110,10 @@ class Request:
         for s in split:
             if r.dynamic_fill(s):
                 return r
+
+    def get_json(self):
+        self.body_file.seek(0)
+        body = self.body_file.read()
+        body = Request.decode(body)
+        Logger.debug_info(f'PUT -> {body}')
+        return json.loads(body)

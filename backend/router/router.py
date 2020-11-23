@@ -4,7 +4,7 @@ import re
 from backend.errors import Errors
 from backend.request import Request
 from backend.router.page import Page
-from defenitions import ROOT_DIR, FILE_SENDER_PATH
+from defenitions import ROOT_DIR, FILE_SENDER_PATH, SUPPORTED_METHODS
 from importlib.machinery import SourceFileLoader
 
 from backend.logger import Logger
@@ -12,7 +12,6 @@ from backend.logger import Logger
 
 class Router:
     URL_TO_RULE = {}
-    SUPPORTED_METHODS = ['GET', 'POST', 'OPTIONS']
 
     def __init__(self):
         self.reg_sub = re.compile(r'(?P<txt>.*?)\[(?P<group>.*?)\]')
@@ -87,11 +86,11 @@ class Router:
             page = self.find_page_description(url, rules)
             path = page.get_abs_handler_path()
             handler_module = self.handlers.get(path)
-            if req.method in self.SUPPORTED_METHODS:
+            if req.method in SUPPORTED_METHODS:
                 f_name = page.get_function_name_for_method(req.method)
             else:
                 raise Errors.METHOD_NOT_SUPPORTED
-            Logger.debug_info(f'Custom handler found '
+            Logger.debug_info(f'Custom handler found: {f_name}(...) in '
                               f'{handler_module.__dict__["__file__"]}',
                               extra={'url': req.path})
             return handler_module.__dict__[f_name]

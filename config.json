@@ -30,6 +30,13 @@
         "post": "post",
         "options": "preflight"
       }
+    },
+    "/books/[id]": {
+      "handler": {
+        "source": "handlers/api.py",
+        "put": "put",
+        "options": "preflight"
+      }
     }
   },
   "error-pages": {

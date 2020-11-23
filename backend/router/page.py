@@ -1,6 +1,6 @@
 import os
 
-from defenitions import ROOT_DIR
+from defenitions import ROOT_DIR, SUPPORTED_METHODS
 
 
 class Page:
@@ -20,7 +20,7 @@ class Page:
 
         handler = config_description.get('handler') or {}
         self.handler_path = handler.get('source')
-        methods = ['GET', 'POST', 'OPTIONS']
+        methods = SUPPORTED_METHODS
         for method in methods:
             method = method.lower()
             self.func_names[method] = handler.get(method)
