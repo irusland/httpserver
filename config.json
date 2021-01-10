@@ -31,6 +31,14 @@
         "options": "preflight"
       }
     },
+    "/customer/[id]": {
+      "handler": {
+        "source": "handlers/customer.py",
+        "get": "get",
+        "post": "post",
+        "options": "preflight"
+      }
+    },
     "/books/[id]": {
       "handler": {
         "source": "handlers/api.py",
@@ -38,7 +46,70 @@
         "options": "preflight",
         "delete": "delete"
       }
-    }
+    },
+
+    "/users": {
+      "handler": {
+        "source": "handlers/users_api.py",
+        "get": "get",
+        "options": "preflight"
+      }
+    },
+    "/restaurants": {
+      "handler": {
+        "source": "handlers/restaurants_api.py",
+        "get": "get_restaurants",
+        "options": "preflight"
+      }
+    },
+
+    "/restaurants/data": {
+      "handler": {
+        "source": "handlers/restaurants_api.py",
+        "get": "get_restaurant",
+        "options": "preflight"
+      }
+    },
+
+    "/restaurants/[picture]": {
+      "handler": {
+        "source": "handlers/restaurants_api.py",
+        "get": "get_picture",
+        "options": "preflight"
+      }
+    },
+
+    "/orders": {
+      "handler": {
+        "source": "handlers/orders_api.py",
+        "post": "order",
+        "options": "preflight"
+      }
+    },
+
+    "/orders/accept-[hash]": {
+      "handler": {
+        "source": "handlers/orders_api.py",
+        "get": "validate",
+        "options": "preflight"
+      }
+    },
+
+    "/orders/[order_id]": {
+      "handler": {
+        "source": "handlers/orders_api.py",
+        "get": "get_info",
+        "options": "preflight"
+      }
+    },
+
+    "/otherimg": {
+      "handler": {
+        "source": "handlers/customer.py",
+        "get": "img"
+      }
+    },
+    "/favicon.ico": "source/picutres/rest1.png"
   },
   "error-pages": {
     "PAGE_NOT_FOUND": "pages/PAGE_NOT_FOUND.html"
