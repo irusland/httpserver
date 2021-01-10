@@ -1,5 +1,5 @@
 {
-  "host": "10.129.0.31",
+  "host": "0.0.0.0",
   "port": 8000,
   "rules": {
     "/": "pages/index.html",

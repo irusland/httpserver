@@ -56,6 +56,7 @@ class Server:
 
     def __enter__(self):
         self.server.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, 1)
+        print(self.address)
         self.server.bind(self.address)
         self.server.listen()
         self.server.setblocking(False)
