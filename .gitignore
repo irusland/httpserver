@@ -14,3 +14,4 @@ __pycache__/
 .idea/
 node_modules
 source
+.DS_Store
