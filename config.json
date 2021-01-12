@@ -82,6 +82,7 @@
     "/orders": {
       "handler": {
         "source": "handlers/orders_api.py",
+        "get": "get_all",
         "post": "order",
         "options": "preflight"
       }

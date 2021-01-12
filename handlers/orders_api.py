@@ -1,13 +1,11 @@
 import json
-import time
 import uuid
+from email.mime.text import MIMEText
 
 from backend.request import Request
 from backend.response import Response
 
-from urllib.parse import parse_qs
-
-from handlers import users_api
+from handlers import users_api, email_sender
 
 
 class Order:
@@ -44,7 +42,7 @@ def order(req: Request, server):
     body = req.body_file.read()
     body = Request.decode(body)
     order_data = json.loads(body)
-    orderer = None
+    orderer: users_api.User = None
     for user in users_api.USERS:
         if user.email == order_data['email']:
             orderer = user
@@ -55,8 +53,20 @@ def order(req: Request, server):
                       order_data['comment'])
     ORDERS.append(new_order)
 
-    # todo send to email
-    print(new_order, f'/orders/{new_order.validation_url}')
+    address = '0.0.0.0:8000'
+    link = f'http://{address}/orders/{new_order.validation_url}'
+    html = f"""\
+        <html>
+          <body>
+            <p>Hello, to confirm your reservation press 
+            <a href="{link}">CONFIRM</a>
+            </p>
+          </body>
+        </html>
+        """
+    mimetext = MIMEText(html, "html")
+    print(new_order.user.email)
+    email_sender.send(new_order.user.email, mimetext)
 
     body = json.dumps({
         'id': new_order.id,
@@ -80,13 +90,21 @@ def validate(req: Request, server):
             o.is_validated = True
             target_order = o
             break
-    body = json.dumps({'status': 'FAILED', 'reason': 'order_not_found'}).encode()
-    if target_order:
-        body = json.dumps({'is_validated': target_order.is_validated}).encode()
-
+    body = f'ok'.encode()
     headers = [
         ('Content-Type', f'application/json'),
-        ('Content-Disposition', f'inline; filename=Get posts'),
+        ('Content-Disposition', f'inline; filename=Post'),
+        ('Content-Length', len(body)),
+        ('Location', 'http://0.0.0.0:8080/check'),
+    ]
+    return Response(301, 'Moved Permanently', headers, body)
+
+
+def get_all(req: Request, server):
+    body = json.dumps([o.dump() for o in ORDERS]).encode()
+    headers = [
+        ('Content-Type', f'application/json'),
+        ('Content-Disposition', f'inline; filename=json'),
         ('Content-Length', len(body)),
         ["Access-Control-Allow-Origin", '*']
     ]
@@ -96,7 +114,6 @@ def validate(req: Request, server):
 def get_info(req: Request, server):
     order_id = req.path.split('/')[-1]
     print(order_id)
-    print([o.dump() for o in ORDERS])
     target_order: Order = None
     for o in ORDERS:
         if o.id == order_id:
