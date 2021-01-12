@@ -95,7 +95,7 @@ def validate(req: Request, server):
         ('Content-Type', f'application/json'),
         ('Content-Disposition', f'inline; filename=Post'),
         ('Content-Length', len(body)),
-        ('Location', 'http://0.0.0.0:8080/check'),
+        ('Location', 'http://84.201.140.142:8080/check'),
     ]
     return Response(301, 'Moved Permanently', headers, body)
 
