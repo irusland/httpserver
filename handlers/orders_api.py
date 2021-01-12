@@ -53,7 +53,7 @@ def order(req: Request, server):
                       order_data['comment'])
     ORDERS.append(new_order)
 
-    address = '0.0.0.0:8000'
+    address = '84.201.140.142:8000'
     link = f'http://{address}/orders/{new_order.validation_url}'
     html = f"""\
         <html>
