@@ -93,10 +93,19 @@ def validate(req: Request, server):
     return Response(200, 'OK', headers, body)
 
 
+def get_all(req: Request, server):
+    body = json.dumps([o.dump() for o in ORDERS]).encode()
+    headers = [
+        ('Content-Type', f'application/json'),
+        ('Content-Disposition', f'inline; filename=json'),
+        ('Content-Length', len(body)),
+        ["Access-Control-Allow-Origin", '*']
+    ]
+    return Response(200, 'OK', headers, body)
+
 def get_info(req: Request, server):
     order_id = req.path.split('/')[-1]
     print(order_id)
-    print([o.dump() for o in ORDERS])
     target_order: Order = None
     for o in ORDERS:
         if o.id == order_id:
