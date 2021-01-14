@@ -85,9 +85,9 @@ class Router:
         try:
             page = self.find_page_description(url, rules)
             path = page.get_abs_handler_path()
-            print(path, page)
             handler_module = self.handlers.get(path)
-            print(self.handlers)
+            if not handler_module:
+                raise Errors.NO_HANDLER
             if req.method in SUPPORTED_METHODS:
                 f_name = page.get_function_name_for_method(req.method)
             else:
@@ -97,14 +97,17 @@ class Router:
                               extra={'url': req.path})
 
             return handler_module.__dict__[f_name]
-        except Errors.METHOD_NOT_SUPPORTED as e:
-            raise e
         except Exception as e:
-            Logger.debug_info(f'Default handler available only {e}',
-                              extra={'url': req.path})
-            module = SourceFileLoader(
-                f'default.handler',
-                os.path.join(FILE_SENDER_PATH)).load_module()
-            return module.handle
+            if e == Errors.METHOD_NOT_SUPPORTED:
+                raise e
+            elif e == Errors.NO_HANDLER:
+                Logger.debug_info(f'Default handler available only {e}',
+                                  extra={'url': req.path})
+                module = SourceFileLoader(
+                    f'default.handler',
+                    os.path.join(FILE_SENDER_PATH)).load_module()
+                return module.handle
+            else:
+                raise e
 
 
