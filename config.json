@@ -110,7 +110,9 @@
         "get": "img"
       }
     },
-    "/favicon.ico": "source/picutres/rest1.png"
+    "/favicon.ico": "source/picutres/rest1.png",
+
+    "/pictures/[picture_name]": "source/picutres/[picture_name]"
   },
   "error-pages": {
     "PAGE_NOT_FOUND": "pages/PAGE_NOT_FOUND.html"

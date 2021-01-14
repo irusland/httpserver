@@ -5,6 +5,7 @@ import socket
 import threading
 import time
 
+from database import Database
 from diskcache import Cache
 
 from backend import errors
@@ -52,6 +53,7 @@ class Server:
         self.router.load_handlers(self.configurator.get_rules())
 
         self.cache = Cache(size_limit=int(cache_max_size))
+        self.database: Database = Database()
 
         self._host = self.configurator.get('host')
         self._port = self.configurator.get('port')

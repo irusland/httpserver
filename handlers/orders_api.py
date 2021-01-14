@@ -4,7 +4,7 @@ from email.mime.text import MIMEText
 
 from backend.request import Request
 from backend.response import Response
-from env.var import BACKEND_ADDRESS
+from env.var import BACKEND_ADDRESS, FRONTEND_ADDRESS
 
 from handlers import users_api, email_sender
 
@@ -96,7 +96,7 @@ def validate(req: Request, server):
         ('Content-Type', f'application/json'),
         ('Content-Disposition', f'inline; filename=Post'),
         ('Content-Length', len(body)),
-        ('Location', 'http://84.201.140.142:8080/check'),
+        ('Location', f'http://{FRONTEND_ADDRESS}/check'),
     ]
     return Response(301, 'Moved Permanently', headers, body)
 
