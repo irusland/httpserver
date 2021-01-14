@@ -1,13 +1,13 @@
 import json
 from email.mime.text import MIMEText
 
-import objects.user
 from backend.request import Request
 from backend.response import Response
 from env.var import BACKEND_ADDRESS, FRONTEND_ADDRESS
 
 from handlers import email_sender
-from objects.order import Order
+from database.objects.order import Order
+from database.objects.user import User
 
 
 def order(req: Request, server):
@@ -18,9 +18,9 @@ def order(req: Request, server):
 
     orderer = server.database.get_user(order_data['email'])
     if orderer:
-        orderer = objects.user.User.from_dict(orderer)
+        orderer = User.from_dict(orderer)
     else:
-        orderer = objects.user.User.from_dict(order_data)
+        orderer = User.from_dict(order_data)
 
     new_order = Order(orderer, order_data['restaurant_id'], order_data['time'],
                       order_data['comment'])

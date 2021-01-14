@@ -1,5 +1,4 @@
 import json
-import uuid
 
 from backend.request import Request
 from backend.response import Response
