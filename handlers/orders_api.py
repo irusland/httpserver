@@ -1,5 +1,4 @@
 import json
-import uuid
 from email.mime.text import MIMEText
 
 import objects.user
@@ -7,36 +6,8 @@ from backend.request import Request
 from backend.response import Response
 from env.var import BACKEND_ADDRESS, FRONTEND_ADDRESS
 
-from handlers import users_api, email_sender
-
-
-class Order:
-    def __init__(self, user, restaurant, time, comment, is_validated=False):
-        self.id = uuid.uuid4().hex
-        self.is_validated = is_validated
-        self.validation_url = f'accept-{uuid.uuid4().hex}{uuid.uuid4().hex}'
-        self.comment = comment
-        self.time = time
-        self.restaurant = restaurant
-        self.user = user
-
-    def __str__(self):
-        return ', '.join(self.dump())
-
-    def __repr__(self):
-        return self.__str__()
-
-    def dump(self):
-        d = dict()
-        for k, v in self.__dict__.items():
-            o = v
-            if hasattr(v, 'dump'):
-                o = v.dump()
-            d[k] = o
-        return d
-
-
-ORDERS = []
+from handlers import email_sender
+from objects.order import Order
 
 
 def order(req: Request, server):
@@ -53,7 +24,8 @@ def order(req: Request, server):
 
     new_order = Order(orderer, order_data['restaurant_id'], order_data['time'],
                       order_data['comment'])
-    ORDERS.append(new_order)
+
+    server.database.add_order(new_order.dump())
 
     address = BACKEND_ADDRESS
     link = f'http://{address}/orders/{new_order.validation_url}'
@@ -85,16 +57,14 @@ def order(req: Request, server):
 
 def validate(req: Request, server):
     accept_uid = req.path.split('/')[-1]
-    target_order: Order = None
-    for o in ORDERS:
-        if o.validation_url == accept_uid:
-            if o.is_validated:
-                break
-            o.is_validated = True
-            user = server.database.get_user(o.user.email)
-            if not user:
-                server.database.add_user(o.user.dump())
-            break
+    found = server.database.get_order({'validation_url': accept_uid})
+    if found and not found['is_validated']:
+        server.database.update_order({'_id': found['_id']}, {'is_validated': True})
+
+        user = server.database.get_user(found['user']['email'])
+        if not user:
+            server.database.add_user(
+                objects.user.User.from_dict(found['user']).dump())
 
     body = f'ok'.encode()
     headers = [
@@ -107,7 +77,8 @@ def validate(req: Request, server):
 
 
 def get_all(req: Request, server):
-    body = json.dumps([o.dump() for o in ORDERS]).encode()
+    orders = [o for o in server.database.get_orders()]
+    body = json.dumps(orders).encode()
     headers = [
         ('Content-Type', f'application/json'),
         ('Content-Disposition', f'inline; filename=json'),
@@ -121,10 +92,9 @@ def get_info(req: Request, server):
     order_id = req.path.split('/')[-1]
     print(order_id)
     target_order: Order = None
-    for o in ORDERS:
-        if o.id == order_id:
-            target_order = o
-            break
+    found = server.database.get_order({'id': order_id})
+    if found:
+        target_order = Order.from_dict(found)
 
     body = json.dumps({'status': 'FAILED', 'reason': 'order_not_found'}).encode()
     if target_order:

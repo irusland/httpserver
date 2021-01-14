@@ -1,7 +1,3 @@
-import uuid
-
-from env.var import BACKEND_ADDRESS
-from handlers.restaurants_api import PICTURES_PATH
 
 
 class Restaurant:

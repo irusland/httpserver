@@ -4,7 +4,6 @@ import uuid
 from backend.request import Request
 from backend.response import Response
 
-PICTURES_PATH = dict()
 
 SUCCESS = {'status': 'success'}
 FAIL = {'status': 'fail'}
@@ -21,20 +20,6 @@ def get_restaurant(req: Request, server):
         ('Content-Disposition', f'inline; filename=Get posts'),
         ('Content-Length', len(body)),
         ["Access-Control-Allow-Origin", '*']
-    ]
-    return Response(200, 'OK', headers, body)
-
-
-def get_picture(req: Request, server):
-    req_picture = req.path[1:]
-    path = PICTURES_PATH[req_picture]
-    with open(path, 'rb') as f:
-        to_send = f.read()
-    body = to_send
-    headers = [
-        ('Content-Disposition', f'inline; filename={req_picture}'),
-        ('Content-Length', len(body)),
-        ("Access-Control-Allow-Origin", '*')
     ]
     return Response(200, 'OK', headers, body)
 
