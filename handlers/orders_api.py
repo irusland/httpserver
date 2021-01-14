@@ -64,7 +64,7 @@ def validate(req: Request, server):
         user = server.database.get_user(found['user']['email'])
         if not user:
             server.database.add_user(
-                objects.user.User.from_dict(found['user']).dump())
+                User.from_dict(found['user']).dump())
 
     body = f'ok'.encode()
     headers = [
