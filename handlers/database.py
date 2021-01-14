@@ -8,7 +8,6 @@ CONNECT_STRING = (f'mongodb+srv://{LOGIN}:{PASSWORD}'
 
 
 def connect():
-    print(CONNECT_STRING)
     return MongoClient(CONNECT_STRING)
 
 
