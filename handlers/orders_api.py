@@ -2,6 +2,7 @@ import json
 import uuid
 from email.mime.text import MIMEText
 
+import objects.user
 from backend.request import Request
 from backend.response import Response
 from env.var import BACKEND_ADDRESS, FRONTEND_ADDRESS
@@ -43,12 +44,12 @@ def order(req: Request, server):
     body = req.body_file.read()
     body = Request.decode(body)
     order_data = json.loads(body)
-    orderer: users_api.User = None
-    for user in users_api.USERS:
-        if user.email == order_data['email']:
-            orderer = user
-    if not orderer:
-        orderer = users_api.User(order_data['email'], order_data['name'])
+
+    orderer = server.database.get_user(order_data['email'])
+    if orderer:
+        orderer = objects.user.User.from_dict(orderer)
+    else:
+        orderer = objects.user.User.from_dict(order_data)
 
     new_order = Order(orderer, order_data['restaurant_id'], order_data['time'],
                       order_data['comment'])
@@ -66,7 +67,6 @@ def order(req: Request, server):
         </html>
         """
     mimetext = MIMEText(html, "html")
-    print(new_order.user.email)
     email_sender.send(new_order.user.email, mimetext)
 
     body = json.dumps({
@@ -88,9 +88,14 @@ def validate(req: Request, server):
     target_order: Order = None
     for o in ORDERS:
         if o.validation_url == accept_uid:
+            if o.is_validated:
+                break
             o.is_validated = True
-            target_order = o
+            user = server.database.get_user(o.user.email)
+            if not user:
+                server.database.add_user(o.user.dump())
             break
+
     body = f'ok'.encode()
     headers = [
         ('Content-Type', f'application/json'),
@@ -123,7 +128,13 @@ def get_info(req: Request, server):
 
     body = json.dumps({'status': 'FAILED', 'reason': 'order_not_found'}).encode()
     if target_order:
-        body = json.dumps(dict(filter(lambda x: x[0] != 'validation_url', target_order.dump().items()))).encode()
+        body = json.dumps(
+            dict(
+                filter(
+                    lambda x: x[0] not in ['validation_url', '_id'],
+                    target_order.dump().items()
+                )
+            )).encode()
 
     headers = [
         ('Content-Type', f'application/json'),

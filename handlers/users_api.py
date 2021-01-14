@@ -1,37 +1,20 @@
 import json
-import uuid
 
-from backend.logger import Logger
 from backend.request import Request
 from backend.response import Response
 
 
-class User:
-    def __init__(self, email, name):
-        self.name = name
-        self.email = email
-
-    def dump(self):
-        return self.__dict__
-
-
-USERS = [
-    User('ruslansirazhetdinov@gmail.com', 'Rusland'),
-]
 SUCCESS = {'status': 'success'}
 FAIL = {'status': 'fail'}
 
 
 def get(req: Request, server):
     email = req.query['email'][0]
-    print(email)
-
     body = f'{json.dumps(FAIL)}'.encode()
-    for i, user in enumerate(USERS):
-        if user.email == email:
-            SUCCESS.update({'name': user.name})
-            body = f'{json.dumps(SUCCESS)}'.encode()
-            break
+    found = server.database.get_user(email)
+    if found:
+        SUCCESS.update({'name': found.get('name')})
+        body = f'{json.dumps(SUCCESS)}'.encode()
 
     headers = [
         ('Content-Type', f'application/json'),

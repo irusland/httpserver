@@ -2,6 +2,7 @@ import uuid
 
 from objects.restaurant import Restaurant
 import database
+from objects.user import User
 
 RESTAURANTS = [
     Restaurant(uuid.uuid4().hex,
@@ -17,7 +18,7 @@ RESTAURANTS = [
                ['https://www.irishtimes.com/image-creator/?id=1.3898155&origw=1440']),
     Restaurant(uuid.uuid4().hex,
                '52 Broadway',
-               '<h1>no  restaurant description without picture ...</h1>',
+               'Restaurant description without picture ...',
                ('11:00', '23:00'),),
     Restaurant(uuid.uuid4().hex,
                '84th Street station',
@@ -26,12 +27,18 @@ RESTAURANTS = [
                available=False),
 ]
 
+USERS = [
+    User('ruslansirazhetdinov@gmail.com', 'Rusland'),
+]
+
 
 def main():
     manager = database.Database()
     for restaurant in RESTAURANTS:
         manager.add_restaurant(restaurant.dump_all())
 
+    for user in USERS:
+        manager.add_user(user.dump())
 
 if __name__ == '__main__':
     main()

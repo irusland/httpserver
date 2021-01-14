@@ -41,7 +41,6 @@ def get_picture(req: Request, server):
 
 def get_restaurants(req: Request, server):
     restaurants = server.database.get_restaurants()
-    print(restaurants)
     body = (f'{json.dumps(restaurants)}'.encode())
     headers = [
         ('Content-Type', f'application/json'),

@@ -9,6 +9,7 @@ CONNECT_STRING = (f'mongodb+srv://{LOGIN}:{PASSWORD}'
 
 class Database:
     RESTAURANT_TABLE = 'restaurants'
+    USER_TABLE = 'users'
 
     def __init__(self):
         self.db = self.connect()
@@ -30,6 +31,16 @@ class Database:
     def get_restaurants(self):
         restaurants = self.db[self.RESTAURANT_TABLE]
         return list(restaurants.find())
+
+    def add_user(self, user):
+        users = self.db[self.USER_TABLE]
+        id = self._insert_document(users, user)
+        return id
+
+    def get_user(self, email):
+        users = self.db[self.USER_TABLE]
+        found = self._find_document(users, {'email': email})
+        return found
 
     def _insert_document(self, collection, data):
         return collection.insert_one(data).inserted_id
