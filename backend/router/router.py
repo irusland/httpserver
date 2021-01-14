@@ -90,16 +90,17 @@ class Router:
                 f_name = page.get_function_name_for_method(req.method)
             else:
                 raise Errors.METHOD_NOT_SUPPORTED
+            if not handler_module:
+                Logger.debug_info(f'Default handler available only',
+                                  extra={'url': req.path})
+                module = SourceFileLoader(
+                    f'default.handler',
+                    os.path.join(FILE_SENDER_PATH)).load_module()
+                return module.handle
             Logger.debug_info(f'Custom handler found: {f_name}(...) in '
                               f'{handler_module.__dict__["__file__"]}',
                               extra={'url': req.path})
+
             return handler_module.__dict__[f_name]
         except Errors.METHOD_NOT_SUPPORTED as e:
             raise e
-        except Exception as e:
-            Logger.debug_info(f'Default handler available only {e}',
-                              extra={'url': req.path})
-            module = SourceFileLoader(
-                f'default.handler',
-                os.path.join(FILE_SENDER_PATH)).load_module()
-            return module.handle
