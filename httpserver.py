@@ -5,7 +5,7 @@ import socket
 import threading
 import time
 
-from database import Database
+from database.mongodb import Database
 from diskcache import Cache
 
 from backend import errors
