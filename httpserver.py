@@ -9,14 +9,17 @@ from diskcache import Cache
 
 from backend import errors
 from backend.configurator import Configurator
-from defenitions import CONFIG_PATH, LOGGER_PATH, LOG_DEBUG_PATH
+from defenitions import CONFIG_PATH
 from backend.router.router import Router
 
 from backend.request import Request
 from backend.response import Response
 from backend.errors import Errors, KeepAliveExpire
-
 from backend.logger import Logger, LogLevel
+
+import env.var
+import env.dev
+import env.prod
 
 
 class Server:
@@ -30,10 +33,18 @@ class Server:
                  refresh_rate=0.1,
                  cache_max_size=4e9,
                  server_log=None,
-                 debug_log=None):
+                 debug_log=None,
+                 is_dev=False):
 
         Logger.configure(level=loglevel, info_path=server_log,
                          debug_path=debug_log)
+
+        Logger.debug_info(f'Running in '
+                          f'{"DEVELOPMENT" if is_dev else "PRODUCTION"} mode')
+        for name in dir(env.var):
+            if not name.startswith("__"):
+                env.var.__dict__[name] = \
+                    (env.dev if is_dev else env.prod).__dict__[name]
 
         self.configurator = Configurator(config)
 
@@ -56,7 +67,6 @@ class Server:
 
     def __enter__(self):
         self.server.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, 1)
-        print(self.address)
         self.server.bind(self.address)
         self.server.listen()
         self.server.setblocking(False)
@@ -198,10 +208,16 @@ if __name__ == '__main__':
                         help='Specify debug logger file path',
                         default=None)
 
+    parser.add_argument('--dev',
+                        help='Specifies development mode',
+                        action='store_true',
+                        default=False)
+
     args = parser.parse_args()
 
     server = Server(config=args.config, loglevel=args.loglevel,
                     server_log=args.server_log,
-                    debug_log=args.debug_log)
+                    debug_log=args.debug_log,
+                    is_dev=args.dev)
     with server as s:
         s.serve()

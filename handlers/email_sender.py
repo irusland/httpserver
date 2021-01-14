@@ -2,11 +2,12 @@ import smtplib
 import ssl
 from email.mime.multipart import MIMEMultipart
 from email.mime.text import MIMEText
-from secret_tokens.email_secret import PASSWORD
+from secret_tokens.email_secret import LOGIN, PASSWORD
+from env.var import BACKEND_ADDRESS
 
 
 def send(receiver_email, body: MIMEText):
-    sender_email = "ruslangamechannel@gmail.com"
+    sender_email = LOGIN
     message = MIMEMultipart("alternative")
     message["Subject"] = "Restaurant reservation"
     message["From"] = sender_email
@@ -26,7 +27,7 @@ def send(receiver_email, body: MIMEText):
 
 if __name__ == '__main__':
     validation_url = 'asd'
-    link = f'http://0.0.0.0:8000/orders/{validation_url}'
+    link = f'http://{BACKEND_ADDRESS}/orders/{validation_url}'
     html = f"""\
     <html>
       <body>

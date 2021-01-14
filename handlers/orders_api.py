@@ -4,6 +4,7 @@ from email.mime.text import MIMEText
 
 from backend.request import Request
 from backend.response import Response
+from env.var import BACKEND_ADDRESS
 
 from handlers import users_api, email_sender
 
@@ -53,7 +54,7 @@ def order(req: Request, server):
                       order_data['comment'])
     ORDERS.append(new_order)
 
-    address = '84.201.140.142:8000'
+    address = BACKEND_ADDRESS
     link = f'http://{address}/orders/{new_order.validation_url}'
     html = f"""\
         <html>
