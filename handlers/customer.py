@@ -2,7 +2,7 @@ import json
 import uuid
 
 from backend.logger import Logger
-from backend.request import Request
+from backend.requests.request import Request
 from backend.response import Response
 
 TO_SEND = {"Name": "Adam", "Id": 13, "Rank": 1}

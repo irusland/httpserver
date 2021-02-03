@@ -2,7 +2,7 @@ import os
 import re
 
 from backend.errors import Errors
-from backend.request import Request
+from backend.requests.request import Request
 from backend.router.page import Page
 from defenitions import ROOT_DIR, FILE_SENDER_PATH, SUPPORTED_METHODS
 from importlib.machinery import SourceFileLoader

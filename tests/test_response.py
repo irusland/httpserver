@@ -2,7 +2,7 @@ import socket
 import tempfile
 import unittest
 
-from backend.request import Request
+from backend.requests.request import Request
 from backend.response import Response
 
 

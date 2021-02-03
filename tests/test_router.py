@@ -4,7 +4,7 @@ import re
 from tempfile import NamedTemporaryFile
 
 from backend.configurator import Configurator
-from tests.defenitions import TEST_DATA_DIR, get_config
+from defenitions_for_test import TEST_DATA_DIR, get_config
 from backend.router.router import Router
 
 

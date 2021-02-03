@@ -13,7 +13,7 @@ from backend.configurator import Configurator
 from defenitions import CONFIG_PATH
 from backend.router.router import Router
 
-from backend.request import Request
+from backend.requests.request import Request
 from backend.response import Response
 from backend.errors import Errors, KeepAliveExpire
 from backend.logger import Logger, LogLevel

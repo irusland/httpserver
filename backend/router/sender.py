@@ -4,7 +4,7 @@ import magic
 
 from backend.errors import Errors
 from backend.logger import Logger
-from backend.request import Request
+from backend.requests.request import Request
 from backend.response import Response
 from httpserver import Server
 

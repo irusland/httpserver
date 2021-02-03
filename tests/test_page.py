@@ -25,10 +25,10 @@ class PageTest(unittest.TestCase):
                                       description
                                       .get("handler")
                                       .get("source")))
-        self.assertEqual(page.get_get_func_name(), description.get(
-            "handler").get("get"))
-        self.assertEqual(page.get_post_func_name(), description.get(
-            "handler").get("post"))
+        self.assertEqual(page.get_function_name_for_method("get"),
+                         description.get("handler").get("get"))
+        self.assertEqual(page.get_function_name_for_method("post"),
+                         description.get("handler").get("post"))
 
 
 if __name__ == '__main__':

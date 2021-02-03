@@ -1,7 +1,7 @@
 import json
 from email.mime.text import MIMEText
 
-from backend.request import Request
+from backend.requests.request import Request
 from backend.response import Response
 from env.var import BACKEND_ADDRESS, FRONTEND_ADDRESS
 

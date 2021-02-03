@@ -11,9 +11,9 @@ from backend.configurator import Configurator
 from backend.response import Response
 from backend.stopper import AsyncStopper
 from defenitions import CONFIG_PATH
-from tests.defenitions import TEST_DATA_DIR, get_config
+from defenitions_for_test import TEST_DATA_DIR, get_config
 from backend.logger import LogLevel
-from backend.request import Request
+from backend.requests.request import Request
 from httpserver import Server
 
 
@@ -114,21 +114,6 @@ class ServerTests(unittest.TestCase):
             self.assertTrue(res)
             server.shutdown()
 
-    def test_serving(self):
-        server = self.make_server()
-        request_task = multiprocessing.Process(
-            target=self.send_req_and_shutdown,
-            args=(server,))
-
-        with server as s:
-            request_task.start()
-            try:
-                with AsyncStopper(2):
-                    s.serve()
-            except StopIteration:
-                pass
-        request_task.terminate()
-
     def test_close(self):
         server = self.make_server()
         with server as s:
@@ -153,11 +138,6 @@ class ServerTests(unittest.TestCase):
 
         def sendall(self, data):
             self.recvd += data
-
-    def test_write(self):
-        w, c = ServerTests.MockWrite(), ServerTests.MockClient()
-        Server._write(w, c)
-        self.assertEqual(c.recvd, b'buff')
 
     def test_get_picture(self):
         req_line = b'GET /c.png HTTP/1.1\r\n' \
