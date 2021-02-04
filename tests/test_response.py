@@ -2,8 +2,8 @@ import socket
 import tempfile
 import unittest
 
-from backend.requests.request import Request
-from backend.response import Response
+from package.backend.requests.request import Request
+from package.backend.response import Response
 
 
 class SockMock:

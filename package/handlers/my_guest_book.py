@@ -1,8 +1,8 @@
 import json
 from urllib.parse import parse_qs
 
-from backend.requests.request import Request
-from backend.response import Response
+from package.backend.requests.request import Request
+from package.backend.response import Response
 
 POSTS = [{"username": "Ruslan", "post": "Post"}]
 

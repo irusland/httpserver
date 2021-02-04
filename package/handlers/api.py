@@ -1,9 +1,9 @@
 import json
 import uuid
 
-from backend.logger import Logger
-from backend.requests.request import Request
-from backend.response import Response
+from package.backend.logger import Logger
+from package.backend.requests.request import Request
+from package.backend import Response
 
 BOOKS = [
     {

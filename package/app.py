@@ -2,9 +2,9 @@ from functools import wraps
 import random
 from typing import Tuple, Any
 
-from backend.requests.request import Request
-from backend.response import Response
-from backend.requests.methods import Method
+from package.backend.requests.request import Request
+from package.backend import Response
+from package.backend.requests.methods import Method
 
 
 supported_methods = {'GET', 'POST', 'OPTIONS'}

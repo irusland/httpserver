@@ -10,13 +10,13 @@
     "/request": "source/request/to_server.html",
     "/api/[path]": {
       "handler": {
-        "source": "handlers/api.py",
+        "source": "package/handlers/api.py",
         "get": "get"
       }
     },
     "/ping": {
       "handler": {
-        "source": "handlers/api.py",
+        "source": "package/handlers/api.py",
         "get": "get"
       },
       "headers": [
@@ -25,7 +25,7 @@
     },
     "/books": {
       "handler": {
-        "source": "handlers/api.py",
+        "source": "package/handlers/api.py",
         "get": "get",
         "post": "post",
         "options": "preflight"
@@ -33,7 +33,7 @@
     },
     "/customer/[id]": {
       "handler": {
-        "source": "handlers/customer.py",
+        "source": "package/handlers/customer.py",
         "get": "get",
         "post": "post",
         "options": "preflight"
@@ -41,7 +41,7 @@
     },
     "/books/[id]": {
       "handler": {
-        "source": "handlers/api.py",
+        "source": "package/handlers/api.py",
         "put": "put",
         "options": "preflight",
         "delete": "delete"
@@ -50,14 +50,14 @@
 
     "/users": {
       "handler": {
-        "source": "handlers/users_api.py",
+        "source": "package/handlers/users_api.py",
         "get": "get",
         "options": "preflight"
       }
     },
     "/restaurants": {
       "handler": {
-        "source": "handlers/restaurants_api.py",
+        "source": "package/handlers/restaurants_api.py",
         "get": "get_restaurants",
         "options": "preflight"
       }
@@ -65,7 +65,7 @@
 
     "/restaurants/data": {
       "handler": {
-        "source": "handlers/restaurants_api.py",
+        "source": "package/handlers/restaurants_api.py",
         "get": "get_restaurant",
         "options": "preflight"
       }
@@ -73,7 +73,7 @@
 
     "/restaurants/[picture]": {
       "handler": {
-        "source": "handlers/restaurants_api.py",
+        "source": "package/handlers/restaurants_api.py",
         "get": "get_picture",
         "options": "preflight"
       }
@@ -81,7 +81,7 @@
 
     "/orders": {
       "handler": {
-        "source": "handlers/orders_api.py",
+        "source": "package/handlers/orders_api.py",
         "get": "get_all",
         "post": "order",
         "options": "preflight"
@@ -90,7 +90,7 @@
 
     "/orders/accept-[hash]": {
       "handler": {
-        "source": "handlers/orders_api.py",
+        "source": "package/handlers/orders_api.py",
         "get": "validate",
         "options": "preflight"
       }
@@ -98,7 +98,7 @@
 
     "/orders/[order_id]": {
       "handler": {
-        "source": "handlers/orders_api.py",
+        "source": "package/handlers/orders_api.py",
         "get": "get_info",
         "options": "preflight"
       }
@@ -106,7 +106,7 @@
 
     "/otherimg": {
       "handler": {
-        "source": "handlers/customer.py",
+        "source": "package/handlers/customer.py",
         "get": "img"
       }
     },

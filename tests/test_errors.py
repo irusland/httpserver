@@ -2,13 +2,10 @@ import os
 import unittest
 import random
 
-from backend import errors
-from backend.configurator import Configurator
+from package.backend import errors
+from package.backend.configurator import Configurator
 from defenitions import ROOT_DIR
-from defenitions_for_test import get_config
-
-from tests.test_router import PathFinderTests
-from backend.errors import Error
+from tests.defenitions_for_test import get_config
 
 
 class SockMock:

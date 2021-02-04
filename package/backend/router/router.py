@@ -1,13 +1,13 @@
 import os
 import re
 
-from backend.errors import Errors
-from backend.requests.request import Request
-from backend.router.page import Page
+from package.backend.errors import Errors
+from package.backend.requests.request import Request
+from package.backend.router.page import Page
 from defenitions import ROOT_DIR, FILE_SENDER_PATH, SUPPORTED_METHODS
 from importlib.machinery import SourceFileLoader
 
-from backend.logger import Logger
+from package.backend.logger import Logger
 
 
 class Router:

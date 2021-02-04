@@ -1,6 +1,5 @@
-from backend.configurator import Configurator
-from backend.logger import Logger
-from backend.response import Response
+from package.backend.logger import Logger
+from package.backend.response import Response
 
 
 class Error(Exception):

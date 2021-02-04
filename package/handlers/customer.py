@@ -1,9 +1,9 @@
 import json
 import uuid
 
-from backend.logger import Logger
-from backend.requests.request import Request
-from backend.response import Response
+from package.backend.logger import Logger
+from package.backend.requests.request import Request
+from package.backend import Response
 
 TO_SEND = {"Name": "Adam", "Id": 13, "Rank": 1}
 
@@ -24,7 +24,7 @@ def get(req: Request, server):
 
 
 def img(req: Request, server):
-    with open('/Users/irusland/Desktop/UrFU/python/httpserver/schema.jpg','rb') as f:
+    with open('/schema.jpg', 'rb') as f:
         to_send = f.read()
     body = to_send
     headers = [

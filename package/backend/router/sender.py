@@ -2,11 +2,11 @@ import urllib
 
 import magic
 
-from backend.errors import Errors
-from backend.logger import Logger
-from backend.requests.request import Request
-from backend.response import Response
-from httpserver import Server
+from package.backend.errors import Errors
+from package.backend.logger import Logger
+from package.backend.requests.request import Request
+from package.backend.response import Response
+from package.httpserver import Server
 
 
 EXPIRE = 1

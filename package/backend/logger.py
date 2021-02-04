@@ -2,8 +2,6 @@ import logging
 import sys
 from enum import Enum
 
-from defenitions import LOGGER_PATH, LOG_DEBUG_PATH
-
 
 class LogLevel(Enum):
     CONSOLE = 0

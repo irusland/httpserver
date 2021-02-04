@@ -1,11 +1,11 @@
 import json
 from email.mime.text import MIMEText
 
-from backend.requests.request import Request
-from backend.response import Response
+from package.backend.requests.request import Request
+from package.backend import Response
 from env.var import BACKEND_ADDRESS, FRONTEND_ADDRESS
 
-from handlers import email_sender
+from package.handlers import email_sender
 from database.objects.order import Order
 from database.objects.user import User
 

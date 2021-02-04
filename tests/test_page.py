@@ -1,7 +1,7 @@
 import os
 import unittest
 
-from backend.router.page import Page
+from package.backend.router.page import Page
 from defenitions import ROOT_DIR
 
 

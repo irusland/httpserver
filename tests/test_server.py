@@ -1,20 +1,18 @@
 import io
 import json
-import multiprocessing
 import os
 import socket
 import tempfile
 import time
 import unittest
 
-from backend.configurator import Configurator
-from backend.response import Response
-from backend.stopper import AsyncStopper
+from package.backend.configurator import Configurator
+from package.backend.response import Response
 from defenitions import CONFIG_PATH
-from defenitions_for_test import TEST_DATA_DIR, get_config
-from backend.logger import LogLevel
-from backend.requests.request import Request
-from httpserver import Server
+from tests.defenitions_for_test import TEST_DATA_DIR, get_config
+from package.backend.logger import LogLevel
+from package.backend.requests.request import Request
+from package.httpserver import Server
 
 
 class ServerTests(unittest.TestCase):
@@ -34,7 +32,7 @@ class ServerTests(unittest.TestCase):
             s.serve()
 
     def make_server(self):
-        from httpserver import Server
+        from package.httpserver import Server
         return Server(config=self.cfg_path, loglevel=LogLevel.CONSOLE)
 
     def process_req(self, req):

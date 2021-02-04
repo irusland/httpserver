@@ -1,11 +1,10 @@
 import os
 import unittest
-import re
 from tempfile import NamedTemporaryFile
 
-from backend.configurator import Configurator
-from defenitions_for_test import TEST_DATA_DIR, get_config
-from backend.router.router import Router
+from package.backend.configurator import Configurator
+from tests.defenitions_for_test import TEST_DATA_DIR, get_config
+from package.backend.router.router import Router
 
 
 class PathFinderTests(unittest.TestCase):

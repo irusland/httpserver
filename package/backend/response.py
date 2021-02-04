@@ -3,7 +3,7 @@ import socket
 import time
 from collections import OrderedDict
 
-from backend.logger import Logger
+from package.backend.logger import Logger
 
 
 class Response:

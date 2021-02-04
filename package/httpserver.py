@@ -8,15 +8,15 @@ import time
 from database.mongodb import Database
 from diskcache import Cache
 
-from backend import errors
-from backend.configurator import Configurator
+from package.backend import errors
+from package.backend.configurator import Configurator
 from defenitions import CONFIG_PATH
-from backend.router.router import Router
+from package.backend.router.router import Router
 
-from backend.requests.request import Request
-from backend.response import Response
-from backend.errors import Errors, KeepAliveExpire
-from backend.logger import Logger, LogLevel
+from package.backend.requests.request import Request
+from package.backend.response import Response
+from package.backend.errors import Errors, KeepAliveExpire
+from package.backend.logger import Logger, LogLevel
 
 import env.var
 import env.dev
