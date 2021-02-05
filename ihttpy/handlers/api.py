@@ -3,7 +3,7 @@ import uuid
 
 from ihttpy.backend.logger import Logger
 from ihttpy.backend.requests.request import Request
-from ihttpy.backend import Response
+from ihttpy.backend.response import Response
 
 BOOKS = [
     {

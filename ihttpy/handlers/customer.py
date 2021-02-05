@@ -3,7 +3,7 @@ import uuid
 
 from ihttpy.backend.logger import Logger
 from ihttpy.backend.requests.request import Request
-from ihttpy.backend import Response
+from ihttpy.backend.response import Response
 
 TO_SEND = {"Name": "Adam", "Id": 13, "Rank": 1}
 

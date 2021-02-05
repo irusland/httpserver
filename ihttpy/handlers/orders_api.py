@@ -2,7 +2,7 @@ import json
 from email.mime.text import MIMEText
 
 from ihttpy.backend.requests.request import Request
-from ihttpy.backend import Response
+from ihttpy.backend.response import Response
 from env.var import BACKEND_ADDRESS, FRONTEND_ADDRESS
 
 from ihttpy.handlers import email_sender
