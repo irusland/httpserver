@@ -1,0 +1,120 @@
+{
+  "host": "0.0.0.0",
+  "port": 8000,
+  "rules": {
+    "/": "pages/index.html",
+    "[any_path]/page-load-errors[extras].css": {
+      "path": "pages/page-load-errors[extras].css",
+      "mime": "text/css"
+    },
+    "/request": "source/request/to_server.html",
+    "/api/[path]": {
+      "handler": {
+        "source": "ihttpy/handlers/api.py",
+        "get": "get"
+      }
+    },
+    "/ping": {
+      "handler": {
+        "source": "ihttpy/handlers/api.py",
+        "get": "get"
+      },
+      "headers": [
+        ["Access-Control-Allow-Origin", "http://localhost:3000"]
+      ]
+    },
+    "/books": {
+      "handler": {
+        "source": "ihttpy/handlers/api.py",
+        "get": "get",
+        "post": "post",
+        "options": "preflight"
+      }
+    },
+    "/customer/[id]": {
+      "handler": {
+        "source": "ihttpy/handlers/customer.py",
+        "get": "get",
+        "post": "post",
+        "options": "preflight"
+      }
+    },
+    "/books/[id]": {
+      "handler": {
+        "source": "ihttpy/handlers/api.py",
+        "put": "put",
+        "options": "preflight",
+        "delete": "delete"
+      }
+    },
+
+    "/users": {
+      "handler": {
+        "source": "ihttpy/handlers/users_api.py",
+        "get": "get",
+        "options": "preflight"
+      }
+    },
+    "/restaurants": {
+      "handler": {
+        "source": "ihttpy/handlers/restaurants_api.py",
+        "get": "get_restaurants",
+        "options": "preflight"
+      }
+    },
+
+    "/restaurants/data": {
+      "handler": {
+        "source": "ihttpy/handlers/restaurants_api.py",
+        "get": "get_restaurant",
+        "options": "preflight"
+      }
+    },
+
+    "/restaurants/[picture]": {
+      "handler": {
+        "source": "ihttpy/handlers/restaurants_api.py",
+        "get": "get_picture",
+        "options": "preflight"
+      }
+    },
+
+    "/orders": {
+      "handler": {
+        "source": "ihttpy/handlers/orders_api.py",
+        "get": "get_all",
+        "post": "order",
+        "options": "preflight"
+      }
+    },
+
+    "/orders/accept-[hash]": {
+      "handler": {
+        "source": "ihttpy/handlers/orders_api.py",
+        "get": "validate",
+        "options": "preflight"
+      }
+    },
+
+    "/orders/[order_id]": {
+      "handler": {
+        "source": "ihttpy/handlers/orders_api.py",
+        "get": "get_info",
+        "options": "preflight"
+      }
+    },
+
+    "/otherimg": {
+      "handler": {
+        "source": "ihttpy/handlers/customer.py",
+        "get": "img"
+      }
+    },
+    "/favicon.ico": "source/picutres/rest1.png",
+
+    "/pictures/[picture_name]": "source/picutres/[picture_name]"
+  },
+  "error-pages": {
+    "PAGE_NOT_FOUND": "pages/PAGE_NOT_FOUND.html"
+  }
+}
