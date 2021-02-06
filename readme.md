@@ -2,6 +2,8 @@
 
 Server which runs Hyper Text Transport Protocol
 
+![Schema](./schema.jpg)
+
 ## Server parameters
 1) `config=CONFIG_PATH` Specify config file. Will be used in Configurator
  module

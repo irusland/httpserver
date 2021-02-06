@@ -1,21 +1,20 @@
 import os
 import unittest
-import random
 from tempfile import NamedTemporaryFile
 
-from backend.configurator import Configurator
-from defenitions import ROOT_DIR
-from backend.router.router import Router
+from ihttpy.routing.configurator import Configurator
+from tests.defenitions_for_test import TEST_DATA_DIR, get_config
+from ihttpy.routing.router import Router
 
 
 class PathFinderTests(unittest.TestCase):
     def setUp(self):
         self.cfg_file = NamedTemporaryFile(delete=False)
-        self.cfg_file.write(self.CONFIG.encode())
+        self.cfg_file.write(get_config().encode())
         self.cfg_file.close()
         self.configurator = Configurator(self.cfg_file.name)
         self.ruler = Router()
-        self.rules = self.configurator.get('rules')
+        self.rules = self.configurator.get_rules()
 
     def tearDown(self):
         os.unlink(self.cfg_file.name)
@@ -23,8 +22,8 @@ class PathFinderTests(unittest.TestCase):
     def assertDestinationsEqual(self, url, path, rules=None):
         if rules is None:
             rules = self.rules
-        d = self.ruler.get_destination(url, rules, absolute=True)
-        self.assertEqual(path, d)
+        found_file_path = self.ruler.get_destination(url, rules, absolute=True)
+        self.assertEqual(path, found_file_path)
 
     def assertFileNotFound(self, url):
         self.assertRaises(
@@ -32,22 +31,29 @@ class PathFinderTests(unittest.TestCase):
             self.ruler.get_destination,
             *(url, self.rules, True))
 
+    @staticmethod
+    def to_absolute(*relative_path):
+        return os.path.join(TEST_DATA_DIR, *relative_path)
+
     def test_get_abs_path_for_file(self):
         self.assertDestinationsEqual(
             '/index.html',
-            os.path.join(ROOT_DIR, 'tmp/index.html'))
+            self.to_absolute('index.html'))
 
     def test_path_for_file_by_rule(self):
         self.assertDestinationsEqual(
-            '/2.html', os.path.join(ROOT_DIR, 'tmp/pages/2.html'))
+            '/2.html',
+            self.to_absolute('pages', '2.html'))
 
     def test_path_for_file_by_any_rule(self):
         self.assertDestinationsEqual(
-            '/any.html', os.path.join(ROOT_DIR, 'tmp/pages/any.html'))
+            '/any.html',
+            self.to_absolute('pages', 'any.html'))
 
     def test_path_for_file_in_dir(self):
         self.assertDestinationsEqual(
-            '/123.css', os.path.join(ROOT_DIR, 'tmp/pages/css/123.css'))
+            '/123.css',
+            self.to_absolute('pages', 'css', '123.css'))
 
     def test_file_not_found_with_rule(self):
         self.assertFileNotFound('/no.css')
@@ -57,45 +63,31 @@ class PathFinderTests(unittest.TestCase):
 
     def test_name_with_dots(self):
         self.assertDestinationsEqual(
-            '/1.2.3.txt', os.path.join(ROOT_DIR, 'tmp/1.2.3.txt'))
+            '/1.2.3.txt',
+            self.to_absolute('1.2.3.txt'))
 
     def test_rule_with_slash(self):
         self.assertDestinationsEqual(
-            '/', os.path.join(ROOT_DIR, 'tmp/index.html'))
+            '/',
+            self.to_absolute('index.html'))
 
     def test_file_in_folder_request(self):
         self.assertDestinationsEqual(
-            '/pictures/png/1', os.path.join(ROOT_DIR, 'tmp/pictures/1.png'))
+            '/pictures/png/1',
+            self.to_absolute('pictures', '1.png'))
 
     def test_file_with_mime(self):
         url = '/mime/'
         self.assertDestinationsEqual(
             url,
-            os.path.join(ROOT_DIR, 'tmp/pictures/1.png'))
+            self.to_absolute('pictures', '1.png'))
         t = self.ruler.get_type(url, self.rules)
-        self.assertEqual(t, 'text/txt')
+        self.assertEqual('text/txt', t)
 
     def test_space_character(self):
         self.assertDestinationsEqual(
-            '/new page.html', os.path.join(ROOT_DIR, 'tmp/new page.html'))
-
-    CONFIG = r'{"host": "0.0.0.0","port": 8000,"rules": {"/" : ' \
-             r'"tmp/index.html","/favicon.ico" : "tmp/pictures/favicon.ico",' \
-             r'"/index.html" : "tmp/index.html","/page-load-errors[' \
-             r'extras].css": {"path": "pages/page-load-errors[extras].css",' \
-             r'"mime": "text/css"},"/[name].html" : "tmp/pages/[name].html",' \
-             r'"/[name].css" : "tmp/pages/css/[name].css","/[name].[ext]" : ' \
-             r'"tmp/pictures/[name].[ext]","/png/[name].png" : ' \
-             r'"tmp/pictures/[name].png","/pictures/[ext]/1" : ' \
-             r'"tmp/pictures/1.[ext]","/[day]-[n]/[month]/[year]" : ' \
-             r'"tmp/dates/[year]/[month]/[day]/[n].png","/[DD]/[MM]/[YY]" : ' \
-             r'"tmp/dates/[DD].[MM].[YY].png","/mime/" : {"path" : ' \
-             r'"tmp/pictures/1.png","mime" : ' \
-             r'"text/txt"},"/big" : { "path" : ' \
-             r'"tmp/pictures/chroma.jpg", "mime" : "image/jpg" },"/[file].[' \
-             r'ext]" : "tmp/[file].[ext]"},"error-pages":' \
-             r' {"PAGE_NOT_FOUND": ' \
-             r'"pages/PAGE_NOT_FOUND.html"}} '
+            '/new page.html',
+            self.to_absolute('new page.html'))
 
 
 if __name__ == '__main__':

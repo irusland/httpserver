@@ -2,11 +2,10 @@ import os
 import unittest
 import random
 
-from backend import errors
-from backend.configurator import Configurator
+from ihttpy.exceptions import send_error
+from ihttpy.routing.configurator import Configurator
 from defenitions import ROOT_DIR
-from tests.test_router import PathFinderTests
-from backend.errors import Error
+from tests.defenitions_for_test import get_config
 
 
 class SockMock:
@@ -30,7 +29,7 @@ class TestErrorsWithMock(unittest.TestCase):
         self.cfg_path = os.path.join(ROOT_DIR, 'tests',
                                      f'cfg{random.random()}.tmp')
         with open(self.cfg_path, "w") as f:
-            f.write(PathFinderTests.CONFIG)
+            f.write(get_config())
 
         self.configurator = Configurator(self.cfg_path)
         self.rules = self.configurator.get('rules')
@@ -40,7 +39,7 @@ class TestErrorsWithMock(unittest.TestCase):
 
     def test_empty_send(self):
         sock = SockMock()
-        errors.send_error(sock, None, self.configurator)
+        send_error(sock, None, self.configurator)
         self.assertIsNotNone(sock.received)
 
 

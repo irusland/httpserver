@@ -1,6 +1,6 @@
 import unittest
 
-from backend.logger import LogLevel
+from ihttpy.exceptions.logger import LogLevel
 
 
 class TestLogLevel(unittest.TestCase):
