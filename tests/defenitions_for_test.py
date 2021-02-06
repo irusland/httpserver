@@ -19,26 +19,26 @@ CONFIG_PATTERN = ('''
     "/save": {
       "handler": {
         "source": "ihttpy/handlers/upload.py",
-        "post": "save"
+        "POST": "save"
       }
     },
     "/show_files": {
       "handler": {
         "source": "ihttpy/handlers/upload.py",
-        "get": "show"
+        "GET": "show"
       }
     },
     "/my_guest_book": "<data_dir>/my_guest_book.html",
     "/posts": {
       "handler": {
         "source": "ihttpy/handlers/my_guest_book.py",
-        "get": "get_posts"
+        "GET": "get_posts"
       }
     },
     "/post": {
       "handler": {
         "source": "ihttpy/handlers/my_guest_book.py",
-        "post": "handle_post"
+        "POST": "handle_post"
       }
     },
     "/c.png": {

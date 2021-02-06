@@ -24,7 +24,6 @@ def index(request: Request, srv: Server = None):
 
 
 if __name__ == '__main__':
-    configure.run(address='0.0.0.0', port=8080)
     configure.host = '0.0.0.0'
     configure.port = 8080
     server = Server(

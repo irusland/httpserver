@@ -10,14 +10,14 @@ class PageTest(unittest.TestCase):
         description = {
             "handler": {
                 "source": "infrastructure/routing/handlers/my_guest_book.py",
-                "get": "get_posts",
-                "post": "handle_post",
+                "GET": "get_posts",
+                "POST": "handle_post",
             },
             "path": "path",
             "mime": "mime",
             "headers": "headers"
         }
-        page = Page(description)
+        page = Page(description, {})
         self.assertEqual(page.get_path(), description.get("path"))
         self.assertEqual(page.get_mime(), description.get("mime"))
         self.assertEqual(page.get_abs_handler_path(),
@@ -25,10 +25,11 @@ class PageTest(unittest.TestCase):
                                       description
                                       .get("handler")
                                       .get("source")))
+        print(page)
         self.assertEqual(page.get_function_name_for_method("get"),
-                         description.get("handler").get("get"))
+                         description.get("handler").get("GET"))
         self.assertEqual(page.get_function_name_for_method("post"),
-                         description.get("handler").get("post"))
+                         description.get("handler").get("POST"))
 
 
 if __name__ == '__main__':

@@ -1,4 +1,5 @@
 import inspect
+import json
 import os
 import random
 import typing
@@ -6,6 +7,36 @@ import typing
 from ihttpy.requests.methods import Method
 from ihttpy.requests.request import Request
 from ihttpy.routing.page import Page
+
+
+class Configurator:
+    DEFAULT_FIELDS = ['host', 'port', 'rules', 'error-pages']
+
+    def __init__(self, cfg_path):
+        self.cfg_path = cfg_path
+        self.config = None
+        self.rules: dict[str, Page] = {}
+        self.refresh()
+
+    def refresh(self):
+        with open(self.cfg_path) as cfg:
+            config = json.load(cfg)
+            self.check(config)
+            self.config = config
+            for route, description in self.config.get('rules').items():
+                self.rules[route] = Page(description, {})
+
+    def get_rules(self):
+        return self.rules
+
+    @staticmethod
+    def check(config):
+        for f in Configurator.DEFAULT_FIELDS:
+            if f not in config:
+                raise KeyError(f'Config parsing failed. Field {f} not found')
+
+    def get(self, field):
+        return self.config.get(field)
 
 
 class FluentConfigurator:
@@ -24,28 +55,6 @@ class FluentConfigurator:
 
     def get(self, key):
         return self.__dict__[key]
-
-    def run(self, address='0.0.0.0', port=8080):
-        print('handling', self.rules)
-        for route, page in self.rules.items():
-            req = Request()
-            req.path = route
-            flag = 2 ** random.randint(0, 4)
-            method = Method(flag)
-            print(method.to_simple_str(),
-                  route)
-            if method & Method.SUPPORTED:
-                req.method = method
-            else:
-                a = f'{flag} was not converted'
-                raise Exception(a)
-            handler = page.get_handler(method)
-            if handler:
-                print('>\n', handler(req, None))
-            else:
-                print('>\n', 'failed')
-            print('---------------')
-        pass
 
 
 class ConfiguratorRouteState:

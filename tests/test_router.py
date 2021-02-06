@@ -14,7 +14,7 @@ class PathFinderTests(unittest.TestCase):
         self.cfg_file.close()
         self.configurator = Configurator(self.cfg_file.name)
         self.ruler = Router()
-        self.rules = self.configurator.get('rules')
+        self.rules = self.configurator.get_rules()
 
     def tearDown(self):
         os.unlink(self.cfg_file.name)
@@ -82,7 +82,7 @@ class PathFinderTests(unittest.TestCase):
             url,
             self.to_absolute('pictures', '1.png'))
         t = self.ruler.get_type(url, self.rules)
-        self.assertEqual(t, 'text/txt')
+        self.assertEqual('text/txt', t)
 
     def test_space_character(self):
         self.assertDestinationsEqual(

@@ -33,7 +33,8 @@ class ServerTests(unittest.TestCase):
 
     def make_server(self):
         from ihttpy.httpserver import Server
-        return Server(config=self.cfg_path, loglevel=LogLevel.CONSOLE)
+        cfg = Configurator(self.cfg_path)
+        return Server(configurator=cfg, loglevel=LogLevel.CONSOLE)
 
     def process_req(self, req):
         with self.make_server() as server:

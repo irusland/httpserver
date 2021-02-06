@@ -18,8 +18,7 @@ class Router:
 
     def get_destination(self, url, rules, absolute=True):
         Logger.debug_info(f'Url processing {url}')
-        for key, description in rules.items():
-            page = Page(description)
+        for key, page in rules.items():
             path = page.get_path()
 
             rule = self.to_template(key)
@@ -54,9 +53,8 @@ class Router:
 
     def get_type(self, url, rules):
         if url in self.URL_TO_RULE:
-            description = rules[self.URL_TO_RULE[url]]
-            if isinstance(description, dict):
-                return description.get('mime')
+            page: Page = rules[self.URL_TO_RULE[url]]
+            return page.mime
 
     def load_handlers(self, rules):
         for key, page in rules.items():
@@ -92,7 +90,6 @@ class Router:
                 raise Errors.METHOD_NOT_SUPPORTED
             Logger.debug_info(f'Custom handler found: {f_name}(...) in '
                               f'{handler_module.__dict__["__file__"]}')
-
             return handler_module.__dict__[f_name]
         except Exception as e:
             if e == Errors.METHOD_NOT_SUPPORTED:
