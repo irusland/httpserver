@@ -1,33 +1,9 @@
-from ihttpy.backend.logger import Logger
-from ihttpy.backend.response import Response
-
-
 class Error(Exception):
     def __init__(self, status, reason, body=None, page=None):
         self.status = status
         self.reason = reason
         self.body = body
         self.page = page
-
-
-def send_error(connection, err, config):
-    try:
-        if err.page:
-            with open(config.get("error-pages").get(err.page),
-                      'rb') as p:
-                p = p.read()
-
-            res = [Response.build_err_res(err.status, err.reason, p)]
-        else:
-            res = [Response.build_err_res(
-                err.status, err.reason,
-                (err.body or err.reason).encode('utf-8'))]
-    except AttributeError:
-        res = [Response.build_err_res(500, b'Internal Server Error',
-                                      b'Internal Server Error')]
-    except Exception as e:
-        Logger.error(f'Error during err creation', e)
-    Response.send_response(connection, *res)
 
 
 class Errors(Error):

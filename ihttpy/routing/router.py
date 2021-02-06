@@ -1,13 +1,12 @@
 import os
 import re
 
-from ihttpy.backend.errors import Errors
-from ihttpy.backend.requests.request import Request
-from ihttpy.backend.router.page import Page
+from ihttpy.exceptions.errors import Errors
+from ihttpy.requests.request import Request
+from ihttpy.routing.page import Page
+from ihttpy.exceptions.logger import Logger
 from defenitions import ROOT_DIR, FILE_SENDER_PATH, SUPPORTED_METHODS
 from importlib.machinery import SourceFileLoader
-
-from ihttpy.backend.logger import Logger
 
 
 class Router:
@@ -65,8 +64,8 @@ class Router:
             path = page.get_abs_handler_path()
             if path and path not in self.handlers:
                 try:
-                    module = SourceFileLoader(
-                        f'{key}.handler', path).load_module()
+                    module = SourceFileLoader(f'{key}.handler', path)\
+                        .load_module()
                     self.handlers[path] = module
                     Logger.debug_info(f'Handler {path} imported',
                                       extra={'url': page.get_path()})

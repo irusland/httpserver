@@ -1,7 +1,7 @@
 import os
 import unittest
 
-from ihttpy.backend.router.page import Page
+from ihttpy.routing.page import Page
 from defenitions import ROOT_DIR
 
 
@@ -9,7 +9,7 @@ class PageTest(unittest.TestCase):
     def test_initialisation(self):
         description = {
             "handler": {
-                "source": "backend/router/handlers/my_guest_book.py",
+                "source": "infrastructure/routing/handlers/my_guest_book.py",
                 "get": "get_posts",
                 "post": "handle_post",
             },

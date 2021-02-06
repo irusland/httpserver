@@ -1,7 +1,7 @@
 import json
 
-from ihttpy.backend.requests.request import Request
-from ihttpy.backend.response import Response
+from ihttpy.requests.request import Request
+from ihttpy.requests.response import Response
 
 
 SUCCESS = {'status': 'success'}

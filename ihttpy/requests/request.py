@@ -7,7 +7,7 @@ from urllib.parse import urlparse, parse_qs
 
 import chardet
 
-from ihttpy.backend.logger import Logger
+from ihttpy.exceptions.logger import Logger
 
 
 class Request:

@@ -6,12 +6,12 @@ import tempfile
 import time
 import unittest
 
-from ihttpy.backend.configurator import Configurator
-from ihttpy.backend.response import Response
+from ihttpy.routing.configurator import Configurator
+from ihttpy.requests.response import Response
 from defenitions import CONFIG_PATH
 from tests.defenitions_for_test import TEST_DATA_DIR, get_config
-from ihttpy.backend.logger import LogLevel
-from ihttpy.backend.requests.request import Request
+from ihttpy.exceptions.logger import LogLevel
+from ihttpy.requests.request import Request
 from ihttpy.httpserver import Server
 
 

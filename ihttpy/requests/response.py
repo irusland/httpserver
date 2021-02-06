@@ -3,7 +3,7 @@ import socket
 import time
 from collections import OrderedDict
 
-from ihttpy.backend.logger import Logger
+from ihttpy.exceptions.logger import Logger
 
 
 class Response:

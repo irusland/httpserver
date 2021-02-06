@@ -3,7 +3,7 @@ import ssl
 from email.mime.multipart import MIMEMultipart
 from email.mime.text import MIMEText
 from secret_tokens.email_secret import LOGIN, PASSWORD
-from env.var import BACKEND_ADDRESS
+from ihttpy.environment.var import BACKEND_ADDRESS
 
 
 def send(receiver_email, body: MIMEText):

@@ -2,10 +2,9 @@ from functools import wraps
 import random
 from typing import Tuple, Any
 
-from ihttpy.backend.requests.request import Request
-from ihttpy.backend import Response
-from ihttpy.backend.requests.methods import Method
-
+from ihttpy.requests.request import Request
+from ihttpy.requests.response import Response
+from ihttpy.requests.methods import Method
 
 supported_methods = {'GET', 'POST', 'OPTIONS'}
 
@@ -60,6 +59,7 @@ class Config:
 
         return inner
 
+
 rule = Server()
 
 # @app.route('/index').for.get.post
@@ -75,4 +75,6 @@ def index(request: Request):
 
 
 if __name__ == '__main__':
+    from ihttpy import environment
+    print(environment.MODE)
     rule.run(address='0.0.0.0', port=8080)

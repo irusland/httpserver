@@ -1,9 +1,9 @@
 import json
 from email.mime.text import MIMEText
 
-from ihttpy.backend.requests.request import Request
-from ihttpy.backend.response import Response
-from env.var import BACKEND_ADDRESS, FRONTEND_ADDRESS
+from ihttpy.requests.request import Request
+from ihttpy.requests.response import Response
+from ihttpy.environment.var import BACKEND_ADDRESS, FRONTEND_ADDRESS
 
 from ihttpy.handlers import email_sender
 from database.objects.order import Order

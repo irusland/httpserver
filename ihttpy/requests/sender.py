@@ -2,10 +2,10 @@ import urllib
 
 import magic
 
-from ihttpy.backend.errors import Errors
-from ihttpy.backend.logger import Logger
-from ihttpy.backend.requests.request import Request
-from ihttpy.backend.response import Response
+from ihttpy.exceptions.errors import Errors
+from ihttpy.exceptions.logger import Logger
+from ihttpy.requests.request import Request
+from ihttpy.requests.response import Response
 from ihttpy.httpserver import Server
 
 

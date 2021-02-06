@@ -1,9 +1,7 @@
 import json
 import uuid
 
-from ihttpy.backend.logger import Logger
-from ihttpy.backend.requests.request import Request
-from ihttpy.backend.response import Response
+from ihttpy import Logger, Request, Response
 
 BOOKS = [
     {

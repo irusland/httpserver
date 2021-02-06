@@ -2,8 +2,8 @@ import socket
 import tempfile
 import unittest
 
-from ihttpy.backend.requests.request import Request
-from ihttpy.backend.response import Response
+from ihttpy.requests.request import Request
+from ihttpy.requests.response import Response
 
 
 class SockMock:

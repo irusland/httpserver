@@ -2,9 +2,9 @@ import os
 import unittest
 from tempfile import NamedTemporaryFile
 
-from ihttpy.backend.configurator import Configurator
+from ihttpy.routing.configurator import Configurator
 from tests.defenitions_for_test import TEST_DATA_DIR, get_config
-from ihttpy.backend.router.router import Router
+from ihttpy.routing.router import Router
 
 
 class PathFinderTests(unittest.TestCase):

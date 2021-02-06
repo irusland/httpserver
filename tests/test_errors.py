@@ -2,8 +2,8 @@ import os
 import unittest
 import random
 
-from ihttpy.backend import errors
-from ihttpy.backend.configurator import Configurator
+from ihttpy.exceptions import send_error
+from ihttpy.routing.configurator import Configurator
 from defenitions import ROOT_DIR
 from tests.defenitions_for_test import get_config
 
@@ -39,7 +39,7 @@ class TestErrorsWithMock(unittest.TestCase):
 
     def test_empty_send(self):
         sock = SockMock()
-        errors.send_error(sock, None, self.configurator)
+        send_error(sock, None, self.configurator)
         self.assertIsNotNone(sock.received)
 
 

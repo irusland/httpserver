@@ -8,19 +8,16 @@ import time
 from database.mongodb import Database
 from diskcache import Cache
 
-from ihttpy.backend import errors
-from ihttpy.backend.configurator import Configurator
+from ihttpy.exceptions.errors import Errors
+from ihttpy.routing.configurator import Configurator
+from ihttpy.routing.router import Router
+from ihttpy.exceptions.logger import Logger, LogLevel
+from ihttpy.exceptions import send_error
+from ihttpy.requests.request import Request
+from ihttpy.requests.response import Response
+from ihttpy.exceptions.errors import KeepAliveExpire
+
 from defenitions import CONFIG_PATH
-from ihttpy.backend.router.router import Router
-
-from ihttpy.backend.requests.request import Request
-from ihttpy.backend.response import Response
-from ihttpy.backend.errors import Errors, KeepAliveExpire
-from ihttpy.backend.logger import Logger, LogLevel
-
-import env.var
-import env.dev
-import env.prod
 
 
 class Server:
@@ -42,10 +39,6 @@ class Server:
 
         Logger.debug_info(f'Running in '
                           f'{"DEVELOPMENT" if is_dev else "PRODUCTION"} mode')
-        for name in dir(env.var):
-            if not name.startswith("__"):
-                env.var.__dict__[name] = \
-                    (env.dev if is_dev else env.prod).__dict__[name]
 
         self.configurator = Configurator(config)
 
@@ -136,7 +129,7 @@ class Server:
             print(req_builder)
         except Exception as e:
             Logger.error(e)
-            errors.send_error(client, e, self.configurator)
+            send_error(client, e, self.configurator)
 
     def close(self, connection):
         try:
@@ -181,7 +174,7 @@ class Server:
             self.close(client)
         except Exception as e:
             Logger.error(f'Client handling failed', e)
-            errors.send_error(client, e, self.configurator)
+            send_error(client, e, self.configurator)
 
     def handle_req(self, req):
         rules = self.configurator.get_rules()
@@ -195,8 +188,8 @@ class Server:
 
 if __name__ == '__main__':
     parser = argparse.ArgumentParser()
-    parser.add_argument('-c', '--config',
-                        help='Specify server config path',
+    parser.add_argument('-c', '--environment',
+                        help='Specify server environment path',
                         default=CONFIG_PATH)
     parser.add_argument('-l', '--loglevel',
                         help='Use module to write logs',

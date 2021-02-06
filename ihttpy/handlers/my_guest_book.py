@@ -1,8 +1,8 @@
 import json
 from urllib.parse import parse_qs
 
-from ihttpy.backend.requests.request import Request
-from ihttpy.backend.response import Response
+from ihttpy.requests.request import Request
+from ihttpy.requests.response import Response
 
 POSTS = [{"username": "Ruslan", "post": "Post"}]
 
