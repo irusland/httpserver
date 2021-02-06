@@ -123,12 +123,12 @@ class Server:
 
             for s in split:
                 if req_builder.dynamic_fill(s):
-                    self.requests[num] = Request()  # todo possibly
-                                        # todo Request() change to req_builder
+                    self.requests[num] = Request()
+                    # todo Request() change to req_builder
                     return self.serve_client(client, req_builder)
             print(req_builder)
         except Exception as e:
-            Logger.error(e)
+            Logger.exception('Read from client failed')
             send_error(client, e, self.configurator)
 
     def close(self, connection):
@@ -173,7 +173,7 @@ class Server:
         except KeepAliveExpire:
             self.close(client)
         except Exception as e:
-            Logger.error(f'Client handling failed', e)
+            Logger.exception(f'Client handling failed')
             send_error(client, e, self.configurator)
 
     def handle_req(self, req):

@@ -10,7 +10,7 @@ RESTAURANTS = [
                'Restaurant description ...',
                ('00:00', '23:00'),
                ['https://www.hot-dinners.com/images/stories/blog/2019/pictureteam.jpg',
-                'Alain-Ducasse-scaled.jpg']),
+                'rest1.jpg']),
     Restaurant(uuid.uuid4().hex,
                '730 Park Avenue',
                'Restaurant description ...',

@@ -110,7 +110,7 @@
         "get": "img"
       }
     },
-    "/favicon.ico": "source/picutres/rest1.png",
+    "/favicon.ico": "source/picutres/rest1.jpg",
 
     "/pictures/[picture_name]": "source/picutres/[picture_name]"
   },

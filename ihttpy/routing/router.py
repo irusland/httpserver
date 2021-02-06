@@ -17,7 +17,7 @@ class Router:
         self.handlers = {}
 
     def get_destination(self, url, rules, absolute=True):
-        Logger.debug_info(f'Path processing', extra={'url': url})
+        Logger.debug_info(f'Path processing {url}')
         for key, description in rules.items():
             page = Page(description)
             path = page.get_path()
@@ -70,7 +70,7 @@ class Router:
                     Logger.debug_info(f'Handler {path} imported',
                                       extra={'url': page.get_path()})
                 except ImportError as e:
-                    Logger.error('Handler module import failed', e)
+                    Logger.exception('Handler module import failed')
 
     def find_page_description(self, url, rules):
         for key, description in rules.items():

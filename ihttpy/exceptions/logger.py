@@ -21,13 +21,13 @@ class LogLevel(Enum):
 class Logger:
     LEVEL = LogLevel.LOGGING
     EXTRA = {'url', 'code', 'method', 'ip'}
-    INFO_LOGGER = None
-    DEBUG_LOGGER = None
+    INFO_LOGGER: logging.Logger = None
+    DEBUG_LOGGER: logging.Logger = None
 
     @staticmethod
     def setup_logger(name, log_file, level=logging.INFO,
                      fmt='%(levelname)-4s: %(message)s',
-                     datefmt='%m/%d/%Y %I:%M:%S'):
+                     datefmt='%m/%d/%Y %I:%M:%S') -> logging.Logger:
 
         logger = logging.getLogger(name)
         logger.setLevel(level)
@@ -52,7 +52,6 @@ class Logger:
     def configure(level=LogLevel.LOGGING, info_path=None,
                   debug_path=None):
         Logger.LEVEL = level
-        # Set up logging format for easy parsing
         info_fmt = ('[%(asctime)-15s] '
                     '<%(method)s> "%(url)s" (%(code)s) '
                     '"%(ip)s" "%(message)s"')
@@ -84,10 +83,12 @@ class Logger:
     @staticmethod
     def error(*args, extra=None):
         if Logger.DEBUG_LOGGER:
-            Logger.DEBUG_LOGGER.error(*args, extra=Logger.prepare_extra(extra))
+            Logger.DEBUG_LOGGER.error(args, extra=Logger.prepare_extra(extra))
 
     @staticmethod
-    def exception(*args, extra=None):
+    def exception(args, extra=None):
         if Logger.DEBUG_LOGGER:
-            Logger.DEBUG_LOGGER.exception(*args,
+            Logger.DEBUG_LOGGER.exception(args,
                                           extra=Logger.prepare_extra(extra))
+
+    # todo warn
