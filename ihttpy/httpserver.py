@@ -9,7 +9,6 @@ from database.mongodb import Database
 from diskcache import Cache
 
 from ihttpy.exceptions.errors import Errors
-from ihttpy.routing.configurator import Configurator
 from ihttpy.routing.router import Router
 from ihttpy.exceptions.logger import Logger, LogLevel
 from ihttpy.exceptions import send_error
@@ -26,7 +25,7 @@ class Server:
     MAX_HEADERS = 100
     BREAKLINE = [b'', b'\n']
 
-    def __init__(self, config=CONFIG_PATH,
+    def __init__(self, configurator=None,
                  loglevel=LogLevel.LOGGING,
                  refresh_rate=0.1,
                  cache_max_size=4e9,
@@ -40,7 +39,7 @@ class Server:
         Logger.debug_info(f'Running in '
                           f'{"DEVELOPMENT" if is_dev else "PRODUCTION"} mode')
 
-        self.configurator = Configurator(config)
+        self.configurator = configurator
 
         self.router = Router()
         self.router.load_handlers(self.configurator.get_rules())
@@ -82,7 +81,7 @@ class Server:
         self.server.close()
         self._running = False
 
-    def serve(self):
+    def run(self):
         self.conns[self.server.fileno()] = self.server
         self.poller.register(self.server, selectors.EVENT_READ, self._accept)
 
@@ -211,4 +210,4 @@ if __name__ == '__main__':
                     debug_log=args.debug_log,
                     is_dev=args.dev)
     with server as s:
-        s.serve()
+        s.run()

@@ -29,7 +29,7 @@ class ServerTests(unittest.TestCase):
         server = self.make_server()
         with server as s:
             print('booted')
-            s.serve()
+            s.run()
 
     def make_server(self):
         from ihttpy.httpserver import Server

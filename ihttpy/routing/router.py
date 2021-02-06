@@ -59,8 +59,7 @@ class Router:
                 return description.get('mime')
 
     def load_handlers(self, rules):
-        for key, description in rules.items():
-            page = Page(description)
+        for key, page in rules.items():
             path = page.get_abs_handler_path()
             if path and path not in self.handlers:
                 try:
