@@ -41,7 +41,7 @@ class Page:
         return self.headers
 
     def get_function_name_for_method(self, method: str) -> str:
-        return self.func_names.get(method.lower())
+        return self.func_names.get(method.upper())
 
     def __repr__(self):
         return self.__str__()

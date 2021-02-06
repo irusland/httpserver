@@ -72,9 +72,9 @@ class Router:
                     Logger.exception('Handler module import failed')
 
     def find_page_description(self, url, rules):
-        for key, description in rules.items():
+        for key, page in rules.items():
             if re.fullmatch(self.to_template(key), url):
-                return Page(description)
+                return page
         raise Errors.NOT_FOUND
 
     def find_handler(self, req: Request, rules):

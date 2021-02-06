@@ -41,7 +41,7 @@ class FluentConfigurator:
                 raise Exception(a)
             handler = page.get_handler(method)
             if handler:
-                print('>\n', handler(req))
+                print('>\n', handler(req, None))
             else:
                 print('>\n', 'failed')
             print('---------------')
