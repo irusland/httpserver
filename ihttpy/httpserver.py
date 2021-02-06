@@ -143,21 +143,17 @@ class Server:
 
     def serve_client(self, client, req: Request):
         try:
+            Logger.debug_info(f'Request {req}')
             if req.insufficient():
                 raise Errors.MALFORMED_REQ
-            Logger.debug_info(f'Request got {req}',
-                              extra={'url': req.path})
+
             a = time.perf_counter()
             res = self.handle_req(req)
-            Logger.debug_info(
-                f'Request handling time {time.perf_counter() - a}',
-                extra={'url': req.path})
-            Logger.debug_info(f'Response prepared {res}',
-                              extra={'url': req.path, 'code': res.status})
+            Logger.debug_info(f'Request handling time {time.perf_counter() - a}')
+            Logger.debug_info(f'Response prepared {res}')
 
             Response.send_response(client, res)
-            Logger.debug_info(f'Response sent',
-                              extra={'url': req.path, 'code': res.status})
+            Logger.debug_info(f'Response sent')
 
             Logger.info(f'Source Requested',
                         extra={'method': req.method,

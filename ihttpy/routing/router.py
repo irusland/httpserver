@@ -76,7 +76,7 @@ class Router:
         for key, description in rules.items():
             if re.fullmatch(self.to_template(key), url):
                 return Page(description)
-        raise FileNotFoundError(url, rules)
+        raise Errors.NOT_FOUND
 
     def find_handler(self, req: Request, rules):
         url = req.url.path
@@ -92,8 +92,7 @@ class Router:
             else:
                 raise Errors.METHOD_NOT_SUPPORTED
             Logger.debug_info(f'Custom handler found: {f_name}(...) in '
-                              f'{handler_module.__dict__["__file__"]}',
-                              extra={'url': req.path})
+                              f'{handler_module.__dict__["__file__"]}')
 
             return handler_module.__dict__[f_name]
         except Exception as e:
