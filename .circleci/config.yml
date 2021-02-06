@@ -14,6 +14,8 @@ jobs:
       - run:
           command: python3 -m unittest
           name: Test
+          environment:
+            app: dev
 
 workflows:
   main:
