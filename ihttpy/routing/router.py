@@ -5,7 +5,7 @@ from ihttpy.exceptions.errors import Errors
 from ihttpy.requests.request import Request
 from ihttpy.routing.page import Page
 from ihttpy.exceptions.logger import Logger
-from defenitions import ROOT_DIR, FILE_SENDER_PATH, SUPPORTED_METHODS
+from defenitions import ROOT_DIR, SUPPORTED_METHODS
 from importlib.machinery import SourceFileLoader
 
 
@@ -17,7 +17,7 @@ class Router:
         self.handlers = {}
 
     def get_destination(self, url, rules, absolute=True):
-        Logger.debug_info(f'Path processing {url}')
+        Logger.debug_info(f'Url processing {url}')
         for key, description in rules.items():
             page = Page(description)
             path = page.get_path()
@@ -99,12 +99,10 @@ class Router:
             if e == Errors.METHOD_NOT_SUPPORTED:
                 raise e
             elif e == Errors.NO_HANDLER:
-                Logger.debug_info(f'Default handler available only {e}',
-                                  extra={'url': req.path})
-                module = SourceFileLoader(
-                    f'default.handler',
-                    os.path.join(FILE_SENDER_PATH)).load_module()
-                return module.handle
+                Logger.debug_info(e)
+                Logger.debug_info(f'Default file sender available only')
+                from ihttpy.requests.sender import handle
+                return handle
             else:
                 raise e
 
