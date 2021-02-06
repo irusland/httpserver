@@ -3,7 +3,7 @@ from email.mime.text import MIMEText
 
 from ihttpy.requests.request import Request
 from ihttpy.requests.response import Response
-from ihttpy.environment.var import BACKEND_ADDRESS, FRONTEND_ADDRESS
+from ihttpy.environment import BACKEND_ADDRESS, FRONTEND_ADDRESS
 
 from ihttpy.handlers import email_sender
 from database.objects.order import Order

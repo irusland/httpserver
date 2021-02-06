@@ -15,6 +15,8 @@ else:
 
 __all__ = ['MODE', 'BACKEND_ADDRESS', 'FRONTEND_ADDRESS']
 # todo dynamic __all__ load with environment variables
+BACKEND_ADDRESS = config.BACKEND_ADDRESS
+FRONTEND_ADDRESS = config.FRONTEND_ADDRESS
 # for name in dir(config):
 #     if not name.startswith("__"):
 #         __all__.append(name)

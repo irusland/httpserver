@@ -188,8 +188,8 @@ class Server:
 
 if __name__ == '__main__':
     parser = argparse.ArgumentParser()
-    parser.add_argument('-c', '--environment',
-                        help='Specify server environment path',
+    parser.add_argument('-c', '--config',
+                        help='Specify server config path',
                         default=CONFIG_PATH)
     parser.add_argument('-l', '--loglevel',
                         help='Use module to write logs',
