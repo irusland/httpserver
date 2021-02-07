@@ -24,8 +24,8 @@ def index(request: Request, srv: Server = None):
 
 
 if __name__ == '__main__':
-    configure.host = '0.0.0.0'
-    configure.port = 8080
+    configure._host = '0.0.0.0'
+    configure._port = 8080
     server = Server(
         configurator=configure,
         loglevel=LogLevel.CONSOLE,

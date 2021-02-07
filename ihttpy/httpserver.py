@@ -41,7 +41,7 @@ class Server:
         self.configurator = configurator
 
         self.router = Router()
-        self.router.load_handlers(self.configurator.get_rules())
+        self.router.load_handlers(self.configurator._get_rules())
 
         self.cache = Cache(size_limit=int(cache_max_size))
 
@@ -170,7 +170,7 @@ class Server:
             send_error(client, e, self.configurator)
 
     def handle_req(self, req):
-        rules = self.configurator.get_rules()
+        rules = self.configurator._get_rules()
         handle = self.router.find_handler(req, rules)
         if handle:
             return handle(req, self)

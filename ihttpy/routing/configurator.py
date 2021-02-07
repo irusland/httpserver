@@ -26,7 +26,7 @@ class Configurator:
             for route, description in self.config.get('rules').items():
                 self.rules[route] = Page(description, {})
 
-    def get_rules(self):
+    def _get_rules(self):
         return self.rules
 
     @staticmethod
@@ -41,17 +41,17 @@ class Configurator:
 
 class FluentConfigurator:
     def __init__(self):
-        self.host = None
-        self.port = None
-        self.rules: dict[str, Page] = {}
+        self._host = None
+        self._port = None
+        self._rules: dict[str, Page] = {}
 
     def on(self, methods: Method):
         if not methods:
             methods = Method.SUPPORTED
         return ConfiguratorRouteState(self, methods)
 
-    def get_rules(self):
-        return self.rules
+    def _get_rules(self):
+        return self._rules
 
     def get(self, key):
         return self.__dict__[key]
@@ -59,23 +59,29 @@ class FluentConfigurator:
 
 class ConfiguratorRouteState:
     def __init__(self, parent: FluentConfigurator, methods: Method):
-        self.parent: FluentConfigurator = parent
-        self.methods: Method = methods
+        self.__parent__: FluentConfigurator = parent
+        self._methods: Method = methods
 
     def at(self, url):
         def inner(func):
-            handler = {
-                'source': os.path.abspath(inspect.getfile(func)),
-            }
-            method_handlers: dict[Method, typing.Callable] = {}
-            for m in self.methods:
-                handler[m.to_simple_str()] = func.__name__
-                method_handlers[m] = func
-            desc = {
-                'handler': handler
-            }
-            page_description = Page(desc, method_handlers)
-            self.parent.rules[url] = page_description
+            page = self.__parent__._rules.get(url)
+            if page:
+                for m in self._methods:
+                    page.handler[m.to_simple_str()] = func.__name__
+                    page.handlers[m] = func
+            else:
+                handler = {
+                    'source': os.path.abspath(inspect.getfile(func)),
+                }
+                method_handlers: dict[Method, typing.Callable] = {}
+                for m in self._methods:
+                    handler[m.to_simple_str()] = func.__name__
+                    method_handlers[m] = func
+                desc = {
+                    'handler': handler
+                }
+                page_description = Page(desc, method_handlers)
+                self.__parent__._rules[url] = page_description
 
             return func
 

@@ -14,7 +14,7 @@ class PathFinderTests(unittest.TestCase):
         self.cfg_file.close()
         self.configurator = Configurator(self.cfg_file.name)
         self.ruler = Router()
-        self.rules = self.configurator.get_rules()
+        self.rules = self.configurator._get_rules()
 
     def tearDown(self):
         os.unlink(self.cfg_file.name)

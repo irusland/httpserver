@@ -14,7 +14,7 @@ EXPIRE = 1
 
 def handle(req: Request, server: Server):
     if req.path.startswith('/') and req.method == 'GET':
-        rules = server.configurator.get_rules()
+        rules = server.configurator._get_rules()
 
         path = urllib.parse.unquote(req.path)
         res = server.cache.get(path)
