@@ -47,8 +47,9 @@ class Router:
 
     def to_template(self, key):
         key = re.sub(r'\.', r'\.', key)
-        replaced = re.sub(self.reg_sub, rf'\1(?P<\2>.*)', key)
+        replaced = re.sub(self.reg_sub, rf'\1(?P<\2>\\w*)', key)
         reg_rep = re.compile(replaced)
+        print(key, replaced, reg_rep, sep='\n')
         return reg_rep
 
     def get_type(self, url, rules):
@@ -69,7 +70,7 @@ class Router:
                 except ImportError as e:
                     Logger.exception('Handler module import failed')
 
-    def find_page_description(self, url, rules):
+    def find_page_description(self, url, rules) -> Page:
         for key, page in rules.items():
             if re.fullmatch(self.to_template(key), url):
                 return page

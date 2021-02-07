@@ -11,8 +11,8 @@ TEST_DATA_DIR = os.path.join(TESTS_DIR, TEST_DATA_DIR_NAME)
 
 CONFIG_PATTERN = ('''
 {
-  "host": "0.0.0.0",
-  "port": 8000,
+  "_host": "0.0.0.0",
+  "_port": 8000,
   "rules": {
     "/": "<data_dir>/index.html",
     "/upload": "<data_dir>/upload.html",

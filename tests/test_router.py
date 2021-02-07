@@ -84,11 +84,6 @@ class PathFinderTests(unittest.TestCase):
         t = self.ruler.get_type(url, self.rules)
         self.assertEqual('text/txt', t)
 
-    def test_space_character(self):
-        self.assertDestinationsEqual(
-            '/new page.html',
-            self.to_absolute('new page.html'))
-
 
 if __name__ == '__main__':
     unittest.main()

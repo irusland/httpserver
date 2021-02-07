@@ -117,10 +117,8 @@ class ServerTests(unittest.TestCase):
         server = self.make_server()
         with server as s:
             conn = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-            with open(CONFIG_PATH) as cfg:
-                data = json.load(cfg)
             try:
-                conn.connect((data['host'], data['port']))
+                conn.connect((server._host, server._port))
             except Exception:
                 pass
             s.shutdown()

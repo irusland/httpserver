@@ -10,7 +10,7 @@ from ihttpy.routing.page import Page
 
 
 class Configurator:
-    DEFAULT_FIELDS = ['host', 'port', 'rules', 'error-pages']
+    DEFAULT_FIELDS = ['_host', '_port', 'rules', 'error-pages']
 
     def __init__(self, cfg_path):
         self.cfg_path = cfg_path

@@ -45,8 +45,8 @@ class Server:
 
         self.cache = Cache(size_limit=int(cache_max_size))
 
-        self._host = self.configurator.get('host')
-        self._port = self.configurator.get('port')
+        self._host = self.configurator.get('_host')
+        self._port = self.configurator.get('_port')
         self.address = (self._host, self._port)
         self._running = True
         self.refresh_rate = refresh_rate
