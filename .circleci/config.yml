@@ -56,7 +56,7 @@ workflows:
                 only: /.*/
       - build-and-deploy:
           requires:
-            - build
+            - test
           filters:
             tags:
               only: /[0-9]+(\.[0-9]+)*/
