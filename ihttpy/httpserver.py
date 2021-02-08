@@ -8,6 +8,7 @@ import time
 from diskcache import Cache
 
 from ihttpy.exceptions.errors import Errors
+from ihttpy.routing.configurator import FluentConfigurator
 from ihttpy.routing.router import Router
 from ihttpy.exceptions.logger import Logger, LogLevel
 from ihttpy.exceptions import send_error
@@ -203,7 +204,10 @@ if __name__ == '__main__':
 
     args = parser.parse_args()
 
-    server = Server(config=args.config, loglevel=args.loglevel,
+    fconfig = FluentConfigurator()
+    fconfig._host = '0.0.0.0'
+    fconfig._port = 8080
+    server = Server(configurator=fconfig, loglevel=args.loglevel,
                     server_log=args.server_log,
                     debug_log=args.debug_log,
                     is_dev=args.dev)
