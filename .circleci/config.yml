@@ -4,6 +4,30 @@ orbs:
   python: circleci/python@0.2.1
 
 jobs:
+  build:
+    executor: python/default
+    steps:
+      - checkout
+      - python/load-cache
+      - python/install-deps
+      - python/save-cache
+      - run:
+          name: Verify git tag vs. version
+          command: |
+            python3 -m venv venv
+            . venv/bin/activate
+            python setup.py verify
+      - run:
+          name: Init .pypirc
+          command: |
+            echo -e "[pypi]" >> ~/.pypirc
+            echo -e "username = irusland" >> ~/.pypirc
+            echo -e "password = $PYPI_PASSWORD" >> ~/.pypirc
+      - run:
+          name: Create packages
+          command: |
+            python setup.py sdist
+            python setup.py bdist_wheel
   test:
     executor: python/default
     steps:
@@ -16,38 +40,29 @@ jobs:
           command: python3 -m unittest discover tests
           environment:
             app: dev
-  build-and-deploy:
+  deploy:
     executor: python/default
     steps:
-      - checkout
-      - python/load-cache
-      - python/install-deps
-      - python/save-cache
       - run:
-          name: verify git tag vs. version
-          command: |
-            python3 -m venv venv
-            . venv/bin/activate
-            python setup.py verify
-      - run:
-          name: init .pypirc
-          command: |
-            echo -e "[pypi]" >> ~/.pypirc
-            echo -e "username = irusland" >> ~/.pypirc
-            echo -e "password = $PYPI_PASSWORD" >> ~/.pypirc
-      - run:
-          name: create packages
-          command: |
-            python setup.py sdist
-            python setup.py bdist_wheel
-      - run:
-          name: upload to pypi
+          name: Upload to pypi
           command: |
             . venv/bin/activate
             twine upload dist/*
 
 workflows:
-  main:
+  version: 2
+  build_and_deploy:
     jobs:
+      - build:
+          filters:
+            tags:
+              only: /.*/
       - test
-      - build-and-deploy
+      - deploy:
+          requires:
+            - build
+          filters:
+            tags:
+              only: /[0-9]+(\.[0-9]+)*/
+            branches:
+              ignore: /.*/

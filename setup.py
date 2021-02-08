@@ -16,9 +16,8 @@ class VerifyVersionCommand(install):
         tag = os.getenv('CIRCLE_TAG')
 
         if tag != VERSION:
-            info = "Git tag: {0} does not match the version of this app: {1}".format(
-                tag, VERSION
-            )
+            info = "Git tag: {0} does not match the version of this app: {1}"\
+                .format(tag, VERSION)
             sys.exit(info)
 
 
@@ -31,7 +30,7 @@ with open('requirements.txt') as f:
 
 setuptools.setup(
     name="ihttpy",
-    version="2.0.1",
+    version=VERSION,
     author="irusland",
     author_email="ruslansir@icloud.com",
     description="A http server with fluent interface decorators, and plain "
