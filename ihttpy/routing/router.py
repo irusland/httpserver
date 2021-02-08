@@ -49,7 +49,6 @@ class Router:
         key = re.sub(r'\.', r'\.', key)
         replaced = re.sub(self.reg_sub, rf'\1(?P<\2>\\w*)', key)
         reg_rep = re.compile(replaced)
-        print(key, replaced, reg_rep, sep='\n')
         return reg_rep
 
     def get_type(self, url, rules):
