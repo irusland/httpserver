@@ -4,7 +4,7 @@ orbs:
   python: circleci/python@0.2.1
 
 jobs:
-  build:
+  build-and-deploy:
     executor: python/default
     steps:
       - checkout
@@ -28,6 +28,11 @@ jobs:
           command: |
             python setup.py sdist
             python setup.py bdist_wheel
+      - run:
+          name: Upload to pypi
+          command: |
+            python3 -m pip install --user --upgrade twine
+            python3 -m twine upload dist/*
   test:
     executor: python/default
     steps:
@@ -40,28 +45,15 @@ jobs:
           command: python3 -m unittest discover tests
           environment:
             app: dev
-  deploy:
-    executor: python/default
-    steps:
-      - checkout
-      - run:
-          name: Upload to pypi
-          command: |
-            python3 -m pip install --user --upgrade twine
-            python3 -m twine upload dist/*
 
 workflows:
   version: 2
   build_and_deploy:
     jobs:
-      - build:
-          filters:
-            tags:
-              only: /.*/
       - test
-      - deploy:
+      - build-and-deploy:
           requires:
-            - build
+            - test
           filters:
             tags:
               only: /[0-9]+(\.[0-9]+)*/
