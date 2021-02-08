@@ -4,11 +4,8 @@ import sys
 import setuptools
 from setuptools.command.install import install
 
-with open("README.md", "r", encoding="utf-8") as fh:
-    long_description = fh.read()
 
-with open('requirements.txt') as f:
-    required = f.read().splitlines()
+VERSION = '2.0.0'
 
 
 class VerifyVersionCommand(install):
@@ -23,6 +20,13 @@ class VerifyVersionCommand(install):
                 tag, VERSION
             )
             sys.exit(info)
+
+
+with open("README.md", "r", encoding="utf-8") as fh:
+    long_description = fh.read()
+
+with open('requirements.txt') as f:
+    required = f.read().splitlines()
 
 
 setuptools.setup(
@@ -47,5 +51,3 @@ setuptools.setup(
         'verify': VerifyVersionCommand,
     }
 )
-
-VERSION = '2.0.0'
