@@ -21,7 +21,7 @@ jobs:
     steps:
       - run:
           name: echo ls
-          command: echo "$(ls) == << pipeline.parameters.workingdir >>"
+          command: echo "$(ls)"
       - run:
           name: verify git tag vs. version
           command: |
