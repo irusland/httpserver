@@ -13,7 +13,7 @@ jobs:
       - python/save-cache
       - run:
           name: Test
-          command: python3 -m unittest
+          command: python3 -m unittest discover tests
           environment:
             app: dev
   build-and-deploy:
@@ -29,7 +29,7 @@ jobs:
           name: init .pypirc
           command: |
             echo -e "[pypi]" >> ~/.pypirc
-            echo -e "username = levlaz" >> ~/.pypirc
+            echo -e "username = irusland" >> ~/.pypirc
             echo -e "password = $PYPI_PASSWORD" >> ~/.pypirc
       - run:
           name: create packages
