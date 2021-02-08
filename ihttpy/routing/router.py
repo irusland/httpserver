@@ -5,7 +5,7 @@ from ihttpy.exceptions.errors import Errors
 from ihttpy.requests.request import Request
 from ihttpy.routing.page import Page
 from ihttpy.exceptions.logger import Logger
-from defenitions import ROOT_DIR, SUPPORTED_METHODS
+from ihttpy.defenitions import ROOT_DIR, SUPPORTED_METHODS
 from importlib.machinery import SourceFileLoader
 
 

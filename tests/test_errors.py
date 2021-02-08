@@ -4,7 +4,7 @@ import random
 
 from ihttpy.exceptions import send_error
 from ihttpy.routing.configurator import Configurator
-from defenitions import ROOT_DIR
+from tests.defenitions_for_test import TESTS_DIR
 from tests.defenitions_for_test import get_config
 
 
@@ -26,8 +26,7 @@ class SockMock:
 
 class TestErrorsWithMock(unittest.TestCase):
     def setUp(self):
-        self.cfg_path = os.path.join(ROOT_DIR, 'tests',
-                                     f'cfg{random.random()}.tmp')
+        self.cfg_path = os.path.join(TESTS_DIR, f'cfg{random.random()}.tmp')
         with open(self.cfg_path, "w") as f:
             f.write(get_config())
 

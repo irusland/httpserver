@@ -9,7 +9,7 @@ from ihttpy.exceptions.errors import Errors
 from ihttpy.exceptions.logger import Logger
 from ihttpy.requests.request import Request
 from ihttpy.requests.response import Response
-from defenitions import ROOT_DIR
+from ihttpy.defenitions import ROOT_DIR
 import json
 
 

@@ -1,7 +1,7 @@
 import os
 import typing
 
-from defenitions import ROOT_DIR, SUPPORTED_METHODS
+from ihttpy.defenitions import SUPPORTED_METHODS
 from ihttpy.requests.methods import Method
 
 
@@ -34,8 +34,7 @@ class Page:
         return self.mime
 
     def get_abs_handler_path(self) -> str:
-        return os.path.join(ROOT_DIR, self.handler_path) if \
-            self.handler_path else ''
+        return self.handler_path if self.handler_path else ''
 
     def get_headers(self) -> list:
         return self.headers

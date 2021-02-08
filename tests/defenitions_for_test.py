@@ -1,11 +1,7 @@
-import re
-
-from defenitions import ROOT_DIR
 import os
 
 
-TESTS_DIR_NAME = 'tests'
-TESTS_DIR = os.path.join(ROOT_DIR, TESTS_DIR_NAME)
+TESTS_DIR = os.path.dirname(os.path.abspath(__file__))
 TEST_DATA_DIR_NAME = 'tmp'
 TEST_DATA_DIR = os.path.join(TESTS_DIR, TEST_DATA_DIR_NAME)
 TEST_HANDLERS_DIR_NAME = 'handlers'

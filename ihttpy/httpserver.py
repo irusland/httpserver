@@ -16,7 +16,7 @@ from ihttpy.requests.request import Request
 from ihttpy.requests.response import Response
 from ihttpy.exceptions.errors import KeepAliveExpire
 
-from defenitions import CONFIG_PATH
+from ihttpy.defenitions import CONFIG_PATH
 
 
 class Server:

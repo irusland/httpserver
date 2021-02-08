@@ -8,7 +8,6 @@ import unittest
 
 from ihttpy.routing.configurator import Configurator
 from ihttpy.requests.response import Response
-from defenitions import CONFIG_PATH
 from tests.defenitions_for_test import TEST_DATA_DIR, get_config
 from ihttpy.exceptions.logger import LogLevel
 from ihttpy.requests.request import Request
