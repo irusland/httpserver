@@ -20,6 +20,9 @@ jobs:
     executor: python/default
     steps:
       - run:
+          name: echo ls
+          command: ls
+      - run:
           name: verify git tag vs. version
           command: |
             python3 -m venv venv
