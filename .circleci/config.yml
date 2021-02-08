@@ -21,8 +21,8 @@ jobs:
           name: Init .pypirc
           command: |
             echo -e "[pypi]" >> ~/.pypirc
-            echo -e "username = irusland" >> ~/.pypirc
-            echo -e "password = $PYPI_PASSWORD" >> ~/.pypirc
+            echo -e "username = __token__" >> ~/.pypirc
+            echo -e "password = $PYPI_TOKEN" >> ~/.pypirc
       - run:
           name: Create packages
           command: |
@@ -46,6 +46,7 @@ jobs:
       - run:
           name: Upload to pypi
           command: |
+            python3 -m venv venv
             . venv/bin/activate
             twine upload dist/*
 
