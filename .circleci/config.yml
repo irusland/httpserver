@@ -20,6 +20,9 @@ jobs:
     executor: python/default
     steps:
       - checkout
+      - python/load-cache
+      - python/install-deps
+      - python/save-cache
       - run:
           name: verify git tag vs. version
           command: |
