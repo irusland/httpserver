@@ -45,4 +45,5 @@ jobs:
 workflows:
   main:
     jobs:
-      - build-and-test
+      - test
+      - build-and-deploy
