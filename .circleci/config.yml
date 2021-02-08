@@ -21,7 +21,7 @@ jobs:
     steps:
       - run:
           name: echo ls
-          command: ls
+          command: echo | ls
       - run:
           name: verify git tag vs. version
           command: |
