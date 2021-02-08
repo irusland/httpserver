@@ -54,7 +54,7 @@ workflows:
           filters:
               tags:
                 only: /.*/
-      - deploy:
+      - build-and-deploy:
           requires:
             - build
           filters:
