@@ -70,6 +70,25 @@ class FluentConfiguratorTestCase(unittest.TestCase):
 
         self.assertEqual(f1, f2)
 
+    def test_2_decorators_2_func_on_same_route_combines(self):
+        @self.sut.on(Method.GET).at('/')
+        def func1(req, srv):
+            return Response('OK', 200)
+
+        @self.sut.on(Method.OPTIONS).at('/')
+        def func2(req, srv):
+            return Response('OK', 200)
+        rules = self.sut._get_rules()
+        page: Page = rules.get('/')
+        print(rules, page, sep='\n')
+
+        f1 = page.get_handler(Method.GET)
+        f2 = page.get_handler(Method.OPTIONS)
+
+        self.assertEqual(f1, func1)
+        self.assertEqual(f2, func2)
+        self.assertNotEqual(f1, f2)
+
     def test_1_decorator_logic_or(self):
         @self.sut.on(Method.GET | Method.POST).at('/')
         def func(req, srv):

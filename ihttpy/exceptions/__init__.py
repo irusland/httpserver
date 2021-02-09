@@ -12,9 +12,8 @@ def send_error(connection, err, config):
             res = [Response.build_err_res(
                 err.status, err.reason,
                 (err.body or err.reason).encode('utf-8'))]
-    except AttributeError:
-        res = [Response.build_err_res(500, b'Internal Server Error',
-                                      b'Internal Server Error')]
     except Exception as e:
         Logger.error(f'Error during err creation', e)
+        res = [Response.build_err_res(500, b'Internal Server Error',
+                                      b'Internal Server Error')]
     Response.send_response(connection, *res)

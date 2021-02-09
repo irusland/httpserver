@@ -69,6 +69,7 @@ class ConfiguratorRouteState:
                 for m in self._methods:
                     page.handler[m.to_simple_str()] = func.__name__
                     page.handlers[m] = func
+                    page.func_names[m.to_simple_str()] = func.__name__
             else:
                 handler = {
                     'source': os.path.abspath(inspect.getfile(func)),
