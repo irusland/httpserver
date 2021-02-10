@@ -2,31 +2,47 @@
 
 Server which runs Hyper Text Transport Protocol
 
+Check it out at [PYPI](https://pypi.org/project/ihttpy/)
+
 ![Schema](./schema.jpg)
 
 ## Server parameters
-1) `config=CONFIG_PATH` Specify config file. Will be used in Configurator
- module
-1) `loglevel=LogLevel.logging` Choose logging or console form reporting 
+1) `config=Configurator` Specify a configurator. Use `FluentConfigurator` for 
+   type hints or `Configurator` for plain text 
+1) `loglevel=LogLevel.logging` Choose a logging or console form reporting 
 1) `refresh_rate=0.1` Socket connection refresh rate 
 1) `cache_max_size=4e9` Max cache size
 
-## Starting the server
+## Download
 
-```
-python3 httpserver.py -c config.json --loglevel console
+```bash
+pip install ihttpy
 ```
 
-type `-h` option to specify parameters
+## Fluent Example
+```python
+import ...
+config = FluentConfigurator()
+
+@config.on(Method.GET).at('/')
+def index(req: Request, srv: Server)
+    return Response(200, 'OK')
+
+config._host = '0.0.0.0'
+config._port = 8000
+server = Server(config, loglevel=LogLevel.CONSOLE)
+with server as s:
+    s.run()
+```
+
 
 ## Running the tests
 
-Simply run
-```
-python3 -m pytest tests_server.py
+```bash
+python3 -m unittests discover tests/
 ```
 
-## Config settings
+## Plaintext Config settings
 
 1) `rules` Is a map with regular language 
     * use square braces for any match (same as .*? in re)
