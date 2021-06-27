@@ -1,4 +1,3 @@
-import argparse
 import os
 import selectors
 import socket
@@ -8,15 +7,12 @@ import time
 from diskcache import Cache
 
 from ihttpy.exceptions.errors import Errors
-from ihttpy.routing.configurator import FluentConfigurator
 from ihttpy.routing.router import Router
 from ihttpy.exceptions.logger import Logger, LogLevel
 from ihttpy.exceptions import send_error
 from ihttpy.requests.request import Request
 from ihttpy.requests.response import Response
 from ihttpy.exceptions.errors import KeepAliveExpire
-
-from ihttpy.defenitions import CONFIG_PATH
 
 
 class Server:
@@ -178,38 +174,3 @@ class Server:
         else:
             Logger.error('Handler not found', extra={'url': req.path})
             raise Errors.NO_HANDLER
-
-
-if __name__ == '__main__':
-    parser = argparse.ArgumentParser()
-    parser.add_argument('-c', '--config',
-                        help='Specify server config path',
-                        default=CONFIG_PATH)
-    parser.add_argument('-l', '--loglevel',
-                        help='Use module to write logs',
-                        type=LogLevel.from_string,
-                        default=LogLevel.from_string('logging'),
-                        choices=list(LogLevel))
-    parser.add_argument('--server-log',
-                        help='Specify server logger file path',
-                        default=None)
-    parser.add_argument('--debug-log',
-                        help='Specify debug logger file path',
-                        default=None)
-
-    parser.add_argument('--dev',
-                        help='Specifies development mode',
-                        action='store_true',
-                        default=False)
-
-    args = parser.parse_args()
-
-    fconfig = FluentConfigurator()
-    fconfig._host = '0.0.0.0'
-    fconfig._port = 8080
-    server = Server(configurator=fconfig, loglevel=args.loglevel,
-                    server_log=args.server_log,
-                    debug_log=args.debug_log,
-                    is_dev=args.dev)
-    with server as s:
-        s.run()

@@ -5,7 +5,7 @@ import setuptools
 from setuptools.command.install import install
 
 
-VERSION = '2.0.7'
+VERSION = '2.1.0'
 
 
 class VerifyVersionCommand(install):
@@ -44,7 +44,7 @@ setuptools.setup(
         "License :: OSI Approved :: MIT License",
         "Operating System :: OS Independent",
     ],
-    python_requires='>=3.8',
+    python_requires='>=3.6',
     install_requires=required,
     cmdclass={
         'verify': VerifyVersionCommand,
